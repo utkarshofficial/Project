@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d{
+            counter-reset: li-count;
+        }
+        .b{
+            color: blue;
+            counter-increment: li-count;
+        }
+        .b::before{
+            color: red;
+            content:counter(li-count);  
+        }
+        .b::after{
+            color: red;
+            content:counter(li-count);  
+        }
+    </style>
+</head>
+<body>
+    <h1 class="a">Before</h1>
+    <h1 class="b">Ram</h1>
+    <h1 class="b">Ram</h1>
+    <h1 class="b">Ram</h1>
+    <h1 class="d">Reset</h1>
+    <h1 class="b">Ram</h1>
+    <h1 class="b">Ram</h1>
+    <h1 class="b">Ram</h1>
+    <h1 class="c">After</h1>
+</body>
+</html>

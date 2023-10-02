@@ -1,0 +1,275 @@
+<html lang="en" class="fa-events-icons-ready">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png"
+    />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen" />
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"
+    />
+
+    <link
+      rel="mask-icon"
+      type="image/x-icon"
+      href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg"
+      color="#111"
+    />
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+    <title>CodePen - Responsive Progressbar - Step Tracking</title>
+
+    <link rel="canonical" href="https://codepen.io/lookininward/pen/LYpxPPo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://use.fontawesome.com/c47bc38e87.js"></script>
+    <link
+      href="https://use.fontawesome.com/c47bc38e87.css"
+      media="all"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+
+    <style>
+      body {
+        font-family: Arial;
+        text-transform: capitalize;
+      }
+
+      .progress {
+        position: absolute;
+        top: 15vh;
+        width: 0%;
+        height: 10px;
+        background-color: #2183dd;
+        transition: width 0.2s;
+      }
+      .progress.progress--1 {
+        width: calc(20%);
+      }
+      .progress.progress--2 {
+        width: calc(40%);
+      }
+      .progress.progress--3 {
+        width: calc(60%);
+      }
+      .progress.progress--4 {
+        width: calc(80%);
+      }
+      .progress.progress--5 {
+        width: calc(100%);
+      }
+      .progress.progress--complete {
+        width: 100vw;
+      }
+
+      .progress__bg {
+        position: absolute;
+        width: 100vw;
+        height: 10px;
+        background-color: #e5e5e5;
+        z-index: -1;
+      }
+
+      .progress__step {
+        position: absolute;
+        top: -8px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .progress__step.progress__step--1 {
+        left: calc(20vw - 9px);
+      }
+      .progress__step.progress__step--2 {
+        left: calc(40vw - 9px);
+      }
+      .progress__step.progress__step--3 {
+        left: calc(60vw - 9px);
+      }
+      .progress__step.progress__step--4 {
+        left: calc(80vw - 9px);
+      }
+      .progress__step.progress__step--5 {
+        left: calc(100vw - 9px);
+      }
+      .progress__step.progress__step--active {
+        color: #2183dd;
+        font-weight: 600;
+      }
+      .progress__step.progress__step--complete .progress__indicator {
+        background-color: #009900;
+        border-color: #2183dd;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .progress__step.progress__step--complete .progress__indicator .fa {
+        display: block;
+      }
+      .progress__step.progress__step--complete .progress__label {
+        font-weight: 600;
+        color: #009900;
+      }
+
+      .progress__indicator {
+        width: 25px;
+        height: 25px;
+        border: 2px solid #808080;
+        border-radius: 50%;
+        background-color: #ffffff;
+        margin-bottom: 10px;
+      }
+      .progress__indicator .fa {
+        display: none;
+        font-size: 16px;
+        color: #ffffff;
+      }
+
+      .progress__label {
+        position: absolute;
+        top: 40px;
+      }
+
+      .progress__actions {
+        position: absolute;
+        top: 75px;
+        left: 10px;
+        display: flex;
+        align-items: center;
+        width: max-content;
+      }
+
+      .btn {
+        width: fit-content;
+        padding: 5px 8px;
+        background-color: #ffffff;
+        border: 1px solid #808080;
+        border-radius: 5px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .btn:nth-child(2) {
+        margin: 0 10px;
+      }
+    </style>
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+  </head>
+
+  <body translate="no">
+    <div id="app" class="progress progress--2">
+      <div class="progress__bg"></div>
+      <div class="progress__step progress__step--1 progress__step--complete">
+        <div class="progress__indicator"><i class="fa fa-check"></i></div>
+        <div class="progress__label">one</div>
+      </div>
+      <div class="progress__step progress__step--2 progress__step--active">
+        <div class="progress__indicator"><i class="fa fa-check"></i></div>
+        <div class="progress__label">two</div>
+      </div>
+      <div class="progress__step progress__step--3">
+        <div class="progress__indicator"><i class="fa fa-check"></i></div>
+        <div class="progress__label">three</div>
+      </div>
+      <div class="progress__step progress__step--4">
+        <div class="progress__indicator"><i class="fa fa-check"></i></div>
+        <div class="progress__label">complete</div>
+      </div>
+      <div class="progress__actions">
+        <div class="btn">Back</div>
+        <div class="btn">Next</div>
+        <div>Step: two</div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          currentStep: null,
+          steps: [
+            { label: "one" },
+            { label: "two" },
+            { label: "three" },
+            { label: "complete" },
+          ],
+        },
+
+        methods: {
+          nextStep(next = true) {
+            const steps = this.steps;
+            const currentStep = this.currentStep;
+            const currentIndex = steps.indexOf(currentStep);
+
+            // handle back
+            if (!next) {
+              if (currentStep && currentStep.label === "complete") {
+                return (this.currentStep = steps[steps.length - 1]);
+              }
+
+              if (steps[currentIndex - 1]) {
+                return (this.currentStep = steps[currentIndex - 1]);
+              }
+
+              return (this.currentStep = { label: "start" });
+            }
+
+            // handle next
+            if (this.currentStep && this.currentStep.label === "complete") {
+              return (this.currentStep = { label: "start" });
+            }
+
+            if (steps[currentIndex + 1]) {
+              return (this.currentStep = steps[currentIndex + 1]);
+            }
+
+            this.currentStep = { label: "complete" };
+          },
+          stepClasses(index) {
+            let result = `progress__step progress__step--${index + 1} `;
+            if (
+              (this.currentStep && this.currentStep.label === "complete") ||
+              index < this.steps.indexOf(this.currentStep)
+            ) {
+              return (result += "progress__step--complete");
+            }
+            if (index === this.steps.indexOf(this.currentStep)) {
+              return (result += "progress__step--active");
+            }
+            return result;
+          },
+        },
+
+        computed: {
+          progressClasses() {
+            let result = "progress ";
+            if (this.currentStep && this.currentStep.label === "complete") {
+              return (result += "progress--complete");
+            }
+            return (result += `progress--${
+              this.steps.indexOf(this.currentStep) + 1
+            }`);
+          },
+        },
+      });
+      //# sourceURL=pen.js
+    </script>
+  </body>
+</html>

@@ -11,6 +11,8 @@
     flex-direction: column;
     display: none;
     gap: 10px;
+    position: absolute;
+    left: 200;
 }
 .user-input p{
     margin: 0;

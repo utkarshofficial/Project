@@ -54,6 +54,9 @@ class Img {
     this.img.style.zIndex = idx;
     return this;
   }
+  opacity(val = 1){
+    this.img.style.opacity=val;
+  }
   rotate(deg) {
     this.img.style.transform = `rotate(${deg}deg)`;
     return this;
@@ -98,11 +101,27 @@ class Img {
     this.img.style.display = "none";
     return this;
   }
-  static hideAll(imgs) {
-    for (let i = 0; i < imgs.length; ++i) {
-      imgs[i].hide();
+  static arrayOfImages = [];
+  static hideAll() {
+    for (let i of Img.arrayOfImages) {
+      i.hide();
+      i.opacity();
+
     }
+    Img.resetImages();
   }
+  static resetImages(){
+    Img.arrayOfImages = []
+  }
+  push(){
+    Img.arrayOfImages.push(this);
+    return this;
+  }
+}
+
+class Dom{
+  static arrayOfDom = []
+  
 }
 
 class Render {
@@ -197,6 +216,11 @@ const Scenes = {
     measurearrow: new Img("measurearrow"),
     measurearrow2: new Img("measurearrow2"),
     weight: new Img("weight"),
+    marker: new Img("marker"),
+    larrow: new Img("laerrow"),
+    larrow2: new Img("laerrow2"),
+    marker: new Img("marker"),
+    cloud: new Img("cloud"),
   },
   domItems: {
     projectIntro: get(".project-intro"),
@@ -244,10 +268,31 @@ const Scenes = {
           })
           .add({
             targets: man.img,
-            translateX: -210,
-            opacity: 0,
-          });
+            translateX: -280,
+          })
+          .add({
+            targets: Scenes.img.cloud.img,
+            begin(){
+              Scenes.domItems.tempText.innerHTML = `Hey!<br>${student_name}`
+              Scenes.domItems.tempText.style.fontWeight = "bold"
+              Scenes.domItems.tempText.style.fontSize = "1.3rem"
+              show(Scenes.domItems.tempText)
+              set(Scenes.domItems.tempText,482,1)
+              Scenes.img.cloud.set(450,-40,180)
+            },
+            opacity: [0,1],
+          })
+          .add({
+            delay: 400,
+            begin(){
+              Scenes.img.man.hide();
+              Scenes.img.cloud.hide();
+              hide(Scenes.domItems.tempText)
+              inputWindow.style.display = "none";
+            },
+          })
       };
+
       return true;
     }),
     (s2 = function () {
@@ -282,11 +327,11 @@ const Scenes = {
       switch (Scenes.subCurrentStep) {
         case 0:
           show(Scenes.domItems.stepHeading, "flex");
-          Scenes.img.bare_raber.set(450, 55, 200).zIndex(3).rotate(310);
-          Scenes.img.tape.set(330, 170, 80).zIndex(1).rotate(0);
-          Scenes.img.weight.set(140, 140, 120).zIndex(1);
-          Scenes.img.tableCrop.set(20, 50, 320, 680);
-          var table = Scenes.domItems.tableCalc;
+          Scenes.img.bare_raber.set(450, 55, 200).zIndex(3).rotate(310).push();
+          Scenes.img.tape.set(330, 170, 80).zIndex(1).rotate(0).push();
+          Scenes.img.weight.set(140, 140, 120).zIndex(1).push();
+          Scenes.img.tableCrop.set(20, 50, 320, 680).push();
+          var table = Scenes.domItems.tableCalc
           show(table);
           set(table, 680, 45);
           Scenes.incCurrentSubStep();
@@ -322,11 +367,11 @@ const Scenes = {
           break;
 
         case 3:
-          Scenes.img.measure1.set(93, 60, 137, 0).zIndex(1);
+          Scenes.img.measure1.set(93, 60, 137, 0).zIndex(1).push();
           set(Scenes.domItems.tempText, 260, 65);
           Scenes.domItems.tempText.innerHTML = "Total Length (m) = 0.805m";
-          Scenes.img.measurearrow.set(355, 35, 90).zIndex(1).rotate(90);
-          Scenes.img.measurearrow2.set(355, 35, 90).zIndex(1).rotate(270);
+          Scenes.img.measurearrow.set(355, 35, 90).zIndex(1).rotate(90).push();
+          Scenes.img.measurearrow2.set(355, 35, 90).zIndex(1).rotate(270).push();
           let calcLength =
             Scenes.domItems.tableCalc.tBodies[0].rows[1].cells[1];
 
@@ -481,7 +526,7 @@ const Scenes = {
                   })
                 }
             }
-
+            Img.hideAll();
             Scenes.resetSubStep();
             return true;
             break;
@@ -495,13 +540,13 @@ const Scenes = {
     s4 = function(){
       show(Scenes.domItems.stepHeading,"flex");
       Scenes.domItems.stepTitle.innerHTML = "Step 2"
-          Scenes.domItems.stepDescription.innerHTML = "Calculation of gauge length:"
-        show(Scenes.domItems.tableCalc)
-        Scenes.domItems.tableCalc.tBodies[0].innerHTML += `
-        <tr>
-          <th  class="cell" scope="col">Gauge Length (mm)</th>
-          <td class="cell" ></td>
-        </tr>
+      Scenes.domItems.stepDescription.innerHTML = "Calculation of gauge length:"
+      show(Scenes.domItems.tableCalc)
+      Scenes.domItems.tableCalc.tBodies[0].innerHTML += `
+      <tr>
+        <th  class="cell" scope="col">Gauge Length (mm)</th>
+        <td class="cell" ></td>
+      </tr>
         `;
         anime.timeline({
           easing: "easeInOutExpo",
@@ -513,7 +558,7 @@ const Scenes = {
           top: 45,
         })
 
-        let s0formula = new Img("S0_formula3").set(122,36,null,200).zIndex(5);
+        let s0formula = new Img("S0_formula3").set(122,36,null,200).zIndex(5).push();
             let text = Scenes.domItems.tempText;
             text.innerHTML = "mm<sup>2</sup>";
             set(text,315,47)
@@ -525,7 +570,6 @@ const Scenes = {
 
             Scenes.domItems.tempInputBtn.onclick = function(){
                 let s0 = Scenes.domItems.tempInputBoxInput.value;
-                console.log(s0);
                 if(s0 != 59.4){
                   show(Scenes.domItems.tempInputError);
                   Scenes.domItems.tempInputError.innerHTML = "Please enter correct value = 59.4";
@@ -554,9 +598,10 @@ const Scenes = {
                   })
                 }
             }
+            return  true;
     },
     s5 = function(){
-      opacity(Scenes.domItems.stepHeading);
+      show(Scenes.domItems.stepHeading);
       Scenes.domItems.stepTitle.innerHTML = "Step 3"
           Scenes.domItems.stepDescription.innerHTML = "Choose gauge length which is rounded to nearest multiple of 5 mm of the original gauge length:"
         show(Scenes.domItems.tableCalc)
@@ -577,7 +622,7 @@ const Scenes = {
         })
 
         
-            opacity(Scenes.domItems.tempInputBox)
+            show(Scenes.domItems.tempInputBox)
             set(Scenes.domItems.tempInputBox,120,129)
             Scenes.domItems.tempInputT1.innerHTML = "Choosen gauge length L<sub>0<sub> = ";
             Scenes.domItems.tempInputT2.innerHTML = "mm";
@@ -613,9 +658,12 @@ const Scenes = {
                   })
                 }
             }
+            return true;
     },
     s6 = function(){
-      // ! remove this line
+      switch(Scenes.subCurrentStep){
+        case 0:
+          // ! remove this line
       show(Scenes.domItems.stepHeading,"flex");
       opacity(Scenes.domItems.stepHeading);
       Scenes.domItems.stepTitle.innerHTML = "Step 4"
@@ -628,13 +676,67 @@ const Scenes = {
           targets: Scenes.domItems.tableCalc,
           // Todo increase size of table
           left: 680,
-          top: 45,
+          top: 250,
         })
         Scenes.img.tableCrop.set(20, 50, 320, 680);
         Scenes.img.bare_raber2.set(43, 132, 25).zIndex(5);
-        Scenes.img.bare_raber2marked.set(43, 132, 25).zIndex(5);
+        Scenes.img.marker.set(350,130,150).zIndex(5).rotate(50)
         
+        Scenes.incCurrentSubStep()
+        break;
+
+        case 1:
+
+          anime.timeline({
+            easing: "easeInOutExpo"
+          })
+          .add({
+            targets: Scenes.img.marker.img,
+            rotate: 0,
+            top: 10,
+            left: 6,
+            duration: 1000,
+          })
+          .add({
+            targets: Scenes.img.marker.img,
+            rotate: 0,
+            top: 10,
+            left: [6,50,94,138,182,226,270,314,358,402,446,490,534,578,622],
+            duration: 5000,
+          },800)
+          .add({
+            targets: ".markings",
+            opacity: 1,
+            left: anime.stagger(),
+            duration: anime.stagger(900),
+          },800)
+          .add({
+            begin(){
+              Scenes.img.bare_raber2marked.set(43, 132, 25).zIndex(5);
+            }
+          },800)
+          .add({
+            begin(){
+              Scenes.img.larrow.set(60,170,35).zIndex(5).rotate(180)
+              show(Scenes.domItems.tempText)
+              set(Scenes.domItems.tempText,108,187)
+              Scenes.domItems.tempText.innerHTML = "30mm";
+            },
+          },800)
+          .add({
+            begin(){
+              
+            }
+          })
+          Scenes.resetSubStep()
+          return true;
+          break;
+      }
+      return false;
     },
+    s7 = function(){
+
+    }
   ],
   back() {},
   next() {
@@ -664,11 +766,14 @@ nextBtn.onclick = function(){
 
 
 
-// Scenes.subCurrentStep = 5;
 // Scenes.steps[2]()
-// Scenes.subCurrentStep = 6;
-// Scenes.steps[3]() 
-Scenes.steps[5]()
+// Scenes.steps[3]()
+// Scenes.steps[4]()
+// Scenes.steps[5]()
+// Scenes.steps[5]()
+// Scenes.steps[5]()
+// Scenes.steps[6]()
+
 
 
 

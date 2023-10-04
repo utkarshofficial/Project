@@ -4,6 +4,19 @@
     width: 946px;
 }
 
+.markings{
+    /* display: none; */
+    opacity: 0;
+    height: 4.8px;
+    width: 39.24px;
+    height: 10px;
+    top: -30px;
+    left: -110px;
+    z-index: 5;
+    position: relative;
+    /* position: absolute; */
+    filter: brightness(0);
+}
 .main-window-imgs{
     display: none;
     position: absolute;

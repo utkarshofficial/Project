@@ -1,160 +1,674 @@
+// global for document object
+const get = (query) => {
+  return document.querySelector(query);
+};
+
+const getAll = (query) => {
+  return document.querySelectorAll(query);
+};
+
+const show = (ele, disp = "block") => {
+  ele.style.display = disp;
+};
+const opacity = (ele, val=1) => {
+  ele.style.opacity = val;
+};
+const hide = (ele, disp = "none") => {
+  ele.style.display = disp;
+};
+
+const set = (ele, l = null, t = null) => {
+  if (l !== null) {
+    ele.style.left = l + "px";
+  }
+  if (t !== null) {
+    ele.style.top = t + "px";
+  }
+
+};
+
+let student_name = "";
+
 // support class for axis
-class Img{
-    constructor(imgName=null,left=null,top=null,bottom=null,right=null){
-        // coordinates 
-        this.left = left
-        this.top= top
-        this.bottom = bottom;
-        this.right = right;
-        this.img = Src.allImgs[imgName]
-        return this
+class Img {
+  constructor(
+    imgName = null
+    // left = null,
+    // top = null,
+    // height = null,
+    // width = null,
+    // bottom = null,
+    // right = null
+  ) {
+    // coordinates
+    // this.left = left;
+    // this.top = top;
+    // this.bottom = bottom;
+    // this.right = right;
+    // this.height = height;
+    // this.width = this.width;
+    this.img = src.get(imgName);
+    return this;
+  }
+  zIndex(idx) {
+    this.img.style.zIndex = idx;
+    return this;
+  }
+  rotate(deg) {
+    this.img.style.transform = `rotate(${deg}deg)`;
+    return this;
+  }
+  get() {
+    return this.img;
+  }
+  set(
+    left = null,
+    top = null,
+    height = null,
+    width = null,
+    bottom = null,
+    right = null
+  ) {
+    // coordinates
+    this.left = left;
+    this.top = top;
+    this.bottom = bottom;
+    this.right = right;
+    this.height = height;
+    this.width = width;
+    this.img.style.opacity = 1;
+    this.img.style.transform = "translateX(0) translateY(0)";
+
+    if (this.left !== null) this.img.style.left = String(this.left) + "px";
+    if (this.top !== null) this.img.style.top = String(this.top) + "px";
+    if (this.bottom !== null)
+      this.img.style.bottom = String(this.bottom) + "px";
+    if (this.right !== null) this.img.style.right = String(this.right) + "px";
+    if (this.height !== null)
+      this.img.style.height = String(this.height) + "px";
+    if (this.width !== null) this.img.style.width = String(this.width) + "px";
+    this.show();
+    return this;
+  }
+  show() {
+    this.img.style.display = "block";
+    return this;
+  }
+  hide() {
+    this.img.style.display = "none";
+    return this;
+  }
+  static hideAll(imgs) {
+    for (let i = 0; i < imgs.length; ++i) {
+      imgs[i].hide();
     }
-    set(){
-        if(this.left !== null)
-            this.img.style.left = String(this.left);
-        if(this.top !== null)
-            this.img.style.top = String(this.top);
-        if(this.bottom !== null)
-            this.img.style.bottom = String(this.bottom);
-        if(this.right !== null)
-            this.img.style.right = String(this.right);
-    }
-    show(){
-        this.img.style.display = "block";
-    }
-    hide(){
-        this.img.style.display = "none";
-    }
+  }
 }
 
-const src = {
-    // pick imgs from the dom 
-    allImgs:[],
-    allImgsDom: document.querySelectorAll(".main-window-imgs"),
-    set(){
-        this.allImgs = {
-            "000":this.allImgsDom[0],
-            "875":this.allImgsDom[1],
-            "arrow":this.allImgsDom[2],
-            "bare_raber":this.allImgsDom[3],
-            "bare_raber2":this.allImgsDom[4],
-            "bare_raber2marked":this.allImgsDom[5],
-            "bare_reber_marked - Copy":this.allImgsDom[6],
-            "bare_reber_marked":this.allImgsDom[7],
-            "bare_reber_markedbrake":this.allImgsDom[8],
-            "bare_reber_markedbrake":this.allImgsDom[9],
-            "bare_reber_markedbrake2":this.allImgsDom[10],
-            "betweenlayer":this.allImgsDom[11],
-            "br1bottom":this.allImgsDom[12],
-            "br2up":this.allImgsDom[13],
-            "brake1":this.allImgsDom[14],
-            "brake2":this.allImgsDom[15],
-            "brakeraber":this.allImgsDom[16],
-            "brakeraberjoin":this.allImgsDom[17],
-            "brakezoom":this.allImgsDom[18],
-            "broken1":this.allImgsDom[19],
-            "broken2":this.allImgsDom[20],
-            "dash":this.allImgsDom[21],
-            "dashblack":this.allImgsDom[22],
-            "dispvarniar":this.allImgsDom[23],
-            "extract":this.allImgsDom[24],
-            "gif1":this.allImgsDom[25],
-            "gif2":this.allImgsDom[26],
-            "gif3":this.allImgsDom[27],
-            "gif4":this.allImgsDom[28],
-            "graph1":this.allImgsDom[29],
-            "grip":this.allImgsDom[30],
-            "hand6":this.allImgsDom[31],
-            "handmarker":this.allImgsDom[32],
-            "header":this.allImgsDom[33],
-            "iron_rod":this.allImgsDom[34],
-            "laerrow":this.allImgsDom[35],
-            "laerrow2":this.allImgsDom[36],
-            "man":this.allImgsDom[37],
-            "marker":this.allImgsDom[38],
-            "measure1 - Copy":this.allImgsDom[39],
-            "measure1":this.allImgsDom[40],
-            "measure2":this.allImgsDom[41],
-            "measurearrow":this.allImgsDom[42],
-            "measuretape":this.allImgsDom[43],
-            "Next":this.allImgsDom[44],
-            "off_screen":this.allImgsDom[45],
-            "Picture2":this.allImgsDom[46],
-            "Picture3":this.allImgsDom[47],
-            "Picture4":this.allImgsDom[48],
-            "Picture5":this.allImgsDom[49],
-            "Picture6":this.allImgsDom[50],
-            "README":this.allImgsDom[51],
-            "reber1":this.allImgsDom[52],
-            "reberafter1":this.allImgsDom[53],
-            "reberafter2":this.allImgsDom[54],
-            "reberafter3":this.allImgsDom[55],
-            "reberafter4":this.allImgsDom[56],
-            "redsize":this.allImgsDom[57],
-            "S0_formula":this.allImgsDom[58],
-            "S0_formula2":this.allImgsDom[59],
-            "S0_formula3":this.allImgsDom[60],
-            "S0_formula4":this.allImgsDom[61],
-            "S0_formula5":this.allImgsDom[62],
-            "S0_formulaul":this.allImgsDom[63],
-            "Screenshot_6":this.allImgsDom[64],
-            "sheet":this.allImgsDom[65],
-            "size":this.allImgsDom[66],
-            "transbox":this.allImgsDom[67],
-            "utm":this.allImgsDom[68],
-            "varniar":this.allImgsDom[69],
-            "varniar2":this.allImgsDom[70],
-            "varniar3":this.allImgsDom[71],
-            "varniar37":this.allImgsDom[72],
-            "varniarfull":this.allImgsDom[73],
-            "varniarfullopen - Copy":this.allImgsDom[74],
-            "varniarfullopen":this.allImgsDom[75],
-            "weight":this.allImgsDom[76],
+class Render {
+  constructor() {
+    this.processStack = [];
+    this.processQueue = [];
+    this.currentScene = null;
+  }
+  back() {}
+  next() {}
+}
+
+// class Scene {
+//   constructor(imgs, imgsAxis, subtitles, steps) {
+//     this.imgs = imgs;
+//     this.imgsAxis = imgsAxis;
+//     this.subtitles = subtitles;
+//     this.steps = steps;
+//     this.currentAnime = 0;
+//   }
+//   next() {}
+//   back() {}
+//   run() {}
+//   // all steps
+// }
+
+// let scene1 = new Scene([], [[500, 300]], ["Enter your name to start"], {
+//   step1() {
+//     let header = get(".anime-header");
+//     setTop(header, 120);
+//     let inputWindow = get(".user-input");
+//     show(inputWindow, "flex");
+//     console.log(inputWindow);
+//     let man = new Img("man", 650, 80);
+//     let submitBtn = get("#nameSubmitBtn");
+//     submitBtn.onclick = () => {
+//       student_name = get("#stuName").value;
+//       let tl = anime.timeline({
+//         easing: "easeOutExpo",
+//         duration: 1000,
+//       });
+//       tl.add({
+//         targets: ".anime-header",
+//         top: "-60px",
+//         opacity: 0,
+//       })
+//         .add({
+//           targets: ".user-input",
+//           opacity: 0,
+//         })
+//         .add({
+//           targets: man.img,
+//           translateX: -210,
+//         });
+//     };
+//   },
+//   step2: ()=>{
+//     let projectIntro = get(".project-intro");
+//     show(projectIntro);
+//     let bare_raber = new Img("bare_raber",720, 90, 150).zIndex(1).rotate(70);
+//     let extensometer = new Img("grip", 550, 75, 80).zIndex(1);
+//     let varniarfull = new Img("varniarfull",545, 120, 60).zIndex(1).rotate(160);
+//     let table = new Img("table", 520, 130, 120);
+//     let man = new Img("man", 380, 0, 250);
+//     let new_utm = new Img("new_utm", 140, 0, 250);
+//     this.imgs = [bare_raber, extensometer, varniarfull, table,man,new_utm];
+//   },
+//   step2delete: ()=>{
+//     Img.hideAll(this.imgs)
+//   }
+// });
+
+// let scene2 = new Scene([],[],[],{
+//   step1:()=>{
+
+//   }
+// })
+
+const Scenes = {
+  img: {
+    bare_raber: new Img("bare_raber"),
+    bare_raber2: new Img("bare_raber2"),
+    bare_raber2marked: new Img("bare_raber2marked"),
+    extensometer: new Img("grip"),
+    varniarfull: new Img("varniarfull"),
+    table: new Img("table"),
+    man: new Img("man"),
+    new_utm: new Img("new_utm"),
+    tape: new Img("tape"),
+    tableCrop: new Img("tableCrop"),
+    measure1: new Img("measure1"),
+    measurearrow: new Img("measurearrow"),
+    measurearrow2: new Img("measurearrow2"),
+    weight: new Img("weight"),
+  },
+  domItems: {
+    projectIntro: get(".project-intro"),
+    header: get(".anime-header"),
+    stepHeading: get(".step-heading"),
+    stepTitle: get(".step-title"),
+    stepDescription: get(".step-description"),
+    tableCalc: get(".measurements"),
+    tempText: get(".temp-text"),
+    tempInputBox: get(".temp-input"),
+    tempInputBoxInput: get(".temp-input #ipnum"),
+    tempInputT1: get(".temp-input .text1"),
+    tempInputT2: get(".temp-input .text2"),
+    tempInputError: get(".temp-input .error"),
+    tempInputBtn: get(".temp-input .submit-btn"),
+  },
+  currentStep: 0,
+  subCurrentStep: 0,
+  resetSubStep() {
+    this.subCurrentStep = 0;
+  },
+  incCurrentSubStep() {
+    this.subCurrentStep++;
+  },
+  steps: [
+    (s1 = function () {
+      set(Scenes.domItems.header, 0, 120);
+      let inputWindow = get(".user-input");
+      show(inputWindow, "flex");
+      let man = new Img("man").set(650, 80);
+      let submitBtn = get("#nameSubmitBtn");
+      submitBtn.onclick = () => {
+        student_name = get("#stuName").value;
+        let tl = anime.timeline({
+          easing: "easeOutExpo",
+          duration: 1000,
+        });
+        tl.add({
+          targets: ".anime-header",
+          top: 0,
+        })
+          .add({
+            targets: ".user-input",
+            opacity: 0,
+          })
+          .add({
+            targets: man.img,
+            translateX: -210,
+            opacity: 0,
+          });
+      };
+      return true;
+    }),
+    (s2 = function () {
+      console.log("s2:",Scenes.subCurrentStep);
+      switch (Scenes.subCurrentStep) {
+        case 0:
+          show(Scenes.domItems.projectIntro);
+          Scenes.img.bare_raber.set(720, 90, 150).zIndex(1).rotate(70),
+          Scenes.img.extensometer.set(550, 75, 80).zIndex(1),
+          Scenes.img.varniarfull.set(545, 120, 60).zIndex(1).rotate(160),
+          Scenes.img.table.set(520, 130, 120),
+          Scenes.img.man.set(380, 0, 250),
+          Scenes.img.new_utm.set(140, 0, 250),
+          Scenes.incCurrentSubStep();
+          break;
+        case 1:
+          hide(Scenes.domItems.projectIntro);
+          Scenes.img.bare_raber.hide(),
+          Scenes.img.extensometer.hide(),
+          Scenes.img.varniarfull.hide(),
+          Scenes.img.table.hide(),
+          Scenes.img.man.hide(),
+          Scenes.img.new_utm.hide(),
+          Scenes.incCurrentSubStep();
+          Scenes.resetSubStep();
+          return true;
+          break;
         }
+      return false;
+    }),
+    (s3 = function () {
+      switch (Scenes.subCurrentStep) {
+        case 0:
+          show(Scenes.domItems.stepHeading, "flex");
+          Scenes.img.bare_raber.set(450, 55, 200).zIndex(3).rotate(310);
+          Scenes.img.tape.set(330, 170, 80).zIndex(1).rotate(0);
+          Scenes.img.weight.set(140, 140, 120).zIndex(1);
+          Scenes.img.tableCrop.set(20, 50, 320, 680);
+          var table = Scenes.domItems.tableCalc;
+          show(table);
+          set(table, 680, 45);
+          Scenes.incCurrentSubStep();
+          break;
+
+        case 1:
+          anime({
+            targets: Scenes.img.bare_raber.img,
+            rotate: {
+              value: 270,
+            },
+            scaleY: {
+              value: 2.6,
+            },
+            left: 360,
+            top: 0,
+            duration: 1000,
+            easing: "easeInOutExpo",
+          });
+          Scenes.incCurrentSubStep();
+          break;
+
+        case 2:
+          anime({
+            targets: Scenes.img.tape.img,
+            left: 30,
+            top: 70,
+            duration: 1000,
+            scale: 0.7,
+            easing: "easeInOutExpo",
+          });
+          Scenes.incCurrentSubStep();
+          break;
+
+        case 3:
+          Scenes.img.measure1.set(93, 60, 137, 0).zIndex(1);
+          set(Scenes.domItems.tempText, 260, 65);
+          Scenes.domItems.tempText.innerHTML = "Total Length (m) = 0.805m";
+          Scenes.img.measurearrow.set(355, 35, 90).zIndex(1).rotate(90);
+          Scenes.img.measurearrow2.set(355, 35, 90).zIndex(1).rotate(270);
+          let calcLength =
+            Scenes.domItems.tableCalc.tBodies[0].rows[1].cells[1];
+
+          anime
+            .timeline({
+              easing: "easeInOutExpo",
+            })
+            .add({
+              targets: Scenes.img.measure1.img,
+              width: 535,
+              duration: 1000,
+            })
+            .add({
+              targets: Scenes.img.tape.img,
+              opacity: 0,
+              duration: 500,
+            })
+            .add(
+              {
+                targets: Scenes.img.measurearrow2.img,
+                left: 145,
+                duration: 1000,
+              },
+              500
+            )
+            .add(
+              {
+                targets: Scenes.img.measurearrow.img,
+                left: 573,
+                duration: 1000,
+              },
+              500
+            )
+            .add(
+              {
+                targets: Scenes.domItems.tempText,
+                begin: function (anim) {
+                  show(Scenes.domItems.tempText);
+                },
+              },
+              1000
+            )
+            .add({
+              targets: calcLength,
+              begin: function (anime) {
+                calcLength.innerHTML = "0.805";
+              },
+              backgroundColor: ["#000", "#FFF"],
+              duration: 1000,
+            })
+            .add({
+              targets: [
+                Scenes.img.measurearrow.img,
+                Scenes.img.measurearrow2.img,
+                Scenes.img.measure1.img,
+                Scenes.domItems.tempText,
+              ],
+              opacity: 0,
+            });
+          Scenes.incCurrentSubStep();
+          break;
+
+        case 4:
+          let w000 = new Img("000");
+          let w698 = new Img("875");
+          anime.timeline({
+              easing: "easeInOutExpo",
+            })
+            .add({
+              targets: Scenes.img.weight.img,
+              left: 290,
+              top: 130,
+              scale: 1.6,
+              duration: 1000,
+            })
+            .add({
+              begin: function () {
+                w000.set(305, 215, 12, 55).zIndex(5);
+              },
+            })
+            .add({
+              targets: Scenes.img.bare_raber.img,
+              top: 100,
+              height: 100,
+              duration: 1000,
+            })
+            .add({
+              begin: function () {
+                w000.hide();
+                w698.set(305, 215, 12, 55).zIndex(5);
+              },
+            })
+            .add({
+              targets: Scenes.domItems.tableCalc.tBodies[0].rows[2].cells[1],
+              begin: function (anime) {
+                Scenes.domItems.tableCalc.tBodies[0].rows[2].cells[1].innerHTML =
+                  "0.698";
+              },
+              backgroundColor: ["#000", "#FFF"],
+              duration: 200,
+            })
+            .add({
+              targets: [Scenes.img.bare_raber.img, Scenes.img.weight.img,Scenes.img.tableCrop.img,w698.img],
+              opacity: 0,
+              delay: 200,
+            })
+            Scenes.incCurrentSubStep();
+          break;
+
+          case 5:
+            let s0formula = new Img("S0_formula").set(122,36,null,200).zIndex(5);
+            let text = Scenes.domItems.tempText;
+            text.innerHTML = "weight (kg) and L(m)";
+            set(text,315,47)
+            show(text);
+            show(Scenes.domItems.tempInputBox)
+            set(Scenes.domItems.tempInputBox,120,129)
+            Scenes.domItems.tempInputT1.innerHTML = "S<sub>0</sub> = ";
+            Scenes.domItems.tempInputT2.innerHTML = "mm<sup>2</sup>";
+
+
+            show(Scenes.domItems.tableCalc);
+            set(Scenes.domItems.tableCalc,680,45);
+            
+            Scenes.domItems.tempInputBtn.onclick = function(){
+                let s0 = Scenes.domItems.tempInputBoxInput.value;
+                if(s0 != 110.4){
+                  show(Scenes.domItems.tempInputError);
+                  Scenes.domItems.tempInputError.innerHTML = "Please enter correct value = 110.4";
+                }else{
+                  hide(Scenes.domItems.tempInputError);
+                  anime.timeline({
+                    easing: "easeInOutExpo"
+                  })
+                  .add({
+                    targets: Scenes.domItems.tableCalc.tBodies[0].rows[3].cells[1],
+                    begin: function (anime) {
+                      Scenes.domItems.tableCalc.tBodies[0].rows[3].cells[1].innerHTML = "110.4";
+                    },
+                    backgroundColor: ["#000", "#FFF"],
+                    duration: 1000,
+                  })
+                  .add({
+                    targets: Scenes.domItems.tableCalc,
+                    // Todo increase size of table
+                    left: 401,
+                    top: 125,
+                  })
+                  .add({
+                    targets: [s0formula.img,text,Scenes.domItems.tempInputBox],
+                    opacity: 0,
+                  })
+                }
+            }
+
+            Scenes.resetSubStep();
+            return true;
+            break;
+            
+          
+              
+      }
+      return false;
+    }),
+    // Step 2
+    s4 = function(){
+      show(Scenes.domItems.stepHeading,"flex");
+      Scenes.domItems.stepTitle.innerHTML = "Step 2"
+          Scenes.domItems.stepDescription.innerHTML = "Calculation of gauge length:"
+        show(Scenes.domItems.tableCalc)
+        Scenes.domItems.tableCalc.tBodies[0].innerHTML += `
+        <tr>
+          <th  class="cell" scope="col">Gauge Length (mm)</th>
+          <td class="cell" ></td>
+        </tr>
+        `;
+        anime.timeline({
+          easing: "easeInOutExpo",
+        })
+        .add({
+          targets: Scenes.domItems.tableCalc,
+          // Todo increase size of table
+          left: 680,
+          top: 45,
+        })
+
+        let s0formula = new Img("S0_formula3").set(122,36,null,200).zIndex(5);
+            let text = Scenes.domItems.tempText;
+            text.innerHTML = "mm<sup>2</sup>";
+            set(text,315,47)
+            show(text);
+            show(Scenes.domItems.tempInputBox)
+            set(Scenes.domItems.tempInputBox,120,129)
+            Scenes.domItems.tempInputT1.innerHTML = "L = ";
+            Scenes.domItems.tempInputT2.innerHTML = "mm";
+
+            Scenes.domItems.tempInputBtn.onclick = function(){
+                let s0 = Scenes.domItems.tempInputBoxInput.value;
+                console.log(s0);
+                if(s0 != 59.4){
+                  show(Scenes.domItems.tempInputError);
+                  Scenes.domItems.tempInputError.innerHTML = "Please enter correct value = 59.4";
+                }else{
+                  hide(Scenes.domItems.tempInputError);
+                  anime.timeline({
+                    easing: "easeInOutExpo"
+                  })
+                  .add({
+                    targets: Scenes.domItems.tableCalc.tBodies[0].rows[4].cells[1],
+                    begin: function (anime) {
+                      Scenes.domItems.tableCalc.tBodies[0].rows[4].cells[1].innerHTML = "59.4";
+                    },
+                    backgroundColor: ["#000", "#FFF"],
+                    duration: 1000,
+                  })
+                  .add({
+                    targets: Scenes.domItems.tableCalc,
+                    // Todo increase size of table
+                    left: 401,
+                    top: 125,
+                  })
+                  .add({
+                    targets: [s0formula.img,text,Scenes.domItems.tempInputBox],
+                    opacity: 0,
+                  })
+                }
+            }
     },
-    allImgsInitialAxis:[],
-    get(imgName){
-        console.log(this.allImgs[imgName])
-        return this.allImgs[imgName];
+    s5 = function(){
+      opacity(Scenes.domItems.stepHeading);
+      Scenes.domItems.stepTitle.innerHTML = "Step 3"
+          Scenes.domItems.stepDescription.innerHTML = "Choose gauge length which is rounded to nearest multiple of 5 mm of the original gauge length:"
+        show(Scenes.domItems.tableCalc)
+        Scenes.domItems.tableCalc.tBodies[0].innerHTML += `
+        <tr>
+          <th  class="cell" scope="col">Choosen Gauge Length (mm)</th>
+          <td class="cell" ></td>
+        </tr>
+        `;
+        anime.timeline({
+          easing: "easeInOutExpo",
+        })
+        .add({
+          targets: Scenes.domItems.tableCalc,
+          // Todo increase size of table
+          left: 680,
+          top: 45,
+        })
+
+        
+            opacity(Scenes.domItems.tempInputBox)
+            set(Scenes.domItems.tempInputBox,120,129)
+            Scenes.domItems.tempInputT1.innerHTML = "Choosen gauge length L<sub>0<sub> = ";
+            Scenes.domItems.tempInputT2.innerHTML = "mm";
+
+            Scenes.domItems.tempInputBtn.onclick = function(){
+                let s0 = Scenes.domItems.tempInputBoxInput.value;
+                console.log(s0);
+                if(s0 != 60){
+                  show(Scenes.domItems.tempInputError);
+                  Scenes.domItems.tempInputError.innerHTML = "Please enter correct value = 60";
+                }else{
+                  hide(Scenes.domItems.tempInputError);
+                  anime.timeline({
+                    easing: "easeInOutExpo"
+                  })
+                  .add({
+                    targets: Scenes.domItems.tableCalc.tBodies[0].rows[5].cells[1],
+                    begin: function (anime) {
+                      Scenes.domItems.tableCalc.tBodies[0].rows[5].cells[1].innerHTML = "60";
+                    },
+                    backgroundColor: ["#000", "#FFF"],
+                    duration: 1000,
+                  })
+                  .add({
+                    targets: [Scenes.domItems.tempInputBox,Scenes.domItems.tempInputBox],
+                    opacity: 0,
+                  })
+                  .add({
+                    targets: Scenes.domItems.tableCalc,
+                    // Todo increase size of table
+                    left: 401,
+                    top: 125,
+                  })
+                }
+            }
+    },
+    s6 = function(){
+      // ! remove this line
+      show(Scenes.domItems.stepHeading,"flex");
+      opacity(Scenes.domItems.stepHeading);
+      Scenes.domItems.stepTitle.innerHTML = "Step 4"
+        Scenes.domItems.stepDescription.innerHTML = "Mark the specimen at the continuous interval of Lo/2 or Lo/3:"
+        show(Scenes.domItems.tableCalc)
+        anime.timeline({
+          easing: "easeInOutExpo",
+        })
+        .add({
+          targets: Scenes.domItems.tableCalc,
+          // Todo increase size of table
+          left: 680,
+          top: 45,
+        })
+        Scenes.img.tableCrop.set(20, 50, 320, 680);
+        Scenes.img.bare_raber2.set(43, 132, 25).zIndex(5);
+        Scenes.img.bare_raber2marked.set(43, 132, 25).zIndex(5);
+        
+    },
+  ],
+  back() {},
+  next() {
+    if (this.currentStep < this.steps.length) {
+      if (this.steps[this.currentStep]()) {
+        this.currentStep++;
+      } 
+      else {
+      }
     }
+  },
+};
+
+
+
+
+
+
+
+
+
+const nextBtn = get(".btn-next")
+nextBtn.onclick = function(){
+  Scenes.next();
 }
 
-Src.set()
-Src.get("000")
 
 
-class Render{
-    constructor(){
-        this.processStack = []
-        this.processQueue = []
-        this.currentScene = null
 
-    }
-    back(){}
-    next(){}
-}
-
-
-class Scene{
-    constructor(){
-        this.imgs = []
-        this.imgsAxis = []
-        this.subtitles = []
-        this.animes = []
-        this.currentAnime = 0;
-    }
-    next(){
-
-    }
-    back(){
-
-    }
-    run(){
-
-    }
-    // all steps
-
-}
+// Scenes.subCurrentStep = 5;
+// Scenes.steps[2]()
+// Scenes.subCurrentStep = 6;
+// Scenes.steps[3]() 
+Scenes.steps[5]()
 
 
 
@@ -163,12 +677,17 @@ class Scene{
 
 
 
-
-
-
-
-
-// i really enjoyed the voice of keybord 
+// i really enjoyed the voice of keybord
 // its amazing
 
+// mouse position
+function getCursor(event) {
+  let x = event.clientX;
+  let y = event.clientY;
+  let _position = `X: ${x - 232}<br>Y: ${y - 230}`;
 
+  const infoElement = document.getElementById("info");
+  infoElement.innerHTML = _position;
+  infoElement.style.top = y + "px";
+  infoElement.style.left = x + 20 + "px";
+}

@@ -1,5 +1,12 @@
-.all-images .main-window-imgs{
+.anime-main{
+    position: relative;
+    height: 404px;
+    width: 946px;
+}
+
+.main-window-imgs{
     display: none;
+    position: absolute;
 
 }
 

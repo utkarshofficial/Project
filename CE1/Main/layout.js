@@ -1,5 +1,4 @@
 let listItems = document.querySelectorAll(".steps ol li");
-console.log(listItems);
 let activeIdx = 0;
 // handle list items click
 // for (const item of listItems) {

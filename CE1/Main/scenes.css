@@ -1,0 +1,91 @@
+.anime-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scene 1 */
+/* step1 */
+.user-input{
+    font-size: 1.5rem;
+    flex-direction: column;
+    display: none;
+    gap: 10px;
+}
+.user-input p{
+    margin: 0;
+}
+.user-input *{
+    padding: 10px;
+
+}
+
+.anime-header{
+    display: none;
+    position: relative;
+    top: 0px
+}
+
+/* step2 - project intro */
+.project-intro{
+    padding: 10px;
+    display: none;
+}
+
+.project-intro .heading{
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.project-intro .description{
+    margin: 5px 0 15px 0;
+    color: rgb(48, 48, 48);
+}
+
+
+
+
+/*  Mouse position */
+
+#demo {
+    height: 100%;
+    width: 100%;
+    background-color: #222831;
+}
+
+#info {
+    z-index: 200;
+    padding-left: 10px;
+    border-radius: 10px;
+    position: absolute;
+    user-select: none;
+    font-size: 2em;
+    width: 120px;
+    color: #EEEEEE;
+    background-color: #FD7013;
+}
+
+/* step3 */
+/* input template */
+.temp-input{
+    position: absolute;
+    font-size: 1.5rem;
+    display: none;
+}
+.temp-input span{
+    margin: 5px;
+}
+.temp-input .error{
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+    display: none;
+}
+.temp-input .input{
+    font-size: 1.5rem;
+    width: 100px;
+    padding: 5px;
+}
+
+.temp-input .submit-btn{
+    
+}

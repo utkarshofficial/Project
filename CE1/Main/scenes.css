@@ -91,3 +91,24 @@
 .temp-input .submit-btn{
     
 }
+
+/* step 7 */
+.utm-button{
+    cursor: pointer;
+    background-color: rgb(0, 255, 0);
+    height: 10px;
+    width: 10px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid;
+    left: 251px;
+    top: 147px;
+    position: absolute;
+    z-index: 6;
+    opacity: 0;
+}
+
+.celebration{
+    display: none;
+    position: absolute;
+}

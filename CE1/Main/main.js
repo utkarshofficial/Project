@@ -1,3 +1,5 @@
+// for restriction on next button ;
+let isPerformNext = false;
 // global for document object
 const get = (query) => {
   return document.querySelector(query);
@@ -9,12 +11,19 @@ const getAll = (query) => {
 
 const show = (ele, disp = "block") => {
   ele.style.display = disp;
+  ele.style.opacity = 1;
 };
 const opacity = (ele, val=1) => {
   ele.style.opacity = val;
 };
 const hide = (ele, disp = "none") => {
   ele.style.display = disp;
+};
+const hideAll = (elesName, disp = "none") => {
+  let eles = getAll(elesName);
+  for(let ele of eles){
+    hide(ele);
+  }
 };
 
 const set = (ele, l = null, t = null) => {
@@ -24,7 +33,7 @@ const set = (ele, l = null, t = null) => {
   if (t !== null) {
     ele.style.top = t + "px";
   }
-
+  show(ele)
 };
 
 let student_name = "";
@@ -61,6 +70,10 @@ class Img {
     this.img.style.transform = `rotate(${deg}deg)`;
     return this;
   }
+  scale(val=1) {
+    this.img.style.scale = val;
+    return this;
+  }
   get() {
     return this.img;
   }
@@ -95,6 +108,7 @@ class Img {
   }
   show() {
     this.img.style.display = "block";
+    this.opacity()
     return this;
   }
   hide() {
@@ -221,7 +235,24 @@ const Scenes = {
     larrow2: new Img("laerrow2"),
     marker: new Img("marker"),
     cloud: new Img("cloud"),
-  },
+    size: new Img("size"),
+    highlightArrow: new Img("highlightArrow"),
+    arrow: new Img("arrow"),
+    graph1: new Img("Picture3"),
+    graph2: new Img("Picture4"),
+    graph3: new Img("Picture5"),
+    graph4: new Img("Picture6"),
+    breakRaber: new Img("brakeraber"),
+    breakRaberJoin: new Img("brakeraberjoin"),
+    break1: new Img("brake1"),
+    break2: new Img("brake2"),
+    varniarLeft: new Img("varniar"),
+    varniarRight: new Img("varniar2"),
+    reading1: new Img("varniar3"),
+    reading2: new Img("varniar37"),
+    lastCalc: new Img("lastCalc"),
+    finalLastCalc: new Img("finalLastCalc"),
+  },  
   domItems: {
     projectIntro: get(".project-intro"),
     header: get(".anime-header"),
@@ -236,6 +267,7 @@ const Scenes = {
     tempInputT2: get(".temp-input .text2"),
     tempInputError: get(".temp-input .error"),
     tempInputBtn: get(".temp-input .submit-btn"),
+    utmBtn: get(".utm-button"),
   },
   currentStep: 0,
   subCurrentStep: 0,
@@ -248,6 +280,7 @@ const Scenes = {
   steps: [
     (s1 = function () {
       set(Scenes.domItems.header, 0, 120);
+      show(Scenes.domItems.header,"flex")
       let inputWindow = get(".user-input");
       show(inputWindow, "flex");
       let man = new Img("man").set(650, 80);
@@ -275,7 +308,6 @@ const Scenes = {
             begin(){
               Scenes.domItems.tempText.innerHTML = `Hey!<br>${student_name}`
               Scenes.domItems.tempText.style.fontWeight = "bold"
-              Scenes.domItems.tempText.style.fontSize = "1.3rem"
               show(Scenes.domItems.tempText)
               set(Scenes.domItems.tempText,482,1)
               Scenes.img.cloud.set(450,-40,180)
@@ -300,22 +332,17 @@ const Scenes = {
       switch (Scenes.subCurrentStep) {
         case 0:
           show(Scenes.domItems.projectIntro);
-          Scenes.img.bare_raber.set(720, 90, 150).zIndex(1).rotate(70),
-          Scenes.img.extensometer.set(550, 75, 80).zIndex(1),
-          Scenes.img.varniarfull.set(545, 120, 60).zIndex(1).rotate(160),
-          Scenes.img.table.set(520, 130, 120),
-          Scenes.img.man.set(380, 0, 250),
-          Scenes.img.new_utm.set(140, 0, 250),
+          Scenes.img.bare_raber.set(720, 90, 150).zIndex(1).rotate(70).push(),
+          Scenes.img.extensometer.set(550, 75, 80).zIndex(1).push(),
+          Scenes.img.varniarfull.set(545, 120, 60).zIndex(1).rotate(160).push(),
+          Scenes.img.table.set(520, 130, 120).push(),
+          Scenes.img.man.set(380, 0, 250).push(),
+          Scenes.img.new_utm.set(140, 0, 250).push(),
           Scenes.incCurrentSubStep();
           break;
         case 1:
           hide(Scenes.domItems.projectIntro);
-          Scenes.img.bare_raber.hide(),
-          Scenes.img.extensometer.hide(),
-          Scenes.img.varniarfull.hide(),
-          Scenes.img.table.hide(),
-          Scenes.img.man.hide(),
-          Scenes.img.new_utm.hide(),
+          Img.hideAll();
           Scenes.incCurrentSubStep();
           Scenes.resetSubStep();
           return true;
@@ -395,7 +422,7 @@ const Scenes = {
                 left: 145,
                 duration: 1000,
               },
-              500
+              700
             )
             .add(
               {
@@ -403,7 +430,7 @@ const Scenes = {
                 left: 573,
                 duration: 1000,
               },
-              500
+              700
             )
             .add(
               {
@@ -412,7 +439,7 @@ const Scenes = {
                   show(Scenes.domItems.tempText);
                 },
               },
-              1000
+              1200
             )
             .add({
               targets: calcLength,
@@ -435,8 +462,8 @@ const Scenes = {
           break;
 
         case 4:
-          let w000 = new Img("000");
-          let w698 = new Img("875");
+          let w000 = new Img("000").push();
+          let w698 = new Img("875").push();
           anime.timeline({
               easing: "easeInOutExpo",
             })
@@ -476,13 +503,16 @@ const Scenes = {
             .add({
               targets: [Scenes.img.bare_raber.img, Scenes.img.weight.img,Scenes.img.tableCrop.img,w698.img],
               opacity: 0,
-              delay: 200,
+              delay: 600,
+              complete(){
+                Img.hideAll();
+              }
             })
             Scenes.incCurrentSubStep();
           break;
 
           case 5:
-            let s0formula = new Img("S0_formula").set(122,36,null,200).zIndex(5);
+            let s0formula = new Img("S0_formula").set(122,36,null,200).zIndex(5).push();
             let text = Scenes.domItems.tempText;
             text.innerHTML = "weight (kg) and L(m)";
             set(text,315,47)
@@ -496,12 +526,16 @@ const Scenes = {
             show(Scenes.domItems.tableCalc);
             set(Scenes.domItems.tableCalc,680,45);
             
+            // onclick
             Scenes.domItems.tempInputBtn.onclick = function(){
                 let s0 = Scenes.domItems.tempInputBoxInput.value;
                 if(s0 != 110.4){
                   show(Scenes.domItems.tempInputError);
                   Scenes.domItems.tempInputError.innerHTML = "Please enter correct value = 110.4";
                 }else{
+                  // for reseting the value of input
+                  Scenes.domItems.tempInputBoxInput.value = "";
+
                   hide(Scenes.domItems.tempInputError);
                   anime.timeline({
                     easing: "easeInOutExpo"
@@ -523,10 +557,12 @@ const Scenes = {
                   .add({
                     targets: [s0formula.img,text,Scenes.domItems.tempInputBox],
                     opacity: 0,
+                    complete(){
+                      Img.hideAll();
+                    }
                   })
                 }
             }
-            Img.hideAll();
             Scenes.resetSubStep();
             return true;
             break;
@@ -574,6 +610,9 @@ const Scenes = {
                   show(Scenes.domItems.tempInputError);
                   Scenes.domItems.tempInputError.innerHTML = "Please enter correct value = 59.4";
                 }else{
+                  // for reseting the value of input
+                  Scenes.domItems.tempInputBoxInput.value = "";
+
                   hide(Scenes.domItems.tempInputError);
                   anime.timeline({
                     easing: "easeInOutExpo"
@@ -587,14 +626,17 @@ const Scenes = {
                     duration: 1000,
                   })
                   .add({
+                    targets: [s0formula.img,text,Scenes.domItems.tempInputBox],
+                    opacity: 0,
+                    complete(){
+                      Img.hideAll();
+                    }
+                  })
+                  .add({
                     targets: Scenes.domItems.tableCalc,
                     // Todo increase size of table
                     left: 401,
                     top: 125,
-                  })
-                  .add({
-                    targets: [s0formula.img,text,Scenes.domItems.tempInputBox],
-                    opacity: 0,
                   })
                 }
             }
@@ -624,7 +666,7 @@ const Scenes = {
         
             show(Scenes.domItems.tempInputBox)
             set(Scenes.domItems.tempInputBox,120,129)
-            Scenes.domItems.tempInputT1.innerHTML = "Choosen gauge length L<sub>0<sub> = ";
+            Scenes.domItems.tempInputT1.innerHTML = "Choosen gauge length L<sub>0</sub> = ";
             Scenes.domItems.tempInputT2.innerHTML = "mm";
 
             Scenes.domItems.tempInputBtn.onclick = function(){
@@ -665,7 +707,6 @@ const Scenes = {
         case 0:
           // ! remove this line
       show(Scenes.domItems.stepHeading,"flex");
-      opacity(Scenes.domItems.stepHeading);
       Scenes.domItems.stepTitle.innerHTML = "Step 4"
         Scenes.domItems.stepDescription.innerHTML = "Mark the specimen at the continuous interval of Lo/2 or Lo/3:"
         show(Scenes.domItems.tableCalc)
@@ -676,11 +717,11 @@ const Scenes = {
           targets: Scenes.domItems.tableCalc,
           // Todo increase size of table
           left: 680,
-          top: 250,
+          top: 230,
         })
-        Scenes.img.tableCrop.set(20, 50, 320, 680);
-        Scenes.img.bare_raber2.set(43, 132, 25).zIndex(5);
-        Scenes.img.marker.set(350,130,150).zIndex(5).rotate(50)
+        Scenes.img.tableCrop.set(20, 50, 320, 680).push();
+        Scenes.img.bare_raber2.set(43, 132, 25).zIndex(5).push();
+        Scenes.img.marker.set(350,130,150).zIndex(5).rotate(50).push()
         
         Scenes.incCurrentSubStep()
         break;
@@ -712,12 +753,12 @@ const Scenes = {
           },800)
           .add({
             begin(){
-              Scenes.img.bare_raber2marked.set(43, 132, 25).zIndex(5);
+              Scenes.img.bare_raber2marked.set(43, 132, null,650).zIndex(5).push();
             }
           },800)
           .add({
             begin(){
-              Scenes.img.larrow.set(60,170,35).zIndex(5).rotate(180)
+              Scenes.img.larrow.set(60,170,35).zIndex(5).rotate(180).push()
               show(Scenes.domItems.tempText)
               set(Scenes.domItems.tempText,108,187)
               Scenes.domItems.tempText.innerHTML = "30mm";
@@ -725,9 +766,14 @@ const Scenes = {
           },800)
           .add({
             begin(){
-              
+              // // remove all images and dom
+              Img.hideAll();
+              hide(Scenes.domItems.tableCalc)
+              // // remove all markings
+              hideAll(".markings");
+              hide(Scenes.domItems.tempText);
             }
-          })
+          },9000)
           Scenes.resetSubStep()
           return true;
           break;
@@ -735,16 +781,348 @@ const Scenes = {
       return false;
     },
     s7 = function(){
+      switch(Scenes.subCurrentStep){
+        case 0:
+          show(Scenes.domItems.stepHeading,"flex");
+          Scenes.domItems.stepTitle.innerHTML = "Step 5"
+          Scenes.domItems.stepDescription.innerHTML = "Insert the specimen in the UTM such that the load is axially applied on the specimen:"
+          Scenes.img.new_utm.set(30,0,380,400).push();
+          Scenes.img.bare_raber2marked.set(670,220,null,230).zIndex(5).rotate(30).push()
+          Scenes.img.extensometer.set(610, 130, 120).zIndex(1).push()
+          Scenes.img.table.set(560, 200, 150).push()
+          Scenes.incCurrentSubStep();
+          break;
+        
+        case 1:
+          anime({
+            targets: Scenes.img.bare_raber2marked.img,
+            easing: "easeInOutQuad",
+            rotate: 90,
+            top: "-=60",
+            left: 88,
+            height:"+=1",
+            width: "-=95",
+            duration: 2000,
+          })
+          Scenes.resetSubStep();
+          return true;
+      }
+      return false;
+    },
+    s8 = function(){
+      switch(Scenes.subCurrentStep){
+        case 0:
+          show(Scenes.domItems.stepHeading,"flex");
+          Scenes.domItems.stepTitle.innerHTML = "Step 6"
+          Scenes.domItems.stepDescription.innerHTML = "Attach the extensometer to the specimen:"
+          Scenes.img.size.set(545,184,null,105).zIndex(5).rotate(90).push();
+          Scenes.domItems.tempText.innerHTML = "<center>50 mm<center>(Gauge Length)";
+          set(Scenes.domItems.tempText,440,163);
+          Scenes.incCurrentSubStep();
+          break;
+        
+        case 1:
+          anime({
+            targets: Scenes.img.extensometer.img,
+            easing: "easeInOutQuad",
+            begin(){
+              hide(Scenes.domItems.tempText);
+              Scenes.img.size.hide();
+            },
+            left: 161,
+            top: "+=50",
+            height: 40,
+            duration: 1500,
+            complete(){
+              Scenes.img.table.hide();
+            }
+          })
+          Scenes.resetSubStep();
+          return true;
+      }
+      return false;
+    },
+    s9 = function(){
+      switch(Scenes.subCurrentStep){
+        case 0:
+          show(Scenes.domItems.stepHeading,"flex");
+          Scenes.domItems.stepTitle.innerHTML = "Step 7"
+          Scenes.domItems.stepDescription.innerHTML = "Start the Universal Testing Machine:"
+          anime({
+            targets: Scenes.domItems.utmBtn,
+            opacity: 1,
+          })
+          Scenes.img.highlightArrow.set(232,90,50).rotate(-90).push();
+          var arrowBlink = anime({
+            targets: Scenes.img.highlightArrow.img,
+            easing: "easeInOutExpo",
+            opacity: 1,
+            translateX: 20,
+            direction: "alternate",
+            loop: true,
+            autoplay: false,
+            duration: 300,
+          })
+          arrowBlink.play();
+          // onclick
+          Scenes.domItems.utmBtn.onclick = function(){
+            arrowBlink.pause();
+            Scenes.img.highlightArrow.hide();
+            Scenes.img.arrow.set(320,80,null,200).rotate(-20).zIndex(5).push();
+            Scenes.img.graph1.set(508,129,220)
 
-    }
+          }
+          Scenes.resetSubStep();
+          return true;
+          break;          
+      }
+      return false;
+    },
+    s10 = function(){
+        show(Scenes.domItems.stepHeading,"flex");
+        Scenes.domItems.stepTitle.innerHTML = "Step 8"
+        Scenes.domItems.stepDescription.innerHTML = "Record Simultaneously the readings of load from the UTM and elongation from the extensometer:"
+        return true;
+    },
+    s11 = function(){
+          show(Scenes.domItems.stepHeading,"flex");
+          Scenes.domItems.stepTitle.innerHTML = "Step 9"
+          Scenes.domItems.stepDescription.innerHTML = "Remove the extensometer carefully close to the ultimate strength:"
+          // Scenes.img.graph1.hide()  
+          // Scenes.img.arrow.hide()
+          anime({
+            targets: Scenes.img.graph1.img,
+            
+          })
+          Scenes.img.highlightArrow.set(150,120,50).rotate(-90).push().zIndex(7);
+          var arrowBlink = anime({
+            targets: Scenes.img.highlightArrow.img,
+            easing: "easeInOutExpo",
+            opacity: 1,
+            translateX: 20,
+            direction: "alternate",
+            loop: true,
+            autoplay: false,
+            duration: 300,
+          })
+          arrowBlink.play();
+          // onclick
+          Scenes.img.extensometer.img.onclick = function(){
+            arrowBlink.pause();
+            Scenes.img.highlightArrow.hide();
+            anime.timeline({
+              easing: "easeInOutExpo",
+              targets: Scenes.img.extensometer.img,
+            })
+            .add({
+              top: "+=150",
+            })
+            .add({
+              left: 450,
+              scale: 2,
+            })
+            .add({
+              begin(){
+                Scenes.img.arrow.set(320,80,null,200).rotate(-20).zIndex(5).push()
+                Scenes.img.graph2.set(508,129,220)
+              }
+            })
+          }
+      return true;
+    },
+    s12 = function(){
+      switch(Scenes.subCurrentStep){
+
+        case 0:
+          Scenes.img.graph1.hide()
+      show(Scenes.domItems.stepHeading,"flex");
+      Scenes.domItems.stepTitle.innerHTML = "Step 10"
+      Scenes.domItems.stepDescription.innerHTML = "This maximum reading of load in stress strain curve corresponds to the Ultimate load:"
+      Scenes.domItems.utmBtn.style.backgroundColor = "red"
+      set(Scenes.domItems.utmBtn,240,184)
+      Scenes.img.highlightArrow.set(220,198,50).rotate(90).push().zIndex(7);
+      var arrowBlink = anime({
+        targets: Scenes.img.highlightArrow.img,
+        easing: "easeInOutExpo",
+        opacity: 1,
+        translateX: 20,
+        direction: "alternate",
+        loop: true,
+        autoplay: false,
+        duration: 300,
+      })
+      arrowBlink.play();
+      Scenes.domItems.utmBtn.onclick = function(){
+        console.log("ram")
+        arrowBlink.pause();
+        Scenes.img.highlightArrow.hide();
+        Scenes.img.graph2.hide()
+        Scenes.img.arrow.set(320,80,null,200).rotate(-20).zIndex(5).push()
+        Scenes.img.graph3.set(508,129,220).opacity(0);
+        anime.timeline({
+          easing: "easeInOutExpo"
+        })
+        .add({
+          targets: Scenes.img.graph3.img,
+          opacity: 1,
+        })
+      }
+      Scenes.incCurrentSubStep();
+      break;
+      case 1:
+        Scenes.img.new_utm.hide();
+        Scenes.img.bare_raber2marked.hide();
+        Scenes.img.extensometer.hide();
+        Scenes.img.arrow.hide();
+        Scenes.img.graph2.hide();
+        Scenes.img.graph3.hide();
+        hide(Scenes.domItems.utmBtn);
+        Scenes.domItems.stepDescription.innerHTML += "<br><br><b><u>Calculations:<u><b>"
+        Scenes.img.graph4.set(160,0,250);
+        Scenes.domItems.tempText.innerHTML = "<b>Reading at Yield Point = 480.84 MPa<br>(from 0.2% offset method)<br>Reading of ultimate strength point = 600.62 MPa";
+        show(Scenes.domItems.tempText)
+        set(Scenes.domItems.tempText,172,297)
+        Scenes.resetSubStep()
+      return true;
+      break;
+      }
+      return false
+    },
+    s13 = function(){
+          Scenes.img.graph4.hide();
+          hide(Scenes.domItems.tempText);
+          show(Scenes.domItems.stepHeading,"flex");
+          Scenes.domItems.stepTitle.innerHTML = "Step 11"
+          Scenes.domItems.stepDescription.innerHTML = "Fit the two pieces together so that their axes lies in a straight line:"
+          Scenes.img.tableCrop.set(50,70,null,800);
+          Scenes.img.break1.set(220,100,null,450).zIndex(5)
+          Scenes.img.break2.set(320,100,null,450).zIndex(7)
+          Scenes.img.varniarfull.set(180,120,null,300).zIndex(5)
+          // onclick 
+          Scenes.img.break2.img.onclick = function(){
+            anime({
+              easing: "easeInOutQuad",
+              targets : Scenes.img.break2.img,
+              left: 180,
+              duration: 1000,
+            })
+          }
+          // onclick
+          Scenes.img.varniarfull.img.onclick = function(){
+            anime.timeline({
+              easing: "easeInOutQuad"
+            })
+            .add({
+              targets : Scenes.img.varniarfull.img,
+              left: 435,
+              scale: 1.4,
+              duration: 1000,
+              complete(){
+                Scenes.img.varniarfull.hide()
+                Scenes.img.varniarLeft.set(435,120,null,300).zIndex(6).scale(1.4);
+                Scenes.img.varniarRight.set(410,128,null,100).zIndex(6).scale(1.4);
+                anime({
+                easing: "easeInOutQuad",
+                targets:  Scenes.img.varniarRight.img,
+                  left: 462,
+                  duration: 1000,
+                  complete(){
+                    Scenes.img.reading1.set(462,128,null,100).zIndex(6).scale(1.4);
+                  }
+                })
+              }
+            })
+          
+          }
+
+          // varniar right and left
+          Scenes.img.varniarLeft.img.onclick = varniarVerticalMove;
+          Scenes.img.reading1.img.onclick = varniarVerticalMove;
+          function varniarVerticalMove(){
+            Scenes.img.reading1.hide();
+            anime.timeline({
+              easing: "easeInOutQuad",
+            })
+            .add({
+              targets: Scenes.img.varniarRight.img,
+              left: 410,
+              complete(){
+                Scenes.img.varniarLeft.hide()
+                Scenes.img.varniarRight.hide()
+                Scenes.img.varniarfull.show().zIndex(8)
+
+              }
+            })
+            .add({
+              targets: Scenes.img.varniarfull.img,
+              rotate: 90,
+              top: 220,
+            })
+            .add({
+              targets: Scenes.img.varniarfull.img,
+              left: 330,
+              complete(){
+                Scenes.img.varniarLeft.set(330,220).rotate(90).zIndex(8)
+                Scenes.img.varniarRight.set(427,100,null,100).rotate(90).zIndex(8)
+                Scenes.img.varniarfull.hide();
+              }
+            })
+            .add({
+              targets: Scenes.img.varniarRight.img,
+              top:114,
+              complete(){
+                Scenes.img.reading2.set(427,114,null,100).scale(1.4).rotate(90).zIndex(9)
+              }
+            })
+          }
+      return true
+  },
+  s14 = function(){
+    Scenes.img.varniarLeft.hide();
+    Scenes.img.varniarRight.hide();
+    Scenes.img.varniarfull.hide();
+    Scenes.img.break1.hide();
+    Scenes.img.break2.hide();
+    Scenes.img.reading2.hide();
+    Scenes.img.tableCrop.hide();
+    hide(Scenes.domItems.stepHeading);
+    Scenes.domItems.tempText.innerHTML = '<b><u>Calculations:</u><b>'
+    set(Scenes.domItems.tempText,0,0)
+    Scenes.img.lastCalc.set(120,5)
+    return true;
+  },
+  s15 = function(){
+    Scenes.img.lastCalc.hide()
+    let currentDate = new Date()
+    currentDate = `${currentDate.getDate()} - ${currentDate.getMonth()+1} - ${currentDate.getFullYear()}<br>Grade of Steel:       550 SD steel`
+    Scenes.domItems.tempText.innerHTML = `<b>Results<br>Date of test:       ${currentDate}</b>`
+    set(Scenes.domItems.tempText,40,0)
+    Scenes.img.finalLastCalc.set(40,80,350,800)
+    return true;
+  },
+  s16 = function(){
+    Scenes.img.finalLastCalc.hide();
+    Scenes.domItems.tempText.backgroundColor = "transparent"
+    Scenes.domItems.tempText.innerHTML = `<b>Hurray !! ${student_name}, you are completed<b>`;
+    let cele = get(".celebration");
+    cele.style.height = "400px";
+    set(cele,200,0)
+    set(Scenes.domItems.tempText,350,50)
+    opacity(Scenes.domItems.tempText,0)
+    anime({
+      targets: Scenes.domItems.tempText,
+      opacity:1,
+    })
+    return true;
+  }
   ],
   back() {},
   next() {
     if (this.currentStep < this.steps.length) {
-      if (this.steps[this.currentStep]()) {
+      if ( this.steps[this.currentStep]()) {
         this.currentStep++;
       } 
-      else {
+      else { 
       }
     }
   },
@@ -752,7 +1130,34 @@ const Scenes = {
 
 
 
-
+// Scenes.steps[5]();
+// Scenes.steps[5]();
+// Scenes.steps[5]();
+// Scenes.steps[6]();
+// Scenes.steps[6]();
+// Scenes.steps[6]();
+// Scenes.steps[7]();
+// Scenes.steps[7]();
+// Scenes.steps[8]();
+// Scenes.steps[8]();
+// Scenes.steps[9]();
+// Scenes.steps[10]();
+// Scenes.steps[11]();
+// Scenes.steps[11]();
+// Scenes.steps[6]();
+// Scenes.steps[6]();
+// Scenes.steps[6]();
+// Scenes.steps[7]();
+// Scenes.steps[7]();
+// Scenes.steps[7]();
+// Scenes.steps[8]();
+// Scenes.steps[8]();
+// Scenes.steps[9]();
+// Scenes.steps[10]();
+// Scenes.steps[11]();
+// Scenes.steps[11]();
+// Scenes.steps[12]();
+// Scenes.steps[15]();
 
 
 

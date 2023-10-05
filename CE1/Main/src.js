@@ -88,6 +88,9 @@ const src = {
         tape: this.allImgsDom[80],
         tableCrop: this.allImgsDom[81],
         measurearrow2: this.allImgsDom[82],
+        highlightArrow: this.allImgsDom[83],
+        lastCalc: this.allImgsDom[84],
+        finalLastCalc: this.allImgsDom[85],
       };
     },
     allImgsInitialAxis: [],

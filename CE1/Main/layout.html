@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="layout.css" />
     <link rel="stylesheet" href="progressBar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
     <link rel="stylesheet" href="imgs.css" />
     <link rel="stylesheet" href="scenes.css" />
+    <link rel="stylesheet" href="table.css" />
   </head>
   <img src="" alt="" />
   <body onmousemove="getCursor(event)">
@@ -157,6 +159,7 @@
               <form onsubmit="return false" class="user-input">
                 <p>Enter your name:</p>
                 <input type="text" name="" id="stuName" />
+                <p class="error">Please enter your name before start</p>
                 <input
                   class="btn"
                   id="nameSubmitBtn"
@@ -710,6 +713,12 @@
                 alt="finalLastCalc.png"
               />
               <img
+                class="main-window-imgs"
+                src="./src/images/blinkArrow.webp"
+                title="blinkArrow.webp"
+                alt="blinkArrow.webp"
+              />
+              <img
                 class="celebration"
                 src="./src/images/celebration.gif"
                 title="celebration.gif"
@@ -811,15 +820,13 @@
                 title="redsize"
                 alt="redsize"
               />
-              <span class="temp-text">40</span>
+              <span style="background-color: transparent;font-weight: bold;" class="temp-text"></span>
             </section>
             <section class="anime-footer">
-              <a href="#" class="btn btn-prev">Back</a>
+              <a href="#" class="btn btn-back">Back</a>
               <div class="steps-subtitle">
-                <p class="user-name">Hey👋 Sneha</p>
+                <!-- <p class="user-name">Hey👋 Sneha</p> -->
                 <p class="subtitle">
-                  India Lorem ipsum dolor sit amet consectetur, adipisicing
-                  elit. Accusamus sit eaque facilis corporis earum.
                 </p>
               </div>
               <a href="#" class="btn btn-next">Next</a>

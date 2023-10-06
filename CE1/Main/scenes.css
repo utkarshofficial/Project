@@ -30,8 +30,10 @@
 
 /* step2 - project intro */
 .project-intro{
+    top: 0;
     padding: 10px;
     display: none;
+    position: relative;
 }
 
 .project-intro .heading{
@@ -76,7 +78,7 @@
 .temp-input span{
     margin: 5px;
 }
-.temp-input .error{
+.error{
     color: red;
     font-size: 1rem;
     text-align: center;

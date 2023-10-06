@@ -91,6 +91,7 @@ const src = {
         highlightArrow: this.allImgsDom[83],
         lastCalc: this.allImgsDom[84],
         finalLastCalc: this.allImgsDom[85],
+        blinkArrow: this.allImgsDom[86],
       };
     },
     allImgsInitialAxis: [],

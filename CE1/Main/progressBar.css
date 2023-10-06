@@ -102,9 +102,11 @@
     padding: 0.75rem;
     display: block; 
     text-decoration: none;
-    background-color: var(--primary);
-    color: #f3f3f3;
+    /* background-color: var(--primary); */
+    background-color: #FFDBC3;
+    color: black;
     text-align: center;
+    border: none;
     border-radius: 0.25rem;
     cursor: pointer;
     transition: 0.3s;
@@ -112,6 +114,7 @@
     margin: 0 10px;
     font-family: Roboto;
     font-weight: bold;
+    
 }
 
 .btn:hover {

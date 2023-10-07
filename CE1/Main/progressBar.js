@@ -1,28 +1,31 @@
+// * progress bar
 const prevBtns = document.querySelector(".btn-prev");
 const nextBtns = document.querySelector(".btn-next");
 const progress = document.getElementById("progress");
 const progressSteps = document.querySelectorAll(".progress-step");
 
-let steps = 0;
-let totalSteps = 11;
 
-nextBtns.addEventListener("click", () => {
-    if(steps < totalSteps - 1){
-        steps++;
+let currProgressStep = -1;
+// total steps from the number of drawer items
+let totalProgressSteps = document.querySelectorAll(".step").length;
+
+const nextProgressBar = () => {
+    if(currProgressStep < totalProgressSteps - 1){
+        currProgressStep++;
         updateProgressbar();
     }
-});
+};
 
-prevBtns.addEventListener("click", () => {
-    if(steps > 0){
-        steps--;
+const backProgressBar =  () => {
+    if(currProgressStep > 0){
+        currProgressStep--;
         updateProgressbar();
     }
-});
+};
 
 function updateProgressbar() {
   progressSteps.forEach((progressStep, idx) => {
-    if (idx < steps + 1) {
+    if (idx < currProgressStep + 1) {
       progressStep.classList.add("progress-step-active");
     } else {
         progressStep.classList.remove("progress-step-active");

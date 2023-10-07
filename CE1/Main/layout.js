@@ -6,7 +6,7 @@ let activeIdx = 0;
 //         event.
 //     });
 // }
-function next() {
+function nextDrawerItem() {
   if (activeIdx < listItems.length) {
     listItems[activeIdx].classList.add("active");
     if (activeIdx > 0) {
@@ -17,7 +17,7 @@ function next() {
   activeIdx = activeIdx < listItems.length ? activeIdx + 1 : activeIdx;
 }
 
-function back() {
+function backDrawerItem() {
   if (activeIdx <= 1) return;
   activeIdx--;
   listItems[activeIdx].classList.remove("active");

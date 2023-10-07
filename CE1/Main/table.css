@@ -8,7 +8,17 @@ table {
     overflow: hidden;
 }
 
+main.table {
+    min-width: 600px;
+    height: 430px;
+    background-color: #fff5;
 
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+
+    overflow: overlay;
+}
 .table__header .input-group {
     width: 35%;
     height: 100%;
@@ -42,15 +52,16 @@ table {
     outline: none;
 }
 
-.table__body {
+main .table__body {
     /* width: 95%; */
     /* max-height: calc(89% - 1.6rem); */
     background-color: #fffb;
-
+    display: flex;
+    justify-content: center;
     border-radius: .6rem;
 
     overflow: auto;
-    overflow: overlay;
+    /* overflow: overlay!important; */
 }
 
 .table__body::-webkit-scrollbar{
@@ -132,3 +143,21 @@ tbody tr.hide td img {
     height: 0;
     transition: .2s ease-in-out .5s;
 }
+
+
+
+.result-table{
+    position: absolute;
+    left: 400;
+    display: none;
+}
+
+.result-table .table__header{
+    height: "";
+    min-width: 600px!important;
+}
+.result-table th{
+    display: flex;
+    align-items: center;
+}
+

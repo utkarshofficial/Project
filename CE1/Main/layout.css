@@ -11,7 +11,8 @@ body{
     max-width: 230px;
     padding: 10px;
     background-color: #f8f9fa;
-    height: calc(100vh - 100px);
+    height: 638px;
+    overflow-y: auto;
     grid-area: drawer;
     grid-column-start: 1;
 }
@@ -55,6 +56,11 @@ body{
     font-size: 14px;
     font-weight: bold;
     color: white;
+}
+
+.right-container{
+    width: 100%;
+    display: flex;
 }
 
 .active{
@@ -119,6 +125,7 @@ body{
 
 .right-box{
     display: flex;
+    margin-left: 8%;
     flex-direction: column;
 }
 
@@ -149,7 +156,6 @@ body{
 }
 .step-heading .step-title{
     background-color: #9F91CC;
-    color: black;
     border-radius: 20px;
     font-weight: bold;
     padding: 10px 15px;
@@ -170,9 +176,10 @@ body{
 }
 
 /* temp text */
-.anime-main .temp-text{
+.anime-main .temp-text, .temp-text2{
     position: absolute;
     background-color: white;
     padding: 5px 10px;
     display: none;
 }
+

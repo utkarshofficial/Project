@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="layout.css" />
     <link rel="stylesheet" href="progressBar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
     <link rel="stylesheet" href="imgs.css" />
     <link rel="stylesheet" href="scenes.css" />
     <link rel="stylesheet" href="table.css" />
+    <link rel="stylesheet" href="quiz.css" />
+    <link rel="stylesheet" href="certificate.css" />
+  
   </head>
   <img src="" alt="" />
-  <body onmousemove="getCursor(event)">
+  <body  onmousemove="getCursor(event)">
     <!-- Mouse Position -->
     <div id="demo">
       <div id="info"></div>
@@ -33,9 +35,15 @@
             <li class="">
               <a>
                 <span class="step">
+                  <span>Objective</span>
+                </span>
+              </a>
+            </li>
+            <li class="">
+              <a>
+                <span class="step">
                   <span
-                    >Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Nam, velit?</span
+                    >Calculation of cross-sectional area</span
                   >
                 </span>
               </a>
@@ -43,63 +51,77 @@
             <li>
               <a>
                 <span class="step">
-                  <span>Lorem ipsum dolor sit amet.</span>
+                  <span>Calculation of gauge length</span>
                 </span>
               </a>
             </li>
             <li>
               <a>
                 <span class="step">
-                  <span>Lorem ipsum dolor sit amet.</span>
+                  <span>Choose gauge length</span>
                 </span>
               </a>
             </li>
             <li>
               <a>
                 <span class="step">
-                  <span>Lorem ipsum dolor sit amet.</span>
+                  <span>Mark the specimen</span>
                 </span>
               </a>
             </li>
             <li>
               <a>
                 <span class="step">
-                  <span>Lorem ipsum dolor sit amet.</span>
+                  <span>"Insert the specimen in the UTM</span>
                 </span>
               </a>
             </li>
             <li>
               <a>
                 <span class="step">
-                  <span>Lorem ipsum dolor sit amet.</span>
+                  <span>Attach the extensometer to the specimen</span>
                 </span>
               </a>
             </li>
             <li>
               <a>
                 <span class="step">
-                  <span>Lorem ipsum dolor sit amet.</span>
+                  <span>Start the Universal Testing Machine</span>
                 </span>
               </a>
             </li>
             <li>
               <a>
                 <span class="step">
-                  <span>Lorem ipsum dolor sit amet.</span>
+                  <span>Record Simultaneously the readings of load</span>
                 </span>
               </a>
             </li>
             <li>
               <a>
                 <span class="step">
-                  <span>Introduction</span>
+                  <span>"Remove the extensometer</span>
                 </span>
               </a>
             </li>
             <li>
               <a>
                 <span class="step">
-                  <span>Introduction</span>
+                  <span>Note the maximum reading</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Fit the two pieces together</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Completed</span>
                 </span>
               </a>
             </li>
@@ -116,6 +138,9 @@
                 class="progress-step progress-step-active"
                 data-title=""
               ></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
               <div class="progress-step" data-title=""></div>
               <div class="progress-step" data-title=""></div>
               <div class="progress-step" data-title=""></div>
@@ -187,6 +212,79 @@
                   </tr>
                 </tbody>
               </table>
+              <!-- Result table -->
+              <main class="table result-table" >
+                <section class="table__header">
+                  <h4 style="margin-left: 32px;">
+                    Results<br>Date of test: <span id="date"></span><br>
+                    Grade of Steel: 550 SD steel
+                  </h4>
+                </section>
+                <section class="table__body" style="display: flex; justify-content: center; overflow-y: overlay;">
+                  <table class="">
+                    <tbody>
+                      <tr>
+                        <th class="cell" scope="col">Weight of specimen (g)</th>
+                        <td class="cell">698</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">Length of specimen (mm)</th>
+                        <td class="cell">805</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Effective cross-sectional area, S<sub>o</sub>(mm<sup>2</sup>) =
+                          <img height="45" src="./src/images/S0_formula5.png" alt="">
+                        </th>
+                        <td class="cell">110.4</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Original gauge length L (mm) =
+                          <img height="20" src="./src/images/S0_formula3.png" alt="">
+                        </th>
+                        <td class="cell">59.4</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Choosen gauge length L<sub>o</sub> (mm)
+                        </th>
+                        <td class="cell">60</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">Yield Stress (MPa)</th>
+                        <td class="cell">480.84</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">Tensile Strength (MPa)</th>
+                        <td class="cell">600.62</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">TS/YS Ratio</th>
+                        <td class="cell">1.25</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Final gauge length, L<sub>u</sub> mm
+                        </th>
+                        <td class="cell">77</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">Final diameter minimum (mm)</th>
+                        <td class="cell">7.1</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">% Elongation after fracture</th>
+                        <td class="cell">28.33</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">% Reduction in area</th>
+                        <td class="cell">64.13</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </main>
               <!-- s2 5 -->
               <form onsubmit="return false" class="temp-input">
                 <span class="text1"></span><input class="input" type="text" name="" id="ipnum"><span class="text2"></span>
@@ -195,6 +293,62 @@
               </form>
               <!-- for the green utm button -->
               <div class="utm-button"></div>
+
+              <!-- Quiz container -->
+              <div class="quiz-container" id="quiz">
+                <div class="quiz-header">
+                  <div class="title">
+                    <h2 id="question">Question text</h2>
+                    <span id="closeQuiz">+</span>
+                  </div>
+                  <ul>
+                    <li>
+                      <input type="radio" id="a" name="answer" class="answer" />
+                      <label id="a_text" for="a">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="answer" class="answer" />
+                      <label id="b_text" for="b">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="answer" class="answer" />
+                      <label id="c_text" for="c">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="answer" class="answer" />
+                      <label id="d_text" for="d">Question</label>
+                    </li>
+                  </ul>
+                </div>
+                <button id="submit">Submit</button>
+              </div>
+
+              <!-- Certificate -->
+              <div class="certificate">
+                <div class="header">
+                  <img src="./src/images/logo.png" alt="" class="logo" />
+                  <span class="title cursive">Certificate of Completion</span>
+                </div>
+                <div class="student-detail">
+                  <div class="row">
+                    <span class="bold" id="certificateStuName">Your Name</span>
+                    <hr />
+                  </div>
+                  <div class="row">
+                    <span class="cursive">has succesfully completed and secured</span>
+                    <span class="bold sans"><span id="quizScore">0</span>/5 marks</span>
+                    <hr />
+                  </div>
+                  <div class="row">
+                    <span class="cursive"
+                      >while completing the virtual lab entitled by</span
+                    >
+                    <span class="bold sans">VIRTUAL LABS - IIT Delhi</span>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+
               <!-- images -->
               <img
                 class="main-window-imgs"
@@ -821,12 +975,13 @@
                 alt="redsize"
               />
               <span style="background-color: transparent;font-weight: bold;" class="temp-text"></span>
+              <span style="background-color: transparent;font-weight: bold;" class="temp-text2"></span>
             </section>
             <section class="anime-footer">
               <a href="#" class="btn btn-back">Back</a>
               <div class="steps-subtitle">
                 <!-- <p class="user-name">Hey👋 Sneha</p> -->
-                <p class="subtitle">
+                <p class="subtitle" id="subtitle">
                 </p>
               </div>
               <a href="#" class="btn btn-next">Next</a>
@@ -837,6 +992,7 @@
     </div>
 
     <script src="src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
     <script src="progressBar.js"></script>
     <script src="layout.js"></script>
     <script src="main.js"></script>

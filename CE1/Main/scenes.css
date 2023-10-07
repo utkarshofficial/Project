@@ -22,6 +22,8 @@
 
 }
 
+
+
 .anime-header{
     display: none;
     position: relative;
@@ -91,18 +93,17 @@
 }
 
 .temp-input .submit-btn{
-    
+    margin: 20px 0;
 }
 
 /* step 7 */
 .utm-button{
     cursor: pointer;
     background-color: rgb(0, 255, 0);
-    height: 10px;
-    width: 10px;
-    padding: 5px;
+    padding: 4px;
+    box-shadow: 1px 1px 10px 3px green;
     border-radius: 50%;
-    border: 1px solid;
+    /* border: 1px solid; */
     left: 251px;
     top: 147px;
     position: absolute;

@@ -10,16 +10,6 @@ const Quiz = {
       d: "Erichsen machine",
       correct: "a",
     },
-
-    {
-      question: "The extensometer can be attached anywhere to the specimen _",
-      a: "Yes",
-      b: "No",
-      c: "No but sometime yes",
-      d: "None of the above",
-      correct: "b",
-    },
-
     {
       question:
         "Which one of the following, is not a unit of ultimate tensile strength?",
@@ -28,6 +18,14 @@ const Quiz = {
       c: "Kg/m3",
       d: "PSI",
       correct: "c",
+    },
+        {
+      question: "The extensometer can be attached anywhere to the specimen _",
+      a: "Yes",
+      b: "No",
+      c: "No but sometime yes",
+      d: "None of the above",
+      correct: "b",
     },
 
     {
@@ -47,6 +45,7 @@ const Quiz = {
       d: "0.2mm",
       correct: "b",
     },
+    
   ],
   quiz_contianer:document.querySelector(".quiz-container"),
   quiz: document.getElementById("quiz"),
@@ -117,6 +116,76 @@ const Quiz = {
   },
 };
 
+
+// * ChartJs
+const ChartGraph = {
+  ctx: document.getElementById("myChart"),
+  ctxBox: document.querySelector(".chart"),
+  graphs: [
+    (Graph1 = {
+      labels: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07],
+      datapoints: [0, 100, 185, 260, 360, 435, 452],
+    }),
+    (Graph2 = {
+      labels: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
+      datapoints: [0, 470, 488, 512, 515, 570],
+    }),
+    (Graph3 = {
+      labels: [0, 0.02, 0.04, 0.06, 0.08, 1, 1.2],
+      datapoints: [0, 480, 520, 560, 602, 535],
+    }),
+    (Graph4 = {
+      labels: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07],
+      datapoints: [0, 100, 185, 260, 360, 435, 452],
+    }),
+  ],
+  currGr: null,
+  delete:function(){
+    this.ctxBox.style.display = "none";
+    this.currGr.destroy();
+  },
+  view:function(num,left,top,height=null,width=null){
+    if(height!=null)
+      this.ctxBox.style.height = height + "px!important";
+    if(width!=null)
+      this.ctxBox.style.width = width + "px!important";
+    this.ctxBox.style.left = left + "px";
+    this.ctxBox.style.top = top + "px";
+    this.ctxBox.style.display = "block";
+    this.currGr = new Chart(this.ctx, 
+    {
+      type: "line",
+      data: {
+        labels: this.graphs[num].labels,
+        datasets: [
+          {
+            label: "Engineering Stress-Strain Curve",
+            data: this.graphs[num].datapoints,
+            borderWidth: 1,
+            tension: 0.4,
+          },
+          // {
+          //   label: "_",
+          //   data: [0, 470],
+          //   borderWidth: 1,
+          // },
+        ],
+      },
+      options: {
+        borderWidth: 3,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    }
+    )
+    return this;
+  }
+}
+
+
 Quiz.init();
 
 // for restriction on next button ;
@@ -138,9 +207,9 @@ const getAll = (query) => {
   return document.querySelectorAll(query);
 };
 
-const show = (ele, disp = "block") => {
+const show = (ele, disp = "block", opa = 1) => {
   ele.style.display = disp;
-  ele.style.opacity = 1;
+  ele.style.opacity = opa;
 };
 const opacity = (ele, val = 1) => {
   ele.style.opacity = val;
@@ -152,6 +221,12 @@ const hideAll = (elesName, disp = "none") => {
   let eles = getAll(elesName);
   for (let ele of eles) {
     hide(ele);
+  }
+};
+const showAll = (elesName, disp = "none", opa = 1) => {
+  let eles = getAll(elesName);
+  for (let ele of eles) {
+    show(ele,"block",opa);
   }
 };
 
@@ -168,9 +243,13 @@ const set = (ele, l = null, t = null) => {
 let student_name = "";
 
 // for subtitile
+let ccObj = null
 function setCC(text = null, speed = null) {
+  if(ccObj!=null){
+    ccObj.destroy();
+  }
   let ccDom = get(".steps-subtitle .subtitle");
-  let typed2 = new Typed(ccDom, {
+  ccObj = new Typed(ccDom, {
     strings: ["", text],
     typeSpeed: 25,
   });
@@ -356,6 +435,8 @@ const Scenes = {
     table_color: new Img("table_color"),
     w000: new Img("000"),
     w698: new Img("875"),
+    scale50cm: new Img("scale50cm"),
+    off_screen: new Img("off_screen"),
   },
   domItems: {
     projectIntro: get(".project-intro"),
@@ -396,7 +477,8 @@ const Scenes = {
   incCurrentSubStep() {
     this.subCurrentStep++;
   },
-
+  // for typing hello text
+  intru:null,
   steps: [
     (intro = function () {
       // running
@@ -439,9 +521,13 @@ const Scenes = {
           .add({
             targets: Scenes.img.cloud.img,
             begin() {
-              Scenes.domItems.tempText.innerHTML = `Hey!<br>${fName}`;
+              // Scenes.domItems.tempText.innerHTML = `👋 Hey!<br>${fName}`;
               Scenes.domItems.tempText.style.fontWeight = "bold";
-              show(Scenes.domItems.tempText);
+              // show(Scenes.domItems.tempText);
+              intru = new Typed(Scenes.domItems.tempText, {
+                strings: ["", `Hey!👋<br>${fName}`],
+                typeSpeed: 25,
+              });
               set(Scenes.domItems.tempText, 482, 1);
               Scenes.img.cloud.set(450, -40, 180);
             },
@@ -459,12 +545,13 @@ const Scenes = {
       isRunning = true;
 
       // to hide previous step images
+      intru.destroy();
       Scenes.img.man.hide();
       Scenes.img.cloud.hide();
       hide(Scenes.domItems.tempText);
       let inputWindow = get(".user-input");
       inputWindow.style.display = "none";
-      Img.setBlinkArrow(true, 790, 348).play();
+      Img.setBlinkArrow(true, 790, 444).play();
       setCC("Click 'Next' to go to next step");
 
       show(Scenes.domItems.projectIntro);
@@ -565,7 +652,6 @@ const Scenes = {
                     easing: "easeInOutQuad",
                   })
                   .add({
-                    delay: 300,
                     targets: Scenes.img.tape2.img,
                     begin() {
                       // Scenes.img.tape2.set(110, 110, 45).zIndex(3).rotate(0).push();
@@ -577,7 +663,7 @@ const Scenes = {
                     {
                       targets: Scenes.img.tape2.img,
                       left: 622,
-                      duration: 2000,
+                      duration: 3000,
                     },
                     1000
                   )
@@ -586,7 +672,7 @@ const Scenes = {
                       targets: Scenes.img.table_color.img,
                       width: 0,
                       left: 650,
-                      duration: 2000,
+                      duration: 3000,
                       complete() {
                         Scenes.domItems.tempText.innerHTML =
                           "Total Length (m) = 0.805m";
@@ -602,7 +688,7 @@ const Scenes = {
                       left: 145,
                       duration: 1000,
                     },
-                    8500
+                    4000
                   )
                   .add(
                     {
@@ -610,7 +696,7 @@ const Scenes = {
                       left: 573,
                       duration: 1000,
                     },
-                    8500
+                    4000
                   )
                   .add({
                     begin: function (anim) {
@@ -806,7 +892,7 @@ const Scenes = {
                                                   Img.setBlinkArrow(
                                                     true,
                                                     790,
-                                                    418
+                                                    404
                                                   ).play();
                                                   isRunning = false;
                                                 },
@@ -913,7 +999,7 @@ const Scenes = {
               top: 75,
               complete() {
                 setCC("Click 'Next' to go to next step");
-                Img.setBlinkArrow(true, 790, 418).play();
+                Img.setBlinkArrow(true, 790, 404).play();
                 isRunning = false;
               },
             });
@@ -989,20 +1075,18 @@ const Scenes = {
               top: 60,
               complete() {
                 setCC("Click 'Next' to go to next step");
-                Img.setBlinkArrow(true, 790, 418).play();
+                Img.setBlinkArrow(true, 790, 404).play();
                 isRunning = false;
               },
             });
         }
       };
-      Quiz.loadQuiz();
       return true;
     }),
     (step4 = function () {
-      setCC(
-        " Click on the marker to mark the specimen at an interval of Lo/2 = 30 mm"
-      );
+      setCC(" Click on the marker to mark the specimen at an interval of Lo/2 = 30 mm");
       Img.setBlinkArrow(true, 415, 230, 70, null, -90).play();
+      Scenes.img.scale50cm.set(53, 160, 25,620).zIndex(5).push();
       isRunning = true;
       show(Scenes.domItems.stepHeading, "flex");
       Scenes.domItems.stepTitle.innerHTML = "Step 4";
@@ -1019,7 +1103,8 @@ const Scenes = {
           top: 10,
         });
       Scenes.img.tableCrop.set(20, 50, 320, 680).push();
-      Scenes.img.bare_raber2.set(43, 132, 25).zIndex(5).push();
+      Scenes.img.bare_raber2.set(43, 132, 25,647).zIndex(5).push();
+      Scenes.img.bare_raber2marked.set(43, 132, 25,0).zIndex(5).push();
       Scenes.img.marker.set(350, 130, 150).zIndex(5).rotate(50).push();
 
       // onclick marker
@@ -1035,6 +1120,10 @@ const Scenes = {
             top: 10,
             left: 6,
             duration: 1000,
+            complete(){
+              showAll(".markings2","block",0)
+              showAll(".markings3","block",0)
+            }
           })
           .add(
             {
@@ -1042,7 +1131,7 @@ const Scenes = {
               rotate: 0,
               top: 10,
               left: [
-                6, 50, 94, 138, 182, 226, 270, 314, 358, 402, 446, 490, 534,
+                10, 50, 94, 138, 182, 226, 270, 314, 358, 402, 446, 490, 534,
                 578, 622,
               ],
               duration: 5000,
@@ -1051,32 +1140,54 @@ const Scenes = {
           )
           .add(
             {
-              targets: ".markings",
+              targets: '.markings2',
               opacity: 1,
-              left: anime.stagger(),
-              duration: anime.stagger(900),
-            },
-            800
+              height: 25,
+              delay: function(el, i, l) {
+                return i * 294.8;
+              },
+            }
+            ,800
           )
           .add(
             {
-              begin() {
-                Scenes.img.bare_raber2marked
-                  .set(43, 132, null, 650)
-                  .zIndex(5)
-                  .push();
+              targets: ".markings",
+              // visibility: true,
+              opacity: 1,
+              // left: anime.stagger(),
+              // duration: anime.stagger(900),
+              // duration: ,
+              delay: function(el, i, l) {
+                return i * 294.8;
               },
             },
-            800
+          800
           )
+          // .add(
+          //   {
+          //     begin() {
+          //       Scenes.img.bare_raber2marked
+          //         .set(43, 132, null, 650)
+          //         .zIndex(5)
+          //         .push();
+          //     },
+          //   },
+          //   800
+          // )
           .add(
             {
               begin() {
-                Scenes.img.larrow.set(60, 170, 35).zIndex(5).rotate(180).push();
+                Scenes.img.larrow.set(60, 170, 35).zIndex(8).rotate(180).push();
                 show(Scenes.domItems.tempText);
                 set(Scenes.domItems.tempText, 108, 187);
-                Scenes.domItems.tempText.innerHTML = "30mm";
+                Scenes.domItems.tempText.innerHTML = "30mm<br>1cm = 10mm<br>3cm = 30mm";
               },
+              complete(){
+                get(".markings3").style.opacity = 1;
+                Scenes.img.larrow2.set(90,90,30).zIndex(5).push();
+                Scenes.domItems.tempText2.innerHTML = "60mm";
+                set(Scenes.domItems.tempText2,130,78)
+              }
             },
             800
           )
@@ -1085,6 +1196,7 @@ const Scenes = {
               complete() {
                 Img.setBlinkArrow(true, 790, 410).play();
                 setCC("Click 'Next' to go to next step");
+                Quiz.loadQuiz();
                 isRunning = false;
               },
             },
@@ -1101,7 +1213,10 @@ const Scenes = {
       hide(Scenes.domItems.tableCalc);
       // hide the markings
       hideAll(".markings");
+      hideAll(".markings2");
+      hideAll(".markings3");
       hide(Scenes.domItems.tempText);
+      hide(Scenes.domItems.tempText2);
 
       setCC("Click on the rebar to insert it on the specimen");
       Img.setBlinkArrow(true, 800, 145, 70, null, 120).play();
@@ -1110,12 +1225,13 @@ const Scenes = {
       Scenes.domItems.stepDescription.innerHTML =
         "Insert the specimen in the UTM such that the load is axially applied on the specimen:";
       Scenes.img.new_utm.set(30, 0, 380, 400).push();
+      Scenes.img.off_screen.set(298,180,40,100).zIndex(4).rotate(2)
       Scenes.img.bare_raber2marked
-        .set(670, 220, null, 230)
+        .set(670, 220, 10, 230)
         .zIndex(5)
         .rotate(30)
         .push();
-      Scenes.img.extensometer.set(610, 130, 120).zIndex(1).push();
+      Scenes.img.extensometer.set(610, 130, 120).zIndex(5).push();
       Scenes.img.table.set(560, 200, 150).push();
 
       // onclick
@@ -1134,6 +1250,7 @@ const Scenes = {
             setCC("Click 'Next' to go to next step");
             Img.setBlinkArrow(true, 790, 410).play();
             isRunning = false;
+            Quiz.loadQuiz();
           },
         });
       };
@@ -1184,16 +1301,20 @@ const Scenes = {
       Scenes.domItems.stepDescription.innerHTML =
         "Start the Universal Testing Machine:";
       set(Scenes.domItems.utmBtn);
-
+  
       setCC("Click on the start button to start the UTM.");
       Img.setBlinkArrow(true, 223, 60, 70, null, 90).play();
 
       // onclick utm btn
       Scenes.domItems.utmBtn.onclick = function () {
+        Scenes.img.off_screen.hide();
         console.log("wlaslkdg");
         Img.setBlinkArrow(-1);
         Scenes.img.arrow.set(320, 80, null, 200).rotate(-20).zIndex(5).push();
-        Scenes.img.graph1.set(508, 129, 220);
+        // !old
+        // Scenes.img.graph1.set(508, 129, 220);
+        // !new
+        ChartGraph.view(0,508,129);
         anime({
           delay: 700,
           complete() {
@@ -1254,12 +1375,17 @@ const Scenes = {
                 .rotate(-20)
                 .zIndex(5)
                 .push();
-              Scenes.img.graph2.set(508, 129, 220);
+              // ! new
+              ChartGraph.delete();
+              ChartGraph.view(1,508,129)
+              // ! old
+              // Scenes.img.graph2.set(508, 129, 220);
             },
             complete() {
               setCC("Click 'Next' to go to next step");
               Img.setBlinkArrow(true, 790, 410).play();
               isRunning = false;
+              Quiz.loadQuiz();
             },
           });
       };
@@ -1267,7 +1393,7 @@ const Scenes = {
     }),
     (step10 = function () {
       isRunning = true;
-      Scenes.img.graph1.hide();
+      // Scenes.img.graph1.hide();
       show(Scenes.domItems.stepHeading, "flex");
       Scenes.domItems.stepTitle.innerHTML = "Step 10";
       Scenes.domItems.stepDescription.innerHTML =
@@ -1282,10 +1408,15 @@ const Scenes = {
       Scenes.domItems.utmBtn.onclick = function () {
         Img.setBlinkArrow(-1);
 
-        Scenes.img.highlightArrow.hide();
-        Scenes.img.graph2.hide();
         Scenes.img.arrow.set(320, 80, null, 200).rotate(-20).zIndex(5).push();
-        Scenes.img.graph3.set(508, 129, 220).opacity(0);
+        Scenes.img.highlightArrow.hide();
+        
+        //! old
+        // Scenes.img.graph2.hide();
+        ChartGraph.delete();
+        //! new
+        ChartGraph.view(2,508,129)
+        // Scenes.img.graph3.set(508, 129, 220).opacity(0);
         anime
           .timeline({
             easing: "easeInOutExpo",
@@ -1300,8 +1431,8 @@ const Scenes = {
               Scenes.domItems.tempText.style.backgroundColor = "#FFDBC3";
 
               Scenes.domItems.tempText.style.cursor = "pointer";
-              set(Scenes.domItems.tempText, 835, 350);
-              Img.setBlinkArrow(true, 895, 280, 51, null, 90).play();
+              set(Scenes.domItems.tempText, 835, 60);
+              Img.setBlinkArrow(true, 895, 0, 51, null, 90).play();
               setCC("click on the 'Show Calculations' to see the calculations");
               // onclick
               Scenes.domItems.tempText.onclick = function () {
@@ -1310,12 +1441,18 @@ const Scenes = {
                 Scenes.img.bare_raber2marked.hide();
                 Scenes.img.extensometer.hide();
                 Scenes.img.arrow.hide();
-                Scenes.img.graph2.hide();
-                Scenes.img.graph3.hide();
+
+                // !old
+                // Scenes.img.graph2.hide();
+                // Scenes.img.graph3.hide();
+                ChartGraph.delete()
+                // !new
+                ChartGraph.view(3,160,0,250,450)
+                // Scenes.img.graph4.set(160, 0, 250);
+                
                 hide(Scenes.domItems.utmBtn);
                 Scenes.domItems.stepDescription.innerHTML +=
                   "<br><br><b><u>Calculations:<u><b>";
-                Scenes.img.graph4.set(160, 0, 250);
                 Scenes.domItems.tempText.innerHTML =
                   "<b>Reading at Yield Point = 480.84 MPa<br>(from 0.2% offset method)<br>Reading of ultimate strength point = 600.62 MPa";
                 show(Scenes.domItems.tempText);
@@ -1324,6 +1461,7 @@ const Scenes = {
                 setCC("Click 'Next' to go to next step");
                 Img.setBlinkArrow(true, 790, 410).play();
                 Scenes.domItems.tempText.style.backgroundColor = "transparent";
+                Quiz.loadQuiz();
                 isRunning = false;
               };
             },
@@ -1333,26 +1471,31 @@ const Scenes = {
     }),
     (step11 = function () {
       isRunning = true;
-      Scenes.img.graph4.hide();
+      // !old
+      // Scenes.img.graph4.hide();
+      // !new
+      ChartGraph.delete();
+
       hide(Scenes.domItems.tempText);
       show(Scenes.domItems.stepHeading, "flex");
       Scenes.domItems.stepTitle.innerHTML = "Step 11";
       Scenes.domItems.stepDescription.innerHTML =
         "Fit the two pieces together so that their axes lies in a straight line:";
       Scenes.img.tableCrop.set(50, 70, null, 800);
-      Scenes.img.break1.set(220, 100, null, 450).zIndex(5);
-      Scenes.img.break2.set(320, 100, null, 450).zIndex(7);
-      Scenes.img.varniarfull.set(180, 120, null, 300).zIndex(5);
+      Scenes.img.break1.set(130, 100, 25, 700).zIndex(5);
+      // Scenes.img.break2.set(66, 100, 25, 700).zIndex(7);
+      Scenes.img.break2.set(120, 100, 25, 700).zIndex(7);
+      Scenes.img.varniarfull.set(180, 120,98.14, 300).zIndex(5);
 
       setCC("Click on the raber to join the raber.");
-      Img.setBlinkArrow(true, 645, 130, 70, null, -90).play();
+      Img.setBlinkArrow(true, 645, 138, 70, null, -90).play();
       // onclick
       Scenes.img.break2.img.onclick = function () {
         Img.setBlinkArrow(-1);
         anime({
           easing: "easeInOutQuad",
           targets: Scenes.img.break2.img,
-          left: 180,
+          left: 66,
           duration: 1000,
           complete() {
             setCC(
@@ -1368,29 +1511,25 @@ const Scenes = {
                 })
                 .add({
                   targets: Scenes.img.varniarfull.img,
-                  left: 435,
-                  scale: 1.4,
+                  left: 393,
                   duration: 1000,
                   complete() {
                     Scenes.img.varniarfull.hide();
                     Scenes.img.varniarLeft
-                      .set(435, 120, null, 300)
-                      .zIndex(6)
-                      .scale(1.4);
+                      .set(393, 120, 98.14, 300)
+                      .zIndex(6);
                     Scenes.img.varniarRight
-                      .set(410, 128, null, 100)
-                      .zIndex(6)
-                      .scale(1.4);
+                      .set(408, 128, 88, 100)
+                      .zIndex(6);
                     anime({
                       easing: "easeInOutQuad",
                       targets: Scenes.img.varniarRight.img,
-                      left: 462,
+                      left: 480,
                       duration: 1000,
                       complete() {
                         Scenes.img.reading1
-                          .set(462, 128, null, 100)
+                          .set(480, 128, 88, 100)
                           .zIndex(6)
-                          .scale(1.4);
                         // next step
                         // varniar right and left
                         setCC(
@@ -1420,32 +1559,53 @@ const Scenes = {
                             })
                             .add({
                               targets: Scenes.img.varniarfull.img,
-                              rotate: 90,
+                              rotate: 60,
                               top: 220,
                             })
                             .add({
                               targets: Scenes.img.varniarfull.img,
-                              left: 330,
+                              top: 139,
                               complete() {
                                 Scenes.img.varniarLeft
-                                  .set(330, 220)
-                                  .rotate(90)
+                                  .set(393, 139)
+                                  .rotate(60)
                                   .zIndex(8);
+                                Scenes.img.varniarRight.hide();
                                 Scenes.img.varniarRight
-                                  .set(427, 100, null, 100)
-                                  .rotate(90)
+                                  .set(465, 100, 88, 100)
+                                  .rotate(60)
                                   .zIndex(8);
-                                Scenes.img.varniarfull.hide();
+                                  Scenes.img.varniarfull.hide();
+
                               },
                             })
                             .add({
                               targets: Scenes.img.varniarRight.img,
-                              top: 114,
+                              // custom animation
+                              begin(){
+                                let leftR = parseInt(Scenes.img.varniarRight.img.style.left)
+                                let topR = parseInt(Scenes.img.varniarRight.img.style.top)
+                                let varniarRinterval = setInterval(varniarRightCustom, 100);
+
+                                function varniarRightCustom(){
+                                  // 85 and 458 is last range
+                                  if(leftR === 458){
+                                    clearInterval(varniarRinterval);
+                                    return false;
+                                  }
+                                  leftR = leftR - 1;
+                                  topR = topR - 2;
+                                  Scenes.img.varniarRight.img.style.left = leftR + 'px';
+                                  Scenes.img.varniarRight.img.style.top = topR + 'px';
+                                  console.log(leftR,topR)
+                                }
+                              },
+                              // top: 85,
+                              // left: 458,
                               complete() {
                                 Scenes.img.reading2
-                                  .set(427, 114, null, 100)
-                                  .scale(1.4)
-                                  .rotate(90)
+                                  .set(458, 85, null, 100)
+                                  .rotate(60)
                                   .zIndex(9);
 
                                 setCC(
@@ -1490,7 +1650,7 @@ const Scenes = {
                                   Img.setBlinkArrow(
                                     true,
                                     860,
-                                    280,
+                                    350,
                                     51,
                                     null,
                                     90
@@ -1502,7 +1662,7 @@ const Scenes = {
 
                                   Scenes.domItems.tempText2.style.cursor =
                                     "pointer";
-                                  set(Scenes.domItems.tempText2, 835, 350);
+                                  set(Scenes.domItems.tempText2, 835, 280);
 
                                   // onclick
                                   Scenes.domItems.tempText2.onclick =
@@ -1524,6 +1684,7 @@ const Scenes = {
                                       setCC("Click 'Next' to go to next step");
                                       Img.setBlinkArrow(true, 790, 444).play();
                                       isRunning = false;
+                                      Quiz.loadQuiz();
                                       return true;
                                     };
                                 };
@@ -1542,20 +1703,24 @@ const Scenes = {
       return true;
     }),
     (completed = function () {
+      Img.setBlinkArrow(-1);
+      setCC("🚀 Take Screenshot and share with your friends 🚀.")
       hide(Scenes.domItems.resultTable);
-      Scenes.domItems.tempText.backgroundColor = "transparent";
+      hide(Scenes.domItems.tempText);
       // certificate name
       let certificateStuName = get("#certificateStuName");
       certificateStuName.innerHTML = student_name;
       get("#quizScore").innerHTML = Quiz.score;
-
       show(Scenes.domItems.certificate, "flex");
-      set(Scenes.domItems.tempText, 350, 50);
-      opacity(Scenes.domItems.tempText, 0);
-      anime({
-        targets: Scenes.domItems.tempText,
-        opacity: 1,
-      });
+
+      // * restart btn
+
+      let nxtBtn = get(".btn-next");
+      nxtBtn.innerHTML = "Restart";
+      nxtBtn.onclick = function(){
+        location.reload();
+      }
+
       return true;
     }),
   ],
@@ -1589,7 +1754,7 @@ const Scenes = {
   },
 };
 
-// Scenes.steps[1]();
+// Scenes.steps[8]();
 Scenes.next();
 
 const nextBtn = get(".btn-next");

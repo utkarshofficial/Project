@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Pinyon+Script|Rochester");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Pinyon+Script|Rochester|Homemade+Apple");
 
 .certificate {
     position: absolute;
@@ -12,6 +12,7 @@
 }
 
 .certificate .header {
+    transform: translateY(-25px);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -28,6 +29,9 @@
 .cursive {
     font-size: 1.8rem;
     font-family: "Pinyon Script", cursive !important;
+    font-family: "Rochester", cursive !important;
+    font-style: italic;
+    /* font-family: "Homemade Apple", cursive !important; */
 }
 
 .certificate hr {
@@ -47,6 +51,7 @@
 
 .certificate .logo {
     height: 100px;
+    /* transform: translateY(-25px); */
 }
 
 .certificate .row {

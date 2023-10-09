@@ -4,11 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .chart {
+        padding: 10px;
+        width: fit-content;
+        border-radius: 20px;
+        box-shadow: 3px 3px 12px 0px;
+      }
+      #myChart {
+        height: 220px !important;
+        width: 364px !important;
+      }
+    </style>
   </head>
   <body>
-    <textarea id="text"></textarea>
-    <button id="speak-button">Speak</button>
+    <div class="chart">
+      <canvas id="myChart"></canvas>
+    </div>
     <script>
+      const ChartGraph = {
+        ctx: document.getElementById("myChart"),
+
+        graphs: [
+          (Graph1 = {
+            labels: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07],
+            datapoints: [0, 100, 185, 260, 360, 435, 452],
+          }),
+          (Graph2 = {
+            labels: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
+            datapoints: [0, 470, 488, 512, 515, 570],
+          }),
+          (Graph3 = {
+            labels: [0, 0.02, 0.04, 0.06, 0.08, 1, 1.2],
+            datapoints: [0, 480, 520, 560, 602, 535],
+          }),
+          (Graph4 = {
+            labels: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07],
+            datapoints: [0, 100, 185, 260, 360, 435, 452],
+          }),
+        ],
+        currGr: null,
+        view:function(num){
+          let gr = new Chart(this.ctx, 
+          {
+            type: "line",
+            data: {
+              labels: this.graphs[num].labels,
+              datasets: [
+                {
+                  label: "Engineering Stress-Strain Curve",
+                  data: this.graphs[num].datapoints,
+                  borderWidth: 1,
+                  tension: 0.4,
+                },
+                // {
+                //   label: "_",
+                //   data: [0, 470],
+                //   borderWidth: 1,
+                // },
+              ],
+            },
+            options: {
+              borderWidth: 3,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+            },
+          }
+          )
+          return gr;
+        }
+    }
+    
+    </script>
+
+    <!-- <textarea id="text"></textarea>
+      <button id="speak-button">Speak</button>
+      <script>
       let textArea = document.getElementById("text");
       let speakButton = document.getElementById("speak-button");
       speakButton.addEventListener("click", function () {
@@ -18,6 +93,6 @@
         utterance.voice = window.speechSynthesis.getVoices()[0];
         window.speechSynthesis.speak(utterance);
       });
-    </script>
+    </script> -->
   </body>
 </html>

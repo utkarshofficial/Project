@@ -7,7 +7,7 @@ const Quiz = {
       a: "Universal testing machine",
       b: "Impact testing machine",
       c: "Fatigue testing machine",
-      d: "Erichsen machine View Answer",
+      d: "Erichsen machine",
       correct: "a",
     },
 
@@ -48,6 +48,7 @@ const Quiz = {
       correct: "b",
     },
   ],
+  quiz_contianer:document.querySelector(".quiz-container"),
   quiz: document.getElementById("quiz"),
   answerEls: document.querySelectorAll(".answer"),
   questionEl: document.getElementById("question"),
@@ -59,7 +60,7 @@ const Quiz = {
   score: 0,
   loadQuiz() {
     this.deselectAnswers();
-
+    this.quiz_contianer.style.display = "block";
     const currentQuizData = this.quizData[this.currentQuiz];
 
     this.questionEl.innerText = currentQuizData.question;
@@ -84,35 +85,39 @@ const Quiz = {
       answerEl.checked = false;
     });
   },
-  close(){
-    document.querySelector("#closeQuiz").onclick = function(){
-      document.querySelector(".quiz-container").style.display = "none";
-    }
+  close() {
+      this.quiz_contianer.style.display = "none";
   },
   init() {
-    this.close();
-    document.getElementById("submit").addEventListener("click", () => {
+    // onclick for quiz close btn
+    document.querySelector("#closeQuiz").onclick = ()=> {
+      this.close();
+    }
+    // onclick for quiz submit btn
+    document.getElementById("quizSubmit").addEventListener("click", () => {
+      console.log("clicked");
       const answer = this.getSelected();
       if (answer) {
         if (answer === this.quizData[this.currentQuiz].correct) {
           this.score++;
         }
         this.currentQuiz++;
-        if (this.currentQuiz < this.quizData.length) {
-          this.loadQuiz();
-        } else {
+        // to stop the next question
+        // if (this.currentQuiz < this.quizData.length) {
+          // this.loadQuiz();
+        // } else {
           //             this.quiz.innerHTML = ` <h2>You answered correctly at ${this.score}/${this.quizData.length} questions.</h2>
           // <button onclick="#">Reload</button>
           // `;
           // todo show above string to certificate
-        }
+        // }
       }
+      this.close();
     });
   },
 };
 
 Quiz.init();
-
 
 // for restriction on next button ;
 let isPerformNext = false;
@@ -199,6 +204,7 @@ class Img {
   }
   opacity(val = 1) {
     this.img.style.opacity = val;
+    return this;
   }
   rotate(deg) {
     this.img.style.transform = `rotate(${deg}deg)`;
@@ -346,6 +352,10 @@ const Scenes = {
     blinkArrow: new Img("blinkArrow"),
     s0formula: new Img("S0_formula"),
     s0formula2: new Img("S0_formula3"),
+    tape2: new Img("measure2"),
+    table_color: new Img("table_color"),
+    w000: new Img("000"),
+    w698: new Img("875"),
   },
   domItems: {
     projectIntro: get(".project-intro"),
@@ -403,11 +413,12 @@ const Scenes = {
         student_name = get("#stuName").value;
         let error = get(".user-input .error");
         // todo remove comment
-        // if(student_name.trim() == ""){
-        //   console.log(student_name)
-        //   show(error);
-        //   return;
-        // }
+        if (student_name.trim() == "") {
+          show(error);
+          return;
+        }
+        // take only first space
+        let fName = student_name.slice(0, student_name.indexOf(" "));
         hide(error);
         let tl = anime.timeline({
           easing: "easeOutExpo",
@@ -428,7 +439,7 @@ const Scenes = {
           .add({
             targets: Scenes.img.cloud.img,
             begin() {
-              Scenes.domItems.tempText.innerHTML = `Hey!<br>${student_name}`;
+              Scenes.domItems.tempText.innerHTML = `Hey!<br>${fName}`;
               Scenes.domItems.tempText.style.fontWeight = "bold";
               show(Scenes.domItems.tempText);
               set(Scenes.domItems.tempText, 482, 1);
@@ -457,14 +468,14 @@ const Scenes = {
       setCC("Click 'Next' to go to next step");
 
       show(Scenes.domItems.projectIntro);
-      Scenes.img.bare_raber.set(720, 90, 150).zIndex(1).rotate(70).push(),
-        Scenes.img.extensometer.set(550, 75, 80).zIndex(1).push(),
-        Scenes.img.varniarfull.set(545, 120, 60).zIndex(1).rotate(160).push(),
-        Scenes.img.table.set(520, 130, 120).push(),
-        Scenes.img.man.set(380, 0, 250).push(),
-        Scenes.img.new_utm.set(140, 0, 250).push();
+      Scenes.img.bare_raber.set(680, 185, 200, 10).zIndex(1).rotate(70).push(),
+        Scenes.img.extensometer.set(550, 235, 45).zIndex(1).push(),
+        Scenes.img.varniarfull.set(585, 250, 30).zIndex(1).rotate(160).push(),
+        // Scenes.img.table.set(520, 130, 120).push(),
+        Scenes.img.table.set(520, 245, 120).push(),
+        Scenes.img.man.set(380, 120, 250).push(),
+        Scenes.img.new_utm.set(140, 120, 250).push();
       isRunning = false;
-
       return true;
     }),
     (step1 = function () {
@@ -483,276 +494,347 @@ const Scenes = {
       show(Scenes.domItems.stepHeading, "flex");
 
       console.log(Scenes.domItems.stepHeading);
-      Scenes.img.bare_raber.set(450, 55, 200).zIndex(3).rotate(310).push();
-      Scenes.img.tape.set(330, 170, 80).zIndex(1).rotate(0).push();
-      Scenes.img.weight.set(140, 140, 120).zIndex(1).push();
+      Scenes.img.bare_raber2.set(110, 90, 20, 530).zIndex(3).rotate(0).push();
+      Scenes.img.weight.set(140, 150, 120).zIndex(1).push();
       Scenes.img.tableCrop.set(20, 50, 320, 680).push();
+      Scenes.img.tape2.set(330, 170, 45).zIndex(3).rotate(0).push();
+      Scenes.img.table_color
+        .set(180, 110, 45, 455)
+        .zIndex(2)
+        .rotate(0)
+        .opacity(0)
+        .push();
+      // Scenes.img.table_color.set(180, 110, 45, 455).zIndex(2).rotate(0).push();
+      // Scenes.img.measure1.set(93, 67, 137).zIndex(1).push();
+      Scenes.img.measurearrow
+        .set(355, 35, 90)
+        .zIndex(1)
+        .rotate(90)
+        .opacity(0)
+        .push();
+      Scenes.img.measurearrow2
+        .set(355, 35, 90)
+        .zIndex(1)
+        .rotate(270)
+        .opacity(0)
+        .push();
+
       var table = Scenes.domItems.tableCalc;
       show(table);
       set(table, 680, 0);
 
       // onclick bare raber
-      Scenes.img.bare_raber.img.onclick = function () {
+      // Scenes.img.bare_raber2.img.onclick = function () {
+      //   Img.setBlinkArrow(-1);
+
+      //   anime({
+      //     targets: Scenes.img.bare_raber2.img,
+      //     rotate: {
+      //       value: 270,
+      //     },
+      //     scaleY: {
+      //       value: 2.6,
+      //     },
+      //     left: 360,
+      //     top: 0,
+      //     duration: 1000,
+      //     easing: "easeInOutExpo",
+      //     complete() {
+      setCC("Click on the tape to measure the length of specimen.");
+      Img.setBlinkArrow(true, 340, 90, null, null, 90).play();
+
+      // onclick
+      Scenes.img.tape2.img.onclick = function () {
         Img.setBlinkArrow(-1);
-
-        anime({
-          targets: Scenes.img.bare_raber.img,
-          rotate: {
-            value: 270,
-          },
-          scaleY: {
-            value: 2.6,
-          },
-          left: 360,
-          top: 0,
-          duration: 1000,
-          easing: "easeInOutExpo",
-          complete() {
-            setCC(" Click on the tape to measure the length of specimen.");
-            Img.setBlinkArrow(true, 340, 90, null, null, 90).play();
-
-            Scenes.img.tape.img.onclick = function () {
-              Img.setBlinkArrow(-1);
-              anime({
-                targets: Scenes.img.tape.img,
-                left: 30,
-                top: 70,
-                duration: 1000,
-                scale: 0.7,
-                easing: "easeInOutExpo",
-                // next step
-                complete() {
-                  Img.setBlinkArrow(-1);
-                  Scenes.img.measure1.set(93, 60, 137, 0).zIndex(1).push();
-                  Scenes.domItems.tempText.innerHTML =
-                    "Total Length (m) = 0.805m";
-                  Scenes.img.measurearrow
-                    .set(355, 35, 90)
-                    .zIndex(1)
-                    .rotate(90)
-                    .push();
-                  Scenes.img.measurearrow2
-                    .set(355, 35, 90)
-                    .zIndex(1)
-                    .rotate(270)
-                    .push();
-                  let calcLength =
-                    Scenes.domItems.tableCalc.tBodies[0].rows[1].cells[1];
-
-                  anime
-                    .timeline({
-                      easing: "easeInOutExpo",
-                    })
-                    .add({
-                      targets: Scenes.img.measure1.img,
-                      width: 535,
+        anime
+          .timeline({
+            easing: "easeInOutQuad",
+          })
+          .add({
+            targets: Scenes.img.tape2.img,
+            left: 110,
+            top: 110,
+            duration: 1000,
+            complete() {
+              setCC("Click on the tape to open it.");
+              Img.setBlinkArrow(true, 35, 102).play();
+              Scenes.img.tape2.img.onclick = function () {
+                Img.setBlinkArrow(-1);
+                anime
+                  .timeline({
+                    easing: "easeInOutQuad",
+                  })
+                  .add({
+                    delay: 300,
+                    targets: Scenes.img.tape2.img,
+                    begin() {
+                      // Scenes.img.tape2.set(110, 110, 45).zIndex(3).rotate(0).push();
+                      Scenes.img.table_color.opacity(1);
+                      Scenes.img.measure1.set(93, 67, 137).zIndex(1).push();
+                    },
+                  })
+                  .add(
+                    {
+                      targets: Scenes.img.tape2.img,
+                      left: 622,
+                      duration: 2000,
+                    },
+                    1000
+                  )
+                  .add(
+                    {
+                      targets: Scenes.img.table_color.img,
+                      width: 0,
+                      left: 650,
+                      duration: 2000,
+                      complete() {
+                        Scenes.domItems.tempText.innerHTML =
+                          "Total Length (m) = 0.805m";
+                        Scenes.img.measurearrow.opacity(1);
+                        Scenes.img.measurearrow2.opacity(1);
+                      },
+                    },
+                    1000
+                  )
+                  .add(
+                    {
+                      targets: Scenes.img.measurearrow2.img,
+                      left: 145,
                       duration: 1000,
-                    })
-                    .add({
-                      targets: Scenes.img.tape.img,
-                      opacity: 0,
-                      duration: 500,
-                    })
-                    .add(
-                      {
-                        targets: Scenes.img.measurearrow2.img,
-                        left: 145,
-                        duration: 1000,
-                      },
-                      700
-                    )
-                    .add(
-                      {
-                        targets: Scenes.img.measurearrow.img,
-                        left: 573,
-                        duration: 1000,
-                      },
-                      700
-                    )
-                    .add({
-                      begin: function (anim) {
-                        set(Scenes.domItems.tempText, 260, 65);
-                      },
-                    })
-                    .add({
-                      targets: calcLength,
-                      begin: function (anime) {
-                        calcLength.innerHTML = "0.805";
-                      },
-                      backgroundColor: ["#9F91CC", "#FFF"],
+                    },
+                    8500
+                  )
+                  .add(
+                    {
+                      targets: Scenes.img.measurearrow.img,
+                      left: 573,
                       duration: 1000,
-                    })
-                    .add({
-                      targets: [
-                        Scenes.img.measurearrow.img,
-                        Scenes.img.measurearrow2.img,
-                        Scenes.img.measure1.img,
-                        Scenes.domItems.tempText,
-                      ],
-                      opacity: 0,
-                      // * onclick weight machine
-                      complete: function () {
-                        Img.setBlinkArrow(true, 65, 170).play();
-                        setCC(
-                          " Click on the weighing machine to measure the weight of specimen."
-                        );
+                    },
+                    8500
+                  )
+                  .add({
+                    begin: function (anim) {
+                      set(Scenes.domItems.tempText, 260, 65);
+                    },
+                  })
+                  .add({
+                    targets:
+                      Scenes.domItems.tableCalc.tBodies[0].rows[1].cells[1],
+                    begin: function (anime) {
+                      Scenes.domItems.tableCalc.tBodies[0].rows[1].cells[1].innerHTML =
+                        "0.805";
+                    },
+                    backgroundColor: ["#9F91CC", "#FFF"],
+                    duration: 1000,
+                  })
+                  .add({
+                    delay: 1000,
+                    targets: [
+                      Scenes.img.measurearrow.img,
+                      Scenes.img.measurearrow2.img,
+                      Scenes.domItems.tempText,
+                      Scenes.img.tape2.img,
+                      Scenes.img.measure1.img,
+                    ],
+                    opacity: 0,
+                    // * onclick weight machine
+                    complete() {
+                      Img.setBlinkArrow(true, 65, 170).play();
+                      setCC(
+                        "Click on the weighing machine to measure the weight of specimen."
+                      );
 
-                        Scenes.img.weight.img.onclick = function () {
-                          Img.setBlinkArrow(-1);
+                      Scenes.img.weight.img.onclick = function () {
+                        Img.setBlinkArrow(-1);
 
-                          let w000 = new Img("000").push();
-                          let w698 = new Img("875").push();
-                          anime
-                            .timeline({
-                              easing: "easeInOutExpo",
-                            })
-                            .add({
-                              targets: Scenes.img.weight.img,
-                              left: 290,
-                              top: 130,
-                              scale: 1.6,
-                              duration: 1000,
-                            })
-                            .add({
-                              begin: function () {
-                                w000.set(305, 215, 12, 55).zIndex(5);
-                              },
-                            })
-                            .add({
-                              targets: Scenes.img.bare_raber.img,
-                              top: 100,
-                              height: 100,
-                              duration: 1000,
-                            })
-                            .add({
-                              begin: function () {
-                                w000.hide();
-                                w698.set(305, 215, 12, 55).zIndex(5);
-                              },
-                            })
-                            .add({
-                              targets:
-                                Scenes.domItems.tableCalc.tBodies[0].rows[2]
-                                  .cells[1],
-                              begin: function (anime) {
-                                Scenes.domItems.tableCalc.tBodies[0].rows[2].cells[1].innerHTML =
-                                  "0.698";
-                              },
-                              backgroundColor: ["#9F91CC", "#FFF"],
-                              duration: 200,
-                            })
-                            .add({
-                              targets: [
-                                Scenes.img.bare_raber.img,
-                                Scenes.img.weight.img,
-                                Scenes.img.tableCrop.img,
-                                w698.img,
-                              ],
-                              opacity: 0,
-                              delay: 600,
-                              complete() {
-                                Img.hideAll();
+                        anime
+                          .timeline({
+                            easing: "easeInOutExpo",
+                          })
+                          .add({
+                            targets: Scenes.img.weight.img,
+                            left: 290,
+                            top: 130,
+                            duration: 1000,
+                            complete() {
+                              Scenes.img.w000
+                                    .set(323, 205, 8, 35)
+                                    .zIndex(4)
+                                    .push();
+                              setCC(
+                                "Click on the bar to measure the weight of the specimen."
+                              );
+                              Img.setBlinkArrow(
+                                true,
+                                340,
+                                18,
+                                null,
+                                null,
+                                90
+                              ).play();
+                              // onclick bare raber
 
-                                // * After hiding the table calculate the area
-                                setCC(
-                                  " Calculate the cross-sectional area of bar using above formula."
-                                );
-                                Scenes.img.s0formula
-                                  .set(122, 36, null, 200)
-                                  .zIndex(5)
-                                  .push();
-                                let text = Scenes.domItems.tempText;
-                                text.innerHTML = "weight (kg) and L(m)";
-                                set(text, 315, 47);
-                                show(text);
-                                show(Scenes.domItems.tempInputBox);
-                                set(Scenes.domItems.tempInputBox, 120, 129);
-                                Scenes.domItems.tempInputT1.innerHTML =
-                                  "S<sub>0</sub> = ";
-                                Scenes.domItems.tempInputT2.innerHTML =
-                                  "mm<sup>2</sup>";
+                              Scenes.img.bare_raber2.img.onclick = function () {
+                                Img.setBlinkArrow(-1);
+                                anime
+                                  .timeline({
+                                    easing: "easeInOutQuad",
+                                  })
+                                  .add({
+                                    targets: Scenes.img.bare_raber2.img,
+                                    top: 155,
+                                    duration: 1000,
+                                  })
+                                  .add({
+                                    begin: function () {
+                                      Scenes.img.w000.hide();
+                                      Scenes.img.w698
+                                        .set(323, 205, 8, 35)
+                                        .zIndex(4)
+                                        .push();
+                                    },
+                                  })
+                                  .add({
+                                    targets:
+                                      Scenes.domItems.tableCalc.tBodies[0]
+                                        .rows[2].cells[1],
+                                    begin: function (anime) {
+                                      Scenes.domItems.tableCalc.tBodies[0].rows[2].cells[1].innerHTML =
+                                        "0.698";
+                                    },
+                                    backgroundColor: ["#9F91CC", "#FFF"],
+                                    duration: 200,
+                                  })
+                                  .add({
+                                    targets: [
+                                      Scenes.img.bare_raber2.img,
+                                      Scenes.img.weight.img,
+                                      Scenes.img.tableCrop.img,
+                                      Scenes.img.w698.img,
+                                    ],
+                                    opacity: 0,
+                                    delay: 600,
+                                    complete() {
+                                      Img.hideAll();
 
-                                show(Scenes.domItems.tableCalc);
-                                set(Scenes.domItems.tableCalc, 680, 45);
+                                      // * After hiding the table calculate the area
+                                      setCC(
+                                        " Calculate the cross-sectional area of bar using above formula."
+                                      );
+                                      Scenes.img.s0formula
+                                        .set(122, 36, null, 200)
+                                        .zIndex(5)
+                                        .push();
+                                      let text = Scenes.domItems.tempText;
+                                      text.innerHTML = "weight (kg) and L(m)";
+                                      set(text, 315, 47);
+                                      show(text);
+                                      show(Scenes.domItems.tempInputBox);
+                                      set(
+                                        Scenes.domItems.tempInputBox,
+                                        120,
+                                        129
+                                      );
+                                      Scenes.domItems.tempInputT1.innerHTML =
+                                        "S<sub>0</sub> = ";
+                                      Scenes.domItems.tempInputT2.innerHTML =
+                                        "mm<sup>2</sup>";
 
-                                // onclick
-                                Scenes.domItems.tempInputBtn.onclick =
-                                  function () {
-                                    let s0 =
-                                      Scenes.domItems.tempInputBoxInput.value;
-                                    if (s0 != 110.4) {
-                                      show(Scenes.domItems.tempInputError);
-                                      Scenes.domItems.tempInputError.innerHTML =
-                                        "Please enter correct value = 110.4";
-                                    } else {
-                                      // for reseting the value of input
-                                      Scenes.domItems.tempInputBoxInput.value =
-                                        "";
+                                      show(Scenes.domItems.tableCalc);
+                                      set(Scenes.domItems.tableCalc, 680, 45);
 
-                                      hide(Scenes.domItems.tempInputError);
-                                      anime
-                                        .timeline({
-                                          easing: "easeInOutExpo",
-                                        })
-                                        .add({
-                                          targets:
-                                            Scenes.domItems.tableCalc.tBodies[0]
-                                              .rows[3].cells[1],
-                                          begin: function (anime) {
-                                            Scenes.domItems.tableCalc.tBodies[0].rows[3].cells[1].innerHTML =
-                                              "110.4";
-                                          },
-                                          backgroundColor: ["#9F91CC", "#FFF"],
-                                          duration: 1000,
-                                        })
-                                        .add({
-                                          targets: [
-                                            Scenes.img.s0formula.img,
-                                            text,
-                                            Scenes.domItems.tempInputBox,
-                                          ],
-                                          opacity: 0,
-                                        })
-                                        .add({
-                                          targets: Scenes.domItems.tableCalc,
-                                          // Todo increase size of table
-                                          left: 315,
-                                          top: 93,
-                                          scale: 1.2,
-                                          complete() {
-                                            Img.hideAll();
-
-                                            setCC(
-                                              "Click 'Next' to go to next step"
+                                      // onclick
+                                      Scenes.domItems.tempInputBtn.onclick =
+                                        function () {
+                                          let s0 =
+                                            Scenes.domItems.tempInputBoxInput
+                                              .value;
+                                          if (s0 != 110.4) {
+                                            show(
+                                              Scenes.domItems.tempInputError
                                             );
-                                            Img.setBlinkArrow(
-                                              true,
-                                              790,
-                                              418
-                                            ).play();
-                                            isRunning = false;
-                                          },
-                                        });
-                                    }
-                                  };
-                              },
-                            });
-                        };
-                      },
-                    });
-                },
-              });
-            };
-          },
-        });
-      };
+                                            Scenes.domItems.tempInputError.innerHTML =
+                                              "Please enter correct value = 110.4";
+                                          } else {
+                                            // for reseting the value of input
+                                            Scenes.domItems.tempInputBoxInput.value =
+                                              "";
 
+                                            hide(
+                                              Scenes.domItems.tempInputError
+                                            );
+                                            anime
+                                              .timeline({
+                                                easing: "easeInOutExpo",
+                                              })
+                                              .add({
+                                                targets:
+                                                  Scenes.domItems.tableCalc
+                                                    .tBodies[0].rows[3]
+                                                    .cells[1],
+                                                begin: function (anime) {
+                                                  Scenes.domItems.tableCalc.tBodies[0].rows[3].cells[1].innerHTML =
+                                                    "110.4";
+                                                },
+                                                backgroundColor: [
+                                                  "#9F91CC",
+                                                  "#FFF",
+                                                ],
+                                                duration: 1000,
+                                              })
+                                              .add({
+                                                targets: [
+                                                  Scenes.img.s0formula.img,
+                                                  text,
+                                                  Scenes.domItems.tempInputBox,
+                                                ],
+                                                opacity: 0,
+                                              })
+                                              .add({
+                                                targets:
+                                                  Scenes.domItems.tableCalc,
+                                                // Todo increase size of table
+                                                left: 315,
+                                                top: 93,
+                                                scale: 1.2,
+                                                complete() {
+                                                  Img.hideAll();
+
+                                                  setCC(
+                                                    "Click 'Next' to go to next step"
+                                                  );
+                                                  Img.setBlinkArrow(
+                                                    true,
+                                                    790,
+                                                    418
+                                                  ).play();
+                                                  isRunning = false;
+                                                },
+                                              });
+                                          }
+                                        };
+                                    },
+                                  });
+                              };
+                            },
+                          });
+                      };
+                    },
+                  });
+              };
+            },
+          });
+
+        // Scenes.img.measure1.set(93, 60, 137, 0).zIndex(1).push();
+      };
+      //     },
+      //   });
+      // };
       return true;
     }),
-    // Step 2
     (step2 = function () {
       isRunning = true;
-      setCC("Calculate the guage length sing above formula.");
+      setCC("Calculate the guage length using above formula.");
       Img.setBlinkArrow(-1);
 
       show(Scenes.domItems.stepHeading, "flex");
@@ -913,6 +995,7 @@ const Scenes = {
             });
         }
       };
+      Quiz.loadQuiz();
       return true;
     }),
     (step4 = function () {
@@ -1466,7 +1549,7 @@ const Scenes = {
       certificateStuName.innerHTML = student_name;
       get("#quizScore").innerHTML = Quiz.score;
 
-      show(Scenes.domItems.certificate);
+      show(Scenes.domItems.certificate, "flex");
       set(Scenes.domItems.tempText, 350, 50);
       opacity(Scenes.domItems.tempText, 0);
       anime({
@@ -1506,8 +1589,8 @@ const Scenes = {
   },
 };
 
-Scenes.steps[13]();
-// Scenes.next();
+// Scenes.steps[1]();
+Scenes.next();
 
 const nextBtn = get(".btn-next");
 const backBtn = get(".btn-back");
@@ -1539,4 +1622,3 @@ function getCursor(event) {
   infoElement.style.top = y + "px";
   infoElement.style.left = x + 20 + "px";
 }
-

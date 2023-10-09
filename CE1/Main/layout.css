@@ -92,11 +92,12 @@ body{
 }
 
 .main-window{
+    position: relative;
     grid-area: mainWindow;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: calc(100vh - 78px - 60px);
+    /* height: calc(100vh - 78px - 60px); */
     min-height: calc(404px + 200px);
     width: 950px;
     border: 2px solid;

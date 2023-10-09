@@ -92,6 +92,7 @@ const src = {
         lastCalc: this.allImgsDom[84],
         finalLastCalc: this.allImgsDom[85],
         blinkArrow: this.allImgsDom[86],
+        table_color: this.allImgsDom[87],
       };
     },
     allImgsInitialAxis: [],

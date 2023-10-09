@@ -4,32 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style></style>
   </head>
   <body>
-    <div class="certificate">
-      <div class="header">
-        <img src="./src/images/logo.png" alt="" class="logo" />
-        <span class="title cursive">Certificate of Completion</span>
-      </div>
-      <div class="student-detail">
-        <div class="row">
-          <span class="bold" id="certificateStuName">Sneha</span>
-          <hr />
-        </div>
-        <div class="row">
-          <span class="cursive">has succesfully completed and secured</span>
-          <span class="bold sans"><span id="quizScore">0</span>/5 marks</span>
-          <hr />
-        </div>
-        <div class="row">
-          <span class="cursive"
-            >while completing the virtual lab entitled by</span
-          >
-          <span class="bold sans">VIRTUAL LABS - IIT Delhi</span>
-          <hr />
-        </div>
-      </div>
-    </div>
+    <textarea id="text"></textarea>
+    <button id="speak-button">Speak</button>
+    <script>
+      let textArea = document.getElementById("text");
+      let speakButton = document.getElementById("speak-button");
+      speakButton.addEventListener("click", function () {
+        let text = textArea.value;
+        let utterance = new SpeechSynthesisUtterance();
+        utterance.text = text;
+        utterance.voice = window.speechSynthesis.getVoices()[0];
+        window.speechSynthesis.speak(utterance);
+      });
+    </script>
   </body>
 </html>

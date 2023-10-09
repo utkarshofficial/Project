@@ -32,10 +32,10 @@
 
 /* step2 - project intro */
 .project-intro{
-    top: 0;
+    top: 50px;
     padding: 10px;
     display: none;
-    position: relative;
+    position: absolute;
 }
 
 .project-intro .heading{

@@ -7,7 +7,7 @@
     min-height: 400px;
     border: 14px solid #3d246c;
     flex-direction: column;
-    display: flex;
+    display: none;
     padding-top: 35px;
 }
 
@@ -20,7 +20,6 @@
 .certificate .student-detail {
     display: flex;
     flex-direction: column;
-
     margin-top: 15px;
     gap: 5px;
     align-items: center;
@@ -34,10 +33,6 @@
 .certificate hr {
     width: 90%;
 }
-
-/* .certificate {
-        display: none;
-      } */
 
 .sans {
     font-family: "Open Sans", sans-serif;

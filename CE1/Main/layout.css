@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 body{
     margin: 0;
+    display: flex;
+    justify-content: center;
     padding-top: 70px;
     font-family: Roboto;
 }
@@ -126,7 +128,7 @@ body{
 
 .right-box{
     display: flex;
-    margin-left: 8%;
+    margin-left: 1%;
     flex-direction: column;
 }
 
@@ -184,3 +186,64 @@ body{
     display: none;
 }
 
+/* Project Welcome */
+.welcome-box{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+  }
+  .welcome-box .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:  25px;
+    gap: 4px;
+  }
+  .welcome-box .iit-logo{
+    height: 140px;
+    width: 200px;
+  }
+  .welcome-box .prof-img{
+    /* margin-top: 20px; */
+    height: 100px;
+  }
+  .welcome-box .title span{
+    font-size: 1.5rem;
+  }
+  .welcome-box .title span:nth-child(2n - 1){
+    color: red
+  }
+  .welcome-box .title span:nth-child(2n){
+    font-weight: bold;
+    color: black;
+    font-family: Roboto;
+  }
+  .welcome-box .prof-description{
+    font-size: 0.6rem;
+    transform: translate(40px,20px);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid;
+    border-radius: 5px;
+    align-self: end;
+  }
+
+  /* print */
+  @media print{
+    #drawer, .progress-bar, .anime-header, .anime-footer{
+        display: none!important;
+    }
+    .main-window{
+        border: none;
+    }
+    .certificate{
+        display: flex;
+        transform: translateY(400px) rotate(90deg) scale(1.5,2);
+
+
+    }
+  }

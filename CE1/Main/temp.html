@@ -6,80 +6,64 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-      .chart {
-        padding: 10px;
-        width: fit-content;
-        border-radius: 20px;
-        box-shadow: 3px 3px 12px 0px;
+      .welcome-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
-      #myChart {
-        height: 220px !important;
-        width: 364px !important;
+      .welcome-box .title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top:  10px;
+        gap: 4px;
       }
+      .welcome-box .iit-logo{
+        height: 120px;
+        width: 200px;
+      }
+      .welcome-box .prof-img{
+        height: 160px;
+      }
+      .welcome-box .title span{
+        font-size: 1.3rem;
+      }
+      .welcome-box .title span:nth-child(2n - 1){
+        color: red;
+      }
+      .welcome-box .title span:nth-child(2n){
+        font-weight: bold;
+        color: black;
+        font-family: Roboto;
+      }
+      .welcome-box .prof-description{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        padding: 5px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border: 2px solid;
+        border-radius: 5px;
+        align-self: end;
+      }
+
     </style>
   </head>
   <body>
-    <div class="chart">
-      <canvas id="myChart"></canvas>
+    <div class="welcome-box">
+      <img class="iit-logo" src="./src/images/iit-delhi-logo.png" alt="">
+      <div class="title">
+        <span >Welcome to Lab of</span>
+        <span >Tensile Strength of Reinforcement Bars</span> 
+        <span >Conducted by</span><span>Prof. Sahil Bansal of IIT Delhi.</span>
+      </div>
+      <div class="prof-description">
+        <img class="prof-img" src="./src/images/prof_logo.gif" alt="Prof. Sahil Bansal Image">
+        <span>Prof. Sahil Bansal</span>
+        <span>IIT Delhi</span>
+      </div>
     </div>
-    <script>
-      const ChartGraph = {
-        ctx: document.getElementById("myChart"),
-
-        graphs: [
-          (Graph1 = {
-            labels: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07],
-            datapoints: [0, 100, 185, 260, 360, 435, 452],
-          }),
-          (Graph2 = {
-            labels: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
-            datapoints: [0, 470, 488, 512, 515, 570],
-          }),
-          (Graph3 = {
-            labels: [0, 0.02, 0.04, 0.06, 0.08, 1, 1.2],
-            datapoints: [0, 480, 520, 560, 602, 535],
-          }),
-          (Graph4 = {
-            labels: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07],
-            datapoints: [0, 100, 185, 260, 360, 435, 452],
-          }),
-        ],
-        currGr: null,
-        view:function(num){
-          let gr = new Chart(this.ctx, 
-          {
-            type: "line",
-            data: {
-              labels: this.graphs[num].labels,
-              datasets: [
-                {
-                  label: "Engineering Stress-Strain Curve",
-                  data: this.graphs[num].datapoints,
-                  borderWidth: 1,
-                  tension: 0.4,
-                },
-                // {
-                //   label: "_",
-                //   data: [0, 470],
-                //   borderWidth: 1,
-                // },
-              ],
-            },
-            options: {
-              borderWidth: 3,
-              scales: {
-                y: {
-                  beginAtZero: true,
-                },
-              },
-            },
-          }
-          )
-          return gr;
-        }
-    }
     
-    </script>
 
     <!-- <textarea id="text"></textarea>
       <button id="speak-button">Speak</button>
@@ -93,6 +77,6 @@
         utterance.voice = window.speechSynthesis.getVoices()[0];
         window.speechSynthesis.speak(utterance);
       });
-    </script> -->
+    </script>  -->
   </body>
 </html>

@@ -17,11 +17,12 @@
     
   </head>
   <img src="" alt="" />
-  <body  onmousemove="getCursor(event)">
+  <body>
+  <!-- <body  onmousemove="getCursor(event)"> -->
     <!-- Mouse Position -->
-    <div id="demo">
+    <!-- <div id="demo">
       <div id="info"></div>
-    </div>
+    </div> -->
     <div class="main-container">
       <nav id="drawer">
         <div class="codelab-time-container" style="display: none"></div>
@@ -159,6 +160,7 @@
           <main class="main-window">
             <section class="anime-header">
               <p>Tensile Strength of Reinforcement Bars</p>
+              <img class="btn btn-mute" style="height: 40px; z-index: 5; position: absolute; right: 5px;" src="./src/images/speech_off_btn.png">
             </section>
             <!-- S1 step2 -->
             <div class="project-intro">
@@ -181,8 +183,23 @@
               </p>
             </div>
             <section class="anime-main">
+              <!-- adding welcome note -->
+              <div class="welcome-box">
+                <img class="iit-logo" src="./src/images/iit-delhi-logo.png" alt="">
+                <div class="title">
+                  <span >Welcome to</span>
+                  <span >Tensile Strength of Reinforcement Bars Experiment</span> 
+                  <span >of Concrete structures Virtual Lab</span>
+                  <span>developed by Prof. Sahil Bansal, Department of Civil Engineering, IITDelhi.</span>
+                </div>
+                <div class="prof-description">
+                  <img class="prof-img" src="./src/images/prof_logo.gif" alt="Prof. Sahil Bansal Image">
+                  <span>Prof. Sahil Bansal</span>
+                  <span>IIT Delhi</span>
+                </div>
+              </div>
               <!-- Scene 1 -->
-              <!-- step1 -->
+              <!-- step1 --> 
               <form onsubmit="return false" class="user-input">
                 <p>Enter your name:</p>
                 <input type="text" name="" id="stuName" />
@@ -325,6 +342,9 @@
                       <input type="radio" id="d" name="answer" class="answer" />
                       <label id="d_text" for="d">Question</label>
                     </li>
+                    <li>
+                      <p id="quizAns" style="color: green;">India</p>
+                    </li>
                   </ul>
                 </div>
                 <button id="quizSubmit">Submit</button>
@@ -338,20 +358,25 @@
                 </div>
                 <div class="student-detail">
                   <div class="row">
-                    <span class="bold" id="certificateStuName">Your Name</span>
-                    <hr />
+                    <span class="bold red" id="certificateStuName">Sneha Jadon</span>
                   </div>
                   <div class="row">
-                    <span class="cursive">has succesfully completed and secured</span>
-                    <span class="bold sans"><span id="quizScore">0</span>/5 marks</span>
-                    <hr />
+                    <span class="cursive" style="text-align: center;">has succesfully completed Virtaul Lab on </span>
+                    <span style="font-size: 1.5rem;" class="bold sans red">TENSILE STRENGTH OF REINFORCEMNT BARS</span>
+                  </div>
+                  <div class="">
+                    <span class="cursive">and secured</span>
+                    <span class="bold sans" id="quizScore">0</span>
+                    <span class="bold sans">/5 Marks</span>
+                    <span class="cursive">at</span>
+                      <span class="bold sans" id="certificateDate">Date 10-10-2023</span> 
                   </div>
                   <div class="row">
+                    
                     <span class="cursive"
-                      >while completing the virtual lab entitled by</span
-                    >
-                    <span class="bold sans">VIRTUAL LABS - IIT Delhi</span>
-                    <hr />
+                      >which is developed by
+                      <span class="bold sans">VIRTUAL LABS - IIT Delhi</span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -890,6 +915,12 @@
                 alt="scale"
               />
               <img
+                class="main-window-imgs"
+                src="./src/images/iit-delhi-logo.png"
+                alt="iit delhi logo"
+              />
+
+              <img
                 class="celebration"
                 src="./src/images/celebration.gif"
                 title="celebration.gif"
@@ -1083,13 +1114,14 @@
               <span style="background-color: transparent;font-weight: bold;" class="temp-text2"></span>
             </section>
             <section class="anime-footer">
-              <a href="#" class="btn btn-back">Back</a>
-              <div class="steps-subtitle">
+              <btn style="display: none;" class="btn btn-back">Back</btn>
+              <div style="padding-left: 200px;" class="steps-subtitle">
                 <!-- <p class="user-name">Hey👋 Sneha</p> -->
                 <p class="subtitle" id="subtitle">
                 </p>
               </div>
-              <a href="#" class="btn btn-next">Next</a>
+              <btn class="btn btn-next">Next</btn>
+              <btn class="btn btn-save" style="position: absolute; right: 90px; bottom: 5px;">Download</btn>
             </section>
           </main>
         </div>

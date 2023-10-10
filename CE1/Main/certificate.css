@@ -21,7 +21,6 @@
 .certificate .student-detail {
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
     gap: 5px;
     align-items: center;
 }
@@ -49,12 +48,25 @@
     font-weight: bold;
 }
 
+.red{
+    color: red;
+}
+
 .certificate .logo {
-    height: 100px;
+    height: 80px;
     /* transform: translateY(-25px); */
 }
 
 .certificate .row {
     display: flex;
     flex-direction: column;
+}
+
+.btn-save{
+    display: none;
+}
+
+.certificate #certificateStuName{
+    font-size: 1.8rem;
+    border-bottom: 2px solid black;
 }

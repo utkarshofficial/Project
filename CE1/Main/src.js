@@ -94,6 +94,7 @@ const src = {
         blinkArrow: this.allImgsDom[86],
         table_color: this.allImgsDom[87],
         scale50cm: this.allImgsDom[88],
+        iit_delhi_logo: this.allImgsDom[89],
       };
     },
     allImgsInitialAxis: [],

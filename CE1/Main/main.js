@@ -1,3 +1,6 @@
+// * Audio Mute
+let isMute = false;
+
 // * Quiz object
 const Quiz = {
   quizData: [
@@ -55,9 +58,15 @@ const Quiz = {
   b_text: document.getElementById("b_text"),
   c_text: document.getElementById("c_text"),
   d_text: document.getElementById("d_text"),
+  ansDom: document.getElementById("quizAns"),
+  opsDom: [this.a_text,this.b_text,this.c_text,this.d_text],
+  loadQuizCallCount:0,
   currentQuiz: 0,
   score: 0,
   loadQuiz() {
+    this.loadQuizCallCount++;
+    window.speechSynthesis.cancel();
+    setCC("Choose the correct answer."); 
     this.deselectAnswers();
     this.quiz_contianer.style.display = "block";
     const currentQuizData = this.quizData[this.currentQuiz];
@@ -86,6 +95,7 @@ const Quiz = {
   },
   close() {
       this.quiz_contianer.style.display = "none";
+      // this.ansDom.style.display = "none";
   },
   init() {
     // onclick for quiz close btn
@@ -94,10 +104,29 @@ const Quiz = {
     }
     // onclick for quiz submit btn
     document.getElementById("quizSubmit").addEventListener("click", () => {
-      console.log("clicked");
+      // for disable multiple submit
+      if(this.loadQuizCallCount-1 !== this.currentQuiz){
+        return;
+      }
+      // subtitle for quiz
       const answer = this.getSelected();
       if (answer) {
+        // this.ansDom.style.display = "block";
+        // this.ansDom.innerHTML = "✔ "+ this.quizData[this.currentQuiz][this.quizData[this.currentQuiz].correct];
+
+        // updating options with the right and wrong emoji
+        let ops = "abcd";
+        for(let o in ops){
+          if(ops[o] == this.quizData[this.currentQuiz].correct){
+            this.opsDom[o].innerHTML += ' ✔️'
+            this.opsDom[o].style.color = "green";
+          }else{
+            this.opsDom[o].innerHTML += ' ❌'
+            this.opsDom[o].style.color = "red";
+          }
+        }        
         if (answer === this.quizData[this.currentQuiz].correct) {
+
           this.score++;
         }
         this.currentQuiz++;
@@ -111,7 +140,7 @@ const Quiz = {
           // todo show above string to certificate
         // }
       }
-      this.close();
+      // this.close();
     });
   },
 };
@@ -241,6 +270,20 @@ const set = (ele, l = null, t = null) => {
 };
 
 let student_name = "";
+let currentDateGlobal = ""
+
+// ! text to audio
+
+const textToSpeach = (text)=> {
+  // if(isMute){
+  //   return;
+  // }
+  let utterance = new SpeechSynthesisUtterance();
+  utterance.text = text;
+  utterance.voice = window.speechSynthesis.getVoices()[0];
+  window.speechSynthesis.speak(utterance);
+  return utterance;
+}
 
 // for subtitile
 let ccObj = null
@@ -253,6 +296,8 @@ function setCC(text = null, speed = null) {
     strings: ["", text],
     typeSpeed: 25,
   });
+  if(!isMute)
+    textToSpeach(text);
   return ccDom;
 }
 
@@ -388,6 +433,11 @@ class Img {
   }
 }
 
+// * for cursor pointer
+function cursorPointer(ele) {
+  ele.style.cursor = "pointer";
+}
+
 // Img.setBlinkArrow(true,790,444).play();
 
 const Scenes = {
@@ -437,6 +487,7 @@ const Scenes = {
     w698: new Img("875"),
     scale50cm: new Img("scale50cm"),
     off_screen: new Img("off_screen"),
+    iit_delhi_logo: new Img("iit_delhi_logo"),
   },
   domItems: {
     projectIntro: get(".project-intro"),
@@ -457,6 +508,7 @@ const Scenes = {
     inputWindow: get(".user-input"),
     resultTable: get(".result-table"),
     certificate: get(".certificate"),
+    welcomeBox: get(".welcome-box"),
   },
   deleteAll() {
     for (i in this.img) {
@@ -479,6 +531,7 @@ const Scenes = {
   },
   // for typing hello text
   intru:null,
+  intruVoice:null,
   steps: [
     (intro = function () {
       // running
@@ -529,10 +582,19 @@ const Scenes = {
                 typeSpeed: 25,
               });
               set(Scenes.domItems.tempText, 482, 1);
+              textToSpeach(`Hey! ${fName}`)
+              textToSpeach("Welcome to tensile strength of reinforcement bars experiment of concrete structures virtual lab developed by professor sahil bansal department of civil engineering iit delhi")
               Scenes.img.cloud.set(450, -40, 180);
             },
+            endDelay: 2000,
             opacity: [0, 1],
             complete() {
+              // to hide previous step images
+              intru.destroy();
+              Scenes.img.man.hide();
+              Scenes.img.cloud.hide();
+              show(Scenes.domItems.welcomeBox,"flex")
+              hide(Scenes.domItems.tempText);
               setCC("Click 'Next' to go to next step");
               Img.setBlinkArrow(true, 790, 444).play();
               isRunning = false;
@@ -543,12 +605,12 @@ const Scenes = {
     }),
     (objective = function () {
       isRunning = true;
-
-      // to hide previous step images
-      intru.destroy();
-      Scenes.img.man.hide();
-      Scenes.img.cloud.hide();
-      hide(Scenes.domItems.tempText);
+      // to stop current voice
+      window.speechSynthesis.cancel();
+      
+      hide(Scenes.domItems.welcomeBox);
+      
+      
       let inputWindow = get(".user-input");
       inputWindow.style.display = "none";
       Img.setBlinkArrow(true, 790, 444).play();
@@ -572,7 +634,6 @@ const Scenes = {
       Img.hideAll();
       Img.setBlinkArrow(-1);
 
-      setCC("Click the bar to set the bar on the table");
       Img.setBlinkArrow(true, 500, 110, null, null, 150).play();
 
       Scenes.domItems.stepTitle.innerHTML = "Step 1";
@@ -631,6 +692,7 @@ const Scenes = {
       Img.setBlinkArrow(true, 340, 90, null, null, 90).play();
 
       // onclick
+      cursorPointer(Scenes.img.tape2.img);
       Scenes.img.tape2.img.onclick = function () {
         Img.setBlinkArrow(-1);
         anime
@@ -645,6 +707,7 @@ const Scenes = {
             complete() {
               setCC("Click on the tape to open it.");
               Img.setBlinkArrow(true, 35, 102).play();
+
               Scenes.img.tape2.img.onclick = function () {
                 Img.setBlinkArrow(-1);
                 anime
@@ -729,7 +792,8 @@ const Scenes = {
                       setCC(
                         "Click on the weighing machine to measure the weight of specimen."
                       );
-
+// onclick weight m/c
+cursorPointer(Scenes.img.weight.img);
                       Scenes.img.weight.img.onclick = function () {
                         Img.setBlinkArrow(-1);
 
@@ -759,7 +823,7 @@ const Scenes = {
                                 90
                               ).play();
                               // onclick bare raber
-
+cursorPointer(Scenes.img.bare_raber2.img)
                               Scenes.img.bare_raber2.img.onclick = function () {
                                 Img.setBlinkArrow(-1);
                                 anime
@@ -1108,6 +1172,7 @@ const Scenes = {
       Scenes.img.marker.set(350, 130, 150).zIndex(5).rotate(50).push();
 
       // onclick marker
+      cursorPointer(Scenes.img.marker.img)
       Scenes.img.marker.img.onclick = function () {
         Img.setBlinkArrow(-1);
         anime
@@ -1235,6 +1300,7 @@ const Scenes = {
       Scenes.img.table.set(560, 200, 150).push();
 
       // onclick
+      cursorPointer(Scenes.img.bare_raber2marked.img)
       Scenes.img.bare_raber2marked.img.onclick = function () {
         Img.setBlinkArrow(-1);
         anime({
@@ -1271,6 +1337,7 @@ const Scenes = {
       setCC("Click on the extensometer to attach it on the specimen.");
       Img.setBlinkArrow(true, 700, 160, 70, null, 180).play();
       // onclick extensometer
+      cursorPointer(Scenes.img.extensometer.img)
       Scenes.img.extensometer.img.onclick = function () {
         Img.setBlinkArrow(-1);
         anime({
@@ -1490,6 +1557,7 @@ const Scenes = {
       setCC("Click on the raber to join the raber.");
       Img.setBlinkArrow(true, 645, 138, 70, null, -90).play();
       // onclick
+      cursorPointer(Scenes.img.break2.img)
       Scenes.img.break2.img.onclick = function () {
         Img.setBlinkArrow(-1);
         anime({
@@ -1503,6 +1571,7 @@ const Scenes = {
             );
             Img.setBlinkArrow(true, 330, 180, 70, null, -90).play();
             // onclick
+            cursorPointer(Scenes.img.varniarfull.img)
             Scenes.img.varniarfull.img.onclick = function () {
               Img.setBlinkArrow(-1);
               anime
@@ -1536,7 +1605,8 @@ const Scenes = {
                           "Click on vernier calliper to measure the minimum diameter of the specimen."
                         );
                         Img.setBlinkArrow(true, 560, 180, 70, null, -90);
-
+cursorPointer(Scenes.img.varniarLeft.img)
+cursorPointer(Scenes.img.varniarRight.img)
                         Scenes.img.varniarLeft.img.onclick =
                           varniarVerticalMove;
                         Scenes.img.reading1.img.onclick = varniarVerticalMove;
@@ -1650,7 +1720,7 @@ const Scenes = {
                                   Img.setBlinkArrow(
                                     true,
                                     860,
-                                    350,
+                                    280,
                                     51,
                                     null,
                                     90
@@ -1662,7 +1732,7 @@ const Scenes = {
 
                                   Scenes.domItems.tempText2.style.cursor =
                                     "pointer";
-                                  set(Scenes.domItems.tempText2, 835, 280);
+                                  set(Scenes.domItems.tempText2, 835, 350);
 
                                   // onclick
                                   Scenes.domItems.tempText2.onclick =
@@ -1679,6 +1749,7 @@ const Scenes = {
                                       currentDate = `${currentDate.getDate()} - ${
                                         currentDate.getMonth() + 1
                                       } - ${currentDate.getFullYear()}`;
+                                      currentDateGlobal = currentDate
                                       get("#date").innerHTML = currentDate;
                                       set(Scenes.domItems.resultTable, 175, 0);
                                       setCC("Click 'Next' to go to next step");
@@ -1703,14 +1774,16 @@ const Scenes = {
       return true;
     }),
     (completed = function () {
+      get(".btn-save").style.display = "block";
       Img.setBlinkArrow(-1);
-      setCC("🚀 Take Screenshot and share with your friends 🚀.")
+      setCC("Download it and share with your friends.")
       hide(Scenes.domItems.resultTable);
       hide(Scenes.domItems.tempText);
       // certificate name
       let certificateStuName = get("#certificateStuName");
       certificateStuName.innerHTML = student_name;
       get("#quizScore").innerHTML = Quiz.score;
+      get("#certificateDate").innerHTML = currentDateGlobal;
       show(Scenes.domItems.certificate, "flex");
 
       // * restart btn
@@ -1754,18 +1827,36 @@ const Scenes = {
   },
 };
 
-// Scenes.steps[8]();
-Scenes.next();
+// Scenes.steps[13]();
+Scenes.next();  
 
 const nextBtn = get(".btn-next");
 const backBtn = get(".btn-back");
-nextBtn.onclick = function () {
+nextBtn.addEventListener("click",()=>{
   Scenes.next();
-};
-backBtn.onclick = function () {
+  console.log("next")
+});
+backBtn.addEventListener("click",()=>{
   Scenes.back();
-};
+  console.log("back")
+});
 
+// print certificate
+get(".btn-save").addEventListener('click',()=>{
+  window.print();
+})
+
+let muteBtn = get(".btn-mute");
+muteBtn.addEventListener('click',()=>{
+  if(isMute){
+    isMute = false;
+    muteBtn.src = "./src/images/speech_off_btn.png"
+  }
+  else{
+    isMute = true;
+    muteBtn.src = "./src/images/speech_on_btn.png"
+  }
+})
 // Scenes.steps[2]()
 // Scenes.steps[4]()
 // Scenes.steps[5]()
@@ -1777,13 +1868,14 @@ backBtn.onclick = function () {
 // its amazing
 
 // mouse position
-function getCursor(event) {
-  let x = event.clientX;
-  let y = event.clientY;
-  let _position = `X: ${x - 232}<br>Y: ${y - 230}`;
+// function getCursor(event) {
+//   let x = event.clientX;
+//   let y = event.clientY;
+//   let _position = `X: ${x - 232}<br>Y: ${y - 230}`;
 
-  const infoElement = document.getElementById("info");
-  infoElement.innerHTML = _position;
-  infoElement.style.top = y + "px";
-  infoElement.style.left = x + 20 + "px";
-}
+//   const infoElement = document.getElementById("info");
+//   infoElement.innerHTML = _position;
+//   infoElement.style.top = y + "px";
+//   infoElement.style.left = x + 20 + "px";
+// }
+

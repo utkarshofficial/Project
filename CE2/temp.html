@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .welcome-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .welcome-box .title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top:  10px;
+        gap: 4px;
+      }
+      .welcome-box .iit-logo{
+        height: 120px;
+        width: 200px;
+      }
+      .welcome-box .prof-img{
+        height: 160px;
+      }
+      .welcome-box .title span{
+        font-size: 1.3rem;
+      }
+      .welcome-box .title span:nth-child(2n - 1){
+        color: red;
+      }
+      .welcome-box .title span:nth-child(2n){
+        font-weight: bold;
+        color: black;
+        font-family: Roboto;
+      }
+      .welcome-box .prof-description{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        padding: 5px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border: 2px solid;
+        border-radius: 5px;
+        align-self: end;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="welcome-box">
+      <img class="iit-logo" src="./src/images/iit-delhi-logo.png" alt="">
+      <div class="title">
+        <span >Welcome to Lab of</span>
+        <span >Tensile Strength of Reinforcement Bars</span> 
+        <span >Conducted by</span><span>Prof. Sahil Bansal of IIT Delhi.</span>
+      </div>
+      <div class="prof-description">
+        <img class="prof-img" src="./src/images/prof_logo.gif" alt="Prof. Sahil Bansal Image">
+        <span>Prof. Sahil Bansal</span>
+        <span>IIT Delhi</span>
+      </div>
+    </div>
+    
+
+    <!-- <textarea id="text"></textarea>
+      <button id="speak-button">Speak</button>
+      <script>
+      let textArea = document.getElementById("text");
+      let speakButton = document.getElementById("speak-button");
+      speakButton.addEventListener("click", function () {
+        let text = textArea.value;
+        let utterance = new SpeechSynthesisUtterance();
+        utterance.text = text;
+        utterance.voice = window.speechSynthesis.getVoices()[0];
+        window.speechSynthesis.speak(utterance);
+      });
+    </script>  -->
+  </body>
+</html>

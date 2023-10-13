@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="progressBar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="imgs.css" />
+    <link rel="stylesheet" href="scenes.css" />
+    <link rel="stylesheet" href="table.css" />
+    <link rel="stylesheet" href="quiz.css" />
+    <link rel="stylesheet" href="certificate.css" />
+    <link rel="stylesheet" href="chart.css" />
+  </head>
+  <img src="" alt="" />
+  <body>
+    <!-- <body  onmousemove="getCursor(event)"> -->
+    <!-- Mouse Position -->
+    <!-- <div id="demo">
+      <div id="info"></div>
+    </div> -->
+    <div class="main-container">
+      <!-- * Drawer Side Navbar -->
+      <nav id="drawer">
+        <div class="codelab-time-container" style="display: none"></div>
+        <div class="steps">
+          <ol>
+            <li class="">
+              <a>
+                <span class="step">
+                  <span>Introduction</span>
+                </span>
+              </a>
+            </li>
+            <li class="">
+              <a>
+                <span class="step">
+                  <span>Objective</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span
+                    >Placing formwork and plywood sheathing in concrete
+                    footing.</span
+                  >
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Record Simultaneously the readings of load</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>"Remove the extensometer</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Note the maximum reading</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Fit the two pieces together</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Completed</span>
+                </span>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </nav>
+      <div class="right-container">
+        <div class="right-box">
+          <!-- * Progress bar -->
+          <section class="progress-bar">
+            <div class="progressbar">
+              <div class="progress" id="progress"></div>
+              <div
+                class="progress-step progress-step-active"
+                data-title=""
+              ></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+            </div>
+          </section>
+
+          <main class="main-window">
+            <section class="anime-header">
+              <p>FORMWORK FOR CONCRETE STRUCTURES</p>
+              <img
+                class="btn btn-mute"
+                style="height: 40px; z-index: 5; position: absolute; right: 5px"
+                src="./src/images/speech_off_btn.png"
+                title="Click To Mute"
+              />
+            </section>
+
+            <!-- * Project Intro Goes Here -->
+            <div class="project-intro">
+              <span class="heading">Objective:</span>
+              <p class="description">
+                To Set the Sheathing with support.
+              </p>
+              <span class="heading">Apparatus Materials:</span>
+              <p class="description">
+                Sheathing, End Yoke, Wedge, Side Yoke, Bolt, Center Bolt, Measuring Tape, Washer.
+              </p>
+            </div>
+
+            <!-- * Steps Heading Template -->
+            <div class="step-heading">
+              <p class="step-title">Step 1</p>
+              <p class="step-description">
+                Calculation of cross-sectional area:
+              </p>
+            </div>
+            <section class="anime-main">
+              <!-- * Welcome note About Experiment-->
+              <div class="welcome-box">
+                <img
+                  class="iit-logo"
+                  src="./src/images/iit-delhi-logo.png"
+                  alt=""
+                />
+                <div class="title">
+                  <span>Welcome to</span>
+                  <span>Tensile Strength of Reinforcement Bars Experiment</span>
+                  <span>of Concrete structures Virtual Lab</span>
+                  <span
+                    >developed by Prof. Sahil Bansal, Department of Civil
+                    Engineering, IITDelhi.</span
+                  >
+                </div>
+                <div class="prof-description">
+                  <img
+                    class="prof-img"
+                    src="./src/images/prof_logo.gif"
+                    alt="Prof. Sahil Bansal Image"
+                  />
+                  <span>Prof. Sahil Bansal</span>
+                  <span>IIT Delhi</span>
+                </div>
+              </div>
+
+              <!-- * Student Name section -->
+              <form onsubmit="return false" class="user-input">
+                <p>Enter your name:</p>
+                <input type="text" name="" id="stuName" />
+                <p class="error">Please enter your name before start</p>
+                <input
+                  class="btn"
+                  id="nameSubmitBtn"
+                  type="submit"
+                  value="Start"
+                />
+              </form>
+
+              <!-- * Calculations Table -->
+              <table class="measurements">
+                <tbody>
+                  <tr>
+                    <th class="cell" colspan="2">Calculations:</th>
+                  </tr>
+                  <tr>
+                    <th class="cell" scope="col">Total Length(m)</th>
+                    <td class="cell"></td>
+                  </tr>
+                  <tr>
+                    <th class="cell" scope="col">Weight(kg)</th>
+                    <td class="cell"></td>
+                  </tr>
+                  <tr>
+                    <th class="cell" scope="col">
+                      Cross-sectional area (mm<sup>2</sup>)
+                    </th>
+                    <td class="cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- * Result table -->
+              <main class="table result-table">
+                <section class="table__header">
+                  <h4 style="margin-left: 32px">
+                    Results<br />Date of test: <span id="date"></span><br />
+                    Grade of Steel: 550 SD steel
+                  </h4>
+                </section>
+                <section
+                  class="table__body"
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    overflow-y: overlay;
+                  "
+                >
+                  <table class="">
+                    <tbody>
+                      <tr>
+                        <th class="cell" scope="col">Weight of specimen (g)</th>
+                        <td class="cell">698</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Length of specimen (mm)
+                        </th>
+                        <td class="cell">805</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Effective cross-sectional area,
+                          S<sub>o</sub>(mm<sup>2</sup>) =
+                          <img
+                            height="45"
+                            src="./src/images/S0_formula5"
+                            alt=""
+                          />
+                        </th>
+                        <td class="cell">110.4</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Original gauge length L (mm) =
+                          <img
+                            height="20"
+                            src="./src/images/S0_formula3"
+                            alt=""
+                          />
+                        </th>
+                        <td class="cell">59.4</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Choosen gauge length L<sub>o</sub> (mm)
+                        </th>
+                        <td class="cell">60</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">Yield Stress (MPa)</th>
+                        <td class="cell">480.84</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">Tensile Strength (MPa)</th>
+                        <td class="cell">600.62</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">TS/YS Ratio</th>
+                        <td class="cell">1.25</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Final gauge length, L<sub>u</sub> mm
+                        </th>
+                        <td class="cell">77</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Final diameter minimum (mm)
+                        </th>
+                        <td class="cell">7.1</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          % Elongation after fracture
+                        </th>
+                        <td class="cell">28.33</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">% Reduction in area</th>
+                        <td class="cell">64.13</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </main>
+
+              <!-- * chart Js Canvas-->
+              <div class="chart">
+                <canvas id="myChart"></canvas>
+              </div>
+
+              <!-- * Input box format for in anime questions -->
+              <form onsubmit="return false" class="temp-input">
+                <span class="text1"></span
+                ><input class="input" type="text" name="" id="ipnum" /><span
+                  class="text2"
+                ></span>
+                <p class="error"></p>
+                <input class="submit-btn btn" type="submit" value="Submit" />
+              </form>
+            
+              <!-- * Template button for on off machine -->
+              <div class="utm-button"></div>
+
+              <!-- * Quiz container -->
+              <div class="quiz-container" id="quiz">
+                <div class="quiz-header">
+                  <div class="title">
+                    <h2 id="question">Question text</h2>
+                    <span id="closeQuiz">X</span>
+                  </div>
+                  <ul>
+                    <li>
+                      <input type="radio" id="a" name="answer" class="answer" />
+                      <label id="a_text" for="a">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="answer" class="answer" />
+                      <label id="b_text" for="b">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="answer" class="answer" />
+                      <label id="c_text" for="c">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="answer" class="answer" />
+                      <label id="d_text" for="d">Question</label>
+                    </li>
+                    <li>
+                      <p id="quizAns" style="color: green">India</p>
+                    </li>
+                  </ul>
+                </div>
+                <button id="quizSubmit">Submit</button>
+              </div>
+
+              <!-- * End Certificate Template -->
+              <div class="certificate">
+                <div class="header">
+                  <img src="./src/images/logo.png" alt="" class="logo" />
+                  <span class="title cursive">Certificate of Completion</span>
+                </div>
+                <div class="student-detail">
+                  <div class="row">
+                    <span class="bold red" id="certificateStuName"
+                      >Sneha Jadon</span
+                    >
+                  </div>
+                  <div class="row">
+                    <span class="cursive" style="text-align: center"
+                      >has succesfully completed Virtaul Lab on
+                    </span>
+                    <span style="font-size: 1.5rem" class="bold sans red"
+                      >TENSILE STRENGTH OF REINFORCEMNT BARS</span
+                    >
+                  </div>
+                  <div class="">
+                    <span class="cursive">and secured</span>
+                    <span class="bold sans" id="quizScore">0</span>
+                    <span class="bold sans">/5 Marks</span>
+                    <span class="cursive">at</span>
+                    <span class="bold sans" id="certificateDate"
+                      >Date 10-10-2023</span
+                    >
+                  </div>
+                  <div class="row">
+                    <span class="cursive"
+                      >which is developed by
+                      <span class="bold sans">VIRTUAL LABS - IIT Delhi</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- * Images that is used in all steps -->
+              <!-- * class main-window-imgs -->
+              <!-- ! Example -->
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/arrow.png"
+                title="arrow"
+                alt="arrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/blinkArrow.webp"
+                title="blinkArrow"
+                alt="blinkArrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/laerrow.png"
+                title="laerrow"
+                alt="laerrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/laerrow2.png"
+                title="laerrow2"
+                alt="laerrow2"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/logo.png"
+                title="logo"
+                alt="logo"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/man.png"
+                title="man"
+                alt="man"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/measurearrow.png"
+                title="measurearrow"
+                alt="measurearrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/measurearrow2.png"
+                title="measurearrow2"
+                alt="measurearrow2"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/redsize.png"
+                title="redsize"
+                alt="redsize"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/speech_off_btn.png"
+                title="speech_off_btn"
+                alt="speech_off_btn"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/speech_on_btn.png"
+                title="speech_on_btn"
+                alt="speech_on_btn"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/talk_cloud.png"
+                title="talk_cloud"
+                alt="talk_cloud"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/iit-delhi-logo.png"
+
+                title="iit-delhi-logo"
+                alt="iit-delhi-logo"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/periwall2.png"
+
+                title="front_view"
+                alt="front_view"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/periwall1.png"
+
+                title="back_view"
+                alt="back_view"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/footing.png"
+                title="Footing"
+                alt="Footing"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/footing_with_nailer.png"
+                title="Footing with Nailer Insert"
+                alt="Footing with Nailer Insert"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/side.png"
+                title="Form Panel Side Wall"
+                alt="Form Panel Side Wall"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/side.png"
+                title="Form Panel Side Wall"
+                alt="Form Panel Side Wall"
+              />
+              <img
+                class="main-window-imgs leftNut"
+                src="./src/images/boltl.png"
+                title=" "
+                alt="Bolt Left"
+              />
+              <img
+                class="main-window-imgs leftNut"
+                src="./src/images/boltl.png"
+                title="Bolt Left"
+                alt="Bolt Left"
+              />
+              <img
+                class="main-window-imgs leftNut"
+                src="./src/images/boltl.png"
+                title="Bolt Left"
+                alt="Bolt Left"
+              />
+              <img
+                class="main-window-imgs rightNut"
+                src="./src/images/boltr.png"
+                title="Bolt Right"
+                alt="Bolt Right"
+              />
+              <img
+                class="main-window-imgs rightNut"
+                src="./src/images/boltr.png"
+                title="Bolt Right"
+                alt="Bolt Right"
+              />
+              <img
+                class="main-window-imgs rightNut"
+                src="./src/images/boltr.png"
+                title="Bolt Right"
+                alt="Bolt Right"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/sheathing.png"
+                title="Left Sheathing"
+                alt="Left Sheathing"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/sheathing.png"
+                title="Right Sheathing"
+                alt="Right Sheathing"
+              />
+              <img
+                class="main-window-imgs washer"
+                src="./src/images/washer.png"
+                title="Washer"
+                alt="Washer"
+              />
+              <img
+                class="main-window-imgs washer"
+                src="./src/images/washer.png"
+                title="Washer"
+                alt="Washer"
+              />
+              <img
+                class="main-window-imgs washer"
+                src="./src/images/washer.png"
+                title="Washer"
+                alt="Washer"
+              />
+              <img
+                class="main-window-imgs washer"
+                src="./src/images/washer.png"
+                title="Washer"
+                alt="Washer"
+              />
+              <img
+                class="main-window-imgs washer"
+                src="./src/images/washer.png"
+                title="Washer"
+                alt="Washer"
+              />
+              <img
+                class="main-window-imgs washer"
+                src="./src/images/washer.png"
+                title="Washer"
+                alt="Washer"
+              />
+              <img
+                class="main-window-imgs spacer"
+                src="./src/images/spacer.png"
+                title="Spacer"
+                alt="Spacer"
+              />
+              <img
+                class="main-window-imgs spacer"
+                src="./src/images/spacer.png"
+                title="Spacer"
+                alt="Spacer"
+              />
+              <img
+                class="main-window-imgs spacer"
+                src="./src/images/spacer.png"
+                title="Spacer"
+                alt="Spacer"
+              />
+              <img
+                class="main-window-imgs steelrod"
+                src="./src/images/steel_rod.png"
+                title="Steel Rod"
+                alt="Steel Rod"
+              />
+              <img
+                class="main-window-imgs steelrod"
+                src="./src/images/steel_rod.png"
+                title="Steel Rod"
+                alt="Steel Rod"
+              />
+              <img
+                class="main-window-imgs steelrod"
+                src="./src/images/steel_rod.png"
+                title="Steel Rod"
+                alt="Steel Rod"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/full_footing.png"
+                title=""
+                alt=""
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/strongBack.png"
+                title=""
+                alt=""
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/strongBack.png"
+                title=""
+                alt=""
+              />
+
+              <!-- * Videos -->
+              <video muted class="main-window-videos" src="./src/videos/yoke_front_to_back.mp4"></video>
+              <video muted class="main-window-videos" src="./src/videos/yoke_front_to_side.mp4"></video>
+              <video class="main-window-videos" muted src="./src/videos/panel_1.mp4"></video>
+              <video class="main-window-videos" muted src="./src/videos/panel_2.mp4"></video>
+
+              <!-- * Video Box -->
+              <div class="video-box">
+                <video muted class="video" src=""></video>
+                <div class="controls" title="Click to Restart">
+                  <span class="title">Title</span>
+                  <button class="btn restart"><img src="./src/images/restart_btn.png" alt=""></button>
+                </div>
+              </div>
+              
+              <!-- * Content Adder Box -->
+              <ul class="content-adder-box">
+                <!-- <li class="btn content-adder">Footing</li> -->
+              </ul>
+
+              <!-- * Temp texts for showing some text in anime -->
+              <span 
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-text"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-text2"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title1"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title2"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title3"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title4"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title5"
+              ></span>
+              
+
+            </section>
+
+            <!-- * Anime Footer -->
+            <section class="anime-footer">
+              <btn class="btn btn-back">Back</btn>
+              <!-- * Bottom Subtitles Div -->
+              <div class="steps-subtitle">
+                <!-- <p class="user-name">Hey👋 Sneha</p> -->
+                <p class="subtitle" id="subtitle"></p>
+              </div>
+              <btn class="btn btn-next">Next</btn>
+              <btn
+                class="btn btn-save"
+                style="position: absolute; right: 90px; bottom: 5px"
+                >Download</btn
+              >
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <script src="src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
+    <script src="progressBar.js"></script>
+    <script src="layout.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

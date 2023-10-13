@@ -1,0 +1,85 @@
+
+    <img
+        class="main-window-imgs"
+        src="./src/images/arrow.png"
+        title="arrow.png"
+        alt="arrow.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/blinkArrow.webp"
+        title="blinkArrow.webp"
+        alt="blinkArrow.webp"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/laerrow.png"
+        title="laerrow.png"
+        alt="laerrow.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/laerrow2.png"
+        title="laerrow2.png"
+        alt="laerrow2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/logo.png"
+        title="logo.png"
+        alt="logo.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/man.png"
+        title="man.png"
+        alt="man.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/measurearrow.png"
+        title="measurearrow.png"
+        alt="measurearrow.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/measurearrow2.png"
+        title="measurearrow2.png"
+        alt="measurearrow2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/redsize.png"
+        title="redsize.png"
+        alt="redsize.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/speech_off_btn.png"
+        title="speech_off_btn.png"
+        alt="speech_off_btn.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/speech_on_btn.png"
+        title="speech_on_btn.png"
+        alt="speech_on_btn.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/talk_cloud.png"
+        title="talk_cloud.png"
+        alt="talk_cloud.png"
+    />
+    

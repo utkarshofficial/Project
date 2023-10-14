@@ -3,8 +3,10 @@ let isMute = false;
 
 // * Current Date
 let cd = new Date();
-var currentDateGlobal = `${cd.getDate()} - ${cd.getMonth() + 1} - ${cd.getFullYear()}`
-console.log(currentDateGlobal)
+var currentDateGlobal = `${cd.getDate()} - ${
+  cd.getMonth() + 1
+} - ${cd.getFullYear()}`;
+console.log(currentDateGlobal);
 
 // * Quiz object
 const Quiz = {
@@ -68,7 +70,8 @@ const Quiz = {
   currentQuiz: 0,
   score: 0,
   loadQuiz() {
-    if(this.currentQuiz >= this.quizData.length){
+    console.log(this.currentQuiz, this.quizData.length);
+    if (this.currentQuiz >= this.quizData.length) {
       return;
     }
     this.loadQuizCallCount++;
@@ -115,6 +118,11 @@ const Quiz = {
     // onclick for quiz submit btn
     document.getElementById("quizSubmit").addEventListener("click", () => {
       // for disable multiple submit
+      console.log(
+        this.loadQuizCallCount - 1,
+        this.currentQuiz,
+        this.quizData.length
+      );
       if (this.loadQuizCallCount - 1 !== this.currentQuiz) {
         return;
       }
@@ -654,7 +662,6 @@ const Scenes = {
     objective3: new Dom("objective3"),
     btn_save: new Dom(".btn-save"),
     btn_next: new Dom(".btn-next"),
-
   },
   deleteAll() {
     for (i in this.img) {
@@ -692,7 +699,7 @@ const Scenes = {
       setIsProcessRunning(true);
 
       // remove all for back
-      Dom.hideAll()
+      Dom.hideAll();
 
       // starting elements
 
@@ -767,8 +774,8 @@ const Scenes = {
       };
       return true;
     }),
-    (objective = function () {  
-      setIsProcessRunning(true)
+    (objective = function () {
+      setIsProcessRunning(true);
       // to stop current voice
       window.speechSynthesis.cancel();
 
@@ -778,22 +785,22 @@ const Scenes = {
       setCC("Click 'Next' to go to next step");
 
       // Scenes.items.objective3.set(10,120,300).push()
-      Scenes.items.objective2.set(650,120,200).push()
-      Scenes.items.objective1.set(400,120,200).push()
+      Scenes.items.objective2.set(650, 120, 200).push();
+      Scenes.items.objective1.set(400, 120, 200).push();
 
-      Scenes.items.spacer1.set(50,280,30,112).zIndex(2).push()
-      Scenes.items.steelRod1.set(30,380,25,290).zIndex(0).push()
-      Scenes.items.washer1.set(50,180,25,8).zIndex(3).push()
-      Scenes.items.leftNut1.set(150,160,60,38).zIndex(1).push().rotate(50)
-      Scenes.items.rightNut1.set(220,160,60,38).zIndex(1).push().rotate(-50)
+      Scenes.items.spacer1.set(50, 280, 30, 112).zIndex(2).push();
+      Scenes.items.steelRod1.set(30, 380, 25, 290).zIndex(0).push();
+      Scenes.items.washer1.set(50, 180, 25, 8).zIndex(3).push();
+      Scenes.items.leftNut1.set(150, 160, 60, 38).zIndex(1).push().rotate(50);
+      Scenes.items.rightNut1.set(220, 160, 60, 38).zIndex(1).push().rotate(-50);
 
-      Scenes.items.tempTitle1.set(20,210).setContent("(Washer)").push()
-      Scenes.items.tempTitle2.set(160,220).setContent("(Lock Nuts)").push()
-      Scenes.items.tempTitle3.set(70,310).setContent("(Spacer)").push()
-      Scenes.items.tempTitle4.set(200,360).setContent("(Steel Rod)").push()
+      Scenes.items.tempTitle1.set(20, 210).setContent("(Washer)").push();
+      Scenes.items.tempTitle2.set(160, 220).setContent("(Lock Nuts)").push();
+      Scenes.items.tempTitle3.set(70, 310).setContent("(Spacer)").push();
+      Scenes.items.tempTitle4.set(200, 360).setContent("(Steel Rod)").push();
 
       // Scenes.items.objective1.set(0,120,200).push()
-      Scenes.items.projectIntro.show().push()
+      Scenes.items.projectIntro.show().push();
       // Scenes.items.bare_raber.set(680, 185, 200, 10).zIndex(1).rotate(70).push(),
       //   Scenes.items.extensometer.set(550, 235, 45).zIndex(1).push(),
       //   Scenes.items.varniarfull.set(585, 250, 30).zIndex(1).rotate(160).push(),
@@ -872,7 +879,7 @@ const Scenes = {
     }),
     (step2 = function () {
       // hide
-      Dom.hideAll()
+      Dom.hideAll();
 
       setIsProcessRunning(true);
 
@@ -914,22 +921,25 @@ const Scenes = {
         // onclick
         contentAdderBtns[1].onclick = function () {
           Dom.setBlinkArrow(-1);
-          Scenes.items.footingWithNailer.set(290, 350, 60, 250).zIndex(2).push();
+          Scenes.items.footingWithNailer
+            .set(290, 350, 60, 250)
+            .zIndex(2)
+            .push();
 
           Scenes.items.larrow2.set(480, 300, 50).rotate(0).zIndex(10);
           Scenes.items.tempTitle1
-          .set(570, 260, null, 150)
-          .setContent(
-            "The purpose of a nailer insert is to create a secure attachment point for paneling."
-          );
+            .set(570, 260, null, 150)
+            .setContent(
+              "The purpose of a nailer insert is to create a secure attachment point for paneling."
+            );
 
           setCC("Click on the 'Form Panel' to add form panel in the lab.");
           Dom.setBlinkArrow(true, 710, 115).play();
           //onclick
           contentAdderBtns[2].onclick = () => {
             // hide arrow and text
-            Scenes.items.tempTitle1.hide()
-            Scenes.items.larrow2.hide()
+            Scenes.items.tempTitle1.hide();
+            Scenes.items.larrow2.hide();
 
             // emptry onclick after use
             contentAdderBtns[2].onclick = () => {};
@@ -950,7 +960,8 @@ const Scenes = {
                     .set(440, 0, 370)
                     .play(0.4)
                     .zIndex(1)
-                    .show().push()
+                    .show()
+                    .push();
                 },
               })
               .add({
@@ -1006,7 +1017,8 @@ const Scenes = {
           Scenes.items.rightSheathing
             .set(470, 0, 370, 10)
             .zIndex(0)
-            .rotate(180).push();
+            .rotate(180)
+            .push();
 
           setCC("Click 'Next' to go to next step");
           Dom.setBlinkArrow(true, 790, 408).play();
@@ -1025,11 +1037,16 @@ const Scenes = {
       );
 
       // Required elements
-      Scenes.items.footingWithNailer.set(140, 350, 60, 250).zIndex(4).push()
-      Scenes.items.panelWall1.set(190, 0, 370).zIndex(3).push()
-      Scenes.items.panelWall2.set(330, 0, 370).zIndex(3).push()
-      Scenes.items.rightSheathing.set(320, 0, 370, 10).zIndex(0).rotate(180).zIndex(3).push()
-      Scenes.items.leftSheathing.set(210, 0, 370, 10).zIndex(3).push()
+      Scenes.items.footingWithNailer.set(140, 350, 60, 250).zIndex(4).push();
+      Scenes.items.panelWall1.set(190, 0, 370).zIndex(3).push();
+      Scenes.items.panelWall2.set(330, 0, 370).zIndex(3).push();
+      Scenes.items.rightSheathing
+        .set(320, 0, 370, 10)
+        .zIndex(0)
+        .rotate(180)
+        .zIndex(3)
+        .push();
+      Scenes.items.leftSheathing.set(210, 0, 370, 10).zIndex(3).push();
 
       // content adder
       Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
@@ -1064,30 +1081,30 @@ const Scenes = {
       // Scenes.items.rightNut3.set(350,285,60,38).zIndex(1)
 
       // default washer position
-      Scenes.items.washer1.set(467, 320, 25, 8).zIndex(3).push()
-      Scenes.items.washer2.set(467, 320, 25, 8).zIndex(3).push()
-      Scenes.items.washer3.set(467, 320, 25, 8).zIndex(3).push()
-      Scenes.items.washer4.set(467, 320, 25, 8).zIndex(3).push()
-      Scenes.items.washer5.set(467, 320, 25, 8).zIndex(3).push()
-      Scenes.items.washer6.set(467, 320, 25, 8).zIndex(3).push()
+      Scenes.items.washer1.set(467, 320, 25, 8).zIndex(3).push();
+      Scenes.items.washer2.set(467, 320, 25, 8).zIndex(3).push();
+      Scenes.items.washer3.set(467, 320, 25, 8).zIndex(3).push();
+      Scenes.items.washer4.set(467, 320, 25, 8).zIndex(3).push();
+      Scenes.items.washer5.set(467, 320, 25, 8).zIndex(3).push();
+      Scenes.items.washer6.set(467, 320, 25, 8).zIndex(3).push();
 
       // default spacer position
-      Scenes.items.spacer1.set(520, 320, 30, 112).zIndex(2).push()
-      Scenes.items.spacer2.set(520, 320, 30, 112).zIndex(2).push()
-      Scenes.items.spacer3.set(520, 320, 30, 112).zIndex(2).push()
+      Scenes.items.spacer1.set(520, 320, 30, 112).zIndex(2).push();
+      Scenes.items.spacer2.set(520, 320, 30, 112).zIndex(2).push();
+      Scenes.items.spacer3.set(520, 320, 30, 112).zIndex(2).push();
 
       // default steel rod position
-      Scenes.items.steelRod1.set(417, 370, 25, 290).zIndex(0).push()
-      Scenes.items.steelRod2.set(417, 370, 25, 290).zIndex(0).push()
-      Scenes.items.steelRod3.set(417, 370, 25, 290).zIndex(0).push()
+      Scenes.items.steelRod1.set(417, 370, 25, 290).zIndex(0).push();
+      Scenes.items.steelRod2.set(417, 370, 25, 290).zIndex(0).push();
+      Scenes.items.steelRod3.set(417, 370, 25, 290).zIndex(0).push();
 
       // default nut position
-      Scenes.items.leftNut1.set(30, 340, 60, 38).zIndex(1).rotate(40).push()
-      Scenes.items.leftNut2.set(30, 340, 60, 38).zIndex(1).rotate(40).push()
-      Scenes.items.leftNut3.set(30, 340, 60, 38).zIndex(1).rotate(40).push()
-      Scenes.items.rightNut1.set(80, 340, 60, 38).zIndex(10).rotate(-40).push()
-      Scenes.items.rightNut2.set(80, 340, 60, 38).zIndex(10).rotate(-40).push()
-      Scenes.items.rightNut3.set(80, 340, 60, 38).zIndex(10).rotate(-40).push()
+      Scenes.items.leftNut1.set(30, 340, 60, 38).zIndex(1).rotate(40).push();
+      Scenes.items.leftNut2.set(30, 340, 60, 38).zIndex(1).rotate(40).push();
+      Scenes.items.leftNut3.set(30, 340, 60, 38).zIndex(1).rotate(40).push();
+      Scenes.items.rightNut1.set(80, 340, 60, 38).zIndex(10).rotate(-40).push();
+      Scenes.items.rightNut2.set(80, 340, 60, 38).zIndex(10).rotate(-40).push();
+      Scenes.items.rightNut3.set(80, 340, 60, 38).zIndex(10).rotate(-40).push();
 
       setCC("Click on the 'Spread Washer' to place it on the form panel.");
       Dom.setBlinkArrow(true, 690, -35).play();
@@ -1095,6 +1112,7 @@ const Scenes = {
       let washerIdx = 0;
       let positionIdx = 0;
       contentAdderBtns[0].onclick = () => {
+        Dom.setBlinkArrow(-1);
         let allWasherDom = getAll(".washer");
         let position = [63, 183, 303];
         anime
@@ -1111,8 +1129,11 @@ const Scenes = {
             keyframes: [{ top: position[positionIdx++] }, { left: 313 }],
             duration: 2000,
             complete() {
+              // setblick after animetion done
+              Dom.setBlinkArrow(true, 690, -35).play();
               // onclick
               if (washerIdx >= allWasherDom.length) {
+                Dom.setBlinkArrow(-1);
                 contentAdderBtns[0].onclick = () => {};
 
                 setCC("Click on the 'Spacer' to place it in the form panel.");
@@ -1121,6 +1142,7 @@ const Scenes = {
                 // onclick
                 let spacerIdx = 0;
                 contentAdderBtns[1].onclick = () => {
+                  Dom.setBlinkArrow(-1);
                   let allSpacerDom = getAll(".spacer");
                   let position = [60, 180, 300];
                   anime
@@ -1134,91 +1156,120 @@ const Scenes = {
                         { left: 212.5 },
                       ],
                       duration: 1500,
+                      complete() {
+                        Dom.setBlinkArrow(true, 690, 10).play();
+                        if (spacerIdx >= allSpacerDom.length) {
+                          Dom.setBlinkArrow(-1);
+                          // to blank the onlclick
+                          contentAdderBtns[1].onclick = () => {};
+
+                          setCC(
+                            "Click on the 'Steel Rod' to place it in the form panel."
+                          );
+                          Dom.setBlinkArrow(true, 690, 65).play();
+
+                          // onclick
+                          let steelRodIdx = 0;
+                          contentAdderBtns[2].onclick = () => {
+                            Dom.setBlinkArrow(-1);
+                            let allSteelRodDom = getAll(".steelrod");
+                            let position = [62, 182, 302];
+                            anime
+                              .timeline({
+                                easing: "easeOutQuad",
+                              })
+                              .add({
+                                targets: allSteelRodDom[steelRodIdx],
+                                keyframes: [
+                                  { top: position[steelRodIdx++] },
+                                  { left: 125 },
+                                ],
+                                duration: 1500,
+                                complete() {
+                                  Dom.setBlinkArrow(true, 690, 65).play();
+                                  // onclick
+                                  if (steelRodIdx >= allSteelRodDom.length) {
+                                    Dom.setBlinkArrow(-1);
+                                    contentAdderBtns[2].onclick = () => {};
+                                    Dom.setBlinkArrow(-1);
+                                    setCC(
+                                      "Click on the 'Lock Nut' to place it in the form panel."
+                                    );
+                                    Dom.setBlinkArrow(true, 690, 120).play();
+
+                                    // onclick lock nut
+                                    let nutIdx = 0;
+                                    contentAdderBtns[3].onclick = () => {
+                                      Dom.setBlinkArrow(-1);
+
+                                      let allLeftNutDom = getAll(".leftNut");
+                                      let allRightNutDom = getAll(".rightNut");
+                                      const allNuts = [
+                                        ...allLeftNutDom,
+                                        ...allRightNutDom,
+                                      ];
+                                      for (let i of allNuts) {
+                                        // i.style.transform = "rotate(0deg)";
+                                      }
+                                      let position = [45, 165, 285];
+                                      anime
+                                        .timeline({
+                                          easing: "easeOutQuad",
+                                        })
+                                        .add({
+                                          targets: allLeftNutDom[nutIdx],
+                                          keyframes: [
+                                            {
+                                              top: position[nutIdx],
+                                              rotate: 0,
+                                            },
+                                            { left: 155 },
+                                          ],
+                                          duration: 2000,
+                                        })
+                                        .add({
+                                          targets: allRightNutDom[nutIdx],
+                                          keyframes: [
+                                            { top: position[nutIdx++] },
+                                            { left: 420, rotate: 0 },
+                                            { left: 350 },
+                                          ],
+                                          duration: 3000,
+                                          complete() {
+                                            Dom.setBlinkArrow(
+                                              true,
+                                              690,
+                                              120
+                                            ).play();
+                                          },
+                                        });
+                                      if (nutIdx >= allLeftNutDom.length) {
+                                        anime({
+                                          duration: 5700,
+                                          complete() {
+                                            setCC(
+                                              "Click 'Next' to go to next step"
+                                            );
+                                            Dom.setBlinkArrow(
+                                              true,
+                                              790,
+                                              408
+                                            ).play();
+                                            Quiz.loadQuiz();
+                                            setIsProcessRunning(false);
+                                            contentAdderBtns[3].onclick =
+                                              () => {};
+                                          },
+                                        });
+                                      }
+                                    };
+                                  }
+                                },
+                              });
+                          };
+                        }
+                      },
                     });
-
-                  if (spacerIdx >= allSpacerDom.length) {
-                    // to blank the onlclick
-                    contentAdderBtns[1].onclick = () => {};
-
-                    setCC(
-                      "Click on the 'Steel Rod' to place it in the form panel."
-                    );
-                    Dom.setBlinkArrow(true, 690, 65).play();
-
-                    // onclick
-                    let steelRodIdx = 0;
-                    contentAdderBtns[2].onclick = () => {
-                      let allSteelRodDom = getAll(".steelrod");
-                      let position = [62, 182, 302];
-                      anime
-                        .timeline({
-                          easing: "easeOutQuad",
-                        })
-                        .add({
-                          targets: allSteelRodDom[steelRodIdx],
-                          keyframes: [
-                            { top: position[steelRodIdx++] },
-                            { left: 125 },
-                          ],
-                          duration: 1500,
-                        });
-
-                      // onclick
-                      if (steelRodIdx >= allSteelRodDom.length) {
-                        contentAdderBtns[2].onclick = () => {};
-
-                        setCC(
-                          "Click on the 'Lock Nut' to place it in the form panel."
-                        );
-                        Dom.setBlinkArrow(true, 690, 120).play();
-
-                        // onclick lock nut
-                        let nutIdx = 0;
-                        contentAdderBtns[3].onclick = () => {
-                          let allLeftNutDom = getAll(".leftNut");
-                          let allRightNutDom = getAll(".rightNut");
-                          const allNuts = [...allLeftNutDom,...allRightNutDom]
-                          for(let i of allNuts){
-                            // i.style.transform = "rotate(0deg)";
-                          }
-                          let position = [45, 165, 285];
-                          anime
-                            .timeline({
-                              easing: "easeOutQuad",
-                            })
-                            .add({
-                              targets: allLeftNutDom[nutIdx],
-                              keyframes: [
-                                { top: position[nutIdx],rotate:  0},
-                                { left: 155 },
-                              ],
-                              duration: 2000,
-                            })
-                            .add({
-                              targets: allRightNutDom[nutIdx],
-                              keyframes: [
-                                { top: position[nutIdx++]},
-                                { left: 420,rotate:  0  },
-                                { left: 350 },
-                              ],
-                              duration: 3000,
-                            })
-
-                          if(nutIdx >= allLeftNutDom.length){
-                            anime({
-                              duration: 5700,
-                              complete(){
-                                setCC("Click 'Next' to go to next step");
-                                Dom.setBlinkArrow(true, 790, 408).play();
-                                Quiz.loadQuiz()
-                                setIsProcessRunning(false);
-                              }
-                            })
-                          }
-                        };
-                      }
-                    };
-                  }
                 };
               }
             },
@@ -1226,73 +1277,82 @@ const Scenes = {
       };
       return true;
     }),
-    (step5 = function(){
+    (step5 = function () {
       setIsProcessRunning(true);
-      Scenes.setStepHeading("Step 5","Insert the strong back to support the form panel.")
+      Scenes.setStepHeading(
+        "Step 5",
+        "Insert the strong back to support the form panel."
+      );
       // todo remove all previous
       Scenes.items.contentAdderBox.setContent("");
 
-
       // todo Required Items
-      Scenes.items.footingWithNailer.set(340, 350, 60, 250).zIndex(4).push()
-      Scenes.items.full_footing.set(0, 350, 60, 950).zIndex(3).push()
-      Scenes.items.panelWall1.set(390, 0, 370).zIndex(3).push()
-      Scenes.items.panelWall2.set(530, 0, 370).zIndex(3).push()
-      Scenes.items.rightSheathing.set(520, 0, 370, 10).zIndex(0).rotate(180).zIndex(3).push()
-      Scenes.items.leftSheathing.set(410, 0, 370, 10).zIndex(3).push()
-      
-      Scenes.items.washer1.set(417,63,25,8).zIndex(3).push()
-      Scenes.items.washer2.set(417,183,25,8).zIndex(3).push()
-      Scenes.items.washer3.set(417,303,25,8).zIndex(3).push()
+      Scenes.items.footingWithNailer.set(340, 350, 60, 250).zIndex(4).push();
+      Scenes.items.full_footing.set(0, 350, 60, 950).zIndex(3).push();
+      Scenes.items.panelWall1.set(390, 0, 370).zIndex(3).push();
+      Scenes.items.panelWall2.set(530, 0, 370).zIndex(3).push();
+      Scenes.items.rightSheathing
+        .set(520, 0, 370, 10)
+        .zIndex(0)
+        .rotate(180)
+        .zIndex(3)
+        .push();
+      Scenes.items.leftSheathing.set(410, 0, 370, 10).zIndex(3).push();
 
-      Scenes.items.washer4.set(513,63,25,8).zIndex(3).push()
-      Scenes.items.washer5.set(513,183,25,8).zIndex(3).push()
-      Scenes.items.washer6.set(513,303,25,8).zIndex(3).push()
+      Scenes.items.washer1.set(417, 63, 25, 8).zIndex(3).push();
+      Scenes.items.washer2.set(417, 183, 25, 8).zIndex(3).push();
+      Scenes.items.washer3.set(417, 303, 25, 8).zIndex(3).push();
 
-      Scenes.items.spacer1.set(412.5,60,30,112).zIndex(2).push()
-      Scenes.items.spacer2.set(412.5,180,30,112).zIndex(2).push()
-      Scenes.items.spacer3.set(412.5,300,30,112).zIndex(2).push()
+      Scenes.items.washer4.set(513, 63, 25, 8).zIndex(3).push();
+      Scenes.items.washer5.set(513, 183, 25, 8).zIndex(3).push();
+      Scenes.items.washer6.set(513, 303, 25, 8).zIndex(3).push();
 
-      Scenes.items.steelRod1.set(325,62,25,290).zIndex(0).push()
-      Scenes.items.steelRod2.set(325,182,25,290).zIndex(0).push()
-      Scenes.items.steelRod3.set(325,302,25,290).zIndex(0).push()
+      Scenes.items.spacer1.set(412.5, 60, 30, 112).zIndex(2).push();
+      Scenes.items.spacer2.set(412.5, 180, 30, 112).zIndex(2).push();
+      Scenes.items.spacer3.set(412.5, 300, 30, 112).zIndex(2).push();
 
-      Scenes.items.leftNut1.set(355,45,60,38).zIndex(1).push()
-      Scenes.items.leftNut2.set(355,165,60,38).zIndex(1).push()
-      Scenes.items.leftNut3.set(355,285,60,38).zIndex(1).push()
+      Scenes.items.steelRod1.set(325, 62, 25, 290).zIndex(0).push();
+      Scenes.items.steelRod2.set(325, 182, 25, 290).zIndex(0).push();
+      Scenes.items.steelRod3.set(325, 302, 25, 290).zIndex(0).push();
 
-      Scenes.items.rightNut1.set(550,45,60,38).zIndex(1).push()
-      Scenes.items.rightNut2.set(550,165,60,38).zIndex(1).push()
-      Scenes.items.rightNut3.set(550,285,60,38).zIndex(1).push()
+      Scenes.items.leftNut1.set(355, 45, 60, 38).zIndex(1).push();
+      Scenes.items.leftNut2.set(355, 165, 60, 38).zIndex(1).push();
+      Scenes.items.leftNut3.set(355, 285, 60, 38).zIndex(1).push();
+
+      Scenes.items.rightNut1.set(550, 45, 60, 38).zIndex(1).push();
+      Scenes.items.rightNut2.set(550, 165, 60, 38).zIndex(1).push();
+      Scenes.items.rightNut3.set(550, 285, 60, 38).zIndex(1).push();
 
       // strong back default pos
       // Scenes.items.strongBack1.set(200,200).push().rotate(90).zIndex(8)
 
-
       // content adder
-      Scenes.items.contentAdderBox.set(null, -50).show("flex").push().push()
-      Scenes.contentAdderAddBtn("Strong Back Left") 
-      Scenes.contentAdderAddBtn("Strong Back Right") 
-      let contentAdderBtns = getAll(".content-adder-box .btn")
+      Scenes.items.contentAdderBox.set(null, -50).show("flex").push().push();
+      Scenes.contentAdderAddBtn("Strong Back Left");
+      Scenes.contentAdderAddBtn("Strong Back Right");
+      let contentAdderBtns = getAll(".content-adder-box .btn");
 
-      Dom.setBlinkArrow(true,670,-34).play()
-      setCC("Click on the 'Strong Back Left' to add strong back to support panel.")
+      Dom.setBlinkArrow(true, 670, -34).play();
+      setCC(
+        "Click on the 'Strong Back Left' to add strong back to support panel."
+      );
 
-      // onclick 
-      contentAdderBtns[0].onclick = ()=>{
-        Scenes.items.strongBack1.set(250,50).push().rotate(50)
-        Dom.setBlinkArrow(true,670,10).play()
-        setCC("Click on the 'Strong Back Right' to add strong back to support panel.")
-        // onclick 
-        contentAdderBtns[1].onclick = ()=>{
-          Scenes.items.strongBack2.set(670,50).rotate(-50).push()
+      // onclick
+      contentAdderBtns[0].onclick = () => {
+        Scenes.items.strongBack1.set(250, 50).push().rotate(50);
+        Dom.setBlinkArrow(true, 670, 10).play();
+        setCC(
+          "Click on the 'Strong Back Right' to add strong back to support panel."
+        );
+        // onclick
+        contentAdderBtns[1].onclick = () => {
+          Scenes.items.strongBack2.set(670, 50).rotate(-50).push();
           setCC("Click 'Next' to go to next step");
           Dom.setBlinkArrow(true, 790, 408).play();
           Quiz.loadQuiz();
           setIsProcessRunning(false);
-        }
-
-      }
+        };
+      };
       return true;
     }),
     (completed = function () {
@@ -1300,9 +1360,9 @@ const Scenes = {
       Scenes.items.contentAdderBox.setContent("");
 
       // get(".btn-save").style.display = "block";
-      Scenes.items.btn_save.show().push()
+      Scenes.items.btn_save.show().push();
       Dom.setBlinkArrow(-1);
-      setCC("Download it and share with your friends.")
+      setCC("Download it and share with your friends.");
       // certificate name
       let certificateStuName = get("#certificateStuName");
       certificateStuName.innerHTML = student_name;
@@ -1314,9 +1374,9 @@ const Scenes = {
 
       let nxtBtn = get(".btn-next");
       nxtBtn.innerHTML = "Restart";
-      nxtBtn.onclick = function(){
+      nxtBtn.onclick = function () {
         location.reload();
-      }
+      };
 
       return true;
     }),
@@ -1328,7 +1388,7 @@ const Scenes = {
     }
     if (this.currentStep > 1 && this.currentStep < this.steps.length - 1) {
       Scenes.items.btn_next.setContent("Next");
-      Dom.hideAll()
+      Dom.hideAll();
       this.currentStep -= 2;
       this.steps[this.currentStep]();
       this.currentStep++;
@@ -1353,7 +1413,7 @@ const Scenes = {
 };
 
 // Scenes.steps[3]();
-Scenes.next();                                                               
+Scenes.next();
 // Scenes.next();
 // Scenes.next();
 

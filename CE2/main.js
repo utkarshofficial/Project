@@ -68,6 +68,9 @@ const Quiz = {
   currentQuiz: 0,
   score: 0,
   loadQuiz() {
+    if(this.currentQuiz >= this.quizData.length){
+      return;
+    }
     this.loadQuizCallCount++;
     window.speechSynthesis.cancel();
     setCC("Choose the correct answer.");
@@ -649,6 +652,8 @@ const Scenes = {
     objective1: new Dom("objective1"),
     objective2: new Dom("objective2"),
     objective3: new Dom("objective3"),
+    btn_save: new Dom(".btn-save"),
+    btn_next: new Dom(".btn-next"),
 
   },
   deleteAll() {
@@ -972,9 +977,9 @@ const Scenes = {
 
       // Required Elements
       Scenes.setStepHeading("Step 3", "Placing Sheathing in the panel");
-      Scenes.items.footingWithNailer.set(290, 350, 60, 250).zIndex(100);
-      Scenes.items.panelWall1.set(340, 0, 370);
-      Scenes.items.panelWall2.set(480, 0, 370);
+      Scenes.items.footingWithNailer.set(290, 350, 60, 250).zIndex(100).push();
+      Scenes.items.panelWall1.set(340, 0, 370).push();
+      Scenes.items.panelWall2.set(480, 0, 370).push();
 
       // content adder
       Scenes.items.contentAdderBox.show("flex").push();
@@ -987,7 +992,7 @@ const Scenes = {
       let contentAdderBtns = getAll(".content-adder-box .btn");
 
       contentAdderBtns[0].onclick = () => {
-        Scenes.items.leftSheathing.set(360, 0, 370, 10);
+        Scenes.items.leftSheathing.set(360, 0, 370, 10).push();
 
         setCC("Click on the 'Sheathing Right' to add sheathing in form panel.");
         Dom.setBlinkArrow(true, 685, 65).play();
@@ -997,7 +1002,7 @@ const Scenes = {
           Scenes.items.rightSheathing
             .set(470, 0, 370, 10)
             .zIndex(0)
-            .rotate(180);
+            .rotate(180).push();
 
           setCC("Click 'Next' to go to next step");
           Dom.setBlinkArrow(true, 790, 408).play();
@@ -1283,7 +1288,8 @@ const Scenes = {
       Dom.hideAll();
       Scenes.items.contentAdderBox.setContent("");
 
-      get(".btn-save").style.display = "block";
+      // get(".btn-save").style.display = "block";
+      Scenes.items.btn_save.show().push()
       Dom.setBlinkArrow(-1);
       setCC("Download it and share with your friends.")
       // certificate name
@@ -1291,7 +1297,7 @@ const Scenes = {
       certificateStuName.innerHTML = student_name;
       get("#quizScore").innerHTML = Quiz.score;
       get("#certificateDate").innerHTML = currentDateGlobal;
-      Scenes.items.certificate.show("flex");
+      Scenes.items.certificate.show("flex").push();
 
       // * restart btn
 
@@ -1306,10 +1312,11 @@ const Scenes = {
   ],
   back() {
     //! animation isRunning
-    // if (isRunning) {
-    //   return;
-    // }
-    if (this.currentStep > 1) {
+    if (isRunning) {
+      return;
+    }
+    if (this.currentStep > 1 && this.currentStep < this.steps.length - 1) {
+      Scenes.items.btn_next.setContent("Next");
       Dom.hideAll()
       this.currentStep -= 2;
       this.steps[this.currentStep]();

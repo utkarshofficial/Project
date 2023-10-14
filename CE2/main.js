@@ -1022,8 +1022,13 @@ const Scenes = {
 
           setCC("Click 'Next' to go to next step");
           Dom.setBlinkArrow(true, 790, 408).play();
-          Quiz.loadQuiz();
           setIsProcessRunning(false);
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz();
+            }
+          })
         };
       };
       return true;
@@ -1244,6 +1249,8 @@ const Scenes = {
                                           },
                                         });
                                       if (nutIdx >= allLeftNutDom.length) {
+                                        contentAdderBtns[3].onclick =
+                                              () => {};
                                         anime({
                                           duration: 5700,
                                           complete() {
@@ -1349,8 +1356,13 @@ const Scenes = {
           Scenes.items.strongBack2.set(670, 50).rotate(-50).push();
           setCC("Click 'Next' to go to next step");
           Dom.setBlinkArrow(true, 790, 408).play();
-          Quiz.loadQuiz();
           setIsProcessRunning(false);
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         };
       };
       return true;

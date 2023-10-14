@@ -1418,6 +1418,7 @@ const Scenes = {
     // }
     if (this.currentStep > 1) {
       Scenes.items.btn_next.setContent("Next");
+      Scenes.items.btn_next.item.onclick = ()=>{}
       Dom.hideAll();
       this.currentStep -= 2;
       this.steps[this.currentStep]();

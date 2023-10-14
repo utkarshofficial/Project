@@ -902,12 +902,12 @@ const Scenes = {
         Dom.setBlinkArrow(-1);
         Scenes.items.footing.set(290, 350, 60, 250).zIndex(1).push();
 
-        // Scenes.items.larrow2.set(735, 143, 40);
-        // Scenes.items.tempTitle1
-        //   .set(615, 180, null, 150)
-        //   .setContent(
-        //     "A footing supports and distributes the load of a building."
-        //   );
+        Scenes.items.larrow2.set(255, 300, 50).rotate(90).push();
+        Scenes.items.tempTitle1
+          .set(100, 280, null, 150)
+          .setContent(
+            "A footing supports and distributes the load of a building."
+          );
         setCC("Click on the 'Nailer Insert' to add nailer in footing.");
         Dom.setBlinkArrow(true, 710, 65).play();
 
@@ -916,17 +916,21 @@ const Scenes = {
           Dom.setBlinkArrow(-1);
           Scenes.items.footingWithNailer.set(290, 350, 60, 250).zIndex(2).push();
 
-          // Scenes.items.larrow2.set(735, 183, 40);
-          // Scenes.items.tempTitle1
-          // .set(615, 220, null, 150)
-          // .setContent(
-          //   "The purpose of a nailer insert is to create a secure attachment point for paneling."
-          // );
+          Scenes.items.larrow2.set(480, 300, 50).rotate(0).zIndex(10);
+          Scenes.items.tempTitle1
+          .set(570, 260, null, 150)
+          .setContent(
+            "The purpose of a nailer insert is to create a secure attachment point for paneling."
+          );
 
           setCC("Click on the 'Form Panel' to add form panel in the lab.");
           Dom.setBlinkArrow(true, 710, 115).play();
           //onclick
           contentAdderBtns[2].onclick = () => {
+            // hide arrow and text
+            Scenes.items.tempTitle1.hide()
+            Scenes.items.larrow2.hide()
+
             // emptry onclick after use
             contentAdderBtns[2].onclick = () => {};
 
@@ -953,7 +957,7 @@ const Scenes = {
                 delay: 400,
                 targets: Scenes.items.panel2.item,
                 translateX: -75,
-                duration: 5000,
+                duration: 6000,
                 complete() {
                   setCC("Click 'Next' to go to next step");
                   Dom.setBlinkArrow(true, 790, 408).play();
@@ -1348,7 +1352,7 @@ const Scenes = {
   },
 };
 
-Scenes.steps[5]();
+Scenes.steps[3]();
 // Scenes.next();                                                               
 // Scenes.next();
 // Scenes.next();

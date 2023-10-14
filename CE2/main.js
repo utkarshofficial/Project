@@ -1175,7 +1175,7 @@ const Scenes = {
                           let allRightNutDom = getAll(".rightNut");
                           const allNuts = [...allLeftNutDom,...allRightNutDom]
                           for(let i of allNuts){
-                            i.style.transform = "rotate(0deg)";
+                            // i.style.transform = "rotate(0deg)";
                           }
                           let position = [45, 165, 285];
                           anime
@@ -1185,24 +1185,31 @@ const Scenes = {
                             .add({
                               targets: allLeftNutDom[nutIdx],
                               keyframes: [
-                                { top: position[nutIdx] },
+                                { top: position[nutIdx],rotate:  0},
                                 { left: 155 },
                               ],
-                              duration: 1500,
+                              duration: 2000,
                             })
                             .add({
                               targets: allRightNutDom[nutIdx],
                               keyframes: [
-                                { top: position[nutIdx++] },
+                                { top: position[nutIdx++]},
+                                { left: 420,rotate:  0  },
                                 { left: 350 },
                               ],
-                              duration: 1500,
-                            });
+                              duration: 3000,
+                            })
+
                           if(nutIdx >= allLeftNutDom.length){
-                            setCC("Click 'Next' to go to next step");
-                            Dom.setBlinkArrow(true, 790, 408).play();
-                            Quiz.loadQuiz()
-                            setIsProcessRunning(false);
+                            anime({
+                              duration: 5700,
+                              complete(){
+                                setCC("Click 'Next' to go to next step");
+                                Dom.setBlinkArrow(true, 790, 408).play();
+                                Quiz.loadQuiz()
+                                setIsProcessRunning(false);
+                              }
+                            })
                           }
                         };
                       }
@@ -1341,8 +1348,8 @@ const Scenes = {
   },
 };
 
-// Scenes.steps[5]();
-Scenes.next();                                                               
+Scenes.steps[5]();
+// Scenes.next();                                                               
 // Scenes.next();
 // Scenes.next();
 

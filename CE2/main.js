@@ -387,7 +387,15 @@ class Dom {
     this.item.playbackRate = speed;
     return this;
   }
+  // * static elements/objects of anime
+  static arrayOfAnimes = [];
   static arrayOfItems = [];
+  static animePush(animeObj){
+    Dom.arrayOfAnimes.push(animeObj);
+  }
+  static resetAnimeItems(){
+    Dom.arrayOfAnimes = [];
+  }
   static hideAll() {
     // to delete all content of content adder menu
     Scenes.items.contentAdderBox.setContent("");
@@ -395,6 +403,11 @@ class Dom {
       i.hide();
       i.opacity();
     }
+    // * reset animes
+    for (let i of Dom.arrayOfAnimes){
+      // to reset each anime after back btn pressed
+      i.reset();
+    } 
     Dom.resetItems();
   }
   static resetItems() {
@@ -820,7 +833,7 @@ const Scenes = {
 
       Scenes.setStepHeading("Step 1", "Bring the form panel in the lab");
 
-      anime
+      let animeObj = anime
         .timeline({
           easing: "easeOutExpo",
         })
@@ -875,6 +888,7 @@ const Scenes = {
             setIsProcessRunning(false);
           },
         });
+        Dom.animePush(animeObj)
       return true;
     }),
     (step2 = function () {
@@ -887,15 +901,15 @@ const Scenes = {
 
       Scenes.setStepHeading("Step 2", "Placing form panel in concrete footing");
 
-      Scenes.items.contentAdderBox.show("flex").push();
-
+      
       // onclick
       // Scenes.contentAdderAddBtn("Footing",0).addEventListener('click',()=>{
       //   Dom.setBlinkArrow(-1);
       //   Scenes.items.footing.set(0,0).zIndex(1);
       //   console.log("print")
       // })
-
+      
+      Scenes.items.contentAdderBox.set(null,-50).show("flex").push();
       Scenes.contentAdderAddBtn("Footing");
       Scenes.contentAdderAddBtn("Nailer Insert");
       Scenes.contentAdderAddBtn("Form Panel");
@@ -903,7 +917,7 @@ const Scenes = {
       let contentAdderBtns = getAll(".content-adder-box .btn");
 
       setCC("Click on the 'Footing' to add footing in the lab.");
-      Dom.setBlinkArrow(true, 710, 15).play();
+      Dom.setBlinkArrow(true, 710, -35).play();
       // onclick
       contentAdderBtns[0].onclick = () => {
         Dom.setBlinkArrow(-1);
@@ -916,7 +930,7 @@ const Scenes = {
             "A footing supports and distributes the load of a building."
           );
         setCC("Click on the 'Nailer Insert' to add nailer in footing.");
-        Dom.setBlinkArrow(true, 710, 65).play();
+        Dom.setBlinkArrow(true, 710, 10).play();
 
         // onclick
         contentAdderBtns[1].onclick = function () {
@@ -934,7 +948,7 @@ const Scenes = {
             );
 
           setCC("Click on the 'Form Panel' to add form panel in the lab.");
-          Dom.setBlinkArrow(true, 710, 115).play();
+          Dom.setBlinkArrow(true, 710, 65).play();
           //onclick
           contentAdderBtns[2].onclick = () => {
             // hide arrow and text
@@ -946,7 +960,7 @@ const Scenes = {
 
             Dom.setBlinkArrow(-1);
             Scenes.items.panel1.set(100, 0, 370).play(0.4).zIndex(1).push();
-            anime
+            let animeObj = anime
               .timeline({
                 easing: "easeOutExpo",
               })
@@ -976,6 +990,8 @@ const Scenes = {
                   setIsProcessRunning(false);
                 },
               });
+              Dom.animePush(animeObj)
+              
           };
         };
       };
@@ -997,12 +1013,12 @@ const Scenes = {
       Scenes.items.panelWall2.set(480, 0, 370).push();
 
       // content adder
-      Scenes.items.contentAdderBox.show("flex").push();
+      Scenes.items.contentAdderBox.set(null,-50).show("flex").push();
       Scenes.contentAdderAddBtn("Sheathing Left");
       Scenes.contentAdderAddBtn("Sheathing Right");
 
       setCC("Click on the 'Sheathing Left' to add sheathing in form panel.");
-      Dom.setBlinkArrow(true, 685, 15).play();
+      Dom.setBlinkArrow(true, 685, -35).play();
 
       let contentAdderBtns = getAll(".content-adder-box .btn");
 
@@ -1010,7 +1026,7 @@ const Scenes = {
         Scenes.items.leftSheathing.set(360, 0, 370, 10).push();
 
         setCC("Click on the 'Sheathing Right' to add sheathing in form panel.");
-        Dom.setBlinkArrow(true, 685, 65).play();
+        Dom.setBlinkArrow(true, 685, 10).play();
         // onclick
         contentAdderBtns[1].onclick = () => {
           Dom.setBlinkArrow(-1);
@@ -1081,7 +1097,7 @@ const Scenes = {
       // Scenes.items.leftNut2.set(155,165,60,38).zIndex(1)
       // Scenes.items.leftNut3.set(155,285,60,38).zIndex(1)
 
-      // Scenes.items.rightNut1.set(350,45,60,38).zIndex(1)
+      // Scenes.items.rightNut1.set(350,45,60,38).zIndex(1) 
       // Scenes.items.rightNut2.set(350,165,60,38).zIndex(1)
       // Scenes.items.rightNut3.set(350,285,60,38).zIndex(1)
 
@@ -1120,7 +1136,7 @@ const Scenes = {
         Dom.setBlinkArrow(-1);
         let allWasherDom = getAll(".washer");
         let position = [63, 183, 303];
-        anime
+        let animeObj = anime
           .timeline({
             easing: "easeOutQuad",
           })
@@ -1281,6 +1297,8 @@ const Scenes = {
               }
             },
           });
+        Dom.animePush(animeObj)
+
       };
       return true;
     }),
@@ -1395,10 +1413,10 @@ const Scenes = {
   ],
   back() {
     //! animation isRunning
-    if (isRunning) {
-      return;
-    }
-    if (this.currentStep > 1 && this.currentStep < this.steps.length - 1) {
+    // if (isRunning) {
+    //   return;
+    // }
+    if (this.currentStep > 1) {
       Scenes.items.btn_next.setContent("Next");
       Dom.hideAll();
       this.currentStep -= 2;

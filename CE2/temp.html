@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <style>
       .welcome-box{
         display: flex;
@@ -46,23 +47,40 @@
         border-radius: 5px;
         align-self: end;
       }
+      #box{
+        position: absolute;
+        border: 1px solid;
+        background-color: red;
 
+      }
+      #stop{
+        position: absolute;
+        top: 550px
+      }
+      body{
+        background-color: black;
+      }
     </style>
   </head>
   <body>
-    <div class="welcome-box">
-      <img class="iit-logo" src="./src/images/iit-delhi-logo.png" alt="">
-      <div class="title">
-        <span >Welcome to Lab of</span>
-        <span >Tensile Strength of Reinforcement Bars</span> 
-        <span >Conducted by</span><span>Prof. Sahil Bansal of IIT Delhi.</span>
-      </div>
-      <div class="prof-description">
-        <img class="prof-img" src="./src/images/prof_logo.gif" alt="Prof. Sahil Bansal Image">
-        <span>Prof. Sahil Bansal</span>
-        <span>IIT Delhi</span>
-      </div>
-    </div>
+    <div id="box">box</div>
+    <button id="stop">stop</button>
+    <script>
+      let o = anime({
+        easing: "easeInOutExpo",
+        targets: "#box",
+        keyframes: [
+          {left: 500},
+          {top: 500},
+          {left: 0},
+          {top: 0},
+        ],
+        loop: true
+      })
+      document.getElementById("stop").onclick = ()=>{
+        o.stop();
+      }
+    </script>
     
 
     <!-- <textarea id="text"></textarea>

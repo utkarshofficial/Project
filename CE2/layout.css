@@ -207,7 +207,8 @@ body{
   }
   .welcome-box .prof-img{
     /* margin-top: 20px; */
-    height: 100px;
+    height: 120px;
+    width: 100px;
   }
   .welcome-box .title span{
     font-size: 1.5rem;
@@ -221,8 +222,8 @@ body{
     font-family: Roboto;
   }
   .welcome-box .prof-description{
-    font-size: 0.6rem;
-    transform: translate(40px,20px);
+    font-size: 0.8rem;
+    transform: translate(40px,15px);
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -299,7 +300,8 @@ body{
 /* Content Adder Boxc */
 .content-adder-box{
     padding: 10px 5px;
-    display: flex;
+    /* display: flex; */
+    display: none;
     flex-direction: column;
     gap: 5px;
     height: fit-content;

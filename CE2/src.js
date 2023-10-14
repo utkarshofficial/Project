@@ -48,6 +48,9 @@ const src = {
       full_footing: this.allImgsDom[39],
       strongBack1: this.allImgsDom[40],
       strongBack2: this.allImgsDom[41],
+      objective1: this.allImgsDom[42],
+      objective2: this.allImgsDom[43],
+      objective3: this.allImgsDom[44],
       
       // * Videos
       yoke_front_to_back: this.allVideosDom[0],

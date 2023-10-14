@@ -2,10 +2,9 @@
 let isMute = false;
 
 // * Current Date
-// let cd = new Date();
-// var currentDateGlobal = `${cd.getDate()} - ${
-//   cd.getMonth() + 1
-// } - ${cd.getFullYear()}`
+let cd = new Date();
+var currentDateGlobal = `${cd.getDate()} - ${cd.getMonth() + 1} - ${cd.getFullYear()}`
+console.log(currentDateGlobal)
 
 // * Quiz object
 const Quiz = {
@@ -271,7 +270,7 @@ const set = (ele, l = null, t = null) => {
 };
 
 let student_name = "";
-let currentDateGlobal = "";
+// let currentDateGlobal = "";
 
 // ! text to audio
 
@@ -379,6 +378,8 @@ class Dom {
   }
   static arrayOfItems = [];
   static hideAll() {
+    // to delete all content of content adder menu
+    Scenes.items.contentAdderBox.setContent("");
     for (let i of Dom.arrayOfItems) {
       i.hide();
       i.opacity();
@@ -645,6 +646,9 @@ const Scenes = {
     full_footing: new Dom("full_footing"),
     strongBack1: new Dom("strongBack1"),
     strongBack2: new Dom("strongBack2"),
+    objective1: new Dom("objective1"),
+    objective2: new Dom("objective2"),
+    objective3: new Dom("objective3"),
 
   },
   deleteAll() {
@@ -682,13 +686,16 @@ const Scenes = {
     (intro = () => {
       setIsProcessRunning(true);
 
+      // remove all for back
+      Dom.hideAll()
+
       // starting elements
 
       // running
       isRunning = true;
       // subtitle
       setTimeout(() => {
-        setCC("Enter your name and click on start to start the experiment");
+        setCC("Enter your name and click on 'Start' to start the experiment");
       }, 1000);
       Scenes.items.header.set(0, 120).show("flex");
       let inputWindow = get(".user-input");
@@ -736,7 +743,7 @@ const Scenes = {
               Scenes.items.tempText.set(482, 1);
               textToSpeach(`Hey! ${fName}`);
               textToSpeach(
-                "Welcome to tensile strength of reinforcement bars experiment of concrete structures virtual lab developed by professor sahil bansal department of civil engineering iit delhi"
+                "Welcome to Foundation Wall in Foamwork Experiment of Foamwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
               );
               Scenes.items.talk_cloud.set(450, -40, 180).push();
             },
@@ -755,8 +762,8 @@ const Scenes = {
       };
       return true;
     }),
-    (objective = function () {
-      isRunning = true;
+    (objective = function () {  
+      setIsProcessRunning(true)
       // to stop current voice
       window.speechSynthesis.cancel();
 
@@ -765,7 +772,23 @@ const Scenes = {
       Dom.setBlinkArrow(true, 790, 444);
       setCC("Click 'Next' to go to next step");
 
-      Scenes.items.projectIntro.show().push();
+      // Scenes.items.objective3.set(10,120,300).push()
+      Scenes.items.objective2.set(650,120,200).push()
+      Scenes.items.objective1.set(400,120,200).push()
+
+      Scenes.items.spacer1.set(50,280,30,112).zIndex(2).push()
+      Scenes.items.steelRod1.set(30,380,25,290).zIndex(0).push()
+      Scenes.items.washer1.set(50,180,25,8).zIndex(3).push()
+      Scenes.items.leftNut1.set(150,160,60,38).zIndex(1).push().rotate(50)
+      Scenes.items.rightNut1.set(220,160,60,38).zIndex(1).push().rotate(-50)
+
+      Scenes.items.tempTitle1.set(20,210).setContent("(Washer)").push()
+      Scenes.items.tempTitle2.set(160,220).setContent("(Lock Nuts)").push()
+      Scenes.items.tempTitle3.set(70,310).setContent("(Spacer)").push()
+      Scenes.items.tempTitle4.set(200,360).setContent("(Steel Rod)").push()
+
+      // Scenes.items.objective1.set(0,120,200).push()
+      Scenes.items.projectIntro.show().push()
       // Scenes.items.bare_raber.set(680, 185, 200, 10).zIndex(1).rotate(70).push(),
       //   Scenes.items.extensometer.set(550, 235, 45).zIndex(1).push(),
       //   Scenes.items.varniarfull.set(585, 250, 30).zIndex(1).rotate(160).push(),
@@ -834,9 +857,9 @@ const Scenes = {
         })
         .add({
           begin() {
-            setCC("Click 'Next' to go to next step");
             Dom.setBlinkArrow(true, 790, 408).play();
             Quiz.loadQuiz();
+            setCC("Click 'Next' to go to next step");
             setIsProcessRunning(false);
           },
         });
@@ -880,7 +903,7 @@ const Scenes = {
         //   .setContent(
         //     "A footing supports and distributes the load of a building."
         //   );
-        setCC("Click on the 'Nailer Insert' to add footing in the lab.");
+        setCC("Click on the 'Nailer Insert' to add nailer in footing.");
         Dom.setBlinkArrow(true, 710, 65).play();
 
         // onclick
@@ -895,7 +918,7 @@ const Scenes = {
           //   "The purpose of a nailer insert is to create a secure attachment point for paneling."
           // );
 
-          setCC("Click on the 'Form Panel' to add footing in the lab.");
+          setCC("Click on the 'Form Panel' to add form panel in the lab.");
           Dom.setBlinkArrow(true, 710, 115).play();
           //onclick
           contentAdderBtns[2].onclick = () => {
@@ -949,7 +972,7 @@ const Scenes = {
 
       // Required Elements
       Scenes.setStepHeading("Step 3", "Placing Sheathing in the panel");
-      Scenes.items.footingWithNailer.set(290, 350, 60, 250).zIndex(1);
+      Scenes.items.footingWithNailer.set(290, 350, 60, 250).zIndex(100);
       Scenes.items.panelWall1.set(340, 0, 370);
       Scenes.items.panelWall2.set(480, 0, 370);
 
@@ -958,7 +981,7 @@ const Scenes = {
       Scenes.contentAdderAddBtn("Sheathing Left");
       Scenes.contentAdderAddBtn("Sheathing Right");
 
-      setCC("Click on the 'Sheathing Left' to add footing in the lab.");
+      setCC("Click on the 'Sheathing Left' to add sheathing in form panel.");
       Dom.setBlinkArrow(true, 685, 15).play();
 
       let contentAdderBtns = getAll(".content-adder-box .btn");
@@ -966,7 +989,7 @@ const Scenes = {
       contentAdderBtns[0].onclick = () => {
         Scenes.items.leftSheathing.set(360, 0, 370, 10);
 
-        setCC("Click on the 'Sheathing Right' to add footing in the lab.");
+        setCC("Click on the 'Sheathing Right' to add sheathing in form panel.");
         Dom.setBlinkArrow(true, 685, 65).play();
         // onclick
         contentAdderBtns[1].onclick = () => {
@@ -993,15 +1016,11 @@ const Scenes = {
       );
 
       // Required elements
-      Scenes.items.footingWithNailer.set(140, 350, 60, 250).zIndex(4);
-      Scenes.items.panelWall1.set(190, 0, 370).zIndex(3);
-      Scenes.items.panelWall2.set(330, 0, 370).zIndex(3);
-      Scenes.items.rightSheathing
-        .set(320, 0, 370, 10)
-        .zIndex(0)
-        .rotate(180)
-        .zIndex(3);
-      Scenes.items.leftSheathing.set(210, 0, 370, 10).zIndex(3);
+      Scenes.items.footingWithNailer.set(140, 350, 60, 250).zIndex(4).push()
+      Scenes.items.panelWall1.set(190, 0, 370).zIndex(3).push()
+      Scenes.items.panelWall2.set(330, 0, 370).zIndex(3).push()
+      Scenes.items.rightSheathing.set(320, 0, 370, 10).zIndex(0).rotate(180).zIndex(3).push()
+      Scenes.items.leftSheathing.set(210, 0, 370, 10).zIndex(3).push()
 
       // content adder
       Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
@@ -1036,30 +1055,30 @@ const Scenes = {
       // Scenes.items.rightNut3.set(350,285,60,38).zIndex(1)
 
       // default washer position
-      Scenes.items.washer1.set(467, 320, 25, 8).zIndex(3);
-      Scenes.items.washer2.set(467, 320, 25, 8).zIndex(3);
-      Scenes.items.washer3.set(467, 320, 25, 8).zIndex(3);
-      Scenes.items.washer4.set(467, 320, 25, 8).zIndex(3);
-      Scenes.items.washer5.set(467, 320, 25, 8).zIndex(3);
-      Scenes.items.washer6.set(467, 320, 25, 8).zIndex(3);
+      Scenes.items.washer1.set(467, 320, 25, 8).zIndex(3).push()
+      Scenes.items.washer2.set(467, 320, 25, 8).zIndex(3).push()
+      Scenes.items.washer3.set(467, 320, 25, 8).zIndex(3).push()
+      Scenes.items.washer4.set(467, 320, 25, 8).zIndex(3).push()
+      Scenes.items.washer5.set(467, 320, 25, 8).zIndex(3).push()
+      Scenes.items.washer6.set(467, 320, 25, 8).zIndex(3).push()
 
       // default spacer position
-      Scenes.items.spacer1.set(520, 320, 30, 112).zIndex(2);
-      Scenes.items.spacer2.set(520, 320, 30, 112).zIndex(2);
-      Scenes.items.spacer3.set(520, 320, 30, 112).zIndex(2);
+      Scenes.items.spacer1.set(520, 320, 30, 112).zIndex(2).push()
+      Scenes.items.spacer2.set(520, 320, 30, 112).zIndex(2).push()
+      Scenes.items.spacer3.set(520, 320, 30, 112).zIndex(2).push()
 
       // default steel rod position
-      Scenes.items.steelRod1.set(417, 370, 25, 290).zIndex(0);
-      Scenes.items.steelRod2.set(417, 370, 25, 290).zIndex(0);
-      Scenes.items.steelRod3.set(417, 370, 25, 290).zIndex(0);
+      Scenes.items.steelRod1.set(417, 370, 25, 290).zIndex(0).push()
+      Scenes.items.steelRod2.set(417, 370, 25, 290).zIndex(0).push()
+      Scenes.items.steelRod3.set(417, 370, 25, 290).zIndex(0).push()
 
       // default nut position
-      Scenes.items.leftNut1.set(30, 340, 60, 38).zIndex(1).rotate(40);
-      Scenes.items.leftNut2.set(30, 340, 60, 38).zIndex(1).rotate(40);
-      Scenes.items.leftNut3.set(30, 340, 60, 38).zIndex(1).rotate(40);
-      Scenes.items.rightNut1.set(80, 340, 60, 38).zIndex(1).rotate(-40);
-      Scenes.items.rightNut2.set(80, 340, 60, 38).zIndex(1).rotate(-40);
-      Scenes.items.rightNut3.set(80, 340, 60, 38).zIndex(1).rotate(-40);
+      Scenes.items.leftNut1.set(30, 340, 60, 38).zIndex(1).rotate(40).push()
+      Scenes.items.leftNut2.set(30, 340, 60, 38).zIndex(1).rotate(40).push()
+      Scenes.items.leftNut3.set(30, 340, 60, 38).zIndex(1).rotate(40).push()
+      Scenes.items.rightNut1.set(80, 340, 60, 38).zIndex(10).rotate(-40).push()
+      Scenes.items.rightNut2.set(80, 340, 60, 38).zIndex(10).rotate(-40).push()
+      Scenes.items.rightNut3.set(80, 340, 60, 38).zIndex(10).rotate(-40).push()
 
       setCC("Click on the 'Spread Washer' to place it on the form panel.");
       Dom.setBlinkArrow(true, 690, -35).play();
@@ -1230,6 +1249,10 @@ const Scenes = {
       Scenes.items.rightNut2.set(550,165,60,38).zIndex(1).push()
       Scenes.items.rightNut3.set(550,285,60,38).zIndex(1).push()
 
+      // strong back default pos
+      // Scenes.items.strongBack1.set(200,200).push().rotate(90).zIndex(8)
+
+
       // content adder
       Scenes.items.contentAdderBox.set(null, -50).show("flex").push().push()
       Scenes.contentAdderAddBtn("Strong Back Left") 
@@ -1241,12 +1264,12 @@ const Scenes = {
 
       // onclick 
       contentAdderBtns[0].onclick = ()=>{
-        Scenes.items.strongBack1.set(250,50).rotate(50)
+        Scenes.items.strongBack1.set(250,50).push().rotate(50)
         Dom.setBlinkArrow(true,670,10).play()
         setCC("Click on the 'Strong Back Right' to add strong back to support panel.")
         // onclick 
         contentAdderBtns[1].onclick = ()=>{
-          Scenes.items.strongBack2.set(670,50).rotate(-50)
+          Scenes.items.strongBack2.set(670,50).rotate(-50).push()
           setCC("Click 'Next' to go to next step");
           Dom.setBlinkArrow(true, 790, 408).play();
           Quiz.loadQuiz();
@@ -1267,7 +1290,7 @@ const Scenes = {
       let certificateStuName = get("#certificateStuName");
       certificateStuName.innerHTML = student_name;
       get("#quizScore").innerHTML = Quiz.score;
-      get("#certificateDate").innerHTML = "13-10-2023";
+      get("#certificateDate").innerHTML = currentDateGlobal;
       Scenes.items.certificate.show("flex");
 
       // * restart btn
@@ -1283,16 +1306,16 @@ const Scenes = {
   ],
   back() {
     //! animation isRunning
-    if (isRunning) {
-      return;
-    }
+    // if (isRunning) {
+    //   return;
+    // }
     if (this.currentStep > 1) {
-      Scenes.deleteAll();
+      Dom.hideAll()
       this.currentStep -= 2;
       this.steps[this.currentStep]();
       this.currentStep++;
-      nextDrawerItem();
-      nextProgressBar();
+      backDrawerItem();
+      backProgressBar();
     }
   },
   next() {
@@ -1311,8 +1334,8 @@ const Scenes = {
   },
 };
 
-// Scenes.steps[7]();
-Scenes.next();
+// Scenes.steps[5]();
+Scenes.next();                                                               
 // Scenes.next();
 // Scenes.next();
 

@@ -1,5 +1,5 @@
 .quiz-container {
-  z-index: 300;
+  z-index: 501;
     top: 0;
     position: absolute;
     color: #000000;
@@ -10,7 +10,8 @@
     min-height: 350px;
     height: fit-content;
     max-width: 100%;
-    background-color: #fff5;
+    /* background-color: #fff5; */
+    background-color: #ffffffc2;
     backdrop-filter: blur(10px);
     padding: 0.9rem;
     display: none;

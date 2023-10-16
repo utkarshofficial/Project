@@ -331,3 +331,13 @@ body{
 
     }
   }
+  /* for transparent box */
+  .transparent-box{
+    display: none;
+    height: 100% ;
+    width: 950px;
+    background-color: transparent;
+    z-index: 500;
+    position: absolute;
+
+  }

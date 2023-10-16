@@ -70,10 +70,12 @@ const Quiz = {
   currentQuiz: 0,
   score: 0,
   loadQuiz() {
-    console.log(this.currentQuiz, this.quizData.length);
+
+    
     if (this.currentQuiz >= this.quizData.length) {
       return;
     }
+    document.querySelector(".transparent-box").style.display = "block";
     this.loadQuizCallCount++;
     window.speechSynthesis.cancel();
     setCC("Choose the correct answer.");
@@ -94,13 +96,22 @@ const Quiz = {
       if (answerEl.checked) {
         answer = answerEl.id;
       }
+
     });
+    this.answerEls.forEach((answerEl) => {
+      if (answer != undefined) {
+        answerEl.disabled = true;
+      }
+
+    });
+    
     return answer;
   },
 
   deselectAnswers() {
     this.answerEls.forEach((answerEl) => {
       answerEl.checked = false;
+      answerEl.disabled = false;
     });
   },
   close() {
@@ -108,21 +119,23 @@ const Quiz = {
     for (let od of this.opsDom) {
       od.style.color = "";
     }
+    document.querySelector(".transparent-box").style.display = "none";
+
     // this.ansDom.style.display = "none";
   },
   init() {
+    let okBtn = document.getElementById("quizSubmit") ;
+    okBtn.textContent = "Submit";
     // onclick for quiz close btn
-    document.querySelector("#closeQuiz").onclick = () => {
-      this.close();
-    };
+    // document.querySelector("#closeQuiz").onclick = () => {
+    //   this.close();
+    // };
     // onclick for quiz submit btn
-    document.getElementById("quizSubmit").addEventListener("click", () => {
+    document.getElementById("quizSubmit").onclick = ()=> {
+
+
+      
       // for disable multiple submit
-      console.log(
-        this.loadQuizCallCount - 1,
-        this.currentQuiz,
-        this.quizData.length
-      );
       if (this.loadQuizCallCount - 1 !== this.currentQuiz) {
         return;
       }
@@ -143,10 +156,20 @@ const Quiz = {
             this.opsDom[o].style.color = "red";
           }
         }
+
         if (answer === this.quizData[this.currentQuiz].correct) {
           this.score++;
         }
         this.currentQuiz++;
+
+        //for ok button
+
+        okBtn.textContent = "Ok";
+        okBtn.onclick = function(){
+          Quiz.close();
+          Quiz.init();
+        }                                                                                                                      
+
         // to stop the next question
         // if (this.currentQuiz < this.quizData.length) {
         // this.loadQuiz();
@@ -158,7 +181,7 @@ const Quiz = {
         // }
       }
       // this.close();
-    });
+    }
   },
 };
 
@@ -188,7 +211,7 @@ const ChartGraph = {
   delete: function () {
     this.ctxBox.style.display = "none";
     this.currGr.destroy();
-  },
+   },
   view: function (num, left, top, height = null, width = null) {
     if (height != null) this.ctxBox.style.height = height + "px!important";
     if (width != null) this.ctxBox.style.width = width + "px!important";
@@ -213,7 +236,7 @@ const ChartGraph = {
           // },
         ],
       },
-      options: {
+      options: { 
         borderWidth: 3,
         scales: {
           y: {
@@ -285,7 +308,10 @@ let student_name = "";
 
 // ! text to audio
 
-const textToSpeach = (text) => {
+const 
+
+
+textToSpeach = (text) => {
   // if(isMute){
   //   return;
   // }
@@ -296,21 +322,32 @@ const textToSpeach = (text) => {
   return utterance;
 };
 
+//queue for 
+let ccQueue = [];
 // for subtitile
 let ccObj = null;
 function setCC(text = null, speed = null) {
   if (ccObj != null) {
     ccObj.destroy();
   }
+  
   let ccDom = get(".steps-subtitle .subtitle");
+  ccQueue.push(text);
   ccObj = new Typed(ccDom, {
-    strings: ["", text],
+    strings: ["", ...ccQueue],
     typeSpeed: 25,
+    onStringTyped(){
+      console.log(ccQueue);
+      ccQueue.shift();
+      // if(ccQueue.length != 0){
+      //   setCC(ccQueue.shift())
+      // }
+    }
   });
   if (!isMute) textToSpeach(text);
   return ccDom;
 }
-
+   
 class Dom {
   constructor(selector) {
     this.item = null;
@@ -397,6 +434,8 @@ class Dom {
     Dom.arrayOfAnimes = [];
   }
   static hideAll() {
+    //to empty the setCC
+    setCC("");
     // to delete all content of content adder menu
     Scenes.items.contentAdderBox.setContent("");
     for (let i of Dom.arrayOfItems) {
@@ -721,7 +760,7 @@ const Scenes = {
       // subtitle
       setTimeout(() => {
         setCC("Enter your name and click on 'Start' to start the experiment");
-      }, 1000);
+      }, 500);
       Scenes.items.header.set(0, 120).show("flex");
       let inputWindow = get(".user-input");
       show(inputWindow, "flex");
@@ -771,17 +810,28 @@ const Scenes = {
                 "Welcome to Foundation Wall in Foamwork Experiment of Foamwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
               );
               Scenes.items.talk_cloud.set(450, -40, 180).push();
+              setCC("");
+            
             },
             endDelay: 2000,
             opacity: [0, 1],
-            complete() {
-              // to hide previous step images
-              intru.destroy();
+          })
+          .add({
+            begin(){
+               // to hide previous step images
+               intru.destroy();
               Dom.hideAll();
               Scenes.items.welcomeBox.show("flex");
-              setCC("Click 'Next' to go to next step");
-              Dom.setBlinkArrow(true, 790, 444).play();
-              setIsProcessRunning(false);
+            }
+          })
+            .add({
+              duration: 12000,
+              complete() {
+               
+                
+                setCC("Click 'Next' to go to next step");
+                Dom.setBlinkArrow(true, 790, 444).play();
+                setIsProcessRunning(false);
             },
           });
       };
@@ -793,24 +843,24 @@ const Scenes = {
       window.speechSynthesis.cancel();
 
       Scenes.items.welcomeBox.hide();
-
-      Dom.setBlinkArrow(true, 790, 444);
-      setCC("Click 'Next' to go to next step");
+      Dom.setBlinkArrow(-1);
+      setCC("");
+    
 
       // Scenes.items.objective3.set(10,120,300).push()
-      Scenes.items.objective2.set(650, 120, 200).push();
-      Scenes.items.objective1.set(400, 120, 200).push();
+      // Scenes.items.objective2.set(650, 120, 200).push();
+      Scenes.items.objective1.set(520, 120, 280).push();
 
-      Scenes.items.spacer1.set(50, 280, 30, 112).zIndex(2).push();
-      Scenes.items.steelRod1.set(30, 380, 25, 290).zIndex(0).push();
-      Scenes.items.washer1.set(50, 180, 25, 8).zIndex(3).push();
-      Scenes.items.leftNut1.set(150, 160, 60, 38).zIndex(1).push().rotate(50);
-      Scenes.items.rightNut1.set(220, 160, 60, 38).zIndex(1).push().rotate(-50);
+      Scenes.items.spacer1.set(90, 280, 30, 112).zIndex(2).push();
+      Scenes.items.steelRod1.set(70, 380, 25, 290).zIndex(0).push();
+      Scenes.items.washer1.set(90, 180, 25, 8).zIndex(3).push();
+      Scenes.items.leftNut1.set(190, 160, 60, 38).zIndex(1).push().rotate(50);
+      Scenes.items.rightNut1.set(260, 160, 60, 38).zIndex(1).push().rotate(-50);
 
-      Scenes.items.tempTitle1.set(20, 210).setContent("(Washer)").push();
-      Scenes.items.tempTitle2.set(160, 220).setContent("(Lock Nuts)").push();
-      Scenes.items.tempTitle3.set(70, 310).setContent("(Spacer)").push();
-      Scenes.items.tempTitle4.set(200, 360).setContent("(Steel Rod)").push();
+      Scenes.items.tempTitle1.set(60, 210).setContent("(Washer)").push();
+      Scenes.items.tempTitle2.set(200, 220).setContent("(Lock Nuts)").push();
+      Scenes.items.tempTitle3.set(110, 310).setContent("(Spacer)").push();
+      Scenes.items.tempTitle4.set(240, 360).setContent("(Steel Rod)").push();
 
       // Scenes.items.objective1.set(0,120,200).push()
       Scenes.items.projectIntro.show().push();
@@ -821,10 +871,17 @@ const Scenes = {
       //   Scenes.items.table.set(520, 245, 120).push(),
       //   Scenes.items.man.set(380, 120, 250).push(),
       //   Scenes.items.new_utm.set(140, 120, 250).push();
-      setIsProcessRunning(false);
+    anime({
+      duration:4000, 
+      complete(){
+        setIsProcessRunning(false);
+        Dom.setBlinkArrow(true, 790, 444);
+        setCC("Click 'Next' to go to next step");
+      }
 
-      return true;
-    }),
+    })
+    return true;
+  }),
     (step1 = function () {
       setIsProcessRunning(true);
       // to hide previous step
@@ -1443,7 +1500,7 @@ const Scenes = {
   },
 };
 
-// Scenes.steps[3]();
+// Scenes.steps[1]();
 Scenes.next();
 // Scenes.next();
 // Scenes.next();

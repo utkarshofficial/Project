@@ -51,6 +51,13 @@ const src = {
       objective1: this.allImgsDom[42],
       objective2: this.allImgsDom[43],
       objective3: this.allImgsDom[44],
+      floor_image: this.allImgsDom[45],
+      ct_prop1: this.allImgsDom[46],
+      ct_prop2: this.allImgsDom[47],
+      ct_prop3: this.allImgsDom[48],
+      ct_prop4: this.allImgsDom[49],
+      foot_adapter1: this.allImgsDom[50],
+      foot_adapter2: this.allImgsDom[51],
       
       // * Videos
       yoke_front_to_back: this.allVideosDom[0],

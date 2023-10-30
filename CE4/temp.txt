@@ -1,0 +1,25 @@
+.
+
+
+setIsProcessRunning(true);
+      // to stop current voice
+      window.speechSynthesis.cancel();
+
+      Scenes.items.welcomeBox.hide();
+      Dom.setBlinkArrow(-1);
+      setCC("");
+
+
+         return true;
+
+
+setCC("Click 'Next' to go to next step");
+          Dom.setBlinkArrow(true, 790, 408).play();
+          setIsProcessRunning(false);
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz();
+            }
+          })
+

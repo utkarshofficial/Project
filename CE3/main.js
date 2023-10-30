@@ -2514,6 +2514,11 @@ const Scenes = {
         left: 0,
         easing: "easeOutQuad",
         duration: 3000,
+        complete(){
+          setCC("Click 'Next' to go to next step");
+          Dom.setBlinkArrow(true, 790, 408).play();
+          setIsProcessRunning(false);
+        }
       })
     }
 
@@ -2523,8 +2528,8 @@ const Scenes = {
     contentAdderBtns[2].onclick = rightSideAnime
 
     // setCC("Click 'Next' to go to next step");
-        //   Dom.setBlinkArrow(true, 790, 408).play();
-        //   setIsProcessRunning(false);
+    //       Dom.setBlinkArrow(true, 790, 408).play();
+    //       setIsProcessRunning(false);
         //   anime({
         //     duration: 1000,
         //     complete(){

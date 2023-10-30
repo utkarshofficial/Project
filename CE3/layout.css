@@ -259,9 +259,9 @@ body{
     overflow: hidden;
 }
 
-.video-box .video{
+/* .video-box .video{
     /* height: 150px!important; */
-}
+/* } */ 
 
 .video-box .title{
     background-color: purple;

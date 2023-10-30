@@ -121,6 +121,8 @@ const src = {
       full_foundation_front4: this.allImgsDom[112], 
       pipe_waler_clamp_full: this.allImgsDom[113], 
       wing_nut_full: this.allImgsDom[114], 
+      real_head_adapter: this.allImgsDom[115],
+      real_foot_adapter: this.allImgsDom[116],
       
       // * Videos
       // yoke_front_to_back: this.allVideosDom[0],

@@ -344,3 +344,28 @@ body{
     position: absolute;
 
   }
+
+  
+  .image-box{
+    /* display: flex; */
+    display: none;
+    border: 2px solid;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: white; */
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    padding: 3px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 14px ;
+  }
+  .image-box .title{
+    margin: 0;
+    font-weight: bold;
+  }
+  .image-box .image{
+    border-radius: 10px;
+
+  }

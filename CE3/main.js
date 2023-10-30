@@ -683,9 +683,12 @@ const Scenes = {
     resultTable: new Dom(".result-table"),
     certificate: new Dom(".certificate"),
     welcomeBox: new Dom(".welcome-box"),
-    videoBoxSrc: new Dom(".video-box .video"),
     videoBox: new Dom(".video-box"),
+    videoBoxSrc: new Dom(".video-box .video"),
     videoBoxTitle: new Dom(".video-box .title"),
+    imageBox: new Dom(".image-box"),
+    imageBoxSrc: new Dom(".image-box .image"),
+    imageBoxTitle: new Dom(".image-box .title"),
     tempTitle1: new Dom(".temp-title1"),
     tempTitle2: new Dom(".temp-title2"),
     tempTitle3: new Dom(".temp-title3"),
@@ -803,7 +806,9 @@ const Scenes = {
     full_foundation_front4: new Dom("full_foundation_front4"),
     pipe_waler_clamp_full: new Dom("pipe_waler_clamp_full"),
     wing_nut_full: new Dom("wing_nut_full"),
-
+    real_head_adapter: new Dom("real_head_adapter"),
+    real_foot_adapter: new Dom("real_foot_adapter"),
+    
     
 
   },
@@ -1137,9 +1142,9 @@ const Scenes = {
 
       let contentAdderBtns = getAll(".content-adder-box .btn")
 
-      Scenes.items.form_floor_corner1.set(-750,75)
-      Scenes.items.panel1.set(-750,75)
-      Scenes.items.waler_clip1.set(-750,252,50)
+      Scenes.items.form_floor_corner1.set(-50,75)
+      Scenes.items.panel1.set(-250,75)
+      Scenes.items.waler_clip1.set(-50,252,50)
 
       function walerClicpAnime(){
         anime({
@@ -1258,7 +1263,7 @@ const Scenes = {
               targets: [Scenes.items.form_floor_corner2.item],
               left: 121,
               top: 89,
-              duration: 2000,
+              duration: 1000,
               complete(){
                 Dom.setBlinkArrow(true, 710,15).play();
                 setCC("Click on the 'Floor Panel' to add it in the lab.");
@@ -1422,6 +1427,7 @@ const Scenes = {
                 easing: "easeInOutQuad",
               })
               .add({
+                delay: 2000,
                 targets: Scenes.items.waler_clip13.item,
                 left: 150+gap,
                 top: 110,
@@ -1459,7 +1465,7 @@ const Scenes = {
       contentAdderBtns[2].onclick = walerClipAnime;
       contentAdderBtns[3].onclick = ()=>{
         floorPanelAnime()
-        if(walerClipCount===4){
+        if(walerClipCount===3){
           floorCornerAnime()
         }
         setTimeout(walerClipAnime,1500);
@@ -1482,9 +1488,6 @@ const Scenes = {
       
       // setCC("Click on the 'Sheathing Left' to add sheathing in form panel.");
       // Dom.setBlinkArrow(true, 685, -35).play();
-
-
-
 
       return true;
     }),
@@ -1537,6 +1540,10 @@ const Scenes = {
      Scenes.items.pipe_waler_connector7.set(760,330,30,20).zIndex(5)
      Scenes.items.pipe_waler_connector8.set(785,330,30,20).zIndex(5)
 
+     Scenes.items.larrow2.set(783,280,50)
+     Scenes.items.pipe_waler_clamp_full.set(850,250,60)
+     Scenes.items.tempTitle1.set(850,320,60).setContent("Waler clamp")
+
      
 
     //! final pos
@@ -1552,11 +1559,11 @@ const Scenes = {
     //  Scenes.items.pipe_waler_connector7.set(456,204,30,20).zIndex(5)
     //  Scenes.items.pipe_waler_connector8.set(612,204,30,20).zIndex(5)
 
-      // content adder
-      Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
-      Scenes.contentAdderAddBtn("Pipe Waler");
-      Scenes.contentAdderAddBtn("Pipe Clamp");
-      let contentAdderBtns = getAll(".content-adder-box .btn");
+    // content adder
+    Scenes.items.contentAdderBox.set(null, -50).show("flex").push()
+    Scenes.contentAdderAddBtn("Pipe Waler")
+    Scenes.contentAdderAddBtn("Pipe Clamp")
+    let contentAdderBtns = getAll(".content-adder-box .btn")
       
      let pipeCount = 0;
      const pipeWalerAnime = ()=>{
@@ -1588,7 +1595,6 @@ const Scenes = {
             }
           })
           break;
-          
       }
       pipeCount++;
      }
@@ -1633,6 +1639,11 @@ const Scenes = {
             duration: 1000,
           })
           .add({
+            begin(){
+              Scenes.items.larrow2.hide()
+              Scenes.items.pipe_waler_clamp_full.hide()
+              Scenes.items.tempTitle1.hide()
+            },
             targets: Scenes.items.pipe_waler_connector5.item,
             left: 142,
             top: 204,
@@ -2195,6 +2206,11 @@ const Scenes = {
     
     Scenes.items.foot_adapter1.set(510,310,75).zIndex(12)
 
+    // image Box
+    Scenes.items.imageBox.show("flex").set(750,200)
+    Scenes.items.imageBoxSrc.item.src = "./src/images/real_head_adapter.png";
+    Scenes.items.imageBoxTitle.setContent("Head Adapter")
+
     //! remove
     // Scenes.items.head_adapter1.set(220,129,25).zIndex(10)
     // Scenes.items.head_adapter2.set(220,212,25).zIndex(10)
@@ -2244,7 +2260,7 @@ const Scenes = {
             top:212,
             complete(){
               setCC("Click on the 'Foot Adapter' to support the CT Prop.")
-              Dom.setBlinkArrow(ture,660,15).play()
+              Dom.setBlinkArrow(true,700,15).play()
             }
           })
           break
@@ -2298,7 +2314,7 @@ const Scenes = {
             duration: 1000,
             complete(){
               setCC("Click on the 'CT Prop' to support the form floor panel.")
-              Dom.setBlinkArrow(ture,660,65).play()
+              Dom.setBlinkArrow(true,700,65).play()
             }
           })
           break
@@ -2339,7 +2355,6 @@ const Scenes = {
             left:135, 
             top:115,
             rotate: 35
-              
           })
           .add({
             targets: Scenes.items.ct_prop2.item,
@@ -2357,7 +2372,7 @@ const Scenes = {
               Scenes.items.foot_adapter2.set(510,310,75).zIndex(12)
 
               setCC("Click on the 'Repeat' to repeat the previous steps.")
-              Dom.setBlinkArrow(ture,660,115).play()
+              Dom.setBlinkArrow(true,700,115).play()
             }
           })
           break
@@ -2386,6 +2401,10 @@ const Scenes = {
               Scenes.items.head_adapter6.set(440,360,25).zIndex(10)
               
               Scenes.items.foot_adapter3.set(510,310,75).zIndex(12)
+
+              //! for image box
+              Scenes.items.imageBoxSrc.item.src = "./src/images/real_foot_adapter.png";
+              Scenes.items.imageBoxTitle.setContent("Foot Adapter")
             }  
           })
           
@@ -2406,8 +2425,14 @@ const Scenes = {
             targets: Scenes.items.ct_prop6.item,
             left:455, 
             top:190,
-            rotate: 50
+            rotate: 50,
+            complete(){
               
+
+              setCC("Click 'Next' to go to next step");
+              Dom.setBlinkArrow(true, 790, 408).play();
+              setIsProcessRunning(false);
+            }
           })
           break
       }
@@ -2416,7 +2441,7 @@ const Scenes = {
     }
 
     setCC("Click on the 'Head Adapter' to attach it with steel waler.")
-    Dom.setBlinkArrow(true,660,115).play()
+    Dom.setBlinkArrow(true,700,-35).play()
     //onclick
     contentAdderBtns[0].onclick = headAdapterAnime
     contentAdderBtns[1].onclick = footAdapterAnime
@@ -2567,9 +2592,9 @@ const Scenes = {
       
     }
   },
-};
+}
 
-Scenes.next(); 
+Scenes.steps[2](); 
 // Scenes.next();
 // Scenes.next();
 // Scenes.next();

@@ -1770,6 +1770,10 @@ const Scenes = {
     Scenes.items.wing_nut5.set(630,374.5,8).zIndex(9)
     Scenes.items.wing_nut6.set(608,393.5,8).zIndex(9)
 
+    Scenes.items.larrow2.set(635,330,40)
+    Scenes.items.wing_nut_full.set(680,300,50)
+    Scenes.items.tempTitle1.set(680,350).setContent("Wing Nut")
+
     // !remove
     // Scenes.items.steel_waler1.set(140,168,30,185).rotate(90).zIndex(7)
     // Scenes.items.steel_waler2.set(300,168,30,185).rotate(90).zIndex(7)
@@ -2050,6 +2054,10 @@ const Scenes = {
               {rotate: 360 * rotationCount, duration: 3000}
             ],
             complete(){
+              Scenes.items.larrow2.hide()
+              Scenes.items.wing_nut_full.hide()
+              Scenes.items.tempTitle1.hide()
+
               setCC("Click 'Next' to go to next step");
               Dom.setBlinkArrow(true, 790, 408).play();
               setIsProcessRunning(false);
@@ -2599,7 +2607,7 @@ const Scenes = {
   },
 }
 
-// Scenes.steps[2](); 
+// Scenes.steps[6](); 
 Scenes.next();
 // Scenes.next();
 // Scenes.next();

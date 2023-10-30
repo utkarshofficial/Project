@@ -1,12 +1,78 @@
-arrow:this.allImgs[0],
-blinkArrow:this.allImgs[1],
-laerrow:this.allImgs[2],
-laerrow2:this.allImgs[3],
-logo:this.allImgs[4],
-man:this.allImgs[5],
-measurearrow:this.allImgs[6],
-measurearrow2:this.allImgs[7],
-redsize:this.allImgs[8],
-speech_off_btn:this.allImgs[9],
-speech_on_btn:this.allImgs[10],
-talk_cloud:this.allImgs[11],
+
+    <img
+        class="main-window-imgs"
+        src="./src/images/corner2.png"
+        title="corner2.png"
+        alt="corner2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/ct prop.png"
+        title="ct prop.png"
+        alt="ct prop.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/foot_adapter.png"
+        title="foot_adapter.png"
+        alt="foot_adapter.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/panel1.jpg"
+        title="panel1.jpg"
+        alt="panel1.jpg"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/pipe waler-cutout.png"
+        title="pipe waler-cutout.png"
+        alt="pipe waler-cutout.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/ply.jpg"
+        title="ply.jpg"
+        alt="ply.jpg"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/scaffolding-ladder-coupler-cutout.png"
+        title="scaffolding-ladder-coupler-cutout.png"
+        alt="scaffolding-ladder-coupler-cutout.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/steel waler-cutout.png"
+        title="steel waler-cutout.png"
+        alt="steel waler-cutout.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/steelwaler.png"
+        title="steelwaler.png"
+        alt="steelwaler.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/waler pipe clmap3-cutout.png"
+        title="waler pipe clmap3-cutout.png"
+        alt="waler pipe clmap3-cutout.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/waller-clamp-bracket-cutout.png"
+        title="waller-clamp-bracket-cutout.png"
+        alt="waller-clamp-bracket-cutout.png"
+    />
+    

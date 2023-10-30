@@ -11,9 +11,9 @@ def convert(name):
     '''.format(name)
 
 def src(name :str,i :int):
-    return name[0:name.find('.')] + ":this.allImgs[{0}],\n".format(i)
+    return name[0:name.find('.')] + ":this.allImgsDom[{0}],\n".format(i)
 
-names = os.listdir("S://Users//Utkarsh//Documents//OFFICE//CE2//src//images//")
+names = os.listdir("s://Users//Utkarsh//Documents//Project//CE3//src//images//temp")
 
 imgs = ''
 for name in names:
@@ -22,7 +22,9 @@ for name in names:
 
 srcs = ''
 for i in range(len(names)):
-    srcs = srcs + src(names[i],i)
+    srcs = srcs + convert(names[i])
+
+
 
 # open("temp.txt","w").write()
 open("temp2.txt","w").write(srcs)

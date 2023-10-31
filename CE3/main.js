@@ -1447,6 +1447,7 @@ const Scenes = {
                 left: 150+gap,
                 top: 230,
                 complete(){
+                  Quiz.loadQuiz();
                   Dom.setBlinkArrow(true, 790, 408).play();
                   setCC("Click 'Next' to go to next step");
                   setIsProcessRunning(false);
@@ -1663,6 +1664,7 @@ const Scenes = {
             left: 612,
             top: 204,
             complete(){
+              Quiz.loadQuiz();
               Dom.setBlinkArrow(true, 790, 408).play();
               setCC("Click 'Next' to go to next step");
               setIsProcessRunning(false);
@@ -2057,6 +2059,8 @@ const Scenes = {
               Scenes.items.larrow2.hide()
               Scenes.items.wing_nut_full.hide()
               Scenes.items.tempTitle1.hide()
+              Quiz.loadQuiz();
+
 
               setCC("Click 'Next' to go to next step");
               Dom.setBlinkArrow(true, 790, 408).play();
@@ -2435,6 +2439,8 @@ const Scenes = {
             top:190,
             rotate: 50,
             complete(){
+              Quiz.loadQuiz();
+
               
 
               setCC("Click 'Next' to go to next step");
@@ -2523,6 +2529,8 @@ const Scenes = {
         easing: "easeOutQuad",
         duration: 3000,
         complete(){
+          Quiz.loadQuiz();
+
           setCC("Click 'Next' to go to next step");
           Dom.setBlinkArrow(true, 790, 408).play();
           setIsProcessRunning(false);

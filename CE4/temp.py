@@ -13,7 +13,7 @@ def convert(name):
 def src(name :str,i :int):
     return name[0:name.find('.')] + ":this.allImgsDom[{0}],\n".format(i)
 
-names = os.listdir("s://Users//Utkarsh//Documents//Project//CE3//src//images//temp")
+names = os.listdir("s://Users//Utkarsh//Documents//Project//CE4//src//images//temp")
 
 imgs = ''
 for name in names:

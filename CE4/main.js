@@ -718,97 +718,49 @@ const Scenes = {
     marking_surface4: new Dom("marking_surface4"),
     marking_surface5: new Dom("marking_surface5"),
     marking_surface6: new Dom("marking_surface6"),
-    form_floor_corner1: new Dom("form_floor_corner1"),
-    form_floor_corner2: new Dom("form_floor_corner2"),
+    anchor_plate1: new Dom("anchor_plate1"),
+    anchor_plate2: new Dom("anchor_plate2"),
+    anchor_plate3: new Dom("anchor_plate3"),
+    beam_3d_1: new Dom("beam_3d_1"),
+    beam_3d_2: new Dom("beam_3d_2"),
+    beam_3d_with_holes1: new Dom("beam_3d_with_holes1"),
+    beam_3d_with_holes2: new Dom("beam_3d_with_holes2"),
     ct_prop1: new Dom("ct_prop1"),
     ct_prop2: new Dom("ct_prop2"),
     ct_prop3: new Dom("ct_prop3"),
     ct_prop4: new Dom("ct_prop4"),
     ct_prop5: new Dom("ct_prop5"),
     ct_prop6: new Dom("ct_prop6"),
-    ct_prop7: new Dom("ct_prop7"),
-    ct_prop8: new Dom("ct_prop8"),
     foot_adapter1: new Dom("foot_adapter1"),
     foot_adapter2: new Dom("foot_adapter2"),
     foot_adapter3: new Dom("foot_adapter3"),
-    foot_adapter4: new Dom("foot_adapter4"),
-    panel1: new Dom("panel1"),
-    panel2: new Dom("panel2"),
-    panel3: new Dom("panel3"),
-    pipe_waler_cutout1: new Dom("pipe_waler_cutout1"),
-    pipe_waler_cutout2: new Dom("pipe_waler_cutout2"),
-    plywood: new Dom("plywood"),
-    steel_waler_connector1: new Dom("steel_waler_connector1"),
-    steel_waler_connector2: new Dom("steel_waler_connector2"),
-    steel_waler_connector3: new Dom("steel_waler_connector3"),
-    steel_waler_connector4: new Dom("steel_waler_connector4"),
-    steel_waler_connector5: new Dom("steel_waler_connector5"),
-    steel_waler_connector6: new Dom("steel_waler_connector6"),
-    steel_waler_connector7: new Dom("steel_waler_connector7"),
-    steel_waler_connector8: new Dom("steel_waler_connector8"),
+    head_adapter4: new Dom("head_adapter4"),
+    head_adapter5: new Dom("head_adapter5"),
+    full_column: new Dom("full_column"),
+    drill_machine: new Dom("drill_machine"),
+    hammer: new Dom("hammer"),
+    nail: new Dom("nail"),
+    objective: new Dom("objective"),
+    real_foot_adapter: new Dom("real_foot_adapter"),
+    real_head_adapter: new Dom("real_head_adapter"),
+    sheathing1: new Dom("sheathing1"),
+    sheathing2: new Dom("sheathing2"),
+    sheathing3: new Dom("sheathing3"),
+    sheathing4: new Dom("sheathing4"),
+    sheathing5: new Dom("sheathing5"),
     steel_waler1: new Dom("steel_waler1"),
     steel_waler2: new Dom("steel_waler2"),
     steel_waler3: new Dom("steel_waler3"),
-    steel_waler4: new Dom("steel_waler4"),
-    steel_waler_other: new Dom("steel_waler_other"),
-    pipe_waler_connector1: new Dom("pipe_waler_connector1"),
-    pipe_waler_connector2: new Dom("pipe_waler_connector2"),
-    pipe_waler_connector3: new Dom("pipe_waler_connector3"),
-    pipe_waler_connector4: new Dom("pipe_waler_connector4"),
-    pipe_waler_connector5: new Dom("pipe_waler_connector5"),
-    pipe_waler_connector6: new Dom("pipe_waler_connector6"),
-    pipe_waler_connector7: new Dom("pipe_waler_connector7"),
-    pipe_waler_connector8: new Dom("pipe_waler_connector8"),
-    waler_clip1: new Dom("waler_clip1"),
-    waler_clip2: new Dom("waler_clip2"),
-    waler_clip3: new Dom("waler_clip3"),
-    waler_clip4: new Dom("waler_clip4"),
-    waler_clip5: new Dom("waler_clip5"),
-    waler_clip6: new Dom("waler_clip6"),
-    waler_clip7: new Dom("waler_clip7"),
-    waler_clip8: new Dom("waler_clip8"),
-    waler_clip9: new Dom("waler_clip9"),
-    waler_clip10: new Dom("waler_clip10"),
-    waler_clip11: new Dom("waler_clip11"),
-    waler_clip12: new Dom("waler_clip12"),
-    waler_clip13: new Dom("waler_clip13"),
-    waler_clip14: new Dom("waler_clip14"),
-    waler_clip15: new Dom("waler_clip15"),
-    waler_clip16: new Dom("waler_clip16"),
-    anchor_plate1: new Dom("anchor_plate1"),
-    anchor_plate2: new Dom("anchor_plate2"),
-    anchor_plate3: new Dom("anchor_plate3"),
-    anchor_plate4: new Dom("anchor_plate4"),
-    anchor_plate5: new Dom("anchor_plate5"),
-    anchor_plate6: new Dom("anchor_plate6"),
-    anchor_plate7: new Dom("anchor_plate7"),
-    anchor_plate8: new Dom("anchor_plate8"),
-    wing_nut1: new Dom("wing_nut1"),
-    wing_nut2: new Dom("wing_nut2"),
-    wing_nut3: new Dom("wing_nut3"),
-    wing_nut4: new Dom("wing_nut4"),
-    wing_nut5: new Dom("wing_nut5"),
-    wing_nut6: new Dom("wing_nut6"),
-    wing_nut7: new Dom("wing_nut7"),
-    wing_nut8: new Dom("wing_nut8"),
-    head_adapter1: new Dom("head_adapter1"),
-    head_adapter2: new Dom("head_adapter2"),
-    head_adapter3: new Dom("head_adapter3"),
-    head_adapter4: new Dom("head_adapter4"),
-    head_adapter5: new Dom("head_adapter5"),
-    head_adapter6: new Dom("head_adapter6"),
-    foot_adapter1: new Dom("foot_adapter1"),
-    foot_adapter2: new Dom("foot_adapter2"),
-    foot_adapter3: new Dom("foot_adapter3"),
-    full_foundation_front1: new Dom("full_foundation_front1"),
-    full_foundation_front2: new Dom("full_foundation_front2"),
-    full_foundation_front3: new Dom("full_foundation_front3"),
-    full_foundation_front4: new Dom("full_foundation_front4"),
-    pipe_waler_clamp_full: new Dom("pipe_waler_clamp_full"),
+    tie_rod1: new Dom("tie_rod1"),
+    tie_rod2: new Dom("tie_rod2"),
+    tie_rod3: new Dom("tie_rod3"),
+    tie_rod4: new Dom("tie_rod4"),
+    wing_nut_top1: new Dom("wing_nut_top1"),
+    wing_nut_top2: new Dom("wing_nut_top2"),
+    wing_nut_top3: new Dom("wing_nut_top3"),
+    wing_nut_top4: new Dom("wing_nut_top4"),
+    wing_nut_top5: new Dom("wing_nut_top5"),
     wing_nut_full: new Dom("wing_nut_full"),
-    real_head_adapter: new Dom("real_head_adapter"),
-    real_foot_adapter: new Dom("real_foot_adapter"),
-    
     
 
   },
@@ -934,46 +886,15 @@ const Scenes = {
 
       // to stop current voice
       window.speechSynthesis.cancel();
-
+ 
       Scenes.items.welcomeBox.hide();
       Dom.setBlinkArrow(-1);
       setCC("");
       
       // * Required Items
-      Scenes.items.projectIntro.show().push();
-
-      Scenes.items.panel1.set(37,159)
-      Scenes.items.tempTitle1.set(37,400).setContent("(Form Floor Panel)")
+      Scenes.items.projectIntro.show()
+      Scenes.items.objective.set(0,55)
       
-      Scenes.items.form_floor_corner1.set(306,159)
-      Scenes.items.tempTitle2.set(247,405).setContent("(Form Floor Corner)")
-      
-      Scenes.items.steel_waler1.set(306,270,40,240).rotate(90)
-      Scenes.items.tempTitle3.set(380,150).setContent("(Steel Waler)")
-      
-      Scenes.items.ct_prop1.set(480,170,240)
-      Scenes.items.tempTitle4.set(470,410).setContent("(CT Prop)")
-      
-      Scenes.items.waler_clip1.set(570,170,50)
-      Scenes.items.tempTitle5.set(550,220).setContent("(Waler Clip)")
-      
-      Scenes.items.steel_waler_connector1.set(690,140,50)
-      Scenes.items.tempTitle6.set(649,190).setContent("(Waler Connector)")
-      
-      Scenes.items.anchor_plate1.set(820,170,50)
-      Scenes.items.tempTitle7.set(801,220).setContent("(Anchor Plate)")
-      
-      Scenes.items.pipe_waler_clamp_full.set(570,260,50)
-      Scenes.items.tempTitle8.set(530,320).setContent("(Pipe Waler Clamp)")
-      
-      Scenes.items.foot_adapter1.set(690,200,80)
-      Scenes.items.tempTitle9.set(680,280).setContent("(Foot Adapter)")
-      
-      Scenes.items.wing_nut_full.set(820,260,50)
-      Scenes.items.tempTitle10.set(810,310).setContent("(Wing Nut)")
-      
-      Scenes.items.pipe_waler_cutout1.set(570,360,20,330)
-      Scenes.items.tempTitle11.set(689,380).setContent("(Waler Pipe)")
 
     anime({
       duration:4000, 
@@ -2607,8 +2528,8 @@ const Scenes = {
   },
 }
 
-// Scenes.steps[6](); 
-Scenes.next();
+Scenes.steps[1](); 
+// Scenes.next();
 // Scenes.next();
 // Scenes.next();
 

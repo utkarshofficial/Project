@@ -734,20 +734,23 @@ const Scenes = {
     foot_adapter1: new Dom("foot_adapter1"),
     foot_adapter2: new Dom("foot_adapter2"),
     foot_adapter3: new Dom("foot_adapter3"),
-    head_adapter4: new Dom("head_adapter4"),
-    head_adapter5: new Dom("head_adapter5"),
+    head_adapter1: new Dom("head_adapter1"),
+    head_adapter2: new Dom("head_adapter2"),
     full_column: new Dom("full_column"),
     drill_machine: new Dom("drill_machine"),
     hammer: new Dom("hammer"),
-    nail: new Dom("nail"),
+    nail1: new Dom("nail1"),
+    nail2: new Dom("nail2"),
+    nail3: new Dom("nail3"),
+    nail4: new Dom("nail4"),
     objective: new Dom("objective"),
     real_foot_adapter: new Dom("real_foot_adapter"),
     real_head_adapter: new Dom("real_head_adapter"),
+    sheathing: new Dom("sheathing"),
     sheathing1: new Dom("sheathing1"),
     sheathing2: new Dom("sheathing2"),
     sheathing3: new Dom("sheathing3"),
     sheathing4: new Dom("sheathing4"),
-    sheathing5: new Dom("sheathing5"),
     steel_waler1: new Dom("steel_waler1"),
     steel_waler2: new Dom("steel_waler2"),
     steel_waler3: new Dom("steel_waler3"),
@@ -761,8 +764,21 @@ const Scenes = {
     wing_nut_top4: new Dom("wing_nut_top4"),
     wing_nut_top5: new Dom("wing_nut_top5"),
     wing_nut_full: new Dom("wing_nut_full"),
-    
-
+    beam_3d_with_one_hole: new Dom("beam_3d_with_one_hole"),
+    beam_3d_with_holes_nailing_helper: new Dom("beam_3d_with_holes_nailing_helper"),
+    beam_3d_with_holes3: new Dom("beam_3d_with_holes3"),
+    beam_3d_with_holes4: new Dom("beam_3d_with_holes4"),
+    sheathing_full2: new Dom("sheathing_full2"),
+    sheathing_full3: new Dom("sheathing_full3"),
+    flange_claw1: new Dom("flange_claw1"),
+    flange_claw2: new Dom("flange_claw2"),
+    flange_claw3: new Dom("flange_claw3"),
+    flange_claw4: new Dom("flange_claw4"),
+    steel_waler_blue1: new Dom("steel_waler_blue1"),
+    steel_waler_blue2: new Dom("steel_waler_blue2"),
+    steel_waler_tilt1: new Dom("steel_waler_tilt1"),
+    steel_waler_tilt2: new Dom("steel_waler_tilt2"),
+    column_side1: new Dom("column_side1"),
   },
   deleteAll() {
     for (i in this.img) {
@@ -1047,54 +1063,155 @@ const Scenes = {
 
       // hide
       Dom.hideAll();
-
       setIsProcessRunning(true);
-
       Dom.setBlinkArrow(-1);
       
-      Scenes.setStepHeading("Step 2", "Bring the form floor corner, form floor panel and waler clip in the lab")
+      Scenes.setStepHeading("Step 2", "Bring timber beam in the lab and drill holes on it.")
 
-      Scenes.items.panel1.set()
-            
-      Scenes.items.contentAdderBox.set(null,-50).show("flex").push()
-      Scenes.contentAdderAddBtn("Waler Clip")
-      Scenes.contentAdderAddBtn("Form Floor Panel")
-      Scenes.contentAdderAddBtn("Form Floor Corner")
+      // * Required Elements
+      Scenes.items.beam_3d_1.set(-170,73,350).rotate(-55)
+      Scenes.items.beam_3d_2.set(-250,93,350).rotate(-55).zIndex(1)
+      Scenes.items.drill_machine.set(820,325,60).zIndex(2) 
+
+
+      // ! remove
+      // Scenes.items.beam_3d_1.set(170,73,350)
+      // Scenes.items.beam_3d_with_one_hole.set(170,73,350)
+      // Scenes.items.beam_3d_with_holes1.set(170,73,350)
+      // Scenes.items.beam_3d_2.set(250,93,350)
+      // Scenes.items.beam_3d_with_holes2.set(250,93,350)
+      // Scenes.items.sheathing1.set(170,73,350)
+
+      // Scenes.items.drill_machine.set(394,150,60)
+      // Scenes.items.drill_machine.set(236,254,60)
+      // Scenes.items.drill_machine.set(471,170,60)
+      // Scenes.items.drill_machine.set(317,274,60) 
+
+      Scenes.items.contentAdderBox.set(null,-50).show("flex")
+      Scenes.contentAdderAddBtn("Timber Beam")
+      Scenes.contentAdderAddBtn("Drill Machine")
 
       let contentAdderBtns = getAll(".content-adder-box .btn")
+      contentAdderBtns[0].onclick = timberBeamAnime
+      contentAdderBtns[1].onclick = drillMachineAnime
+      
+      let timberBeamCount = 0
+      let drillMachineCount = 0
+      function timberBeamAnime(){
+        switch(timberBeamCount){
+          case 0:
+            anime({
 
-      Scenes.items.form_floor_corner1.set(-50,75)
-      Scenes.items.panel1.set(-250,75)
-      Scenes.items.waler_clip1.set(-50,252,50)
+              targets: Scenes.items.beam_3d_1.item,
+              keyframes : [
+                {left : 170},
+                {rotate: 0},
+              ],
+              easing: "easeInOutQuad",
+              duration: 2000,
+              complete(){
+                setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
+                Dom.setBlinkArrow(true, 705,15).play();
+              }
+            })
+            break;
+            case 1:
+              anime({
+                targets: Scenes.items.beam_3d_2.item,
+                keyframes : [
+                  {left : 250},
+                  {rotate: 0},
+                ],
+                easing: "easeInOutQuad",
+                duration: 2000,
+                complete(){
+                setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
+                  Dom.setBlinkArrow(true, 705,15).play();
+                }
+              })
 
-      function walerClicpAnime(){
-        anime({
-          targets: Scenes.items.waler_clip1.item,
-          left: 556,
-          easing: "easeInOutQuad",
-          duration: 2000,
-          complete(){
-            setCC("Click on the 'Form Floor Panel' to add panel in the lab.");      
-            Dom.setBlinkArrow(true, 670,15).play();
-            
-          }
-        })
+              break
+        }
+        timberBeamCount++
       }
 
-      function formFloorPanelAnime(){
-        anime({
-          targets: Scenes.items.panel1.item,
-          left: 245,
-          easing: "easeInOutQuad",
-          duration: 2000,
-          complete(){
-            setCC("Click on the 'Form Floor Corner' to add corner in the lab.")
-            Dom.setBlinkArrow(true, 670,65);
-          }
-        })
-      }
+      function drillMachineAnime(){
+        switch(drillMachineCount){
+          case 0:
+            anime.timeline({
+              easing: "easeInOutQuad",
+                targets: Scenes.items.drill_machine.item,
+                duration: 2000,
+            })
+              .add({
+                left: 394,
+                top: 150,
+                complete(){
+                  Scenes.items.beam_3d_1.hide()
+                  Scenes.items.beam_3d_with_one_hole.set(170,73,350)        
+                }
+              })
+              .add({
+                top: 254,
+              })
+              .add({
+                left: 236,
+                top: 254,
+                complete(){
+                  Scenes.items.beam_3d_with_one_hole.hide()
+                  Scenes.items.beam_3d_with_holes1.set(170,73,350) 
+                    
+                }
+              })    
+              .add({
+                left: 820,
+                top: 325,
+                complete(){
+                  setCC("Click on the 'Timber Beam' to add another tim ber beam in the lab.");      
+                      Dom.setBlinkArrow(true, 705,-35).play();
+                }
+              })      
+              break;
 
-      function formFloorCornerAinme(){
+              case 1:
+                anime.timeline({
+                  easing: "easeInOutQuad",
+                    targets: Scenes.items.drill_machine.item,
+                    duration: 2000,
+                })
+                  .add({
+                    left: 471,
+                    top: 170,
+                    complete(){
+                      Scenes.items.beam_3d_2.hide()
+                      Scenes.items.beam_3d_with_one_hole.set(250,93,350)        
+                    }
+                  })
+                  .add({
+                    top: 274,
+                  })
+                  .add({
+                    left: 317,
+                    complete(){
+                      Scenes.items.beam_3d_with_one_hole.hide()
+                      Scenes.items.beam_3d_with_holes2.set(250,93,350) 
+                        
+                    }
+                  })    
+                  .add({
+                    left: 820,
+                    top: 325,
+                    complete(){
+                      setCC("Click on the 'Next' to go to next step.");      
+                      Dom.setBlinkArrow(true, 790, 408).play()
+                    }
+                  })     
+                break
+        }                
+        drillMachineCount++                                     
+        }
+
+      function sheathingAnime(){
         anime({
           targets: Scenes.items.form_floor_corner1.item,
           left: 73,
@@ -1109,12 +1226,12 @@ const Scenes = {
         })
       }
 
-      setCC("Click on the 'Waler Clip' to add clip in the lab.");
-      Dom.setBlinkArrow(true, 670, -35).play()
+
+      setCC("Click on the 'Timber Beam' to add Timber beam in the lab.");      
+      Dom.setBlinkArrow(true, 705, -35).play()
       // onclick
-      contentAdderBtns[0].onclick = walerClicpAnime
-      contentAdderBtns[1].onclick = formFloorPanelAnime
-      contentAdderBtns[2].onclick = formFloorCornerAinme
+      contentAdderBtns[0].onclick = timeberBeamAnime
+      contentAdderBtns[1].onclick = drillMachineAnime
       // remove all the previous elements
       // Dom.hideAll();
       return true;  
@@ -1125,481 +1242,419 @@ const Scenes = {
 
       // todo all previous elements hide
       Dom.hideAll();
-      Scenes.items.contentAdderBox.item.innerHTML = "";
+      Scenes.items.contentAdderBox.item.innerHTML = ""
 
       // Required Elements
-      Scenes.setStepHeading("Step 3", "Connect form floor corner with form form floor corner using waler clip,");
+      Scenes.setStepHeading("Step 3", "Place plywood sheathing on timber beam with the help of nailing ");
 
-      Scenes.items.contentAdderBox.set(null,-50).show("flex").push();
-      Scenes.contentAdderAddBtn("Floor Corner");
-      Scenes.contentAdderAddBtn("Floor Panel");
-      Scenes.contentAdderAddBtn("Waler Clip");
-      Scenes.contentAdderAddBtn("Repeat")
+      Scenes.items.beam_3d_with_holes1.set(178,78,345)
+      Scenes.items.beam_3d_with_holes2.set(250,93,350)
+      Scenes.items.beam_3d_with_holes_nailing_helper.set(250,93,350).zIndex(5)
+      Scenes.items.hammer.set(800,350,45).zIndex(6)
+      Scenes.items.nail1.set(780,370,30).zIndex(3)
+      Scenes.items.nail2.set(770,370,30).zIndex(3)
+      Scenes.items.nail3.set(760,370,30).zIndex(3)
+      Scenes.items.nail4.set(750,370,30).zIndex(3)
+      Scenes.items.sheathing.set(-370,20,358).zIndex(2)
 
-      let contentAdderBtns = getAll(".content-adder-box .btn");
       
       
-      Scenes.items.form_floor_corner1.set(15,220,190).rotate(1).zIndex(2)
-      Scenes.items.form_floor_corner2.set(50,220,190).rotate(-1).zIndex(2)
       
-      Scenes.items.panel1.set(697,226,178)
-      Scenes.items.panel2.set(710,215,178)
-      Scenes.items.panel3.set(723,200,178)
+      let hammerAnime  =  anime({
+        targets: Scenes.items.hammer.item,
+        keyframes: [
+          {rotateZ: [0, 30]},
+          {rotateZ: [0, 30]},
+          {rotateZ: [0, 30]},
+          {rotateZ: [0, 30]},
+        ],
+        autoplay: false,
+        duration: 3000,
+      })
+      
+      //! Remove
+      // Scenes.items.sheathing.set(170,73,358)
 
-      Scenes.items.waler_clip1.set(130,359,20).zIndex(3)
-      Scenes.items.waler_clip2.set(135,349,20).zIndex(3)
-      Scenes.items.waler_clip3.set(140,339,20).zIndex(3)
-      Scenes.items.waler_clip4.set(145,329,20).zIndex(3)
+      // Scenes.items.sheathing1.set(384,149,30,10).zIndex(4)
+      // Scenes.items.nail1.set(385,119,30).zIndex(3)
       
-      Scenes.items.waler_clip5.set(180,359,20)
-      Scenes.items.waler_clip6.set(185,349,20)
-      Scenes.items.waler_clip7.set(190,339,20)
-      Scenes.items.waler_clip8.set(195,329,20)
+      // Scenes.items.sheathing2.set(263,230,30,10).zIndex(4)
+      // Scenes.items.nail2.set(263,200,30).zIndex(3)
+      // Scenes.items.sheathing3.set(330,248,30,10).zIndex(4)
+      // Scenes.items.nail3.set(460,135,30).zIndex(3)
       
-      Scenes.items.waler_clip9 .set(240,359,20)
-      Scenes.items.waler_clip10.set(245,349,20)
-      Scenes.items.waler_clip11.set(250,339,20)
-      Scenes.items.waler_clip12.set(255,329,20)
+      // Scenes.items.sheathing4.set(459,165,30,10).zIndex(4)0
+      // Scenes.items.nail4.set(329,218,30).zIndex(3)
       
-      Scenes.items.waler_clip13.set(290,359,20).zIndex(3)
-      Scenes.items.waler_clip14.set(295,349,20).zIndex(3)
-      Scenes.items.waler_clip15.set(300,339,20).zIndex(3)
-      Scenes.items.waler_clip16.set(305,329,20).zIndex(3)
+      
+      // Scenes.items.hammer.set(387,86,42).zIndex(6)
+      // Scenes.items.hammer.set(264,166,42).zIndex(6)
+      // Scenes.items.hammer.set(462,102,42).zIndex(6)
+      // Scenes.items.hammer.set(330, 184, 42).zIndex(6)
+      
+      // Scenes.items.nail1.set(385,146,30).zIndex(3)
+      
+      Scenes.items.contentAdderBox.set(null,-50).show("flex")
+      Scenes.contentAdderAddBtn("Sheathing")
+      Scenes.contentAdderAddBtn("Nailing")
 
-      Scenes.items.tempTitle1.set(10,170).setContent("Form Floor<br>Corner")
-      Scenes.items.tempTitle3.set(730,178).setContent("Form Floor Panel")
-      Scenes.items.tempTitle2.set(188,296).setContent("Waler Clips")
+      let contentAdderBtns = getAll(".content-adder-box .btn")
       
-    
-      let cornerCount = 0;
-      let panelCount = 0;
-      let walerClipCount = 0;
+      //* remove
 
-      const floorCornerAnime = ()=>{
-        Dom.setBlinkArrow(-1);
-        switch(cornerCount){
-          case 0:
+
+      const sheathingAnime = ()=>{
+        Dom.setBlinkArrow(-1)
             anime({
               easing: "easeInOutQuad",
-              targets: [Scenes.items.form_floor_corner2.item],
-              left: 121,
-              top: 89,
-              duration: 1000,
+              targets: [Scenes.items.sheathing.item],
+              duration: 4000,
+              keyframes: [
+                {left: 170},
+                {top: 73},
+              ],
               complete(){
+                Scenes.items.sheathing1.set(384,149,30,10).zIndex(4)
+                Scenes.items.sheathing2.set(263,230,30,10).zIndex(4)
+                Scenes.items.sheathing3.set(330,248,30,10).zIndex(4)
+                Scenes.items.sheathing4.set(459,165,30,10).zIndex(4)
+
                 Dom.setBlinkArrow(true, 710,15).play();
-                setCC("Click on the 'Floor Panel' to add it in the lab.");
+                setCC("Click on the 'Nailing' to nail on the sheathing.");
               }
             })
-            break;
+          }
 
-          case 1:
-            anime({
-              easing: "easeInOutQuad",
-              targets: [Scenes.items.form_floor_corner1.item],
-              left: 626,
-              top: 87,
-              duration: 2000,
-            })
-            break;
-        }
-        cornerCount++;
-      }
-
-      const floorPanelAnime = ()=>{
+      const nailingAnime = ()=>{
         Dom.setBlinkArrow(-1)
-        switch(panelCount){
-          case 0:
-            anime({
+            anime.timeline({
               easing: "easeInOutQuad",
-              targets: [Scenes.items.panel3.item],
-              left: 153,
-              top: 95,
               duration: 2000,
+            })
+            // * First nailing anime
+            .add({
+              targets: Scenes.items.nail1.item,
+              keyframes:[
+                {top: 119},
+                {left: 385},
+              ],
+            })
+            .add({
+              targets: Scenes.items.hammer.item,
+              left: 387,
+              top: 86,
+            })
+            .add({
+              begin(){
+                hammerAnime.play()
+              },
+              targets: [Scenes.items.nail1.item,Scenes.items.hammer.item],
+              top: ["+=0","+=9","+=9","+=9"],
+              duration: 3000
+            })
+            // * Second nailing animation
+            .add({
+              targets: Scenes.items.nail2.item,
+              keyframes:[
+                {top: 200},
+                {left: 263},
+              ],
+            })
+            .add({
+              targets: Scenes.items.hammer.item,
+              left: 264,
+              top: 166,
+            })
+            .add({
+              begin(){
+                hammerAnime.play()
+              },
+              targets: [Scenes.items.nail2.item,Scenes.items.hammer.item],
+              top: ["+=0","+=9","+=9","+=9"],
+              duration: 3000
+            })
+            // * Second nailing animation
+            .add({
+              targets: Scenes.items.nail3.item,
+              keyframes:[
+                {top: 135},
+                {left: 460},
+              ],
+            })
+            .add({
+              targets: Scenes.items.hammer.item,
+              left: 462,
+              top: 102,
+            })
+            .add({
+              begin(){
+                hammerAnime.play()
+              },
+              targets: [Scenes.items.nail3.item,Scenes.items.hammer.item],
+              top: ["+=0","+=9","+=9","+=9"],
+              duration: 3000
+            })
+            // * Fourth nailing animation
+            .add({
+              targets: Scenes.items.nail4.item,
+              keyframes:[
+                {top: 218},
+                {left: 329},
+              ],
+            })
+            .add({
+              targets: Scenes.items.hammer.item,
+              left: 330,
+              top: 184,
+            })
+            .add({
+              begin(){
+                hammerAnime.play()
+              },
+              targets: [Scenes.items.nail4.item,Scenes.items.hammer.item],
+              top: ["+=0","+=9","+=9","+=9"],
+              duration: 3000,
+            })
+            // * nailing completed ---xxx---
+            .add({
+              targets: Scenes.items.hammer.item,
+              left: 800,
+              top: 350,
+              rotate: 0,
               complete(){
-                Dom.setBlinkArrow(true, 710,65).play();
-                setCC("Click on the 'Waler Clip' to add it in the lab.");
+                Dom.setBlinkArrow(true, 790, 408).play();
+                setCC("Click 'Next' to go to next step");
+                setIsProcessRunning(false);
               }
             })
-            break;
-          
-          case 1:
-            anime({
-              easing: "easeInOutQuad",
-              targets: [Scenes.items.panel2.item],
-              left: 311,
-              top: 95,
-              duration: 2000,
-            })
-            break;
-          
-          case 2:
-            anime({
-              easing: "easeInOutQuad",
-              targets: [Scenes.items.panel1.item],
-              left: 469,
-              top: 95,
-              duration: 2000,
-              
-            })
-            break;
-          
-        }
-        panelCount++;
       }
 
-      const walerClipAnime = ()=>{
-        Dom.setBlinkArrow(-1)
-        let gap;
-        switch(walerClipCount){
-          case 0:
-            anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 1500,
-            })
-            .add({
-              targets: Scenes.items.waler_clip1.item,
-              left: 150,
-              top: 110,
-            })
-            .add({
-              targets: Scenes.items.waler_clip2.item,
-              left: 150,
-              top: 150,
-            })
-            .add({
-              targets: Scenes.items.waler_clip3.item,
-              left: 150,
-              top: 190,
-            })
-            .add({
-              targets: Scenes.items.waler_clip4.item,
-              left: 150,
-              top: 230,
-              complete(){
-                Dom.setBlinkArrow(true, 710,115).play();
-                setCC("Click on the 'Repeat' to repeat the above steps.");
-              }
-            })
-            break;
-          
-          case 1:
-            gap = (156*walerClipCount);
-            anime.timeline({
-              easing: "easeInOutQuad",
-            })
-            .add({
-              targets: Scenes.items.waler_clip5.item,
-              left: 150+gap,
-              top: 110,
-            })
-            .add({
-              targets: Scenes.items.waler_clip6.item,
-              left: 150+gap,
-              top: 150,
-            })
-            .add({
-              targets: Scenes.items.waler_clip7.item,
-              left: 150+gap,
-              top: 190,
-            })
-            .add({
-              targets: Scenes.items.waler_clip8.item,
-              left: 150+gap,
-              top: 230,
-              complete(){
-                Dom.setBlinkArrow(true, 710,115).play();
-              }
-            })
-            break;
-          
-          case 2:
-            gap = (156*walerClipCount);
-            anime.timeline({
-              easing: "easeInOutQuad",
-            })
-            .add({
-              targets: Scenes.items.waler_clip9.item,
-              left: 150+gap,
-              top: 110,
-            })
-            .add({
-              targets: Scenes.items.waler_clip10.item,
-              left: 150+gap,
-              top: 150,
-            })
-            .add({
-              targets: Scenes.items.waler_clip11.item,
-              left: 150+gap,
-              top: 190,
-            })
-            .add({
-              targets: Scenes.items.waler_clip12.item,
-              left: 150+gap,
-              top: 230,
-              complete(){
-                Dom.setBlinkArrow(true, 710,115).play();
-              }
-            })
-            break;
-          
-            case 3:
-              gap = (156*walerClipCount);
-              anime.timeline({
-                easing: "easeInOutQuad",
-              })
-              .add({
-                delay: 2000,
-                targets: Scenes.items.waler_clip13.item,
-                left: 150+gap,
-                top: 110,
-              })
-              .add({
-                targets: Scenes.items.waler_clip14.item,
-                left: 150+gap,
-                top: 150,
-              })
-              .add({
-                targets: Scenes.items.waler_clip15.item,
-                left: 150+gap,
-                top: 190,
-              })
-              .add({
-                targets: Scenes.items.waler_clip16.item,
-                left: 150+gap,
-                top: 230,
-                complete(){
-                  Dom.setBlinkArrow(true, 790, 408).play();
-                  setCC("Click 'Next' to go to next step");
-                  setIsProcessRunning(false);
-                }
-              })
-              break;
-        }
-        walerClipCount++;
-      }
-            
       Dom.setBlinkArrow(true, 710, -35).play();
       setCC("Click on the 'Floor Corner' to add it in the lab.");
       // onclick
-      contentAdderBtns[0].onclick = floorCornerAnime;
-      contentAdderBtns[1].onclick = floorPanelAnime;
-      contentAdderBtns[2].onclick = walerClipAnime;
-      contentAdderBtns[3].onclick = ()=>{
-        floorPanelAnime()
-        if(walerClipCount===3){
-          floorCornerAnime()
-        }
-        setTimeout(walerClipAnime,1500);
-      };
-
-      //!remove
-      // floorCornerAnime()
-      // floorPanelAnime()
-      // floorPanelAnime()
-      // Scenes.items.waler_clip1.set(150,110,20)
-      // Scenes.items.waler_clip2.set(150,150,20)
-      // Scenes.items.waler_clip3.set(150,190,20)
-      // Scenes.items.waler_clip4.set(150,230,20)
-
-      // Scenes.items.waler_clip5.set(306,110,20)
-      // Scenes.items.waler_clip6.set(306,150,20)
-      // Scenes.items.waler_clip7.set(306,190,20)
-      // Scenes.items.waler_clip8.set(306,230,20)
-
-      
-      // setCC("Click on the 'Sheathing Left' to add sheathing in form panel.");
-      // Dom.setBlinkArrow(true, 685, -35).play();
+      contentAdderBtns[0].onclick = sheathingAnime;
+      contentAdderBtns[1].onclick = nailingAnime;
 
       return true;
     }),
     (step4 = function () {
-      Dom.hideAll();
+      Dom.hideAll(); 
       setIsProcessRunning(true);
       Scenes.items.contentAdderBox.setContent("");
       Scenes.setStepHeading(
         "Step 4",
-        "Attach waler pipes using pipe waler clamp."
+        "Join the steel waler with timber beam using flenge claw assembly."
+      
       );
 
     // required items
-    Scenes.items.form_floor_corner1.set(626,87,190).rotate(1).zIndex(2)
-    Scenes.items.form_floor_corner2.set(121,89,190).rotate(-1).zIndex(2)
-    
-    Scenes.items.panel1.set(153,95,178)
-    Scenes.items.panel2.set(311,95,178)
-    Scenes.items.panel3.set(469,95,178)
 
-    Scenes.items.waler_clip1.set(150,110,20).zIndex(3)
-    Scenes.items.waler_clip2.set(150,150,20).zIndex(3)
-    Scenes.items.waler_clip3.set(150,190,20).zIndex(3)
-    Scenes.items.waler_clip4.set(150,230,20).zIndex(3)
-    
-    Scenes.items.waler_clip5.set(306,110,20)
-    Scenes.items.waler_clip6.set(306,150,20)
-    Scenes.items.waler_clip7.set(306,190,20)
-    Scenes.items.waler_clip8.set(306,230,20)
-    
-    Scenes.items.waler_clip9 .set(462,110,20)
-    Scenes.items.waler_clip10.set(462,150,20)
-    Scenes.items.waler_clip11.set(462,190,20)
-    Scenes.items.waler_clip12.set(462,230,20)
-    
-    Scenes.items.waler_clip13.set(618,110,20).zIndex(3)
-    Scenes.items.waler_clip14.set(618,150,20).zIndex(3)
-    Scenes.items.waler_clip15.set(618,190,20).zIndex(3)
-    Scenes.items.waler_clip16.set(618,230,20).zIndex(3)
+    Scenes.items.flange_claw1.set(569,280,50,60).rotate(0).zIndex(4)
+    Scenes.items.flange_claw2.set(630,280,50,60).rotate(0).zIndex(4)
+    Scenes.items.flange_claw3.set(599,330,50,60).rotate(0).zIndex(4)
+    Scenes.items.flange_claw4.set(660,330,50,60).rotate(0).zIndex(4)
+    Scenes.items.steel_waler_blue1.set(748,280,30,135).zIndex(5)
+    Scenes.items.steel_waler_blue2.set(748,330,30,135).zIndex(5)
 
-    Scenes.items.pipe_waler_cutout1.set(37,360,18,550).zIndex(4)
-    Scenes.items.pipe_waler_cutout2.set(37,380,18,550).zIndex(4)
+ 
+
+    // Scenes.items.flange_claw1.set(611,352,50)
+    // Scenes.items.flange_claw2.set(622,270,50)
+    // Scenes.items.flange_claw3.set(555,352,50)
+    // Scenes.items.flange_claw4.set(562,270,50)
+    // ! before rotation
+    Scenes.items.beam_3d_with_holes1.set(178-160,78,345)
+    Scenes.items.beam_3d_with_holes2.set(250-160,93,350)
+    Scenes.items.beam_3d_with_holes_nailing_helper.set(250-160,93,350).zIndex(5)
+    Scenes.items.sheathing.set(170-160,75,358).zIndex(2)
+    Scenes.items.sheathing1.set(384-160,149,30,10).zIndex(4)
+    Scenes.items.sheathing2.set(263-160,230,30,10).zIndex(4)
+    Scenes.items.sheathing3.set(330-160,248,30,10).zIndex(4)
+    Scenes.items.sheathing4.set(459-160,165,30,10).zIndex(4)
+    Scenes.items.nail1.set(385-160,148,30).zIndex(3)
+    Scenes.items.nail2.set(263-160,229,30).zIndex(3)
+    Scenes.items.nail3.set(460-160,162,30).zIndex(3)
+    Scenes.items.nail4.set(329-160,247,30).zIndex(3)
+    Scenes.items.tempTitle1.set(40,327).setContent("Before Rotation").hide()
     
-     Scenes.items.pipe_waler_connector1.set(700,370,30,20).zIndex(5)
-     Scenes.items.pipe_waler_connector2.set(725,370,30,20).zIndex(5)
-     Scenes.items.pipe_waler_connector3.set(750,370,30,20).zIndex(5)
-     Scenes.items.pipe_waler_connector4.set(775,370,30,20).zIndex(5)
-     Scenes.items.pipe_waler_connector5.set(710,330,30,20).zIndex(5)
-     Scenes.items.pipe_waler_connector6.set(735,330,30,20).zIndex(5)
-     Scenes.items.pipe_waler_connector7.set(760,330,30,20).zIndex(5)
-     Scenes.items.pipe_waler_connector8.set(785,330,30,20).zIndex(5)
+    // ! after rotation
+    Scenes.items.beam_3d_with_holes3.set(178+150,78,345).zIndex(2).hide()
+    Scenes.items.beam_3d_with_holes4.set(250+150,93,350).zIndex(2).hide()
+    Scenes.items.sheathing_full2.set(173+150,110,358).hide()
+    Scenes.items.tempTitle2.set(340,327).setContent("After Rotation").hide()
+    
+    // Scenes.items.steel_waler1.set()
+    // Scenes.items.steel_waler2.set()
 
-     Scenes.items.larrow2.set(783,280,50)
-     Scenes.items.pipe_waler_clamp_full.set(850,250,60)
-     Scenes.items.tempTitle1.set(850,320,60).setContent("Waler clamp")
-
-     
+    
 
     //! final pos
-    //  Scenes.items.pipe_waler_cutout1.set(115,130,18,550).zIndex(4)
-    //  Scenes.items.pipe_waler_cutout2.set(115,215,18,550).zIndex(4)
-
-    //  Scenes.items.pipe_waler_connector1.set(142,118,30,20).zIndex(5)
-    //  Scenes.items.pipe_waler_connector2.set(300,118,30,20).zIndex(5)
-    //  Scenes.items.pipe_waler_connector3.set(456,118,30,20).zIndex(5)
-    //  Scenes.items.pipe_waler_connector4.set(612,118,30,20).zIndex(5)
-    //  Scenes.items.pipe_waler_connector5.set(142,204,30,20).zIndex(5)
-    //  Scenes.items.pipe_waler_connector6.set(300,204,30,20).zIndex(5)
-    //  Scenes.items.pipe_waler_connector7.set(456,204,30,20).zIndex(5)
-    //  Scenes.items.pipe_waler_connector8.set(612,204,30,20).zIndex(5)
+    // Scenes.items.steel_waler1.set(734,328,30)
+    // Scenes.items.steel_waler2.set(734,373,30)
+    // Scenes.items.steel_waler_tilt1.set(300,125,65).zIndex(5).rotate(-4)
+    // Scenes.items.steel_waler_tilt2.set(155,224,65).zIndex(5).rotate(-4)
+    // Scenes.items.flange_claw1.set(378,143,50,60).rotate(127).zIndex(4)
+    // Scenes.items.flange_claw2.set(303,122,50,60).rotate(127).zIndex(4)
+    // Scenes.items.flange_claw3.set(240,244,50,60).rotate(130).zIndex(4)
+    // Scenes.items.flange_claw4.set(156,220,50,60).rotate(130).zIndex(4)
+    
 
     // content adder
     Scenes.items.contentAdderBox.set(null, -50).show("flex").push()
-    Scenes.contentAdderAddBtn("Pipe Waler")
-    Scenes.contentAdderAddBtn("Pipe Clamp")
+    Scenes.contentAdderAddBtn("Steel Waler")
+    Scenes.contentAdderAddBtn("Flange Claw")
     let contentAdderBtns = getAll(".content-adder-box .btn")
       
-     let pipeCount = 0;
-     const pipeWalerAnime = ()=>{
-      switch(pipeCount){
-        case 0:
-          anime({
-            easing: "easeInOutQuad",
-            targets: Scenes.items.pipe_waler_cutout1.item,
-            left: 115,
-            top: 130,
-            duration: 2000,
-            complete(){
-              Dom.setBlinkArrow(true,718,15).play()
-              setCC("Click on the 'Pipe Clamp' to add it in the lab.")
-            }
-          })
-          break;
-          
-        case 1:
-          anime({
-            easing: "easeInOutQuad",
-            targets: Scenes.items.pipe_waler_cutout2.item,
-            left: 115,
-            top: 215,
-            duration: 2000,
-            complete(){
-              Dom.setBlinkArrow(true,718,15).play()
-              setCC("Click on the 'Pipe Clamp' to add it in the lab.")
-            }
-          })
-          break;
-      }
-      pipeCount++;
-     }
+    const beforeAfterRotationAnime = ()=>{
+      anime.timeline({
+        easing: "easeInOutQuad",
+        duration: 1000,
+      })
+      .add({
+        complete(){
+          Scenes.items.arrowRound.set(350,70,80)
+        }
+      })
+      .add({
+        complete(){
+          Scenes.items.beam_3d_with_holes3.show()
+          Scenes.items.beam_3d_with_holes4.show()
+          Scenes.items.sheathing_full2.show()
+        }
+      })
+      .add({
+        complete(){
+          Scenes.items.tempTitle1.set(40,327).setContent("Before Rotation").show()
+          Scenes.items.tempTitle2.set(340,327).setContent("After Rotation").show()      
+        }
+      })
+      .add({
+        duration: 4000,
+        complete(){
+          Scenes.items.arrowRound.hide()
+          Scenes.items.tempTitle1.hide()
+          Scenes.items.tempTitle2.hide()
 
-     let walerClampCount = 0;
-     const walerClampAnime = ()=>{
-      switch(walerClampCount){
+
+          Scenes.items.beam_3d_with_holes1.hide()
+          Scenes.items.beam_3d_with_holes2.hide()
+          Scenes.items.beam_3d_with_holes_nailing_helper.hide()
+          Scenes.items.sheathing.hide()
+          Scenes.items.sheathing1.hide()
+          Scenes.items.sheathing2.hide()
+          Scenes.items.sheathing3.hide()
+          Scenes.items.sheathing4.hide()
+          Scenes.items.nail1.hide()
+          Scenes.items.nail2.hide()
+          Scenes.items.nail3.hide()
+          Scenes.items.nail4.hide()
+
+        }
+      })
+      .add({
+        targets: [Scenes.items.beam_3d_with_holes4.item,Scenes.items.beam_3d_with_holes3.item,Scenes.items.sheathing_full2.item],
+        left: "-=200",
+        
+      })
+      .add({
+        targets: Scenes.items.beam_3d_with_holes4.item,
+        // left: 
+      })
+
+    }
+    
+    let steelWalerCount = 0
+    const steelWalerAnime = ()=>{
+    switch(steelWalerCount){
+      case 0:
+        anime.timeline({
+          easing: "easeInOutQuad",
+          duration: 2000,
+        })
+        .add({
+          targets: Scenes.items.steel_waler_blue1.item,
+          left: 300,
+          top: 125,
+          complete(){
+            Scenes.items.steel_waler_blue1.hide()
+            // tilt position of steel waler
+            Scenes.items.steel_waler_tilt1.set(300,125,65).zIndex(5).rotate(-4)
+          }
+        })
+        break
+      
+      case 1:
+        anime.timeline({
+          easing: "easeInOutQuad",
+          duration: 2000,
+        })
+        .add({
+          targets: Scenes.items.steel_waler_blue2.item,
+          left: 155,
+          top: 224,
+          complete(){
+            Scenes.items.steel_waler_blue2.hide()
+            // tilt position of steel waler
+            Scenes.items.steel_waler_tilt2.set(155,224,65).zIndex(5).rotate(-4)
+          }
+        })
+        break
+    }
+    steelWalerCount++
+    }
+
+    let flangeClawCount = 0
+    const flangeClawAnime = ()=>{
+      switch(flangeClawCount){
         case 0:
           anime.timeline({
             easing: "easeInOutQuad",
-            duration: 1000,
+            duration: 2000
           })
           .add({
-            targets: Scenes.items.pipe_waler_connector1.item,
-            left: 142,
-            top: 118,
+            targets: Scenes.items.flange_claw1.item,
+            left: 378,
+            top: 143,
+            rotate: 127,
           })
           .add({
-            targets: Scenes.items.pipe_waler_connector2.item,
-            left: 300,
-            top: 118,
+            targets: Scenes.items.flange_claw2.item,
+            left: 303,
+            top: 122,
+            rotate: 127,
           })
-          .add({
-            targets: Scenes.items.pipe_waler_connector3.item,
-            left: 456,
-            top: 118,
-          })
-          .add({
-            targets: Scenes.items.pipe_waler_connector4.item,
-            left: 612,
-            top: 118,
-            complete(){
-              Dom.setBlinkArrow(true,718,-35).play()
-              setCC("Click on the 'Pipe Waler' to add it in the lab.")
-            }
-          })
-        break;
-          
-        case 1:
-          anime.timeline({
-            easing: "easeInOutQuad",
-            duration: 1000,
-          })
-          .add({
-            begin(){
-              Scenes.items.larrow2.hide()
-              Scenes.items.pipe_waler_clamp_full.hide()
-              Scenes.items.tempTitle1.hide()
-            },
-            targets: Scenes.items.pipe_waler_connector5.item,
-            left: 142,
-            top: 204,
-          })
-          .add({
-            targets: Scenes.items.pipe_waler_connector6.item,
-            left: 300,
-            top: 204,
-          })
-          .add({
-            targets: Scenes.items.pipe_waler_connector7.item,
-            left: 456,
-            top: 204,
-          })
-          .add({
-            targets: Scenes.items.pipe_waler_connector8.item,
-            left: 612,
-            top: 204,
-            complete(){
-              Dom.setBlinkArrow(true, 790, 408).play();
-              setCC("Click 'Next' to go to next step");
-              setIsProcessRunning(false);
-            }
-          })
-          break;
-          
+          break
+
+          case 1:
+            anime.timeline({
+              easing: "easeInOutQuad",
+              duration: 2000
+            })
+            .add({
+              targets: Scenes.items.flange_claw3.item,
+              left: 240,
+              top: 244,
+              rotate: 130,
+            })
+            .add({
+              targets: Scenes.items.flange_claw4.item,
+              left: 156,
+              top: 220,
+              rotate: 130,
+            })
+            break
       }
-      walerClampCount++;
-     }
+      flangeClawCount++;
+    }
+
+     //! starter animes
+     beforeAfterRotationAnime()
      
      Dom.setBlinkArrow(true,718,-35).play()
      setCC("Click on the 'Pipe Waler' to add it in the lab.")
      //onclick pipe waler 
-     contentAdderBtns[0].onclick = pipeWalerAnime;
-     contentAdderBtns[1].onclick = walerClampAnime;
+     contentAdderBtns[0].onclick = steelWalerAnime;
+     contentAdderBtns[1].onclick = flangeClawAnime;
 
      return true;
 
@@ -1609,385 +1664,267 @@ const Scenes = {
       Dom.hideAll()
       Scenes.setStepHeading(
         "Step 5",
-        "Attach steel waler with pipe waler using steel waler connector."
+        "Lift the one side of column and attach CT prop."
       );
       // todo remove all previous
       Scenes.items.contentAdderBox.setContent("");
 
-      // todo Required Items
-      Scenes.items.form_floor_corner1.set(626,87,190).rotate(1).zIndex(2)
-    Scenes.items.form_floor_corner2.set(121,89,190).rotate(-1).zIndex(2)
-    
-    Scenes.items.panel1.set(153,95,178)
-    Scenes.items.panel2.set(311,95,178)
-    Scenes.items.panel3.set(469,95,178)
+      //! Required Items
+      Scenes.items.beam_3d_with_holes3.set(178-100,78,345).zIndex(2)
+      Scenes.items.beam_3d_with_holes4.set(250-100,93,350).zIndex(2)
+      Scenes.items.sheathing_full2.set(173-100,110,358)
+      Scenes.items.tempTitle1.set(500,370).setContent("After Lifting").hide()
 
-    Scenes.items.waler_clip1.set(150,110,20).zIndex(3)
-    Scenes.items.waler_clip2.set(150,150,20).zIndex(3)
-    Scenes.items.waler_clip3.set(150,190,20).zIndex(3)
-    Scenes.items.waler_clip4.set(150,230,20).zIndex(3)
-    
-    Scenes.items.waler_clip5.set(306,110,20)
-    Scenes.items.waler_clip6.set(306,150,20)
-    Scenes.items.waler_clip7.set(306,190,20)
-    Scenes.items.waler_clip8.set(306,230,20)
-    
-    Scenes.items.waler_clip9 .set(462,110,20)
-    Scenes.items.waler_clip10.set(462,150,20)
-    Scenes.items.waler_clip11.set(462,190,20)
-    Scenes.items.waler_clip12.set(462,230,20)
-    
-    Scenes.items.waler_clip13.set(618,110,20).zIndex(3)
-    Scenes.items.waler_clip14.set(618,150,20).zIndex(3)
-    Scenes.items.waler_clip15.set(618,190,20).zIndex(3)
-    Scenes.items.waler_clip16.set(618,230,20).zIndex(3)
+      Scenes.items.steel_waler_tilt1.set(300-50,125,65).zIndex(5).rotate(-4)
+      Scenes.items.steel_waler_tilt2.set(155-50,224,65).zIndex(5).rotate(-4)
+      Scenes.items.flange_claw1.set(378-50,143,50,60).rotate(127).zIndex(4)
+      Scenes.items.flange_claw2.set(303-50,122,50,60).rotate(127).zIndex(4)
+      Scenes.items.flange_claw3.set(240-50,244,50,60).rotate(130).zIndex(4)
+      Scenes.items.flange_claw4.set(156-50,220,50,60).rotate(130).zIndex(4)
+      Scenes.items.column_side1.set(400,10,350).hide()
+      
+      
+      // !final pos
+      Scenes.items.head_adapter1.set(220+150,90,25).rotate(35).zIndex(10)
+      Scenes.items.head_adapter2.set(220+150,250,25).rotate(35).zIndex(10)
+      Scenes.items.ct_prop1.set(135+150,80,280,50).rotate(32).zIndex(11)
+      Scenes.items.ct_prop2.set(135+150,210,178,50).rotate(60).zIndex(11)
+      Scenes.items.foot_adapter1.set(55+150,280,75).zIndex(12)
+     
 
-    Scenes.items.pipe_waler_cutout1.set(37,360,18,550).zIndex(4)
-    Scenes.items.pipe_waler_cutout2.set(37,380,18,550).zIndex(4)
-    
-    Scenes.items.pipe_waler_connector1.set(700,370,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector2.set(725,370,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector3.set(750,370,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector4.set(775,370,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector5.set(710,330,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector6.set(735,330,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector7.set(760,330,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector8.set(785,330,30,20).zIndex(5)
+      // content adder
+      Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
+      Scenes.contentAdderAddBtn("Head Adapter");
+      Scenes.contentAdderAddBtn("Foot Adapter");
+      Scenes.contentAdderAddBtn("CT Prop");
 
-    Scenes.items.pipe_waler_cutout1.set(115,130,18,550).zIndex(4)
-    Scenes.items.pipe_waler_cutout2.set(115,215,18,550).zIndex(4)
+      let contentAdderBtns = getAll(".content-adder-box .btn");
 
-    Scenes.items.pipe_waler_connector1.set(142,118,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector2.set(300,118,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector3.set(456,118,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector4.set(612,118,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector5.set(142,204,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector6.set(300,204,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector7.set(456,204,30,20).zIndex(5)
-    Scenes.items.pipe_waler_connector8.set(612,204,30,20).zIndex(5)
+      let walerConnectorCount = 0;
+      let steelWalerCount = 0;
+      let anchorPlateCount = 0;
+      let wingNutCount = 0; 
 
-    Scenes.items.steel_waler1.set(30,315,30,185).zIndex(7)
-    Scenes.items.steel_waler2.set(20,348,30,185).zIndex(7)
-    Scenes.items.steel_waler3.set(10,380,30,185).zIndex(7)
-    
-    Scenes.items.steel_waler_connector1.set(300,320,30).rotate(-40).zIndex(6)
-    Scenes.items.steel_waler_connector2.set(280,366,30).rotate(-40).zIndex(6)
-    Scenes.items.steel_waler_connector3.set(320,320,30).rotate(-40).zIndex(6)
-    Scenes.items.steel_waler_connector4.set(300,366,30).rotate(-40).zIndex(6)
-    Scenes.items.steel_waler_connector5.set(340,320,30).rotate(-40).zIndex(6)
-    Scenes.items.steel_waler_connector6.set(320,366,30).rotate(-40).zIndex(6)
-
-    Scenes.items.anchor_plate1.set(427,353,25).zIndex(8)
-    Scenes.items.anchor_plate2.set(417,380,25).zIndex(8)
-    Scenes.items.anchor_plate3.set(454,353,25).zIndex(8)
-    Scenes.items.anchor_plate4.set(443,380,25).zIndex(8)
-    Scenes.items.anchor_plate5.set(481,353,25).zIndex(8)
-    Scenes.items.anchor_plate6.set(470,380,25).zIndex(8)
-
-    Scenes.items.wing_nut1.set(570,374.5,8).zIndex(9)
-    Scenes.items.wing_nut2.set(551,393.5,8).zIndex(9)
-    Scenes.items.wing_nut3.set(600,374.5,8).zIndex(9)
-    Scenes.items.wing_nut4.set(580,393.5,8).zIndex(9)
-    Scenes.items.wing_nut5.set(630,374.5,8).zIndex(9)
-    Scenes.items.wing_nut6.set(608,393.5,8).zIndex(9)
-
-    Scenes.items.larrow2.set(635,330,40)
-    Scenes.items.wing_nut_full.set(680,300,50)
-    Scenes.items.tempTitle1.set(680,350).setContent("Wing Nut")
-
-    // !remove
-    // Scenes.items.steel_waler1.set(140,168,30,185).rotate(90).zIndex(7)
-    // Scenes.items.steel_waler2.set(300,168,30,185).rotate(90).zIndex(7)
-    // Scenes.items.steel_waler3.set(455,168,30,185).rotate(90).zIndex(7)
-    
-    // Scenes.items.steel_waler_connector1.set(220,130,30).rotate(-40).zIndex(6)
-    // Scenes.items.steel_waler_connector2.set(220,216,30).rotate(-40).zIndex(6)
-    // Scenes.items.steel_waler_connector3.set(380,130,30).rotate(-40).zIndex(6)
-    // Scenes.items.steel_waler_connector4.set(380,216,30).rotate(-40).zIndex(6)
-    // Scenes.items.steel_waler_connector5.set(535,130,30).rotate(-40).zIndex(6)
-    // Scenes.items.steel_waler_connector6.set(535,216,30).rotate(-40).zIndex(6)
-
-    // Scenes.items.anchor_plate1.set(220,129,25).zIndex(8)
-    // Scenes.items.anchor_plate2.set(220,212,25).zIndex(8)
-    // Scenes.items.anchor_plate3.set(380,129,25).zIndex(8)
-    // Scenes.items.anchor_plate4.set(380,212,25).zIndex(8)
-    // Scenes.items.anchor_plate5.set(536,129,25).zIndex(8)
-    // Scenes.items.anchor_plate6.set(536,212,25).zIndex(8)
-
-    // Scenes.items.wing_nut1.set(219,137.5,8).zIndex(9)
-    // Scenes.items.wing_nut2.set(219,220.5,8).zIndex(9)
-    // Scenes.items.wing_nut3.set(379,137.5,8).zIndex(9)
-    // Scenes.items.wing_nut4.set(379,220.5,8).zIndex(9)
-    // Scenes.items.wing_nut5.set(535,137.5,8).zIndex(9)
-    // Scenes.items.wing_nut6.set(535,220.5,8).zIndex(9)
-
-    // content adder
-    Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
-    Scenes.contentAdderAddBtn("Waler Connector");
-    Scenes.contentAdderAddBtn("Steel Waler");
-    Scenes.contentAdderAddBtn("Anchor Plate");
-    Scenes.contentAdderAddBtn("Wing Nut");
-    Scenes.contentAdderAddBtn("Repeat");
-    let contentAdderBtns = getAll(".content-adder-box .btn");
-
-    let walerConnectorCount = 0;
-    let steelWalerCount = 0;
-    let anchorPlateCount = 0;
-    let wingNutCount = 0; 
-
-    const walerConnectorAnime = ()=>{
-      switch(walerConnectorCount){
-        case 0:
-          anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 1000,
-          })
-          .add({
-            targets: Scenes.items.steel_waler_connector1.item,
-            left:220,
-            top:130,
-          })
-          .add({
-            targets: Scenes.items.steel_waler_connector2.item,
-            left:220,
-            top:216,
-            complete(){
-              Dom.setBlinkArrow(true,680,15).play()
-              setCC("Click on the 'Steel Waler' to attach it with the steel waler connector.")
-            }
-          })
-          break
-        case 1:
-          anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 1000,
-          })
-          .add({
-            targets: Scenes.items.steel_waler_connector3.item,
-            left:380,
-            top:130,
-          })
-          .add({
-            targets: Scenes.items.steel_waler_connector4.item,
-            left:380,
-            top:216,
-          })
-          break
-        case 2:
-          anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 1000,
-          })
-          .add({
-            targets: Scenes.items.steel_waler_connector5.item,
-            left:535,
-            top:130,
-          })
-          .add({
-            targets: Scenes.items.steel_waler_connector6.item,
-            left:535,
-            top:216,
-          })
-          break
-
+      const beforeAfterAnime = ()=>{
+        anime.timeline({
+          easing: "easeInOutQuad",
+          duration: 1000,
+        })
+        .add({
+          complete(){
+            Scenes.items.arrowRound.set(350,50,50)
+          }
+        })
+        .add({
+          complete(){
+            Scenes.items.column_side1.show()
+          }
+        })
+        .add({
+          complete(){
+            Scenes.items.tempTitle1.show()      
+          }
+        })
+        .add({
+          duration: 4000,
+          complete(){
+            Scenes.items.arrowRound.hide()
+            Scenes.items.tempTitle1.hide()
+  
+  
+            Scenes.items.beam_3d_with_holes3.hide()
+            Scenes.items.beam_3d_with_holes4.hide()
+            Scenes.items.sheathing_full2.hide()
+            Scenes.items.steel_waler_tilt1.hide()
+            Scenes.items.steel_waler_tilt2.hide()
+            Scenes.items.flange_claw1.hide()
+            Scenes.items.flange_claw2.hide()
+            Scenes.items.flange_claw3.hide()
+            Scenes.items.flange_claw4.hide()
+      
+  
+          }
+        })
+        .add({
+          targets: Scenes.items.column_side1.item,
+          left: "-=150",
+          complete(){
+            Scenes.items.ct_prop1.set(187,250,250,50).rotate(90).zIndex(11)
+            Scenes.items.ct_prop2.set(153,305,185,50).rotate(90).zIndex(11)
+            
+            Scenes.items.head_adapter1.set(400,360,25).zIndex(10)
+            Scenes.items.head_adapter2.set(440,360,25).zIndex(10)
+            
+            Scenes.items.foot_adapter1.set(510,310,75).zIndex(12)
+          }
+        })  
       }
-      walerConnectorCount++;
-    }
+
+      const headAdapterAnime = ()=>{
+            anime.timeline({
+                easing: "easeInOutQuad",
+                duration: 1000,
+            })
+            .add({
+              targets: Scenes.items.head_adapter1.item,
+              left:220,
+              top:129,
+            })
+            .add({
+              targets: Scenes.items.head_adapter2.item,
+              left:220,
+              top:212,
+              complete(){
+                setCC("Click on the 'Foot Adapter' to support the CT Prop.")
+                Dom.setBlinkArrow(true,700,15).play()
+              }
+            })
+     
+      }
+      
+      const footAdapterAnime = ()=>{
+        switch(footAdapterCount){
+          case 0:
+            anime({
+              easing: "easeInOutQuad",
+              targets: Scenes.items.foot_adapter1.item,
+              left:55,
+              top:280,
+              duration: 1000,
+              complete(){
+                setCC("Click on the 'CT Prop' to support the form floor panel.")
+                Dom.setBlinkArrow(true,700,65).play()
+              }
+            })
+            break
+          case 1:
+            anime({
+              easing: "easeInOutQuad",
+              targets: Scenes.items.foot_adapter2.item,
+              left:216,
+              top:280,
+              duration: 1000,
+            })
+            break
+          case 2:
+            anime({
+              easing: "easeInOutQuad",
+              targets: Scenes.items.foot_adapter3.item,
+              left:376,
+              top:280,
+              duration: 1000,
+            })
+            break
+  
+          
+        }
+        footAdapterCount++;
+      }
+  
+      const ctPropAnime = ()=>{
+        let rotationCount = 2;
+        switch(ctPropCount){
+          case 0:
+            anime.timeline({
+                easing: "easeInOutQuad",
+                duration: 1000,
+            })
+            .add({
+              targets: Scenes.items.ct_prop1.item,
+              left:135, 
+              top:115,
+              rotate: 35
+            })
+            .add({
+              targets: Scenes.items.ct_prop2.item,
+              left:135, 
+              top:190,
+              rotate: 50,
+              complete(){
+                // for next step
+                Scenes.items.ct_prop3.set(187,250,250,50).rotate(90).zIndex(11)
+                Scenes.items.ct_prop4.set(153,305,185,50).rotate(90).zIndex(11)
+                
+                Scenes.items.head_adapter3.set(400,360,25).zIndex(10)
+                Scenes.items.head_adapter4.set(440,360,25).zIndex(10)
+                
+                Scenes.items.foot_adapter2.set(510,310,75).zIndex(12)
+  
+                setCC("Click on the 'Repeat' to repeat the previous steps.")
+                Dom.setBlinkArrow(true,700,115).play()
+              }
+            })
+            break
+          case 1:
+            anime.timeline({
+                easing: "easeInOutQuad",
+                duration: 1000,
+            })
+            .add({
+              targets: Scenes.items.ct_prop3.item,
+              left:295, 
+              top:115,
+              rotate: 35
+                
+            })
+            .add({
+              targets: Scenes.items.ct_prop4.item,
+              left:295, 
+              top:190,
+              rotate: 50,
+              complete(){
+                Scenes.items.ct_prop5.set(187,250,250,50).rotate(90).zIndex(11)
+                Scenes.items.ct_prop6.set(153,305,185,50).rotate(90).zIndex(11)
+                
+                Scenes.items.head_adapter5.set(400,360,25).zIndex(10)
+                Scenes.items.head_adapter6.set(440,360,25).zIndex(10)
+                
+                Scenes.items.foot_adapter3.set(510,310,75).zIndex(12)
+  
+                //! for image box
+                Scenes.items.imageBoxSrc.item.src = "./src/images/real_foot_adapter.png";
+                Scenes.items.imageBoxTitle.setContent("Foot Adapter")
+              }  
+            })
+            
+            break
+          case 2:
+            anime.timeline({
+              easing: "easeInOutQuad",
+              duration: 1000,
+            })
+            .add({
+              targets: Scenes.items.ct_prop5.item,
+              left:455, 
+              top:115,
+              rotate: 35
+                
+            })
+            .add({
+              targets: Scenes.items.ct_prop6.item,
+              left:455, 
+              top:190,
+              rotate: 50,
+              complete(){
+                Quiz.loadQuiz();
+  
+                
+  
+                setCC("Click 'Next' to go to next step");
+                Dom.setBlinkArrow(true, 790, 408).play();
+                setIsProcessRunning(false);
+              }
+            })
+            break
+        }
+  
+        ctPropCount++;
+      }
+
+
+    // !starter animes
+    beforeAfterAnime()
     
-    const steelWalerAnime = ()=>{
-      switch(steelWalerCount){
-        case 0:
-          anime({
-            easing: "easeInOutQuad",
-            targets: Scenes.items.steel_waler1.item,
-            left:140,
-            top:168,
-            duration: 1000,
-            rotate: 90,
-            complete(){
-              Dom.setBlinkArrow(true,680,65).play()
-              setCC("Click on the 'Anchor Plate' to attach it with the steel waler connector.")
-            }
-          })
-          break
-        case 1:
-          anime({
-            easing: "easeInOutQuad",
-            targets: Scenes.items.steel_waler2.item,
-            left:300,
-            top:168,
-            duration: 1000,
-            rotate: 90
-          })
-          break
-        case 2:
-          anime({
-            easing: "easeInOutQuad",
-            targets: Scenes.items.steel_waler3.item,
-            left:455,
-            top:168,
-            duration: 1000,
-            rotate: 90
-          })
-          break
-
-        
-      }
-      steelWalerCount++;
-    }
-
-    const anchorPlateAnime = ()=>{
-      let rotationCount = 1;
-      switch(anchorPlateCount){
-        case 0:
-          anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 1000,
-          })
-          .add({
-            targets: Scenes.items.anchor_plate1.item,
-            keyframes: [
-              {left:220, top:129,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ]
-          })
-          .add({
-            targets: Scenes.items.anchor_plate2.item,
-            keyframes: [
-              {left:220, top:212,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ],
-            complete(){
-              Dom.setBlinkArrow(true,680,115).play()
-              setCC("Click on the 'Wing Nut' to tighten it.")
-            }
-          })
-          break
-        case 1:
-          anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 1000,
-          })
-          .add({
-            targets: Scenes.items.anchor_plate3.item,
-            keyframes: [
-              {left:380, top:129,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ]
-          })
-          .add({
-            targets: Scenes.items.anchor_plate4.item,
-            keyframes: [
-              {left:380, top:212,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ]
-          })
-          break
-        case 2:
-          anime.timeline({
-            easing: "easeInOutQuad",
-            duration: 1000,
-          })
-          .add({
-            targets: Scenes.items.anchor_plate5.item,
-            keyframes: [
-              {left:536, top:129,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ]
-          })
-          .add({
-            targets: Scenes.items.anchor_plate6.item,
-            keyframes: [
-              {left:536, top:212,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ]
-          })
-          break
-      }
-      anchorPlateCount++;
-    }
-
-    const wingNutAnime = ()=>{
-      let rotationCount = 1;
-      switch(wingNutCount){
-        case 0:
-          anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 1000,
-          })
-          .add({
-            targets: Scenes.items.wing_nut1.item,
-            keyframes: [
-              {left:219, top:137,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ]
-          })
-          .add({
-            targets: Scenes.items.wing_nut2.item,
-            keyframes: [
-              {left:219, top:220,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ],
-            complete(){
-              Dom.setBlinkArrow(true,680,165).play()
-              setCC("Click on the 'Repeat' to repeat the previous steps.")
-            }
-          })
-          break
-        case 1:
-          anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 1000,
-          })
-          .add({
-            targets: Scenes.items.wing_nut3.item,
-            keyframes: [
-              {left:379, top:137,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ]
-          })
-          .add({
-            targets: Scenes.items.wing_nut4.item,
-            keyframes: [
-              {left:379, top:220,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ]
-          })
-          break
-        case 2:
-          anime.timeline({
-            easing: "easeInOutQuad",
-            duration: 1000,
-          })
-          .add({
-            targets: Scenes.items.wing_nut5.item,
-            left:535,
-            top:137,
-            keyframes: [
-              {left:535, top:137,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ]
-          })
-          .add({
-            targets: Scenes.items.wing_nut6.item,
-            keyframes: [
-              {left:535, top:220,},
-              {rotate: 360 * rotationCount, duration: 3000}
-            ],
-            complete(){
-              Scenes.items.larrow2.hide()
-              Scenes.items.wing_nut_full.hide()
-              Scenes.items.tempTitle1.hide()
-
-              setCC("Click 'Next' to go to next step");
-              Dom.setBlinkArrow(true, 790, 408).play();
-              setIsProcessRunning(false);
-            }
-          })
-          break
-      }
-      wingNutCount++;
-    }
     Dom.setBlinkArrow(true,680,-35).play()
     setCC("Click on the 'Waler Connector' to connect it with the pipe.")
     //onclick
@@ -2514,7 +2451,7 @@ const Scenes = {
   next() {
     //! animation isRunning
     if (isRunning) {
-      return;
+      return
     }
     if (this.currentStep < this.steps.length) {
       if (this.steps[this.currentStep]()) {
@@ -2528,10 +2465,10 @@ const Scenes = {
   },
 }
 
-Scenes.steps[1](); 
-// Scenes.next();
-// Scenes.next();
-// Scenes.next();
+Scenes.steps[6]()
+// Scenes.next()
+// Scenes.next()
+// Scenes.next()
 
 const nextBtn = get(".btn-next");
 const backBtn = get(".btn-back");
@@ -2570,13 +2507,14 @@ muteBtn.addEventListener("click", () => {
 // its amazing
 
 // mouse position
-// function getCursor(event) {
-//   let x = event.clientX;
-//   let y = event.clientY;
-//   let _position = `X: ${x - 419}<br>Y: ${y - 169}`;
+function getCursor(event) {
+  let x = event.clientX;
+  let y = event.clientY;
+  let _position = `X: ${x - 419}<br>Y: ${y - 169}`;
 
-//   const infoElement = document.getElementById("info");
-//   infoElement.innerHTML = _position;
-//   infoElement.style.top = y + "px";
-//   infoElement.style.left = x + 20 + "px";
-// }
+  const infoElement = document.getElementById("info");
+  infoElement.innerHTML = _position;
+  infoElement.style.top = y + "px";
+  infoElement.style.left = x + 20 + "px";
+}
+                                 

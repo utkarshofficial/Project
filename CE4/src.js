@@ -95,6 +95,15 @@ steel_waler_blue2: this.allImgsDom[85],
 steel_waler_tilt1: this.allImgsDom[86],
 steel_waler_tilt2: this.allImgsDom[87],
 column_side1: this.allImgsDom[88],
+column_front_side: this.allImgsDom[89],
+column_back_side: this.allImgsDom[90],
+column_left_side: this.allImgsDom[91],
+column_right_side: this.allImgsDom[92],
+column_sides_all: this.allImgsDom[93],
+wing_nut_top6: this.allImgsDom[94],
+wing_nut_top7: this.allImgsDom[95],
+wing_nut_top8: this.allImgsDom[96],
+drill_helper: this.allImgsDom[97],
       
       
       // * Videos

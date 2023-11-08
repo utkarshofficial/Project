@@ -1923,7 +1923,6 @@ const Scenes = {
         complete(){
           Dom.setBlinkArrow(true,720,15).play()
           setCC("Click on the 'Left Side' to add back side of column.")
-          
       }
     })
     }

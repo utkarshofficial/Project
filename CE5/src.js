@@ -154,6 +154,7 @@ _wall_wall_with_steel_waler_and_flange_claw:this.allImgsDom[142],
 _wall_wall_with_steel_waler_down:this.allImgsDom[143],
 head_adapter3:this.allImgsDom[144],
 head_adapter4:this.allImgsDom[145],
+_wall_wall_front_side_with_ct_prop:this.allImgsDom[146],
       
       
       // * Videos

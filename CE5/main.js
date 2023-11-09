@@ -839,6 +839,7 @@ const Scenes = {
     _wall_wall_with_rotate: new Dom("_wall_wall_with_rotate"),
     _wall_wall_with_steel_waler_and_flange_claw: new Dom("_wall_wall_with_steel_waler_and_flange_claw"),
     _wall_wall_with_steel_waler_down: new Dom("_wall_wall_with_steel_waler_down"),
+    _wall_wall_front_side_with_ct_prop: new Dom("_wall_wall_front_side_with_ct_prop"),
   },
   deleteAll() {
     for (i in this.img) {
@@ -2819,37 +2820,39 @@ const Scenes = {
 
       //! Required Items
       // Scenes.items._wall_wall_with_steel_waler_and_flange_claw.set(200,-150,800).hide()
-      Scenes.items._wall_wall_with_steel_waler_and_flange_claw.set(-200,-150,800)
-      Scenes.items._wall_wall_with_steel_waler_down.set(0,80,300).hide()
+      Scenes.items._wall_wall_with_steel_waler_and_flange_claw.set(200,-150,800).hide()
+      Scenes.items._wall_wall_with_steel_waler_down.set(0,80,300)
       Scenes.items.arrowRound.set(380 ,60,80).rotate(-20).hide()
       Scenes.items.tempTitle1.set(529, 86).rotate(-45).setContent("After Lifting").hide()
-        
-      // Scenes.items._wall_wall_with_steel_waler_down.set(0,0)
-      // Scenes.items.beam_3d_with_holes3.set(178-100,78,345).zIndex(2)
-      // Scenes.items.beam_3d_with_holes4.set(250-100,93,350).zIndex(2)
-      // Scenes.items.sheathing_full2.set(173-100,110,358)
 
-      // Scenes.items.steel_waler_tilt1.set(300-50,125,65).zIndex(5).rotate(-4)
-      // Scenes.items.steel_waler_tilt2.set(155-50,224,65).zIndex(5).rotate(-4)
-      // Scenes.items.flange_claw1.set(378-50,143,50,60).rotate(127).zIndex(4)
-      // Scenes.items.flange_claw2.set(303-50,122,50,60).rotate(127).zIndex(4)
-      // Scenes.items.flange_claw3.set(240-50,244,50,60).rotate(130).zIndex(4)
-      // Scenes.items.flange_claw4.set(156-50,220,50,60).rotate(130).zIndex(4)
-      // Scenes.items.column_side1.set(400,10,350).hide()
+      Scenes.items.head_adapter1.set(500, 230, 25).zIndex(10).hide() 
+      Scenes.items.head_adapter2.set(540, 230, 25).zIndex(10).hide()
+      Scenes.items.head_adapter3.set(500, 270, 25).zIndex(10).hide()
+      Scenes.items.head_adapter4.set(540, 270, 25).zIndex(10).hide()
+      
+      Scenes.items.ct_prop1     .set(755,130,220,40).rotate(-90).zIndex(11).hide()
+      Scenes.items.ct_prop2     .set(755,190,150,40).rotate(-90).zIndex(11).hide()
+      Scenes.items.ct_prop3     .set(755,200,220,40).rotate(-90).zIndex(11).hide()
+      Scenes.items.ct_prop4     .set(755,260,150,40).rotate(-90).zIndex(11).hide()
+
+      Scenes.items.foot_adapter1.set(480-15, 310, 75).zIndex(12).hide()
+      Scenes.items.foot_adapter2.set(540-15, 310, 75).zIndex(12).hide()
+        
+     
       
       
       // !final pos
-      Scenes.items.head_adapter1.set(205,154,25).rotate(50).zIndex(10) 
-      Scenes.items.head_adapter2.set(206,240,25).rotate(50).zIndex(10)
-      Scenes.items.ct_prop1     .set(265,130,220,40).rotate(-40).zIndex(11)
-      Scenes.items.ct_prop2     .set(265,215,150,40).rotate(-65).zIndex(11)
-      Scenes.items.foot_adapter1.set(310, 260, 75).zIndex(12)
+      // Scenes.items.head_adapter1.set(205,154,25).rotate(50).zIndex(10) 
+      // Scenes.items.head_adapter2.set(206,240,25).rotate(50).zIndex(10)
+      // Scenes.items.ct_prop1     .set(265,130,220,40).rotate(-40).zIndex(11)
+      // Scenes.items.ct_prop2     .set(265,215,150,40).rotate(-65).zIndex(11)
+      // Scenes.items.foot_adapter1.set(310, 260, 75).zIndex(12)
 
-      Scenes.items.head_adapter3.set(205+80, 154-90 ,25).rotate(50).zIndex(10)
-      Scenes.items.head_adapter4.set(206+80, 240-90 ,25).rotate(50).zIndex(10)
-      Scenes.items.ct_prop3     .set(265+80, 130-90 ,220,40).rotate(-40).zIndex(11)
-      Scenes.items.ct_prop4     .set(265+80, 215-90 ,150,40).rotate(-65).zIndex(11)
-      Scenes.items.foot_adapter2.set(310+80, 260-90 , 75).zIndex(12)
+      // Scenes.items.head_adapter3.set(205+80, 154-90 ,25).rotate(50).zIndex(10)
+      // Scenes.items.head_adapter4.set(206+80, 240-90 ,25).rotate(50).zIndex(10)
+      // Scenes.items.ct_prop3     .set(265+80, 130-90 ,220,40).rotate(-40).zIndex(11)
+      // Scenes.items.ct_prop4     .set(265+80, 215-90 ,150,40).rotate(-65).zIndex(11)
+      // Scenes.items.foot_adapter2.set(310+80, 260-90 , 75).zIndex(12)
      
       // content adder         
       Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
@@ -2899,64 +2902,150 @@ const Scenes = {
             setCC("Click on the 'Head Adapter' to connect it with steel waler.")
             Dom.setBlinkArrow(true,680,-35).play()
 
+            Scenes.items.head_adapter1.show() 
+            Scenes.items.head_adapter2.show()
+            Scenes.items.head_adapter3.show()
+            Scenes.items.head_adapter4.show()
+            
+            Scenes.items.ct_prop1.show()
+            Scenes.items.ct_prop2.show()
+            Scenes.items.ct_prop3.show()
+            Scenes.items.ct_prop4.show()
+      
+            Scenes.items.foot_adapter1.show()
+            Scenes.items.foot_adapter2.show()
           }
         })  
       }
 
+      let headAdapterCount = 0
       const headAdapterAnime = ()=>{
-            anime.timeline({
-                easing: "easeInOutQuad",
-                duration: 1000,
-            })
-            .add({
-              targets: Scenes.items.head_adapter1.item,
-              left:220+150,
-              top:90,
-              rotate: 35
-            })
-            .add({
-              targets: Scenes.items.head_adapter2.item,
-              left:220+150,
-              top:250,
-              rotate: 35,
-              complete(){
-                setCC("Click on the 'Foot Adapter' to support the CT Prop.")
-                Dom.setBlinkArrow(true,700,15).play()
-              }
-            })
-     
-      }
-      
+            switch(headAdapterCount){
+              case 0:
+                anime.timeline({
+                  easing: "easeInOutQuad",
+                  duration: 1000,
+              })
+              .add({
+                targets: Scenes.items.head_adapter1.item,
+                left:205,
+                top:154,
+                rotate: 50
+              })
+              .add({
+                targets: Scenes.items.head_adapter2.item,
+                left:206,
+                top:240,
+                rotate: 50,
+                complete(){
+                  setCC("Click on the 'Foot Adapter' to support the CT Prop.")
+                  Dom.setBlinkArrow(true,700,15).play()
+                }
+              })
+              break
+
+              case 1:
+                anime.timeline({
+                  easing: "easeInOutQuad",
+                  duration: 1000,
+              })
+              .add({
+                targets: Scenes.items.head_adapter3.item,
+                left:205+80,
+                top:154-90,
+                rotate: 50
+              })
+              .add({
+                targets: Scenes.items.head_adapter4.item,
+                left:205+80,
+                top:240-90,
+                rotate: 50,
+                complete(){
+                  setCC("Click on the 'Foot Adapter' to support the CT Prop.")
+                  Dom.setBlinkArrow(true,700,15).play()
+                }
+              })
+              break 
+            }
+            headAdapterCount++
+    }
+    
+      let footAdapterCount = 0
       const footAdapterAnime = ()=>{
-            anime({
-              easing: "easeInOutQuad",
-              targets: Scenes.items.foot_adapter1.item,
-              left:55+150,
-              top:280,
-              duration: 1000,
-              complete(){
-                setCC("Click on the 'CT Prop' to support the form floor panel.")
-                Dom.setBlinkArrow(true,700,65).play()
-              }
-            })
+            switch(footAdapterCount){
+              case 0:
+                anime({
+                  easing: "easeInOutQuad",
+                  targets: Scenes.items.foot_adapter1.item,
+                  left:310,
+                  top:260,
+                  duration: 1000,
+                  complete(){
+                    setCC("Click on the 'CT Prop' to support the form floor panel.")
+                    Dom.setBlinkArrow(true,700,65).play()
+                  }
+                })
+                break
+                
+                case 1:
+                  anime({
+                    easing: "easeInOutQuad",
+                    targets: Scenes.items.foot_adapter2.item,
+                    left:310+80,
+                    top:260-90,
+                    duration: 1000,
+                    complete(){
+                      setCC("Click on the 'CT Prop' to support the form floor panel.")
+                      Dom.setBlinkArrow(true,700,65).play()
+                    }
+                  })
+                  break
+            }
+            footAdapterCount++
       }
   
+      let ctPropCount = 0
       const ctPropAnime = ()=>{
-            anime.timeline({
+           switch(ctPropCount){
+            case 0:
+              anime.timeline({
                 easing: "easeInOutQuad",
                 duration: 1000,
             })
             .add({
               targets: Scenes.items.ct_prop1.item,
-              left:135+150, 
-              top:80,
-              rotate: 32
+              left:265, 
+              top:130,
+              rotate: -40
             })
             .add({
               targets: Scenes.items.ct_prop2.item,
-              left:135+150, 
-              top:210,
-              rotate: 60,
+              left:265, 
+              top:215,
+              rotate: -65,
+              complete(){
+                setCC("Click on the 'Head Adapter' to connect it with steel waler.")
+                Dom.setBlinkArrow(true,680,-35).play()
+              }
+            })
+            break
+
+            case 1:
+              anime.timeline({
+                easing: "easeInOutQuad",
+                duration: 1000,
+            })
+            .add({
+              targets: Scenes.items.ct_prop3.item,
+              left:265+80, 
+              top:130-90,
+              rotate: -40
+            })
+            .add({
+              targets: Scenes.items.ct_prop4.item,
+              left:265+80, 
+              top:215-90,
+              rotate: -65,
               complete(){
                 setCC("Click 'Next' to go to next step");
                 Dom.setBlinkArrow(true, 790, 408).play();
@@ -2964,11 +3053,15 @@ const Scenes = {
                 // Quiz.loadQuiz()
               }
             })
+            break
+           }
+
+           ctPropCount++
       }
 
 
     // !starter animes
-    // beforeAfterAnime()
+    beforeAfterAnime()
     
     
     //onclick
@@ -2990,9 +3083,117 @@ const Scenes = {
     }),
     (step10 = function () {
       setIsProcessRunning(true);
+      Dom.hideAll()
       Scenes.setStepHeading(
-        "Step 9",
-        "Attach tie rod and wing nut to tighten the column."
+        "Step 10",
+        "Repeat step 2 to step 9 to build remaining three sides of the wall."
+      );
+      // todo remove all previous
+      Scenes.items.contentAdderBox.setContent("");
+
+      //! Required Items
+      Scenes.items._wall_wall_front_side.set(170-120,-30-50,700).zIndex(3)
+
+      // Scenes.items._wall_wall_left_side .set(-255,-30+45 ,470).zIndex(4)
+      // Scenes.items._wall_wall_back_side .set(170-100,-30-50,600).zIndex(2)
+      // Scenes.items._wall_wall_right_side.set(170-65 ,-30-10,400).zIndex(1)
+        
+     
+      
+      
+      // !final pos
+       // Scenes.items._wall_wall_left_side .set(170-255,-30+45 ,470).zIndex(4).hide()
+      // Scenes.items._wall_wall_back_side .set(170-100,-30-50,600).zIndex(2)
+      // Scenes.items._wall_wall_right_side.set(170-65 ,-30-10,400).zIndex(1).hide()
+     
+      // content adder         
+      Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
+      Scenes.contentAdderAddBtn("Left");
+      Scenes.contentAdderAddBtn("Back");
+      Scenes.contentAdderAddBtn("Right");
+
+      let contentAdderBtns = getAll(".content-adder-box .btn");
+
+
+      const leftSideAnime = ()=>{
+        // ! solution 
+              Scenes.items._wall_wall_left_side .set(-255,-30+45 ,470).zIndex(4)
+
+                anime.timeline({
+                  easing: "easeInOutQuad",
+                  duration: 2000,
+              })
+              .add({
+                targets: Scenes.items._wall_wall_left_side.item,
+                left:170-255,
+                complete(){
+                  setCC("Click on the '' to support the CT Prop.")
+                  Dom.setBlinkArrow(true,700,15).play()
+                }
+              })
+              
+    }
+
+    const backSideAnime = ()=>{
+      // ! solution 
+            Scenes.items._wall_wall_back_side .set(-100,-30-50,600).zIndex(2)
+
+              anime.timeline({
+                easing: "easeInOutQuad",
+                duration: 2000,
+            })
+            .add({
+              targets: Scenes.items._wall_wall_back_side.item,
+              left:170-100,
+              complete(){
+                setCC("Click on the '' to support the CT Prop.")
+                Dom.setBlinkArrow(true,700,15).play()
+              }
+            })
+            
+  }
+    const rightSideAnime = ()=>{
+      // ! solution 
+            Scenes.items._wall_wall_right_side .set(400 ,-30-10,400).zIndex(1)
+
+              anime.timeline({
+                easing: "easeInOutQuad",
+                duration: 2000,
+            })
+            .add({
+              targets: Scenes.items._wall_wall_right_side.item,
+              left:170-65,
+              complete(){
+                setCC("Click on the '' to support the CT Prop.")
+                Dom.setBlinkArrow(true,700,15).play()
+              }
+            })
+            
+  }
+
+    
+    //onclick
+    contentAdderBtns[0].onclick = leftSideAnime
+    contentAdderBtns[1].onclick = backSideAnime
+    contentAdderBtns[2].onclick = rightSideAnime
+
+    // setCC("Click 'Next' to go to next step");
+        //   Dom.setBlinkArrow(true, 790, 408).play();
+        //   setIsProcessRunning(false);
+        //   anime({
+        //     duration: 1000,
+        //     complete(){
+        //       Quiz.loadQuiz()
+        //     }
+        //   });
+        // };
+      return true;
+    }),
+    (step11 = function () {
+      setIsProcessRunning(true);
+      Scenes.setStepHeading(
+        "Step 11",
+        "Attach tie rod and wing nut to tighten the wall."
       );
       // todo remove all previous
       Scenes.items.contentAdderBox.setContent("");
@@ -3277,8 +3478,8 @@ const Scenes = {
   },
 }
 
-// Scenes.steps[10]()
-Scenes.next()  
+Scenes.steps[11]()
+// Scenes.next()  
 // Scenes.next()
 // Scenes.next()
 

@@ -992,34 +992,34 @@ const Scenes = {
       Scenes.items.projectIntro.hide()
       Dom.setBlinkArrow(-1);
 
-      Scenes.setStepHeading("Step 1", "Marking the area (Diagonally and rectangularly)");
+      Scenes.setStepHeading("Step 1", "Marking the area (rectangularly)");
       Scenes.items.land.set(0,0,404,950)
 
-      Scenes.items.chalk_with_hand.set(325,87,80,70).zIndex(6)
+      Scenes.items.chalk_with_hand.set(140,138,80,70).zIndex(6)
       
-      Scenes.items.chalk_markings1.set(325,102,6,200).zIndex(5)
-      Scenes.items.marking_surface1.set(325,102,8,200).zIndex(5)
+      Scenes.items.chalk_markings1.set(140,150,6,670).zIndex(5)
+      Scenes.items.marking_surface1.set(140,150,8,670).zIndex(5)
 
-      Scenes.items.chalk_markings2.set(422,200,6,200).rotate(90).zIndex(5)
-      Scenes.items.marking_surface2.set(422,200,8,200).rotate(90).zIndex(5)
+      Scenes.items.chalk_markings2.set(757,200,6,100).rotate(90).zIndex(5)
+      Scenes.items.marking_surface2.set(757,200,8,100).rotate(90).zIndex(5)
 
-      Scenes.items.chalk_markings3.set(325,298,6,200).zIndex(5)
-      Scenes.items.marking_surface3.set(325,298,8,200).zIndex(5)
+      Scenes.items.chalk_markings3.set(140,252,6,670).zIndex(5)
+      Scenes.items.marking_surface3.set(140,252,8,670).zIndex(5)
 
-      Scenes.items.chalk_markings4.set(227,200,6,200).rotate(90).zIndex(4)
-      Scenes.items.marking_surface4.set(227,200,8,200).rotate(90).zIndex(4)
+      Scenes.items.chalk_markings4.set(94,200,6,100).rotate(90).zIndex(4)
+      Scenes.items.marking_surface4.set(94,200,8,100).rotate(90).zIndex(4)
 
-      Scenes.items.chalk_markings5.set(284,201,6,282.8).rotate(45).zIndex(3)
-      Scenes.items.marking_surface5.set(284,201,8,282.8).rotate(45).zIndex(3)
+      // Scenes.items.chalk_markings5.set(284,201,6,282.8).rotate(45).zIndex(3)
+      // Scenes.items.marking_surface5.set(284,201,8,282.8).rotate(45).zIndex(3)
 
-      Scenes.items.chalk_markings6.set(284,201,6,282.8).rotate(-45).zIndex(2)
-      Scenes.items.marking_surface6.set(284,201,8,282.8).rotate(-45).zIndex(2)
+      // Scenes.items.chalk_markings6.set(284,201,6,282.8).rotate(-45).zIndex(2)
+      // Scenes.items.marking_surface6.set(284,201,8,282.8).rotate(-45).zIndex(2)
 
-      Scenes.items.tempTitle1.set(536,198).setContent("300 mm").hidden()
-      Scenes.items.tempTitle2.set(400,315).setContent("300 mm").hidden()
+      Scenes.items.tempTitle1.set(815,190).setContent("300 mm").hidden()
+      Scenes.items.tempTitle2.set(425,260).setContent("2400 mm").hidden()
 
       setCC("Click on the hand to mark the area rectangularly.")
-      Dom.setBlinkArrow(true,250,90 ).play()
+      Dom.setBlinkArrow(true,65,130 ).play()
       // onclick
       Scenes.items.chalk_with_hand.item.onclick = ()=>{
         Dom.setBlinkArrow(-1);
@@ -1032,7 +1032,7 @@ const Scenes = {
             Scenes.items.anime_main_dom.item.style.overflow = "hidden";
           },
           targets: [Scenes.items.chalk_with_hand.item,Scenes.items.marking_surface1.item],
-          translateX: 200,
+          translateX: 670,
           duration: 3000,
         })
         .add({
@@ -1040,7 +1040,7 @@ const Scenes = {
             setCC("Marking the vertical length of 300mm")
           },
           targets: [Scenes.items.chalk_with_hand.item],
-          translateY: 200,
+          translateY: 100,
           duration: 3000,
           complete(){
             Scenes.items.tempTitle1.hidden(false)
@@ -1048,15 +1048,15 @@ const Scenes = {
         },3000)// marking of right vertical surface
         .add({
           targets: [Scenes.items.marking_surface2.item],
-          translateX: 200,
+          translateX: 100,
           duration: 3000,
         },3000)
         .add({
           begin(){
-            setCC("Marking the horizontal length of 300mm")
+            setCC("Marking the horizontal length of 2400mm")
           },
           targets: [Scenes.items.marking_surface3.item],
-          translateX: -200,
+          translateX: -670,
           duration: 3000,
           complete(){
             Scenes.items.tempTitle2.hidden(false)
@@ -1074,35 +1074,7 @@ const Scenes = {
         },9000)// marking of left vertical surface
         .add({
           targets: [Scenes.items.marking_surface4.item],
-          top: "-=200",
-          duration: 3000,
-        },9000)
-        .add({
-          targets: [Scenes.items.chalk_with_hand.item],
-          left: "+=200",
-          top: "+=200",
-          duration: 3000,
-        },12000)
-        .add({
-          targets: [Scenes.items.marking_surface5.item],
-          translateX: 282.8,
-          duration: 3000,
-        },12000)
-        .add({
-          begin(){
-            Scenes.items.chalk_with_hand.set(525,88)
-          },
-          endDelay: 500,
-        })
-        .add({
-          targets: [Scenes.items.chalk_with_hand.item],
-          translateX: -200.8,
-          translateY: 200.8,
-          duration: 3000,
-        },15500)
-        .add({
-          targets: [Scenes.items.marking_surface6.item],
-          translateX: -282.8,
+          top: "-=100",
           duration: 3000,
           complete(){
             Dom.setBlinkArrow(true, 790, 408).play()
@@ -1110,7 +1082,41 @@ const Scenes = {
             setCC("Click 'Next' to go to next step")
             setIsProcessRunning(false)
           }
-        },15500)
+        },9000)
+        // .add({
+        //   targets: [Scenes.items.chalk_with_hand.item],
+        //   left: "+=200",
+        //   top: "+=200",
+        //   duration: 3000,
+        // },12000)
+        // .add({
+        //   targets: [Scenes.items.marking_surface5.item],
+        //   translateX: 282.8,
+        //   duration: 3000,
+        // },12000)
+        // .add({
+        //   begin(){
+        //     Scenes.items.chalk_with_hand.set(525,88)
+        //   },
+        //   endDelay: 500,
+        // })
+        // .add({
+        //   targets: [Scenes.items.chalk_with_hand.item],
+        //   translateX: -200.8,
+        //   translateY: 200.8,
+        //   duration: 3000,
+        // },15500)
+        // .add({
+        //   targets: [Scenes.items.marking_surface6.item],
+        //   translateX: -282.8,
+        //   duration: 3000,
+        //   complete(){
+        //     Dom.setBlinkArrow(true, 790, 408).play()
+        //     // Quiz.loadQuiz()
+        //     setCC("Click 'Next' to go to next step")
+        //     setIsProcessRunning(false)
+        //   }
+        // },15500)
       }
       return true
     }),
@@ -1488,7 +1494,7 @@ const Scenes = {
                 Dom.setBlinkArrow(true, 790, 408).play();
                 setCC("Click 'Next' to go to next step");
                 setIsProcessRunning(false);
-                // Quiz.loadQuiz()
+                Quiz.loadQuiz()
               }
             })
       }
@@ -1721,7 +1727,7 @@ const Scenes = {
                 Dom.setBlinkArrow(true, 790, 408).play();
                 setCC("Click 'Next' to go to next step");
                 setIsProcessRunning(false);
-                // Quiz.loadQuiz()
+                Quiz.loadQuiz()
               }
             })
             break
@@ -1832,7 +1838,7 @@ const Scenes = {
             Scenes.items.ct_prop2.     set(153,305,178,50).rotate(90).zIndex(11)
 
             setCC("Click on the 'Head Adapter' to connect it with steel waler.")
-            Dom.setBlinkArrow(true,680,-35).play()
+            Dom.setBlinkArrow(true,700,-35).play()
 
           }
         })  
@@ -1896,7 +1902,7 @@ const Scenes = {
                 setCC("Click 'Next' to go to next step");
                 Dom.setBlinkArrow(true, 790, 408).play();
                 setIsProcessRunning(false);
-                // Quiz.loadQuiz()
+                Quiz.loadQuiz()
               }
             })
       }
@@ -2045,7 +2051,7 @@ const Scenes = {
                 setCC("Click on the 'Next' to go to next step.")   
                 Dom.setBlinkArrow(true, 790, 408).play()
                 setIsProcessRunning(false)
-                // Quiz.loadQuiz()
+                Quiz.loadQuiz()
               }
             })
             break
@@ -2184,7 +2190,7 @@ const Scenes = {
       })
     }
     
-    setCC("Click on the 'Right Side' to add right side of column.")
+    setCC("Click on the 'Beam' to add beam in the lab.")
     Dom.setBlinkArrow(true,740,-35).play()
     //onclick
     contentAdderBtns[0].onclick = timberBeamAnime
@@ -2216,11 +2222,11 @@ const Scenes = {
       Scenes.items.contentAdderBox.setContent("");
 
       // todo Required Items
-      Scenes.items._wall_beam1_with_holes.set( 0 , 0)
+      Scenes.items._wall_beam1_with_holes.set( 0 , 0).zIndex(0)
       Scenes.items._wall_beam2.set( 0 , 0)
-      Scenes.items._wall_beam3_with_holes.set( 0 , 0)
+      Scenes.items._wall_beam3_with_holes.set( 0 , 0).zIndex(0)
       Scenes.items._wall_beam4.set( 0 , 0)
-      Scenes.items._wall_beam5_with_holes.set( 0 , 0)
+      Scenes.items._wall_beam5_with_holes.set( 0 , 0).zIndex(0)
       Scenes.items._wall_beam6.set( 0 , 0)
 
       Scenes.items._wall_sheathing1.set(-670,-60)
@@ -2256,7 +2262,7 @@ const Scenes = {
 
     // image Box
     // Scenes.items.imageBox.show("flex").set(750,200)
-    // Scenes.items.imageBoxSrc.item.src = "./src/images/real_head_adapter.png";
+    // Scenes.items.imageBoxSrc.item.src = "./src/images/real_head_adapter.png"
     // Scenes.items.imageBoxTitle.setContent("Head Adapter")
 
     //! remove
@@ -2509,7 +2515,7 @@ const Scenes = {
               begin(){
                 hammerAnime.play()
               },
-              targets: [Scenes.items._wall_nail10.item,Scenes.items.hammer.item],
+              targets: [Scenes.items._wall_nail10.item, Scenes.items.hammer.item],
               top: ["+=0","+=9","+=9"],
               duration: 3000
             })
@@ -2538,8 +2544,8 @@ const Scenes = {
             .add({
               targets: Scenes.items._wall_nail12.item,
               keyframes:[
-                {top: 135},
-                {left: 460},
+                {top: 0},
+                {left: 0},
               ],
             })
             .add({
@@ -2565,7 +2571,7 @@ const Scenes = {
                 Dom.setBlinkArrow(true, 790, 408).play();
                 setCC("Click 'Next' to go to next step");
                 setIsProcessRunning(false);
-                // Quiz.loadQuiz()
+                Quiz.loadQuiz()
               }
             })
       }
@@ -2709,7 +2715,7 @@ const Scenes = {
             // tilt position of stel waler
             Scenes.items._wall_steel_waler1.set(0,0+tup).zIndex(1)
 
-            Dom.setBlinkArrow(true,718,15).play()
+            Dom.setBlinkArrow(true,710,15).play()
             setCC("Click on the 'Flange Claw' to attach it with steel waler.")
           }
         })
@@ -2728,7 +2734,7 @@ const Scenes = {
             Scenes.items.steel_waler_blue2.hide()
             // tilt position of steel waler
             Scenes.items._wall_steel_waler2.set(0,4+tup).zIndex(1)
-            Dom.setBlinkArrow(true,718,15).play()
+            Dom.setBlinkArrow(true,710,15).play()
             setCC("Click on the 'Flange Claw' to attach it with steel waler.")
           }
         })
@@ -2760,7 +2766,7 @@ const Scenes = {
             left: 0,
             top: tup,
             complete(){
-              Dom.setBlinkArrow(true,718,-35).play()
+              Dom.setBlinkArrow(true,710,-35).play()
               setCC("Click on the 'Steel Waler' to put it on the beam.")
             }
           })
@@ -2800,7 +2806,8 @@ const Scenes = {
      //! starter animes
     //  beforeAfterRotationAnime()
      
-     
+    Dom.setBlinkArrow(true,710,-35).play()
+     setCC("Click on the 'Steel Waler' to put it on the beam.")
      //onclick pipe waler 
      contentAdderBtns[0].onclick = steelWalerAnime;
      contentAdderBtns[1].onclick = flangeClawAnime;
@@ -2900,7 +2907,7 @@ const Scenes = {
           left: -200,
           complete(){
             setCC("Click on the 'Head Adapter' to connect it with steel waler.")
-            Dom.setBlinkArrow(true,680,-35).play()
+            Dom.setBlinkArrow(true,700,-35).play()
 
             Scenes.items.head_adapter1.show() 
             Scenes.items.head_adapter2.show()
@@ -3025,7 +3032,7 @@ const Scenes = {
               rotate: -65,
               complete(){
                 setCC("Click on the 'Head Adapter' to connect it with steel waler.")
-                Dom.setBlinkArrow(true,680,-35).play()
+                Dom.setBlinkArrow(true,700,-35).play()
               }
             })
             break
@@ -3108,9 +3115,9 @@ const Scenes = {
      
       // content adder         
       Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
-      Scenes.contentAdderAddBtn("Left");
-      Scenes.contentAdderAddBtn("Back");
-      Scenes.contentAdderAddBtn("Right");
+      Scenes.contentAdderAddBtn("Left Side");
+      Scenes.contentAdderAddBtn("Back Side");
+      Scenes.contentAdderAddBtn("Right Side");
 
       let contentAdderBtns = getAll(".content-adder-box .btn");
 
@@ -3127,8 +3134,8 @@ const Scenes = {
                 targets: Scenes.items._wall_wall_left_side.item,
                 left:170-255,
                 complete(){
-                  setCC("Click on the '' to support the CT Prop.")
-                  Dom.setBlinkArrow(true,700,15).play()
+                  setCC("Click on the 'Back Side' to add back side of the wall.")
+                  Dom.setBlinkArrow(true,720,15).play()
                 }
               })
               
@@ -3146,8 +3153,8 @@ const Scenes = {
               targets: Scenes.items._wall_wall_back_side.item,
               left:170-100,
               complete(){
-                setCC("Click on the '' to support the CT Prop.")
-                Dom.setBlinkArrow(true,700,15).play()
+                setCC("Click on the 'Right Side' to add right side of the wall.")
+                Dom.setBlinkArrow(true,720,65).play()
               }
             })
             
@@ -3164,14 +3171,16 @@ const Scenes = {
               targets: Scenes.items._wall_wall_right_side.item,
               left:170-65,
               complete(){
-                setCC("Click on the '' to support the CT Prop.")
-                Dom.setBlinkArrow(true,700,15).play()
+                setCC("Click 'Next' to go to next step");
+                Dom.setBlinkArrow(true, 790, 408).play();
+                setIsProcessRunning(false);
               }
             })
             
   }
 
-    
+    setCC("Click on the 'Left Side' to add left side of the wall.")
+    Dom.setBlinkArrow(true,720,-35).play()
     //onclick
     contentAdderBtns[0].onclick = leftSideAnime
     contentAdderBtns[1].onclick = backSideAnime
@@ -3189,235 +3198,235 @@ const Scenes = {
         // };
       return true;
     }),
-    (step11 = function () {
-      setIsProcessRunning(true);
-      Scenes.setStepHeading(
-        "Step 11",
-        "Attach tie rod and wing nut to tighten the wall."
-      );
-      // todo remove all previous
-      Scenes.items.contentAdderBox.setContent("");
+    // (step11 = function () {
+    //   setIsProcessRunning(true);
+    //   Scenes.setStepHeading(
+    //     "Step 11",
+    //     "Attach tie rod and wing nut to tighten the wall."
+    //   );
+    //   // todo remove all previous
+    //   Scenes.items.contentAdderBox.setContent("");
 
-      // todo Required Items
-      Scenes.items.column_sides_all.set(0,0)
-     Scenes.items.tie_rod1.set(763,270,150,50).rotate(90).zIndex(2)
-     Scenes.items.wing_nut_top1.set(766,365,14).zIndex(10)
-     Scenes.items.wing_nut_top2.set(800,365,14).zIndex(10)
+    //   // todo Required Items
+    //   Scenes.items.column_sides_all.set(0,0)
+    //  Scenes.items.tie_rod1.set(763,270,150,50).rotate(90).zIndex(2)
+    //  Scenes.items.wing_nut_top1.set(766,365,14).zIndex(10)
+    //  Scenes.items.wing_nut_top2.set(800,365,14).zIndex(10)
 
-      // ! Final Position
-    //  Scenes.items.column_sides_all.set(0,0)
-    // Scenes.items.tie_rod1.set(355,85,150,50).rotate(57).zIndex(2)
-    // Scenes.items.tie_rod2.set(259,130,130,50).rotate(-57).zIndex(2)
-    // Scenes.items.tie_rod3.set(259,210,140,50).rotate(-52).zIndex(2)
-    // Scenes.items.tie_rod4.set(355,245,135,50).rotate(58).zIndex(2)
+    //   // ! Final Position
+    // //  Scenes.items.column_sides_all.set(0,0)
+    // // Scenes.items.tie_rod1.set(355,85,150,50).rotate(57).zIndex(2)
+    // // Scenes.items.tie_rod2.set(259,130,130,50).rotate(-57).zIndex(2)
+    // // Scenes.items.tie_rod3.set(259,210,140,50).rotate(-52).zIndex(2)
+    // // Scenes.items.tie_rod4.set(355,245,135,50).rotate(58).zIndex(2)
     
-    // Scenes.items.wing_nut_top1.set(304,187,14).zIndex(10).rotate(-90)
-    // Scenes.items.wing_nut_top2.set(431,106,14).zIndex(10).rotate(60)
-    // Scenes.items.wing_nut_top3.set(216,160,14).zIndex(10).rotate(-70)
-    // Scenes.items.wing_nut_top4.set(327,228,14).zIndex(10).rotate(100)
-    // Scenes.items.wing_nut_top5.set(216,239,14).zIndex(10).rotate(-70)
-    // Scenes.items.wing_nut_top6.set(327,320,14).zIndex(10).rotate(100)
-    // Scenes.items.wing_nut_top7.set(307,335,14).zIndex(10).rotate(-100)
-    // Scenes.items.wing_nut_top8.set(429,264,14).zIndex(10).rotate(60)
+    // // Scenes.items.wing_nut_top1.set(304,187,14).zIndex(10).rotate(-90)
+    // // Scenes.items.wing_nut_top2.set(431,106,14).zIndex(10).rotate(60)
+    // // Scenes.items.wing_nut_top3.set(216,160,14).zIndex(10).rotate(-70)
+    // // Scenes.items.wing_nut_top4.set(327,228,14).zIndex(10).rotate(100)
+    // // Scenes.items.wing_nut_top5.set(216,239,14).zIndex(10).rotate(-70)
+    // // Scenes.items.wing_nut_top6.set(327,320,14).zIndex(10).rotate(100)
+    // // Scenes.items.wing_nut_top7.set(307,335,14).zIndex(10).rotate(-100)
+    // // Scenes.items.wing_nut_top8.set(429,264,14).zIndex(10).rotate(60)
      
-    // content adder
-    Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
-    Scenes.contentAdderAddBtn("Tie Rod");
-    Scenes.contentAdderAddBtn("Wing Nut");
-    Scenes.contentAdderAddBtn("Repeat");
-    let contentAdderBtns = getAll(".content-adder-box .btn");
+    // // content adder
+    // Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
+    // Scenes.contentAdderAddBtn("Tie Rod");
+    // Scenes.contentAdderAddBtn("Wing Nut");
+    // Scenes.contentAdderAddBtn("Repeat");
+    // let contentAdderBtns = getAll(".content-adder-box .btn");
 
-    let tieRodCount = 0
-    const tieRodAnime = ()=>{
-      switch(tieRodCount){
-        case 0:
-          anime({
-            easing: "easeInOutQuad",
-            targets: Scenes.items.tie_rod1.item,
-            left: 355, 
-            top: 85,
-            rotate: 57,
-            complete(){
-              setCC("Click on the 'Wing Nut' to tighten the tie rod.")
-              Dom.setBlinkArrow(true,725,15).play()
-            }
-          })          
-          break
+    // let tieRodCount = 0
+    // const tieRodAnime = ()=>{
+    //   switch(tieRodCount){
+    //     case 0:
+    //       anime({
+    //         easing: "easeInOutQuad",
+    //         targets: Scenes.items.tie_rod1.item,
+    //         left: 355, 
+    //         top: 85,
+    //         rotate: 57,
+    //         complete(){
+    //           setCC("Click on the 'Wing Nut' to tighten the tie rod.")
+    //           Dom.setBlinkArrow(true,725,15).play()
+    //         }
+    //       })          
+    //       break
 
-          case 1:
-            anime({
-              easing: "easeInOutQuad",
-              targets: Scenes.items.tie_rod2.item,
-              left: 259, 
-              top: 130,
-              rotate: -57,
-            })
-            break
+    //       case 1:
+    //         anime({
+    //           easing: "easeInOutQuad",
+    //           targets: Scenes.items.tie_rod2.item,
+    //           left: 259, 
+    //           top: 130,
+    //           rotate: -57,
+    //         })
+    //         break
           
-            case 2:
-            anime({
-              easing: "easeInOutQuad",
-              targets: Scenes.items.tie_rod3.item,
-              left: 259, 
-              top: 210,
-              rotate: -52,
-            })
-            break
+    //         case 2:
+    //         anime({
+    //           easing: "easeInOutQuad",
+    //           targets: Scenes.items.tie_rod3.item,
+    //           left: 259, 
+    //           top: 210,
+    //           rotate: -52,
+    //         })
+    //         break
             
-            case 3:
-            anime({
-              easing: "easeInOutQuad",
-              targets: Scenes.items.tie_rod4.item,
-              left: 355, 
-              top: 245,
-              rotate: 58,
-            })
-            break
-      }
-      tieRodCount++;
-    }
+    //         case 3:
+    //         anime({
+    //           easing: "easeInOutQuad",
+    //           targets: Scenes.items.tie_rod4.item,
+    //           left: 355, 
+    //           top: 245,
+    //           rotate: 58,
+    //         })
+    //         break
+    //   }
+    //   tieRodCount++;
+    // }
     
-    let wingNutCount = 0
-    const wingNutAnime = ()=>{
-      switch(wingNutCount){
-        case 0:
-          anime.timeline({
-            easing: "easeOutQuad",
-            duration: 3000,
-          })
-          .add({
-            targets: Scenes.items.wing_nut_top1.item,
-            left: 304,
-            top: 187,
-            rotate: -90,
-          })
-          .add({
-            targets: Scenes.items.wing_nut_top2.item,
-            left: 431,
-            top: 106,
-            rotate: 60,
-            complete(){
-              setCC("Click on the 'Repeat' the above steps.")
-              Dom.setBlinkArrow(true,725,65).play()
+    // let wingNutCount = 0
+    // const wingNutAnime = ()=>{
+    //   switch(wingNutCount){
+    //     case 0:
+    //       anime.timeline({
+    //         easing: "easeOutQuad",
+    //         duration: 3000,
+    //       })
+    //       .add({
+    //         targets: Scenes.items.wing_nut_top1.item,
+    //         left: 304,
+    //         top: 187,
+    //         rotate: -90,
+    //       })
+    //       .add({
+    //         targets: Scenes.items.wing_nut_top2.item,
+    //         left: 431,
+    //         top: 106,
+    //         rotate: 60,
+    //         complete(){
+    //           setCC("Click on the 'Repeat' the above steps.")
+    //           Dom.setBlinkArrow(true,725,65).play()
 
-              Scenes.items.tie_rod2.set(763,270,130,50).rotate(90).zIndex(2)
-              Scenes.items.wing_nut_top3.set(766,365,14).zIndex(10)
-              Scenes.items.wing_nut_top4.set(800,365,14).zIndex(10)
-            }
-          })
-          break
+    //           Scenes.items.tie_rod2.set(763,270,130,50).rotate(90).zIndex(2)
+    //           Scenes.items.wing_nut_top3.set(766,365,14).zIndex(10)
+    //           Scenes.items.wing_nut_top4.set(800,365,14).zIndex(10)
+    //         }
+    //       })
+    //       break
 
-          case 1:
-            anime.timeline({
-              easing: "easeOutQuad",
-              duration: 3000,
-            })
-            .add({
-              targets: Scenes.items.wing_nut_top3.item,
-              left: 216,
-              top: 160,
-              rotate: -70,
-            })
-            .add({
-              targets: Scenes.items.wing_nut_top4.item,
-              left: 327,
-              top: 228,
-              rotate: 100,
-              complete(){
-                Scenes.items.tie_rod3.set(763,270,140,50).rotate(90).zIndex(2)
-                Scenes.items.wing_nut_top5.set(766,365,14).zIndex(10)
-                Scenes.items.wing_nut_top6.set(800,365,14).zIndex(10)
-              }
-            })
-            break
+    //       case 1:
+    //         anime.timeline({
+    //           easing: "easeOutQuad",
+    //           duration: 3000,
+    //         })
+    //         .add({
+    //           targets: Scenes.items.wing_nut_top3.item,
+    //           left: 216,
+    //           top: 160,
+    //           rotate: -70,
+    //         })
+    //         .add({
+    //           targets: Scenes.items.wing_nut_top4.item,
+    //           left: 327,
+    //           top: 228,
+    //           rotate: 100,
+    //           complete(){
+    //             Scenes.items.tie_rod3.set(763,270,140,50).rotate(90).zIndex(2)
+    //             Scenes.items.wing_nut_top5.set(766,365,14).zIndex(10)
+    //             Scenes.items.wing_nut_top6.set(800,365,14).zIndex(10)
+    //           }
+    //         })
+    //         break
             
-          case 2:
-            anime.timeline({
-              easing: "easeOutQuad",
-              duration: 3000,
-            })
-            .add({
-              targets: Scenes.items.wing_nut_top5.item,
-              left: 216,
-              top: 239,
-              rotate: -70,
-            })
-            .add({
-              targets: Scenes.items.wing_nut_top6.item,
-              left: 327,
-              top: 320,
-              rotate: 100,
-              complete(){
-                Scenes.items.tie_rod4.set(763,270,135,50).rotate(90).zIndex(2)
-                Scenes.items.wing_nut_top7.set(766,365,14).zIndex(10)
-                Scenes.items.wing_nut_top8.set(800,365,14).zIndex(10)
-              }
-            })
-            break
+    //       case 2:
+    //         anime.timeline({
+    //           easing: "easeOutQuad",
+    //           duration: 3000,
+    //         })
+    //         .add({
+    //           targets: Scenes.items.wing_nut_top5.item,
+    //           left: 216,
+    //           top: 239,
+    //           rotate: -70,
+    //         })
+    //         .add({
+    //           targets: Scenes.items.wing_nut_top6.item,
+    //           left: 327,
+    //           top: 320,
+    //           rotate: 100,
+    //           complete(){
+    //             Scenes.items.tie_rod4.set(763,270,135,50).rotate(90).zIndex(2)
+    //             Scenes.items.wing_nut_top7.set(766,365,14).zIndex(10)
+    //             Scenes.items.wing_nut_top8.set(800,365,14).zIndex(10)
+    //           }
+    //         })
+    //         break
 
-            case 3:
-              anime.timeline({
-                easing: "easeOutQuad",
-                duration: 3000,
-              })
-              .add({
-                targets: Scenes.items.wing_nut_top7.item,
-                left: 307,
-                top: 335,
-                rotate: -100,
-              })
-              .add({
-                targets: Scenes.items.wing_nut_top8.item,
-                left: 429,
-                top: 264,
-                rotate: 60,
-                complete(){
-                  setCC("Click 'Next' to go to next step");
-                  Dom.setBlinkArrow(true, 790, 408).play();
-                  setIsProcessRunning(false);
-                }
-              })
-              break
-      }
-      wingNutCount++
+    //         case 3:
+    //           anime.timeline({
+    //             easing: "easeOutQuad",
+    //             duration: 3000,
+    //           })
+    //           .add({
+    //             targets: Scenes.items.wing_nut_top7.item,
+    //             left: 307,
+    //             top: 335,
+    //             rotate: -100,
+    //           })
+    //           .add({
+    //             targets: Scenes.items.wing_nut_top8.item,
+    //             left: 429,
+    //             top: 264,
+    //             rotate: 60,
+    //             complete(){
+    //               setCC("Click 'Next' to go to next step");
+    //               Dom.setBlinkArrow(true, 790, 408).play();
+    //               setIsProcessRunning(false);
+    //             }
+    //           })
+    //           break
+    //   }
+    //   wingNutCount++
 
-    }
+    // }
 
-    const repeatAnime = ()=>{
-      anime.timeline({
-        duration: 1000,
-      })
-      .add({
-        complete(){
-          tieRodAnime()
-        }
-      })
-      .add({
-        complete(){
-          wingNutAnime()
-        }
-      })
-    }
+    // const repeatAnime = ()=>{
+    //   anime.timeline({
+    //     duration: 1000,
+    //   })
+    //   .add({
+    //     complete(){
+    //       tieRodAnime()
+    //     }
+    //   })
+    //   .add({
+    //     complete(){
+    //       wingNutAnime()
+    //     }
+    //   })
+    // }
 
-    Dom.setBlinkArrow(true,725,-35).play()
-    setCC("Click on the 'Tie Rod' to attach it with steel waler.")
-    //onclick
-    contentAdderBtns[0].onclick = tieRodAnime
-    contentAdderBtns[1].onclick = wingNutAnime
-    contentAdderBtns[2].onclick = repeatAnime
+    // Dom.setBlinkArrow(true,725,-35).play()
+    // setCC("Click on the 'Tie Rod' to attach it with steel waler.")
+    // //onclick
+    // contentAdderBtns[0].onclick = tieRodAnime
+    // contentAdderBtns[1].onclick = wingNutAnime
+    // contentAdderBtns[2].onclick = repeatAnime
 
-    // setCC("Click 'Next' to go to next step");
-    //       Dom.setBlinkArrow(true, 790, 408).play();
-    //       setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
-        // };
-      return true;
-    }),
+    // // setCC("Click 'Next' to go to next step");
+    // //       Dom.setBlinkArrow(true, 790, 408).play();
+    // //       setIsProcessRunning(false);
+    //     //   anime({
+    //     //     duration: 1000,
+    //     //     complete(){
+    //     //       Quiz.loadQuiz()
+    //     //     }
+    //     //   });
+    //     // };
+    //   return true;
+    // }),
 
 
     (completed = function () {
@@ -3478,8 +3487,9 @@ const Scenes = {
   },
 }
 
-Scenes.steps[11]()
-// Scenes.next()  
+// Scenes.steps[2]() 
+// Scenes.currentStep = 12
+Scenes.next()  
 // Scenes.next()
 // Scenes.next()
 
@@ -3510,6 +3520,7 @@ muteBtn.addEventListener("click", () => {
     muteBtn.title = "Click to Unmute";
   }
 });
+
 // Scenes.steps[2]()
 // Scenes.steps[6]()
 // Scenes.steps[5]()

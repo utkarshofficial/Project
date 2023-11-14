@@ -1,0 +1,2270 @@
+{
+    "decoration": {
+        "_t": "map",
+        "_v": {
+        }
+    },
+    "imageList": {
+        "_t": "stringlist",
+        "_v": [
+            "0.png"
+        ]
+    },
+    "object": {
+        "_t": "list",
+        "_v": [
+            {
+                "_t": "map",
+                "_v": {
+                    "anchor": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "anchorX": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "anchorY": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "arrowType": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "backgroundBrush": {
+                        "_t": "string",
+                        "_v": "color=4281219144&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "brush": {
+                        "_t": "string",
+                        "_v": "color=4285674014&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "compositionMode": {
+                        "_t": "string",
+                        "_v": "normal"
+                    },
+                    "distortion": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "true"
+                            },
+                            "perspective": {
+                                "_t": "list",
+                                "_v": [
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,0.025"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,0.196875"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,1"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,0.846875"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "dropShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "dropShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "dropShadowLength": {
+                        "_t": "int",
+                        "_v": "15"
+                    },
+                    "dropShadowRadius": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "emboss": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "embossAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "embossBrightness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "embossLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "embossOpacity": {
+                        "_t": "int",
+                        "_v": "50"
+                    },
+                    "embossSoftness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "innerGlow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerGlowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "innerGlowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerGlowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "innerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "innerShadowOffset": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "longShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "longShadowBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowGradient": {
+                        "_t": "string",
+                        "_v": "angle=0&duoColor0=4294901862&duoColor1=4294940928&duoCurve=%3A%2Fres%2Fobject%2Fgradient%2Fcurve-17-s.acv&enabled=false&hue=0&monoColor=4294967295&monoColorGradient=0%3D4283914071%260.49585%3D4290887872%261%3D4285887861&monoOpacityGradient=0%3D4294967295%261%3D4294967295&offsetx=0&offsety=0&polyColorGradient=0%3D4294901760%261%3D4294953728&polyOpacityGradient=0%3D4294967295%261%3D4294967295&reverse=false&saturation=0&scale=100&style=0&type=duo"
+                    },
+                    "longShadowLength": {
+                        "_t": "int",
+                        "_v": "100"
+                    },
+                    "longShadowOpacityBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowOpacityCurve": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "longShadowPerspective": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "longShadowType": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "marginBottom": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginLeft": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginRight": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginTop": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "objectType": {
+                        "_t": "string",
+                        "_v": "shape"
+                    },
+                    "opacity": {
+                        "_t": "double",
+                        "_v": "1"
+                    },
+                    "outerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "outerShadowLength": {
+                        "_t": "int",
+                        "_v": "10"
+                    },
+                    "outerShadowRadius": {
+                        "_t": "int",
+                        "_v": "30"
+                    },
+                    "outlineBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "outlineEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "outlineWidth": {
+                        "_t": "int",
+                        "_v": "5"
+                    },
+                    "overlay": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "false"
+                            },
+                            "items": {
+                                "_t": "map",
+                                "_v": {
+                                }
+                            },
+                            "type": {
+                                "_t": "int",
+                                "_v": "0"
+                            }
+                        }
+                    },
+                    "pos": {
+                        "_t": "pointf",
+                        "_v": "-101.515,-33.5458"
+                    },
+                    "rect": {
+                        "_t": "rectf",
+                        "_v": "-31.396,-152.363,62.7921,304.726"
+                    },
+                    "refSize": {
+                        "_t": "sizef",
+                        "_v": "950,404"
+                    },
+                    "rotation": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "round": {
+                        "_t": "int",
+                        "_v": "30"
+                    },
+                    "shadowMode": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeType": {
+                        "_t": "string",
+                        "_v": "rect-fill"
+                    },
+                    "shapeVector": {
+                        "_t": "string",
+                        "_v": "filePath=&transform=1%2C0%2C0%2C0%2C1%2C0%2C0%2C0%2C1"
+                    },
+                    "strokeCap": {
+                        "_t": "string",
+                        "_v": "square"
+                    },
+                    "strokePattern": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "strokeWidth": {
+                        "_t": "int",
+                        "_v": "10"
+                    },
+                    "useBackground": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "visible": {
+                        "_t": "bool",
+                        "_v": "true"
+                    }
+                }
+            },
+            {
+                "_t": "map",
+                "_v": {
+                    "anchor": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "anchorX": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "anchorY": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "arrowType": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "backgroundBrush": {
+                        "_t": "string",
+                        "_v": "color=4281219144&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "brush": {
+                        "_t": "string",
+                        "_v": "color=4285678125&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "compositionMode": {
+                        "_t": "string",
+                        "_v": "normal"
+                    },
+                    "distortion": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "true"
+                            },
+                            "perspective": {
+                                "_t": "list",
+                                "_v": [
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,0.315625"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,0.196875"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,0.825"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "dropShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "dropShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "dropShadowLength": {
+                        "_t": "int",
+                        "_v": "15"
+                    },
+                    "dropShadowRadius": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "emboss": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "embossAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "embossBrightness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "embossLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "embossOpacity": {
+                        "_t": "int",
+                        "_v": "50"
+                    },
+                    "embossSoftness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "innerGlow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerGlowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "innerGlowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerGlowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "innerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "innerShadowOffset": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "longShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "longShadowBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowGradient": {
+                        "_t": "string",
+                        "_v": "angle=0&duoColor0=4294901862&duoColor1=4294940928&duoCurve=%3A%2Fres%2Fobject%2Fgradient%2Fcurve-17-s.acv&enabled=false&hue=0&monoColor=4294967295&monoColorGradient=0%3D4283914071%260.49585%3D4290887872%261%3D4285887861&monoOpacityGradient=0%3D4294967295%261%3D4294967295&offsetx=0&offsety=0&polyColorGradient=0%3D4294901760%261%3D4294953728&polyOpacityGradient=0%3D4294967295%261%3D4294967295&reverse=false&saturation=0&scale=100&style=0&type=duo"
+                    },
+                    "longShadowLength": {
+                        "_t": "int",
+                        "_v": "100"
+                    },
+                    "longShadowOpacityBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowOpacityCurve": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "longShadowPerspective": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "longShadowType": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "marginBottom": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginLeft": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginRight": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginTop": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "objectType": {
+                        "_t": "string",
+                        "_v": "shape"
+                    },
+                    "opacity": {
+                        "_t": "double",
+                        "_v": "1"
+                    },
+                    "outerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "outerShadowLength": {
+                        "_t": "int",
+                        "_v": "10"
+                    },
+                    "outerShadowRadius": {
+                        "_t": "int",
+                        "_v": "30"
+                    },
+                    "outlineBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "outlineEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "outlineWidth": {
+                        "_t": "int",
+                        "_v": "5"
+                    },
+                    "overlay": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "false"
+                            },
+                            "items": {
+                                "_t": "map",
+                                "_v": {
+                                }
+                            },
+                            "type": {
+                                "_t": "int",
+                                "_v": "0"
+                            }
+                        }
+                    },
+                    "pos": {
+                        "_t": "pointf",
+                        "_v": "-166.953,-72.5"
+                    },
+                    "rect": {
+                        "_t": "rectf",
+                        "_v": "-34.0415,-174.5,68.0829,349"
+                    },
+                    "refSize": {
+                        "_t": "sizef",
+                        "_v": "950,404"
+                    },
+                    "rotation": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "round": {
+                        "_t": "int",
+                        "_v": "30"
+                    },
+                    "shadowMode": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeType": {
+                        "_t": "string",
+                        "_v": "rect-fill"
+                    },
+                    "shapeVector": {
+                        "_t": "string",
+                        "_v": "filePath=&transform=1%2C0%2C0%2C0%2C1%2C0%2C0%2C0%2C1"
+                    },
+                    "strokeCap": {
+                        "_t": "string",
+                        "_v": "square"
+                    },
+                    "strokePattern": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "strokeWidth": {
+                        "_t": "int",
+                        "_v": "10"
+                    },
+                    "useBackground": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "visible": {
+                        "_t": "bool",
+                        "_v": "true"
+                    }
+                }
+            },
+            {
+                "_t": "map",
+                "_v": {
+                    "anchor": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "anchorX": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "anchorY": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "backgroundBrush": {
+                        "_t": "string",
+                        "_v": "color=4281219144&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "bmpAntiAlias": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "clipType": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "compositionMode": {
+                        "_t": "string",
+                        "_v": "normal"
+                    },
+                    "decorationMode": {
+                        "_t": "string",
+                        "_v": "clip"
+                    },
+                    "distortion": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "true"
+                            },
+                            "perspective": {
+                                "_t": "list",
+                                "_v": [
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0.0204082,0.1125"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,0"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,1"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "dropShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "dropShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "dropShadowLength": {
+                        "_t": "int",
+                        "_v": "15"
+                    },
+                    "dropShadowRadius": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "emboss": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "embossAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "embossBrightness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "embossLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "embossOpacity": {
+                        "_t": "int",
+                        "_v": "50"
+                    },
+                    "embossSoftness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "fillBrush": {
+                        "_t": "string",
+                        "_v": "color=4294967295&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "fillBrushEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "filterColor": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "image": {
+                        "_t": "image",
+                        "_v": {
+                            "_t": "string",
+                            "_v": "embed0.png"
+                        }
+                    },
+                    "innerGlow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerGlowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "innerGlowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerGlowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "innerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "innerShadowOffset": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "keepAspectRatio": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "longShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "longShadowBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowGradient": {
+                        "_t": "string",
+                        "_v": "angle=0&duoColor0=4294901862&duoColor1=4294940928&duoCurve=%3A%2Fres%2Fobject%2Fgradient%2Fcurve-17-s.acv&enabled=false&hue=0&monoColor=4294967295&monoColorGradient=0%3D4283914071%260.49585%3D4290887872%261%3D4285887861&monoOpacityGradient=0%3D4294967295%261%3D4294967295&offsetx=0&offsety=0&polyColorGradient=0%3D4294901760%261%3D4294953728&polyOpacityGradient=0%3D4294967295%261%3D4294967295&reverse=false&saturation=0&scale=100&style=0&type=duo"
+                    },
+                    "longShadowLength": {
+                        "_t": "int",
+                        "_v": "100"
+                    },
+                    "longShadowOpacityBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowOpacityCurve": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "longShadowPerspective": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "longShadowType": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "marginBottom": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginLeft": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginRight": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginTop": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "mask": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "mode": {
+                        "_t": "string",
+                        "_v": "bitmap"
+                    },
+                    "objectType": {
+                        "_t": "string",
+                        "_v": "image"
+                    },
+                    "opacity": {
+                        "_t": "double",
+                        "_v": "1"
+                    },
+                    "outerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "outerShadowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outlineBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "outlineEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "outlineWidth": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "overlay": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "false"
+                            },
+                            "items": {
+                                "_t": "map",
+                                "_v": {
+                                }
+                            },
+                            "type": {
+                                "_t": "int",
+                                "_v": "0"
+                            }
+                        }
+                    },
+                    "pos": {
+                        "_t": "pointf",
+                        "_v": "-176,7.39796"
+                    },
+                    "rect": {
+                        "_t": "rectf",
+                        "_v": "-169,-177.415,338,354.83"
+                    },
+                    "refSize": {
+                        "_t": "sizef",
+                        "_v": "950,404"
+                    },
+                    "rotation": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "roundAmount": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "shadowMode": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeFile": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeMargin": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "shapeStretch": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "shapeTransform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "transform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "useBackground": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useFilterColor": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useMask": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "visible": {
+                        "_t": "bool",
+                        "_v": "true"
+                    }
+                }
+            },
+            {
+                "_t": "map",
+                "_v": {
+                    "anchor": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "anchorX": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "anchorY": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "backgroundBrush": {
+                        "_t": "string",
+                        "_v": "color=4281219144&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "bmpAntiAlias": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "clipType": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "compositionMode": {
+                        "_t": "string",
+                        "_v": "normal"
+                    },
+                    "decorationMode": {
+                        "_t": "string",
+                        "_v": "clip"
+                    },
+                    "distortion": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "true"
+                            },
+                            "perspective": {
+                                "_t": "list",
+                                "_v": [
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0.0204082,0.1125"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,0"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,1"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "dropShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "dropShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "dropShadowLength": {
+                        "_t": "int",
+                        "_v": "15"
+                    },
+                    "dropShadowRadius": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "emboss": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "embossAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "embossBrightness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "embossLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "embossOpacity": {
+                        "_t": "int",
+                        "_v": "50"
+                    },
+                    "embossSoftness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "fillBrush": {
+                        "_t": "string",
+                        "_v": "color=4294967295&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "fillBrushEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "filterColor": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "image": {
+                        "_t": "image",
+                        "_v": {
+                            "_t": "string",
+                            "_v": "embed1.png"
+                        }
+                    },
+                    "innerGlow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerGlowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "innerGlowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerGlowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "innerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "innerShadowOffset": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "keepAspectRatio": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "longShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "longShadowBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowGradient": {
+                        "_t": "string",
+                        "_v": "angle=0&duoColor0=4294901862&duoColor1=4294940928&duoCurve=%3A%2Fres%2Fobject%2Fgradient%2Fcurve-17-s.acv&enabled=false&hue=0&monoColor=4294967295&monoColorGradient=0%3D4283914071%260.49585%3D4290887872%261%3D4285887861&monoOpacityGradient=0%3D4294967295%261%3D4294967295&offsetx=0&offsety=0&polyColorGradient=0%3D4294901760%261%3D4294953728&polyOpacityGradient=0%3D4294967295%261%3D4294967295&reverse=false&saturation=0&scale=100&style=0&type=duo"
+                    },
+                    "longShadowLength": {
+                        "_t": "int",
+                        "_v": "100"
+                    },
+                    "longShadowOpacityBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowOpacityCurve": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "longShadowPerspective": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "longShadowType": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "marginBottom": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginLeft": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginRight": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginTop": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "mask": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "mode": {
+                        "_t": "string",
+                        "_v": "bitmap"
+                    },
+                    "objectType": {
+                        "_t": "string",
+                        "_v": "image"
+                    },
+                    "opacity": {
+                        "_t": "double",
+                        "_v": "1"
+                    },
+                    "outerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "outerShadowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outlineBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "outlineEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "outlineWidth": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "overlay": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "false"
+                            },
+                            "items": {
+                                "_t": "map",
+                                "_v": {
+                                }
+                            },
+                            "type": {
+                                "_t": "int",
+                                "_v": "0"
+                            }
+                        }
+                    },
+                    "pos": {
+                        "_t": "pointf",
+                        "_v": "268.839,29.398"
+                    },
+                    "rect": {
+                        "_t": "rectf",
+                        "_v": "173.222,-177.415,-346.443,354.83"
+                    },
+                    "refSize": {
+                        "_t": "sizef",
+                        "_v": "950,404"
+                    },
+                    "rotation": {
+                        "_t": "double",
+                        "_v": "2"
+                    },
+                    "roundAmount": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "shadowMode": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeFile": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeMargin": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "shapeStretch": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "shapeTransform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "transform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "useBackground": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useFilterColor": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useMask": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "visible": {
+                        "_t": "bool",
+                        "_v": "true"
+                    }
+                }
+            },
+            {
+                "_t": "map",
+                "_v": {
+                    "anchor": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "anchorX": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "anchorY": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "backgroundBrush": {
+                        "_t": "string",
+                        "_v": "color=4281219144&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "bmpAntiAlias": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "clipType": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "compositionMode": {
+                        "_t": "string",
+                        "_v": "normal"
+                    },
+                    "decorationMode": {
+                        "_t": "string",
+                        "_v": "clip"
+                    },
+                    "distortion": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "true"
+                            },
+                            "perspective": {
+                                "_t": "list",
+                                "_v": [
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,0"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,0"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,1"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "dropShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "dropShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "dropShadowLength": {
+                        "_t": "int",
+                        "_v": "15"
+                    },
+                    "dropShadowRadius": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "emboss": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "embossAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "embossBrightness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "embossLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "embossOpacity": {
+                        "_t": "int",
+                        "_v": "50"
+                    },
+                    "embossSoftness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "fillBrush": {
+                        "_t": "string",
+                        "_v": "color=4294967295&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "fillBrushEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "filterColor": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "image": {
+                        "_t": "image",
+                        "_v": {
+                            "_t": "string",
+                            "_v": "embed2.png"
+                        }
+                    },
+                    "innerGlow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerGlowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "innerGlowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerGlowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "innerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "innerShadowOffset": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "keepAspectRatio": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "longShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "longShadowBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowGradient": {
+                        "_t": "string",
+                        "_v": "angle=0&duoColor0=4294901862&duoColor1=4294940928&duoCurve=%3A%2Fres%2Fobject%2Fgradient%2Fcurve-17-s.acv&enabled=false&hue=0&monoColor=4294967295&monoColorGradient=0%3D4283914071%260.49585%3D4290887872%261%3D4285887861&monoOpacityGradient=0%3D4294967295%261%3D4294967295&offsetx=0&offsety=0&polyColorGradient=0%3D4294901760%261%3D4294953728&polyOpacityGradient=0%3D4294967295%261%3D4294967295&reverse=false&saturation=0&scale=100&style=0&type=duo"
+                    },
+                    "longShadowLength": {
+                        "_t": "int",
+                        "_v": "100"
+                    },
+                    "longShadowOpacityBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowOpacityCurve": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "longShadowPerspective": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "longShadowType": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "marginBottom": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginLeft": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginRight": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginTop": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "mask": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "mode": {
+                        "_t": "string",
+                        "_v": "bitmap"
+                    },
+                    "objectType": {
+                        "_t": "string",
+                        "_v": "image"
+                    },
+                    "opacity": {
+                        "_t": "double",
+                        "_v": "1"
+                    },
+                    "outerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "outerShadowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outlineBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "outlineEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "outlineWidth": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "overlay": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "false"
+                            },
+                            "items": {
+                                "_t": "map",
+                                "_v": {
+                                }
+                            },
+                            "type": {
+                                "_t": "int",
+                                "_v": "0"
+                            }
+                        }
+                    },
+                    "pos": {
+                        "_t": "pointf",
+                        "_v": "-259.781,46.5376"
+                    },
+                    "rect": {
+                        "_t": "rectf",
+                        "_v": "-21.4401,-123.454,42.8803,246.907"
+                    },
+                    "refSize": {
+                        "_t": "sizef",
+                        "_v": "950,404"
+                    },
+                    "rotation": {
+                        "_t": "double",
+                        "_v": "33"
+                    },
+                    "roundAmount": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "shadowMode": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeFile": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeMargin": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "shapeStretch": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "shapeTransform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "transform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "useBackground": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useFilterColor": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useMask": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "visible": {
+                        "_t": "bool",
+                        "_v": "true"
+                    }
+                }
+            },
+            {
+                "_t": "map",
+                "_v": {
+                    "anchor": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "anchorX": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "anchorY": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "backgroundBrush": {
+                        "_t": "string",
+                        "_v": "color=4281219144&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "bmpAntiAlias": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "clipType": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "compositionMode": {
+                        "_t": "string",
+                        "_v": "normal"
+                    },
+                    "decorationMode": {
+                        "_t": "string",
+                        "_v": "clip"
+                    },
+                    "distortion": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "true"
+                            },
+                            "perspective": {
+                                "_t": "list",
+                                "_v": [
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,0"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,0"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,1"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "dropShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "dropShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "dropShadowLength": {
+                        "_t": "int",
+                        "_v": "15"
+                    },
+                    "dropShadowRadius": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "emboss": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "embossAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "embossBrightness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "embossLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "embossOpacity": {
+                        "_t": "int",
+                        "_v": "50"
+                    },
+                    "embossSoftness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "fillBrush": {
+                        "_t": "string",
+                        "_v": "color=4294967295&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "fillBrushEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "filterColor": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "image": {
+                        "_t": "image",
+                        "_v": {
+                            "_t": "string",
+                            "_v": "embed3.png"
+                        }
+                    },
+                    "innerGlow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerGlowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "innerGlowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerGlowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "innerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "innerShadowOffset": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "keepAspectRatio": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "longShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "longShadowBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowGradient": {
+                        "_t": "string",
+                        "_v": "angle=0&duoColor0=4294901862&duoColor1=4294940928&duoCurve=%3A%2Fres%2Fobject%2Fgradient%2Fcurve-17-s.acv&enabled=false&hue=0&monoColor=4294967295&monoColorGradient=0%3D4283914071%260.49585%3D4290887872%261%3D4285887861&monoOpacityGradient=0%3D4294967295%261%3D4294967295&offsetx=0&offsety=0&polyColorGradient=0%3D4294901760%261%3D4294953728&polyOpacityGradient=0%3D4294967295%261%3D4294967295&reverse=false&saturation=0&scale=100&style=0&type=duo"
+                    },
+                    "longShadowLength": {
+                        "_t": "int",
+                        "_v": "100"
+                    },
+                    "longShadowOpacityBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowOpacityCurve": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "longShadowPerspective": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "longShadowType": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "marginBottom": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginLeft": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginRight": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginTop": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "mask": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "mode": {
+                        "_t": "string",
+                        "_v": "bitmap"
+                    },
+                    "objectType": {
+                        "_t": "string",
+                        "_v": "image"
+                    },
+                    "opacity": {
+                        "_t": "double",
+                        "_v": "1"
+                    },
+                    "outerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "outerShadowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outlineBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "outlineEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "outlineWidth": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "overlay": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "false"
+                            },
+                            "items": {
+                                "_t": "map",
+                                "_v": {
+                                }
+                            },
+                            "type": {
+                                "_t": "int",
+                                "_v": "0"
+                            }
+                        }
+                    },
+                    "pos": {
+                        "_t": "pointf",
+                        "_v": "-267.088,122.858"
+                    },
+                    "rect": {
+                        "_t": "rectf",
+                        "_v": "-21.4401,-70.1525,42.8803,140.305"
+                    },
+                    "refSize": {
+                        "_t": "sizef",
+                        "_v": "950,404"
+                    },
+                    "rotation": {
+                        "_t": "double",
+                        "_v": "66"
+                    },
+                    "roundAmount": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "shadowMode": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeFile": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeMargin": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "shapeStretch": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "shapeTransform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "transform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "useBackground": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useFilterColor": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useMask": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "visible": {
+                        "_t": "bool",
+                        "_v": "true"
+                    }
+                }
+            },
+            {
+                "_t": "map",
+                "_v": {
+                    "anchor": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "anchorX": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "anchorY": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "backgroundBrush": {
+                        "_t": "string",
+                        "_v": "color=4281219144&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "bmpAntiAlias": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "clipType": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "compositionMode": {
+                        "_t": "string",
+                        "_v": "normal"
+                    },
+                    "decorationMode": {
+                        "_t": "string",
+                        "_v": "clip"
+                    },
+                    "distortion": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "false"
+                            },
+                            "perspective": {
+                                "_t": "list",
+                                "_v": [
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,0"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,0"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "1,1"
+                                    },
+                                    {
+                                        "_t": "pointf",
+                                        "_v": "0,1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "dropShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "dropShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "dropShadowLength": {
+                        "_t": "int",
+                        "_v": "15"
+                    },
+                    "dropShadowRadius": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "emboss": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "embossAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "embossBrightness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "embossLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "embossOpacity": {
+                        "_t": "int",
+                        "_v": "50"
+                    },
+                    "embossSoftness": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "fillBrush": {
+                        "_t": "string",
+                        "_v": "color=4294967295&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "fillBrushEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "filterColor": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "image": {
+                        "_t": "image",
+                        "_v": {
+                            "_t": "string",
+                            "_v": "embed4.png"
+                        }
+                    },
+                    "innerGlow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerGlowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "innerGlowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerGlowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadow": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "innerShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "innerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4278190080"
+                    },
+                    "innerShadowOffset": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "innerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "keepAspectRatio": {
+                        "_t": "bool",
+                        "_v": "true"
+                    },
+                    "longShadowAngle": {
+                        "_t": "int",
+                        "_v": "45"
+                    },
+                    "longShadowBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowGradient": {
+                        "_t": "string",
+                        "_v": "angle=0&duoColor0=4294901862&duoColor1=4294940928&duoCurve=%3A%2Fres%2Fobject%2Fgradient%2Fcurve-17-s.acv&enabled=false&hue=0&monoColor=4294967295&monoColorGradient=0%3D4283914071%260.49585%3D4290887872%261%3D4285887861&monoOpacityGradient=0%3D4294967295%261%3D4294967295&offsetx=0&offsety=0&polyColorGradient=0%3D4294901760%261%3D4294953728&polyOpacityGradient=0%3D4294967295%261%3D4294967295&reverse=false&saturation=0&scale=100&style=0&type=duo"
+                    },
+                    "longShadowLength": {
+                        "_t": "int",
+                        "_v": "100"
+                    },
+                    "longShadowOpacityBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "longShadowOpacityCurve": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "longShadowPerspective": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "longShadowType": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "marginBottom": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginLeft": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginRight": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "marginTop": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "mask": {
+                        "_t": "map",
+                        "_v": {
+                        }
+                    },
+                    "mode": {
+                        "_t": "string",
+                        "_v": "bitmap"
+                    },
+                    "objectType": {
+                        "_t": "string",
+                        "_v": "image"
+                    },
+                    "opacity": {
+                        "_t": "double",
+                        "_v": "1"
+                    },
+                    "outerShadowColor": {
+                        "_t": "uint",
+                        "_v": "4293617056"
+                    },
+                    "outerShadowLength": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outerShadowRadius": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "outlineBrush": {
+                        "_t": "string",
+                        "_v": "color=4278190080&gradient=angle%3D0%26duoColor0%3D4294901862%26duoColor1%3D4294940928%26duoCurve%3D%253A%252Fres%252Fobject%252Fgradient%252Fcurve-17-s.acv%26enabled%3Dtrue%26hue%3D0%26monoColor%3D4294967295%26monoColorGradient%3D0%253D4283914071%25260.49585%253D4290887872%25261%253D4285887861%26monoOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26offsetx%3D0%26offsety%3D0%26polyColorGradient%3D0%253D4294901760%25261%253D4294953728%26polyOpacityGradient%3D0%253D4294967295%25261%253D4294967295%26reverse%3Dfalse%26saturation%3D0%26scale%3D100%26style%3D0%26type%3Dduo&opacity=255&pattern=&patternAngle=0&patternScale=1&patternX=0&patternY=0&texture=&textureAngle=0&textureHue=0&textureSaturation=0&textureScale=1&textureX=0&textureY=0&type=color"
+                    },
+                    "outlineEnabled": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "outlineWidth": {
+                        "_t": "int",
+                        "_v": "25"
+                    },
+                    "overlay": {
+                        "_t": "map",
+                        "_v": {
+                            "enabled": {
+                                "_t": "bool",
+                                "_v": "false"
+                            },
+                            "items": {
+                                "_t": "map",
+                                "_v": {
+                                }
+                            },
+                            "type": {
+                                "_t": "int",
+                                "_v": "0"
+                            }
+                        }
+                    },
+                    "pos": {
+                        "_t": "pointf",
+                        "_v": "-323.234,122.858"
+                    },
+                    "rect": {
+                        "_t": "rectf",
+                        "_v": "-45.2342,-45.2342,90.4685,90.4685"
+                    },
+                    "refSize": {
+                        "_t": "sizef",
+                        "_v": "950,404"
+                    },
+                    "rotation": {
+                        "_t": "double",
+                        "_v": "0"
+                    },
+                    "roundAmount": {
+                        "_t": "int",
+                        "_v": "20"
+                    },
+                    "shadowMode": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeFile": {
+                        "_t": "string",
+                        "_v": ""
+                    },
+                    "shapeMargin": {
+                        "_t": "int",
+                        "_v": "0"
+                    },
+                    "shapeStretch": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "shapeTransform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "transform": {
+                        "_t": "transform",
+                        "_v": "1,0,0,0,1,0,0,0,1"
+                    },
+                    "useBackground": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useFilterColor": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "useMask": {
+                        "_t": "bool",
+                        "_v": "false"
+                    },
+                    "visible": {
+                        "_t": "bool",
+                        "_v": "true"
+                    }
+                }
+            }
+        ]
+    },
+    "version": {
+        "_t": "int",
+        "_v": "1"
+    }
+}

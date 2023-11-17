@@ -265,11 +265,12 @@ body{
 
 .video-box .title{
     background-color: purple;
-    font-size: 1.4rem;
     margin: 0;
     text-align: center;
     color: white;
     padding: 3px;
+    font-size: 1.2em;
+
 }
 
 .video-box .controls{
@@ -277,6 +278,7 @@ body{
     background-color: purple;
     align-items: center;
     justify-content: space-around;
+    width: 100%;
 }
 .video-box .controls img{
     height: 26px;

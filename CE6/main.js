@@ -686,6 +686,7 @@ const Scenes = {
     videoBox: new Dom(".video-box"),
     videoBoxSrc: new Dom(".video-box .video"),
     videoBoxTitle: new Dom(".video-box .title"),
+    videoBoxRestartBtn: new Dom(".video-box .controls .restart"),
     imageBox: new Dom(".image-box"),
     imageBoxSrc: new Dom(".image-box .image"),
     imageBoxTitle: new Dom(".image-box .title"),
@@ -765,6 +766,16 @@ const Scenes = {
     u_head2: new Dom("u_head2"),
     u_head3: new Dom("u_head3"),
     u_head4: new Dom("u_head4"),
+    bolt1: new Dom("bolt1"),
+    bolt2: new Dom("bolt2"),
+    bolt3: new Dom("bolt3"),
+    bolt4: new Dom("bolt4"),
+    bolt5: new Dom("bolt5"),
+    bolt6: new Dom("bolt6"),
+    bolt7: new Dom("bolt7"),
+    bolt8: new Dom("bolt8"),
+    nail_helper_beam: new Dom("nail_helper_beam"),
+    bfs_video: new Dom("bfs_video"),
   },
   deleteAll() {
     for (i in this.img) {
@@ -895,7 +906,7 @@ const Scenes = {
       
       // * Required Items
       Scenes.items.projectIntro.show()
-      Scenes.items.objective.set(0,55)
+      Scenes.items.objective.set(0,45)
       
 
     anime({
@@ -910,350 +921,731 @@ const Scenes = {
     })
     return true;
   }),
-    (step1 = function () {
-      setIsProcessRunning(true);
-      // to hide previous step
-      Dom.hideAll();
-      Scenes.items.projectIntro.hide()
-      Dom.setBlinkArrow(-1);
+    // (step1 = function () {
+    //   setIsProcessRunning(true);
+    //   // to hide previous step
+    //   Dom.hideAll();
+    //   Scenes.items.projectIntro.hide()
+    //   Dom.setBlinkArrow(-1);
 
-      Scenes.setStepHeading("Step 1", "Marking the area (rectangularly)");
-      Scenes.items.land.set(0,0,404,950)
+    //   Scenes.setStepHeading("Step 1", "Marking the area (rectangularly)");
+    //   Scenes.items.land.set(0,0,404,950)
 
-      Scenes.items.chalk_with_hand.set(140,138,80,70).zIndex(6)
+    //   Scenes.items.chalk_with_hand.set(140,138,80,70).zIndex(6)
       
-      Scenes.items.chalk_markings1.set(140,150,6,670).zIndex(5)
-      Scenes.items.marking_surface1.set(140,150,8,670).zIndex(5)
+    //   Scenes.items.chalk_markings1.set(140,150,6,670).zIndex(5)
+    //   Scenes.items.marking_surface1.set(140,150,8,670).zIndex(5)
 
-      Scenes.items.chalk_markings2.set(757,200,6,100).rotate(90).zIndex(5)
-      Scenes.items.marking_surface2.set(757,200,8,100).rotate(90).zIndex(5)
+    //   Scenes.items.chalk_markings2.set(757,200,6,100).rotate(90).zIndex(5)
+    //   Scenes.items.marking_surface2.set(757,200,8,100).rotate(90).zIndex(5)
 
-      Scenes.items.chalk_markings3.set(140,252,6,670).zIndex(5)
-      Scenes.items.marking_surface3.set(140,252,8,670).zIndex(5)
+    //   Scenes.items.chalk_markings3.set(140,252,6,670).zIndex(5)
+    //   Scenes.items.marking_surface3.set(140,252,8,670).zIndex(5)
 
-      Scenes.items.chalk_markings4.set(94,200,6,100).rotate(90).zIndex(4)
-      Scenes.items.marking_surface4.set(94,200,8,100).rotate(90).zIndex(4)
+    //   Scenes.items.chalk_markings4.set(94,200,6,100).rotate(90).zIndex(4)
+    //   Scenes.items.marking_surface4.set(94,200,8,100).rotate(90).zIndex(4)
 
-      // Scenes.items.chalk_markings5.set(284,201,6,282.8).rotate(45).zIndex(3)
-      // Scenes.items.marking_surface5.set(284,201,8,282.8).rotate(45).zIndex(3)
+    //   // Scenes.items.chalk_markings5.set(284,201,6,282.8).rotate(45).zIndex(3)
+    //   // Scenes.items.marking_surface5.set(284,201,8,282.8).rotate(45).zIndex(3)
 
-      // Scenes.items.chalk_markings6.set(284,201,6,282.8).rotate(-45).zIndex(2)
-      // Scenes.items.marking_surface6.set(284,201,8,282.8).rotate(-45).zIndex(2)
+    //   // Scenes.items.chalk_markings6.set(284,201,6,282.8).rotate(-45).zIndex(2)
+    //   // Scenes.items.marking_surface6.set(284,201,8,282.8).rotate(-45).zIndex(2)
 
-      Scenes.items.tempTitle1.set(815,190).setContent("300 mm").hidden()
-      Scenes.items.tempTitle2.set(425,260).setContent("2400 mm").hidden()
+    //   Scenes.items.tempTitle1.set(815,190).setContent("300 mm").hidden()
+    //   Scenes.items.tempTitle2.set(425,260).setContent("2400 mm").hidden()
 
-      setCC("Click on the hand to mark the area rectangularly.")
-      Dom.setBlinkArrow(true,65,130 ).play()
-      // onclick
-      Scenes.items.chalk_with_hand.item.onclick = ()=>{
-        Dom.setBlinkArrow(-1);
+    //   setCC("Click on the hand to mark the area rectangularly.")
+    //   Dom.setBlinkArrow(true,65,130 ).play()
+    //   // onclick
+    //   Scenes.items.chalk_with_hand.item.onclick = ()=>{
+    //     Dom.setBlinkArrow(-1);
 
-        anime.timeline({
-          easing: "easeOutExpo"
-        })
-        .add({
-          begin(){
-            Scenes.items.anime_main_dom.item.style.overflow = "hidden";
-          },
-          targets: [Scenes.items.chalk_with_hand.item,Scenes.items.marking_surface1.item],
-          translateX: 670,
-          duration: 3000,
-        })
-        .add({
-          begin(){
-            setCC("Marking the vertical length of 300mm")
-          },
-          targets: [Scenes.items.chalk_with_hand.item],
-          translateY: 100,
-          duration: 3000,
-          complete(){
-            Scenes.items.tempTitle1.hidden(false)
-          }
-        },3000)// marking of right vertical surface
-        .add({
-          targets: [Scenes.items.marking_surface2.item],
-          translateX: 100,
-          duration: 3000,
-        },3000)
-        .add({
-          begin(){
-            setCC("Marking the horizontal length of 300mm")
-          },
-          targets: [Scenes.items.marking_surface3.item],
-          translateX: -670,
-          duration: 3000,
-          complete(){
-            Scenes.items.tempTitle2.hidden(false)
-          }
-        },6000)
-        .add({
-          targets: [Scenes.items.chalk_with_hand.item],
-          translateX: 0,
-          duration: 3000,
-        },6000)
-        .add({
-          targets: [Scenes.items.chalk_with_hand.item],
-          translateY: 0,
-          duration: 3000,
-        },9000)// marking of left vertical surface
-        .add({
-          targets: [Scenes.items.marking_surface4.item],
-          top: "-=100",
-          duration: 3000,
-          complete(){
-            Dom.setBlinkArrow(true, 790, 408).play()
-            // Quiz.loadQuiz()
-            setCC("Click 'Next' to go to next step")
-            setIsProcessRunning(false)
-          }
-        },9000)
-        // .add({
-        //   targets: [Scenes.items.chalk_with_hand.item],
-        //   left: "+=200",
-        //   top: "+=200",
-        //   duration: 3000,
-        // },12000)
-        // .add({
-        //   targets: [Scenes.items.marking_surface5.item],
-        //   translateX: 282.8,
-        //   duration: 3000,
-        // },12000)
-        // .add({
-        //   begin(){
-        //     Scenes.items.chalk_with_hand.set(525,88)
-        //   },
-        //   endDelay: 500,
-        // })
-        // .add({
-        //   targets: [Scenes.items.chalk_with_hand.item],
-        //   translateX: -200.8,
-        //   translateY: 200.8,
-        //   duration: 3000,
-        // },15500)
-        // .add({
-        //   targets: [Scenes.items.marking_surface6.item],
-        //   translateX: -282.8,
-        //   duration: 3000,
-        //   complete(){
-        //     Dom.setBlinkArrow(true, 790, 408).play()
-        //     // Quiz.loadQuiz()
-        //     setCC("Click 'Next' to go to next step")
-        //     setIsProcessRunning(false)
-        //   }
-        // },15500)
-      }
-      return true
-    }),
+    //     anime.timeline({
+    //       easing: "easeOutExpo"
+    //     })
+    //     .add({
+    //       begin(){
+    //         Scenes.items.anime_main_dom.item.style.overflow = "hidden";
+    //       },
+    //       targets: [Scenes.items.chalk_with_hand.item,Scenes.items.marking_surface1.item],
+    //       translateX: 670,
+    //       duration: 3000,
+    //     })
+    //     .add({
+    //       begin(){
+    //         setCC("Marking the vertical length of 300mm")
+    //       },
+    //       targets: [Scenes.items.chalk_with_hand.item],
+    //       translateY: 100,
+    //       duration: 3000,
+    //       complete(){
+    //         Scenes.items.tempTitle1.hidden(false)
+    //       }
+    //     },3000)// marking of right vertical surface
+    //     .add({
+    //       targets: [Scenes.items.marking_surface2.item],
+    //       translateX: 100,
+    //       duration: 3000,
+    //     },3000)
+    //     .add({
+    //       begin(){
+    //         setCC("Marking the horizontal length of 300mm")
+    //       },
+    //       targets: [Scenes.items.marking_surface3.item],
+    //       translateX: -670,
+    //       duration: 3000,
+    //       complete(){
+    //         Scenes.items.tempTitle2.hidden(false)
+    //       }
+    //     },6000)
+    //     .add({
+    //       targets: [Scenes.items.chalk_with_hand.item],
+    //       translateX: 0,
+    //       duration: 3000,
+    //     },6000)
+    //     .add({
+    //       targets: [Scenes.items.chalk_with_hand.item],
+    //       translateY: 0,
+    //       duration: 3000,
+    //     },9000)// marking of left vertical surface
+    //     .add({
+    //       targets: [Scenes.items.marking_surface4.item],
+    //       top: "-=100",
+    //       duration: 3000,
+    //       complete(){
+    //         Dom.setBlinkArrow(true, 790, 408).play()
+    //         // Quiz.loadQuiz()
+    //         setCC("Click 'Next' to go to next step")
+    //         setIsProcessRunning(false)
+    //       }
+    //     },9000)
+    //     // .add({
+    //     //   targets: [Scenes.items.chalk_with_hand.item],
+    //     //   left: "+=200",
+    //     //   top: "+=200",
+    //     //   duration: 3000,
+    //     // },12000)
+    //     // .add({
+    //     //   targets: [Scenes.items.marking_surface5.item],
+    //     //   translateX: 282.8,
+    //     //   duration: 3000,
+    //     // },12000)
+    //     // .add({
+    //     //   begin(){
+    //     //     Scenes.items.chalk_with_hand.set(525,88)
+    //     //   },
+    //     //   endDelay: 500,
+    //     // })
+    //     // .add({
+    //     //   targets: [Scenes.items.chalk_with_hand.item],
+    //     //   translateX: -200.8,
+    //     //   translateY: 200.8,
+    //     //   duration: 3000,
+    //     // },15500)
+    //     // .add({
+    //     //   targets: [Scenes.items.marking_surface6.item],
+    //     //   translateX: -282.8,
+    //     //   duration: 3000,
+    //     //   complete(){
+    //     //     Dom.setBlinkArrow(true, 790, 408).play()
+    //     //     // Quiz.loadQuiz()
+    //     //     setCC("Click 'Next' to go to next step")
+    //     //     setIsProcessRunning(false)
+    //     //   }
+    //     // },15500)
+    //   }
+    //   return true
+    // }),
     (step2 = function () {
       // ! fixing the overflow
       Scenes.items.anime_main_dom.item.style.overflow = "visible";
 
       // hide
+      Scenes.items.projectIntro.hide()
       Dom.hideAll();
       setIsProcessRunning(true);
       Dom.setBlinkArrow(-1);
       
-      Scenes.setStepHeading("Step 2", "Bring timber beam in the lab and drill holes on it.")
+      Scenes.setStepHeading("Step 2", "Placing HD Towers in the lab.")
 
       // * Required Elements
-      Scenes.items.beam_3d_1.set(-170,73,350).rotate(-55)
-      Scenes.items.beam_3d_2.set(950,93,350).zIndex(1)
-      Scenes.items.drill_machine.set(820,325,60).zIndex(2) 
+      Scenes.items.base_plate1.set(540,-50+20)
+      Scenes.items.base_plate2.set(475,12+20)
+      Scenes.items.base_plate3.set(560,-126+20)
+      Scenes.items.base_plate4.set(487,-60+20)
+      
+      Scenes.items.ct_prop1.set(300,420).rotate(90)
+      Scenes.items.ct_prop2.set(380,370).rotate(90)
+      Scenes.items.ct_prop3.set(314,275).rotate(90)
+      Scenes.items.ct_prop4.set(246,368).rotate(90)
+
+      Scenes.items.u_head1.set(540,220)
+      Scenes.items.u_head2.set(518,148)
+      Scenes.items.u_head3.set(520,285)
+      Scenes.items.u_head4.set(487,215)
 
       // ! remove
-      // Scenes.items.beam_3d_1.set(170,73,350)
-      // Scenes.items.beam_3d_with_one_hole.set(170,73,350)
-      // Scenes.items.beam_3d_with_holes1.set(170,73,350)
-      // Scenes.items.beam_3d_2.set(250,93,350)
-      // Scenes.items.beam_3d_with_holes2.set(250,93,350)
+      // Scenes.items.base_plate1.set(0,0)
+      // Scenes.items.base_plate2.set(0,0)
+      // Scenes.items.base_plate3.set(0,0)
+      // Scenes.items.base_plate4.set(0,0)
       
-      // Scenes.items.drill_helper.set(170,73,350)
-      // Scenes.items.drill_helper.set(250,93,350)
+      // Scenes.items.ct_prop1.set(0,0)
+      // Scenes.items.ct_prop2.set(0,0)
+      // Scenes.items.ct_prop3.set(0,0)
+      // Scenes.items.ct_prop4.set(0,0)
 
-      // Scenes.items.sheathing1.set(170,73,350)
+      // Scenes.items.u_head1.set(0,0)
+      // Scenes.items.u_head2.set(0,0)
+      // Scenes.items.u_head3.set(0,0)
+      // Scenes.items.u_head4.set(0,0)
 
-
-      // Scenes.items.drill_machine.set(394,150,60)
-      // Scenes.items.drill_machine.set(236,254,60)
-      // Scenes.items.drill_machine.set(471,170,60)
-      // Scenes.items.drill_machine.set(317,274,60) 
 
       Scenes.items.contentAdderBox.set(null,-50).show("flex")
-      Scenes.contentAdderAddBtn("Timber Beam")
-      Scenes.contentAdderAddBtn("Drill Machine")
+      Scenes.contentAdderAddBtn("Base Plate")
+      Scenes.contentAdderAddBtn("HD Tower")
+      Scenes.contentAdderAddBtn("U-Head")
 
-      let contentAdderBtns = getAll(".content-adder-box .btn")
-      contentAdderBtns[0].onclick = timberBeamAnime
-      contentAdderBtns[1].onclick = drillMachineAnime
       
-      let timberBeamCount = 0
-      let drillMachineCount = 0
+      
 
-      function timberBeamAnime(){
-        switch(timberBeamCount){
-          case 0:
-            anime({
-
-              targets: Scenes.items.beam_3d_1.item,
-              keyframes : [
-                {left : 170},
-                {rotate: 0},
-              ],
-              easing: "easeInOutQuad",
-              duration: 2500,
-              complete(){
-                Scenes.items.drill_helper.set(170,73,350).zIndex(100)
-                setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
-                Dom.setBlinkArrow(true, 705,15).play();
-              }
-            })
-            break;
-            case 1:
-              anime({
-                targets: Scenes.items.beam_3d_2.item,
-                keyframes : [
-                  {left : 250},
-                  {rotate: 0},
-                ],
-                easing: "easeInOutQuad",
-                duration: 2500,
-                complete(){
-                  Scenes.items.drill_helper.set(250,93,350)
-                  setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
-                  Dom.setBlinkArrow(true, 705,15).play();
-                }
-              })
-
-              break
-        }
-        timberBeamCount++
+      function basePlateAnime(){
+        anime.timeline({
+          easing: "easeInOutQuad",
+          duration: 2000,
+          
+        })
+        .add({
+          targets: Scenes.items.base_plate1.item,
+          left : 0,
+          top: 0,
+        })
+        .add({
+          targets: Scenes.items.base_plate2.item,
+          left : 0,
+          top: 0,
+        })
+        .add({
+          targets: Scenes.items.base_plate3.item,
+          left : 0,
+          top: 0,
+        })
+        .add({
+          targets: Scenes.items.base_plate4.item,
+          left : 0,
+          top: 0,
+          complete(){
+            setCC("Click on the 'HD Tower' to put it on the base plate.");      
+            Dom.setBlinkArrow(true, 705,15).play();
+          }  
+        })
       }
 
-      function drillMachineAnime(){
-        switch(drillMachineCount){
-          case 0:
-            anime.timeline({
-              easing: "easeInOutQuad",
-                targets: Scenes.items.drill_machine.item,
-                duration: 4000,
-            })
-              .add({
-                keyframes: [                  {left: 394,top: 150},
-                  { left: "-=17",duration: 1500,},
-                  {left: "+=17",duration: 1500,}
-                ],
-                complete(){
-                  Scenes.items.beam_3d_1.hide()
-                      Scenes.items.beam_3d_with_one_hole.set(170,73,350)
-                }
-              })
-              .add({
-                top: 254,
-              })
-              .add({
-                keyframes: [
-                  {left: 236,top: 254},
-                  { left: "-=11",duration: 1500,},
-                  {left: "+=11",duration: 1500,}
-                ],
-                complete(){
-                  Scenes.items.beam_3d_with_one_hole.hide()
-                  Scenes.items.beam_3d_with_holes1.set(170,73,350) 
-                    
-                }
-              })    
-              .add({
-                left: 820,
-                top: 325,
-                duration: 1000,
-                complete(){
-                  setCC("Click on the 'Timber Beam' to add another tim ber beam in the lab.");      
-                      Dom.setBlinkArrow(true, 705,-35).play();
-                }
-              })      
-              break;
+      function hdTowerAnime(){
+        anime.timeline({
+          easing: "easeInOutQuad",
+          duration: 2000,
+        })
+        .add({
+          targets: Scenes.items.ct_prop1.item,
+          left : 0,
+          top: 0,
+          rotate: 0,
+        })
+        .add({
+          targets: Scenes.items.ct_prop2.item,
+          left : 0,
+          top: 0,
+          rotate: 0,
+        })
+        .add({
+          targets: Scenes.items.ct_prop3.item,
+          left : 0,
+          top: 0,
+          rotate: 0,
+        })
+        .add({
+          targets: Scenes.items.ct_prop4.item,
+          left : 0,
+          top: 0,
+          rotate: 0,
+          complete(){
+            setCC("Click on the 'U-Head' to put it on the CT Prop");      
+            Dom.setBlinkArrow(true, 705,65).play();
+          }  
+        })        
+      }
 
-              case 1:
-                anime.timeline({
-                  easing: "easeInOutQuad",
-                    targets: Scenes.items.drill_machine.item,
-                    duration: 2000,
-                })
-                  .add({
-                    keyframes: [
-                      {left: 471,top: 170,},
-                      { left: "-=15",duration: 1500,},
-                      {left: "+=15",duration: 1500,}
-                    ],
-                    complete(){
-                      Scenes.items.beam_3d_2.hide()
-                      Scenes.items.beam_3d_with_one_hole.set(250,93,350)        
-                    }
-                  })
-                  .add({
-                    top: 274,
-                  })
-                  .add({
-                    
-                    keyframes: [
-                      {left: 317,},
-                      { left: "-=12",duration: 1500,},
-                      {left: "+=12",duration: 1500,}
-                    ],
-                    complete(){
-                      Scenes.items.beam_3d_with_one_hole.hide()
-                      Scenes.items.beam_3d_with_holes2.set(250,93,350) 
-                        
-                    }
-                  })    
-                  .add({
-                    left: 820,
-                    top: 325,
-                
-                    complete(){
-                      setCC("Click on the 'Next' to go to next step.");      
-                      Dom.setBlinkArrow(true, 790, 408).play()
+      function uHeadAnime(){
+        anime.timeline({
+          easing: "easeInOutQuad",
+          duration: 2000,
+        })
+        .add({
+          targets: Scenes.items.u_head1.item,
+          keyframes : [
+            {top: 0},
+            {left : 0},
+          ]             
+        })
+        .add({
+          targets: Scenes.items.u_head2.item,
+          keyframes : [
+            {top: 0},
+            {left : 0},
+          ]             
+        })
+        .add({
+          targets: Scenes.items.u_head3.item,
+          keyframes : [
+            {top: 0},
+            {left : 0},
+          ]             
+        })
+        .add({
+          targets: Scenes.items.u_head4.item,
+          keyframes : [
+            {top: 0},
+            {left : 0},
+          ],
+          complete(){
+            Dom.setBlinkArrow(true, 790, 408).play();
+            setCC("Click 'Next' to go to next step");
             setIsProcessRunning(false);
             // Quiz.loadQuiz()
-          }
-                  })     
-                break
-        }                
-        drillMachineCount++                                     
-        }
+          } 
+        })        
+      }
+
+    
 
 
-      setCC("Click on the 'Timber Beam' to add Timber beam in the lab.");      
+      setCC("Click on the 'Base Plate' to place it in the lab.");      
       Dom.setBlinkArrow(true, 705, -35).play()
+
       // onclick
-      contentAdderBtns[0].onclick = timberBeamAnime
-      contentAdderBtns[1].onclick = drillMachineAnime
+      let contentAdderBtns = getAll(".content-adder-box .btn")
+      contentAdderBtns[0].onclick = basePlateAnime
+      contentAdderBtns[1].onclick = hdTowerAnime
+      contentAdderBtns[2].onclick = uHeadAnime
       // remove all the previous elements
       // Dom.hideAll();
       return true;  
 
     }),
-    (step3 = function () {
+    // (step3 = function () {
+    //   setIsProcessRunning(true);
+
+    //   // todo all previous elements hide
+    //   Dom.hideAll();
+    //   Scenes.items.contentAdderBox.item.innerHTML = ""
+
+    //   Scenes.setStepHeading("Step 3", "Attaching horizontal and diagonal bracing to support HD Tower.");
+      
+    //   // Required Elements
+    //   Scenes.items.base_plate1.set(0,0)
+    //   Scenes.items.base_plate2.set(0,0)
+    //   Scenes.items.base_plate3.set(0,0)
+    //   Scenes.items.base_plate4.set(0,0)
+      
+    //   Scenes.items.ct_prop1.set(0,0).zIndex(0)
+    //   Scenes.items.ct_prop2.set(0,0)
+    //   Scenes.items.ct_prop3.set(0,0)
+    //   Scenes.items.ct_prop4.set(0,0).zIndex(2)
+
+    //   Scenes.items.u_head1.set(0,0)
+    //   Scenes.items.u_head2.set(0,0)
+    //   Scenes.items.u_head3.set(0,0)
+    //   Scenes.items.u_head4.set(0,0)
+     
+    //   //! Final position
+    //   Scenes.items.brace_back1.set(0,0)
+    //   Scenes.items.brace_back2.set(0,0)
+    //   Scenes.items.brace_left1.set(0,0).zIndex(1)
+    //   Scenes.items.brace_left2.set(0,0).zIndex(1)
+    //   Scenes.items.brace_right1.set(0,0).zIndex(1)
+    //   Scenes.items.brace_right2.set(0,0).zIndex(1)
+    //   Scenes.items.brace_front1.set(0,0).zIndex(1)
+    //   Scenes.items.brace_front2.set(0,0).zIndex(1)
+      
+    //   Scenes.items.bolt1.set(132,199).rotate(20).zIndex(2)
+    //   Scenes.items.bolt2.set(138,274).rotate(20).zIndex(2)
+    //   Scenes.items.bolt3.set(209,272).rotate(-20).zIndex(2)
+    //   Scenes.items.bolt4.set(209,340).rotate(-20).zIndex(2)
+    //   Scenes.items.bolt5.set(330,202).rotate(-20).zIndex(2)
+    //   Scenes.items.bolt6.set(334,273).rotate(-20).zIndex(2)
+    //   Scenes.items.bolt7.set(258,133).rotate(-120).zIndex(0)
+    //   Scenes.items.bolt8.set(257,200).rotate(-120).zIndex(0)
+
+    //   let hammerAnime  =  anime({
+    //     targets: Scenes.items.hammer.item,
+    //     keyframes: [
+    //       {rotateZ: [0, 30]},
+    //       {rotateZ: [0, 30]},
+    //       {rotateZ: [0, 30]},
+    //       {rotateZ: [0, 30]},
+    //     ],
+    //     autoplay: false,
+    //     duration: 3000,
+    //   })
+      
+      
+      
+      
+    //   Scenes.items.contentAdderBox.set(null,-50).show("flex")
+    //   Scenes.contentAdderAddBtn("Horizontal Bracing")
+    //   Scenes.contentAdderAddBtn("Diagonal Bracing")
+    //   Scenes.contentAdderAddBtn("Bolt")
+
+    //   let contentAdderBtns = getAll(".content-adder-box .btn")
+      
+
+
+    //   const horizontalBracingAnime = ()=>{
+    //     Dom.setBlinkArrow(-1)
+    //         anime({
+    //           easing: "easeInOutQuad",
+    //           targets: [Scenes.items.sheathing.item],
+    //           duration: 6000,
+    //           keyframes: [
+    //             {left: 170},
+    //             {top: 73},
+    //           ],
+    //           complete(){
+    //             Scenes.items.sheathing1.set(384,149,30,10).zIndex(4)
+    //             Scenes.items.sheathing2.set(263,230,30,10).zIndex(4)
+    //             Scenes.items.sheathing3.set(330,248,30,10).zIndex(4)
+    //             Scenes.items.sheathing4.set(459,165,30,10).zIndex(4)
+
+    //             Dom.setBlinkArrow(true, 710,15).play();
+    //             setCC("Click on the 'Nailing' to nail on the sheathing.");
+    //           }
+    //         })
+    //   }
+
+    //   const diagonalBracingAnime = ()=>{
+    //     Dom.setBlinkArrow(-1)
+    //         anime.timeline({
+    //           easing: "easeInOutQuad",
+    //           duration: 2000,
+    //         })
+    //         // * First nailing anime
+    //         .add({
+    //           targets: Scenes.items.nail1.item,
+    //           keyframes:[
+    //             {top: 119},
+    //             {left: 385},
+    //           ],
+    //         })
+    //         .add({
+    //           targets: Scenes.items.hammer.item,
+    //           left: 387,
+    //           top: 86,
+    //         })
+    //         .add({
+    //           begin(){
+    //             hammerAnime.play()
+    //           },
+    //           targets: [Scenes.items.nail1.item,Scenes.items.hammer.item],
+    //           top: ["+=0","+=9","+=9","+=9"],
+    //           duration: 3000
+    //         })
+    //         // * Second nailing animation
+    //         .add({
+    //           targets: Scenes.items.nail2.item,
+    //           keyframes:[
+    //             {top: 200},
+    //             {left: 263},
+    //           ],
+    //         })
+    //         .add({
+    //           targets: Scenes.items.hammer.item,
+    //           left: 264,
+    //           top: 166,
+    //         })
+    //         .add({
+    //           begin(){
+    //             hammerAnime.play()
+    //           },
+    //           targets: [Scenes.items.nail2.item,Scenes.items.hammer.item],
+    //           top: ["+=0","+=9","+=9","+=9"],
+    //           duration: 3000
+    //         })
+    //         // * Second nailing animation
+    //         .add({
+    //           targets: Scenes.items.nail3.item,
+    //           keyframes:[
+    //             {top: 135},
+    //             {left: 460},
+    //           ],
+    //         })
+    //         .add({
+    //           targets: Scenes.items.hammer.item,
+    //           left: 462,
+    //           top: 102,
+    //         })
+    //         .add({
+    //           begin(){
+    //             hammerAnime.play()
+    //           },
+    //           targets: [Scenes.items.nail3.item,Scenes.items.hammer.item],
+    //           top: ["+=0","+=9","+=9","+=9"],
+    //           duration: 3000
+    //         })
+    //         // * Fourth nailing animation
+    //         .add({
+    //           targets: Scenes.items.nail4.item,
+    //           keyframes:[
+    //             {top: 218},
+    //             {left: 329},
+    //           ],
+    //         })
+    //         .add({
+    //           targets: Scenes.items.hammer.item,
+    //           left: 330,
+    //           top: 184,
+    //         })
+    //         .add({
+    //           begin(){
+    //             hammerAnime.play()
+    //           },
+    //           targets: [Scenes.items.nail4.item,Scenes.items.hammer.item],
+    //           top: ["+=0","+=9","+=9","+=9"],
+    //           duration: 3000,
+    //         })
+    //         // * nailing completed ---xxx---
+    //         .add({
+    //           targets: Scenes.items.hammer.item,
+    //           left: 800,
+    //           top: 350,
+    //           rotate: 0,
+    //           complete(){
+    //             Dom.setBlinkArrow(true, 790, 408).play();
+    //             setCC("Click 'Next' to go to next step");
+    //             setIsProcessRunning(false);
+    //             // Quiz.loadQuiz()
+    //           }
+    //         })
+    //   }
+
+    //   const boltAnime = ()=>{
+
+    //   }
+
+    //   Dom.setBlinkArrow(true, 710, -35).play();
+    //   setCC("Click on the 'Sheathing' to put it on the beam.");
+    //   // onclick
+    //   contentAdderBtns[0].onclick = horizontalBracingAnime;
+    //   contentAdderBtns[1].onclick = diagonalBracingAnime;
+    //   contentAdderBtns[2].onclick = boltAnime;
+
+    //   return true;
+    // }),
+    (step4 = function () {
+      Dom.hideAll(); 
       setIsProcessRunning(true);
+      Scenes.items.contentAdderBox.setContent("");
+      Scenes.setStepHeading(
+        "Step 4",
+        "Placing aluminum beam and timber beam on the top of basic frame."
+      );
 
-      // todo all previous elements hide
-      Dom.hideAll();
-      Scenes.items.contentAdderBox.item.innerHTML = ""
+    // ! required item
+    Scenes.items.base_plate1.set(0,0)
+    Scenes.items.base_plate2.set(0,0)
+    Scenes.items.base_plate3.set(0,0)
+    Scenes.items.base_plate4.set(0,0)
+    
+    Scenes.items.ct_prop1.set(0,0).zIndex(0)
+    Scenes.items.ct_prop2.set(0,0)
+    Scenes.items.ct_prop3.set(0,0)
+    Scenes.items.ct_prop4.set(0,0).zIndex(2)
 
-      // Required Elements
-      Scenes.setStepHeading("Step 3", "Place plywood sheathing on timber beam with the help of nailing ");
+    Scenes.items.u_head1.set(0,0)
+    Scenes.items.u_head2.set(0,0)
+    Scenes.items.u_head3.set(0,0)
+    Scenes.items.u_head4.set(0,0)
 
-      Scenes.items.beam_3d_with_holes1.set(178,78,345)
-      Scenes.items.beam_3d_with_holes2.set(250,93,350)
-      Scenes.items.beam_3d_with_holes_nailing_helper.set(250,93,350).zIndex(5)
-      Scenes.items.hammer.set(800,350,45).zIndex(6)
-      Scenes.items.nail1.set(780,370,30).zIndex(3)
-      Scenes.items.nail2.set(770,370,30).zIndex(3)
-      Scenes.items.nail3.set(760,370,30).zIndex(3)
-      Scenes.items.nail4.set(750,370,30).zIndex(3)
-      Scenes.items.sheathing.set(-370,20,358).zIndex(2)
+    Scenes.items.brace_back1.set(0,0)
+    Scenes.items.brace_back2.set(0,0)
+    Scenes.items.brace_left1.set(0,0).zIndex(1)
+    Scenes.items.brace_left2.set(0,0).zIndex(1)
+    Scenes.items.brace_right1.set(0,0).zIndex(1)
+    Scenes.items.brace_right2.set(0,0).zIndex(1)
+    Scenes.items.brace_front1.set(0,0).zIndex(1)
+    Scenes.items.brace_front2.set(0,0).zIndex(1)
+    
+    Scenes.items.bolt1.set(132,199).rotate(20).zIndex(2)
+    Scenes.items.bolt2.set(138,274).rotate(20).zIndex(2)
+    Scenes.items.bolt3.set(209,272).rotate(-20).zIndex(2)
+    Scenes.items.bolt4.set(209,340).rotate(-20).zIndex(2)
+    Scenes.items.bolt5.set(330,202).rotate(-20).zIndex(2)
+    Scenes.items.bolt6.set(334,273).rotate(-20).zIndex(2)
+    Scenes.items.bolt7.set(258,133).rotate(-120).zIndex(0)
+    Scenes.items.bolt8.set(257,200).rotate(-120).zIndex(0)
 
+    Scenes.items.aluminium_beam1.set(300,350).zIndex(4).rotate(30)
+    Scenes.items.aluminium_beam2.set(265,290).zIndex(4).rotate(30)
+    Scenes.items.beam1.set(510,-20).zIndex(4).rotate(-38.5)
+    Scenes.items.beam2.set(520,-15).zIndex(4).rotate(-38.5)
+    Scenes.items.beam3.set(530,-10).zIndex(4).rotate(-38.5)
+    Scenes.items.beam4.set(540,0).zIndex(4).rotate(-37)
+    Scenes.items.beam5.set(550,6).zIndex(4).rotate(-37)
+    Scenes.items.beam6.set(560,7).zIndex(4).rotate(-38)
+
+    //! final pos
+
+    // content adder
+    Scenes.items.contentAdderBox.set(null, -50).show("flex").push()
+    Scenes.contentAdderAddBtn("Aluminium Beam")
+    Scenes.contentAdderAddBtn("Timber Beam")
+    let contentAdderBtns = getAll(".content-adder-box .btn")
+      
+    function aluminiumBeamAnime(){
+      anime.timeline({
+        easing: "easeInOutQuad",
+        duration: 2000,
+      })
+      .add({
+        targets: Scenes.items.aluminium_beam1.item,
+        left : 0,
+        top: 0,
+        rotate: 0,
+      })
+      .add({
+        targets: Scenes.items.aluminium_beam2.item,
+        left : 0,
+        top: 0,
+        rotate: 0,
+        complete(){
+          setCC("Click on the 'Timber Beam' to add timber beam.");      
+          Dom.setBlinkArrow(true, 705,15).play();
+        }  
+      })
+    }
+
+    function timberBeamAnime(){
+      anime.timeline({
+        easing: "easeInOutQuad",
+        duration: 2000,
+      })
+      .add({
+        targets: Scenes.items.beam1.item,
+        left : 0,
+        top: 0,
+        rotate: 0,
+      })
+      .add({
+        targets: Scenes.items.beam2.item,
+        left : 0,
+        top: 0,
+        rotate: 0,
+      })
+      .add({
+        targets: Scenes.items.beam3.item,
+        left : 0,
+        top: 0,
+        rotate: 0,
+      })
+      .add({
+        targets: Scenes.items.beam4.item,
+        left : 0,
+        top: 0,
+        rotate: 0,
+      })
+      .add({
+        targets: Scenes.items.beam5.item,
+        left : 0,
+        top: 0,
+        rotate: 0,
+      })
+      .add({
+        targets: Scenes.items.beam6.item,
+        left : 0,
+        top: 0,
+        rotate: 0,
+        complete(){
+          Dom.setBlinkArrow(true, 790, 408).play();
+          setCC("Click 'Next' to go to next step");
+          setIsProcessRunning(false);
+          // Quiz.loadQuiz()
+        }   
+      })        
+    }
+     
+     
+     
+     //onclick pipe waler 
+     contentAdderBtns[0].onclick = aluminiumBeamAnime;
+     contentAdderBtns[1].onclick = timberBeamAnime;
+
+     return true;
+
+    }),
+    (step5 = function () {
+      setIsProcessRunning(true);
+      Dom.hideAll()
+      Scenes.setStepHeading(
+        "Step 5",
+        "Placing sheathing on the top of timber beam."
+      );
+      // todo remove all previous
+      Scenes.items.contentAdderBox.setContent("");
+
+      //! Required Items
+      Scenes.items.base_plate1.set(0,0)
+      Scenes.items.base_plate2.set(0,0)
+      Scenes.items.base_plate3.set(0,0)
+      Scenes.items.base_plate4.set(0,0)
+      
+      Scenes.items.ct_prop1.set(0,0).zIndex(0)
+      Scenes.items.ct_prop2.set(0,0)
+      Scenes.items.ct_prop3.set(0,0)
+      Scenes.items.ct_prop4.set(0,0).zIndex(2)
+
+      Scenes.items.u_head1.set(0,0)
+      Scenes.items.u_head2.set(0,0)
+      Scenes.items.u_head3.set(0,0)
+      Scenes.items.u_head4.set(0,0)
+
+      Scenes.items.brace_back1.set(0,0)
+      Scenes.items.brace_back2.set(0,0)
+      Scenes.items.brace_left1.set(0,0).zIndex(1)
+      Scenes.items.brace_left2.set(0,0).zIndex(1)
+      Scenes.items.brace_right1.set(0,0).zIndex(1)
+      Scenes.items.brace_right2.set(0,0).zIndex(1)
+      Scenes.items.brace_front1.set(0,0).zIndex(1)
+      Scenes.items.brace_front2.set(0,0).zIndex(1)
+      
+      Scenes.items.bolt1.set(132,199).rotate(20).zIndex(2)
+      Scenes.items.bolt2.set(138,274).rotate(20).zIndex(2)
+      Scenes.items.bolt3.set(209,272).rotate(-20).zIndex(2)
+      Scenes.items.bolt4.set(209,340).rotate(-20).zIndex(2)
+      Scenes.items.bolt5.set(330,202).rotate(-20).zIndex(2)
+      Scenes.items.bolt6.set(334,273).rotate(-20).zIndex(2)
+      Scenes.items.bolt7.set(258,133).rotate(-120).zIndex(0)
+      Scenes.items.bolt8.set(257,200).rotate(-120).zIndex(0)
+
+      Scenes.items.aluminium_beam1.set(0,0).zIndex(4)
+      Scenes.items.aluminium_beam2.set(0,0).zIndex(4)
+      Scenes.items.beam1.set(0,0).zIndex(4)
+      Scenes.items.beam2.set(0,0).zIndex(4)
+      Scenes.items.beam3.set(0,0).zIndex(4)
+      Scenes.items.beam4.set(0,0).zIndex(4)
+      Scenes.items.beam5.set(0,0).zIndex(4)
+      Scenes.items.beam6.set(0,0).zIndex(4)                                 
+      
+      Scenes.items.sheathing1.set(-330,-80).zIndex(5)
+
+      Scenes.items.nail1.set(580,200).zIndex(6)
+      Scenes.items.nail2.set(560,177).zIndex(6)
+      Scenes.items.nail3.set(478,270).zIndex(6)
+      Scenes.items.nail4.set(457,243).zIndex(6)
+
+      Scenes.items.hammer.set(790, 332,30).zIndex(7)
+
+
+      // ! final pos
       let hammerAnime  =  anime({
         targets: Scenes.items.hammer.item,
         keyframes: [
@@ -1265,582 +1657,148 @@ const Scenes = {
         autoplay: false,
         duration: 3000,
       })
-      
-      //! Remove
-      // Scenes.items.sheathing.set(170,73,358)
-
-      // Scenes.items.sheathing1.set(384,149,30,10).zIndex(4)
-      // Scenes.items.nail1.set(385,119,30).zIndex(3)
-      
-      // Scenes.items.sheathing2.set(263,230,30,10).zIndex(4)
-      // Scenes.items.nail2.set(263,200,30).zIndex(3)
-      // Scenes.items.sheathing3.set(330,248,30,10).zIndex(4)
-      // Scenes.items.nail3.set(460,135,30).zIndex(3)
-      
-      // Scenes.items.sheathing4.set(459,165,30,10).zIndex(4)0
-      // Scenes.items.nail4.set(329,218,30).zIndex(3)
-      
-      
-      // Scenes.items.hammer.set(387,86,42).zIndex(6)
-      // Scenes.items.hammer.set(264,166,42).zIndex(6)
-      // Scenes.items.hammer.set(462,102,42).zIndex(6)
-      // Scenes.items.hammer.set(330, 184, 42).zIndex(6)
-      
-      // Scenes.items.nail1.set(385,146,30).zIndex(3)
-      
-      Scenes.items.contentAdderBox.set(null,-50).show("flex")
-      Scenes.contentAdderAddBtn("Sheathing")
-      Scenes.contentAdderAddBtn("Nailing")
-
-      let contentAdderBtns = getAll(".content-adder-box .btn")
-      
-      //* remove
-
-
-      const sheathingAnime = ()=>{
-        Dom.setBlinkArrow(-1)
-            anime({
-              easing: "easeInOutQuad",
-              targets: [Scenes.items.sheathing.item],
-              duration: 6000,
-              keyframes: [
-                {left: 170},
-                {top: 73},
-              ],
-              complete(){
-                Scenes.items.sheathing1.set(384,149,30,10).zIndex(4)
-                Scenes.items.sheathing2.set(263,230,30,10).zIndex(4)
-                Scenes.items.sheathing3.set(330,248,30,10).zIndex(4)
-                Scenes.items.sheathing4.set(459,165,30,10).zIndex(4)
-
-                Dom.setBlinkArrow(true, 710,15).play();
-                setCC("Click on the 'Nailing' to nail on the sheathing.");
-              }
-            })
-          }
-
-      const nailingAnime = ()=>{
-        Dom.setBlinkArrow(-1)
-            anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 2000,
-            })
-            // * First nailing anime
-            .add({
-              targets: Scenes.items.nail1.item,
-              keyframes:[
-                {top: 119},
-                {left: 385},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 387,
-              top: 86,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items.nail1.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9","+=9"],
-              duration: 3000
-            })
-            // * Second nailing animation
-            .add({
-              targets: Scenes.items.nail2.item,
-              keyframes:[
-                {top: 200},
-                {left: 263},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 264,
-              top: 166,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items.nail2.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9","+=9"],
-              duration: 3000
-            })
-            // * Second nailing animation
-            .add({
-              targets: Scenes.items.nail3.item,
-              keyframes:[
-                {top: 135},
-                {left: 460},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 462,
-              top: 102,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items.nail3.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9","+=9"],
-              duration: 3000
-            })
-            // * Fourth nailing animation
-            .add({
-              targets: Scenes.items.nail4.item,
-              keyframes:[
-                {top: 218},
-                {left: 329},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 330,
-              top: 184,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items.nail4.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9","+=9"],
-              duration: 3000,
-            })
-            // * nailing completed ---xxx---
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 800,
-              top: 350,
-              rotate: 0,
-              complete(){
-                Dom.setBlinkArrow(true, 790, 408).play();
-                setCC("Click 'Next' to go to next step");
-                setIsProcessRunning(false);
-                // Quiz.loadQuiz()
-              }
-            })
-      }
-
-      Dom.setBlinkArrow(true, 710, -35).play();
-      setCC("Click on the 'Sheathing' to put it on the beam.");
-      // onclick
-      contentAdderBtns[0].onclick = sheathingAnime;
-      contentAdderBtns[1].onclick = nailingAnime;
-
-      return true;
-    }),
-    (step4 = function () {
-      Dom.hideAll(); 
-      setIsProcessRunning(true);
-      Scenes.items.contentAdderBox.setContent("");
-      Scenes.setStepHeading(
-        "Step 4",
-        "Join the steel waler with timber beam using flenge claw assembly."
-      );
-
-    // required items
-
-    Scenes.items.flange_claw1.set(569,280,50,60).rotate(0).zIndex(4)
-    Scenes.items.flange_claw2.set(630,280,50,60).rotate(0).zIndex(4)
-    Scenes.items.flange_claw3.set(599,330,50,60).rotate(0).zIndex(4)
-    Scenes.items.flange_claw4.set(660,330,50,60).rotate(0).zIndex(4)
-    Scenes.items.steel_waler_blue1.set(748,280,30,135).zIndex(5)
-    Scenes.items.steel_waler_blue2.set(748,330,30,135).zIndex(5)
-
- 
-
-    // Scenes.items.flange_claw1.set(611,352,50)
-    // Scenes.items.flange_claw2.set(622,270,50)
-    // Scenes.items.flange_claw3.set(555,352,50)
-    // Scenes.items.flange_claw4.set(562,270,50)
-
-    // ! before rotation
-    Scenes.items.beam_3d_with_holes1.set(178-160,78,345)
-    Scenes.items.beam_3d_with_holes2.set(250-160,93,350)
-    Scenes.items.beam_3d_with_holes_nailing_helper.set(250-160,93,350).zIndex(5)
-    Scenes.items.sheathing.set(170-160,75,358).zIndex(2)
-    Scenes.items.sheathing1.set(384-160,149,30,10).zIndex(4)
-    Scenes.items.sheathing2.set(263-160,230,30,10).zIndex(4)
-    Scenes.items.sheathing3.set(330-160,248,30,10).zIndex(4)
-    Scenes.items.sheathing4.set(459-160,165,30,10).zIndex(4)
-    Scenes.items.nail1.set(385-160,148,30).zIndex(3)
-    Scenes.items.nail2.set(263-160,229,30).zIndex(3)
-    Scenes.items.nail3.set(460-160,162,30).zIndex(3)
-    Scenes.items.nail4.set(329-160,247,30).zIndex(3)
-    Scenes.items.tempTitle1.set(40,327).setContent("Before Rotation").hide()
-    
-    // ! after rotation
-    Scenes.items.beam_3d_with_holes3.set(178+150,78,345).zIndex(2).hide()
-    Scenes.items.beam_3d_with_holes4.set(250+150,93,350).zIndex(2).hide()
-    Scenes.items.sheathing_full2.set(173+150,110,358).hide()
-    Scenes.items.tempTitle2.set(340,327).setContent("After Rotation").hide()
-    
-    // Scenes.items.steel_waler1.set()
-    // Scenes.items.steel_waler2.set()
-
-    
-
-    //! final pos
-    // Scenes.items.steel_waler1.set(734,328,30)
-    // Scenes.items.steel_waler2.set(734,373,30)
-    // Scenes.items.steel_waler_tilt1.set(300,125,65).zIndex(5).rotate(-4)
-    // Scenes.items.steel_waler_tilt2.set(155,224,65).zIndex(5).rotate(-4)
-    // Scenes.items.flange_claw1.set(378,143,50,60).rotate(127).zIndex(4)
-    // Scenes.items.flange_claw2.set(303,122,50,60).rotate(127).zIndex(4)
-    // Scenes.items.flange_claw3.set(240,244,50,60).rotate(130).zIndex(4)
-    // Scenes.items.flange_claw4.set(156,220,50,60).rotate(130).zIndex(4)
-    
-
-    // content adder
-    Scenes.items.contentAdderBox.set(null, -50).show("flex").push()
-    Scenes.contentAdderAddBtn("Steel Waler")
-    Scenes.contentAdderAddBtn("Flange Claw")
-    let contentAdderBtns = getAll(".content-adder-box .btn")
-      
-    const beforeAfterRotationAnime = ()=>{
-      anime.timeline({
-        easing: "easeInOutQuad",
-        duration: 1000,
-      })
-      .add({
-        complete(){
-          Scenes.items.arrowRound.set(350,70,80)
-        }
-      })
-      .add({
-        complete(){
-          Scenes.items.beam_3d_with_holes3.show()
-          Scenes.items.beam_3d_with_holes4.show()
-          Scenes.items.sheathing_full2.show()
-        }
-      })
-      .add({
-        complete(){
-          Scenes.items.tempTitle1.set(40,327).setContent("Before Rotation").show()
-          Scenes.items.tempTitle2.set(390,327).setContent("After Rotation").show()      
-        }
-      })
-      .add({
-        duration: 4000,
-        complete(){
-          Scenes.items.arrowRound.hide()
-          Scenes.items.tempTitle1.hide()
-          Scenes.items.tempTitle2.hide()
-
-
-          Scenes.items.beam_3d_with_holes1.hide()
-          Scenes.items.beam_3d_with_holes2.hide()
-          Scenes.items.beam_3d_with_holes_nailing_helper.hide()
-          Scenes.items.sheathing.hide()
-          Scenes.items.sheathing1.hide()
-          Scenes.items.sheathing2.hide()
-          Scenes.items.sheathing3.hide()
-          Scenes.items.sheathing4.hide()
-          Scenes.items.nail1.hide()
-          Scenes.items.nail2.hide()
-          Scenes.items.nail3.hide()
-          Scenes.items.nail4.hide()
-
-        }
-      })
-      .add({
-        targets: [Scenes.items.beam_3d_with_holes4.item,Scenes.items.beam_3d_with_holes3.item,Scenes.items.sheathing_full2.item],
-        left: "-=200",
-        complete(){
-          Dom.setBlinkArrow(true,718,-35).play()
-          setCC("Click on the 'Steel Waler' to put it on the beam.")
-        }
-      })
-      .add({
-        targets: Scenes.items.beam_3d_with_holes4.item,
-        // left: 
-      })
-
-    }
-    
-    let steelWalerCount = 0
-    const steelWalerAnime = ()=>{
-    switch(steelWalerCount){
-      case 0:
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 2000,
-        })
-        .add({
-          targets: Scenes.items.steel_waler_blue1.item,
-          left: 300,
-          top: 125,
-          complete(){
-            Scenes.items.steel_waler_blue1.hide()
-            // tilt position of stel waler
-            Scenes.items.steel_waler_tilt1.set(300,125,65).zIndex(5).rotate(-4)
-
-            Dom.setBlinkArrow(true,718,15).play()
-            setCC("Click on the 'Flange Claw' to attach it with steel waler.")
-          }
-        })
-        break
-      
-      case 1:
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 2000,
-        })
-        .add({
-          targets: Scenes.items.steel_waler_blue2.item,
-          left: 155,
-          top: 224,
-          complete(){
-            Scenes.items.steel_waler_blue2.hide()
-            // tilt position of steel waler
-            Scenes.items.steel_waler_tilt2.set(155,224,65).zIndex(5).rotate(-4)
-            Dom.setBlinkArrow(true,718,15).play()
-            setCC("Click on the 'Flange Claw' to attach it with steel waler.")
-          }
-        })
-        break
-    }
-    steelWalerCount++
-    }
-
-    let flangeClawCount = 0
-    const flangeClawAnime = ()=>{
-      switch(flangeClawCount){
-        case 0:
-          anime.timeline({
-            easing: "easeInOutQuad",
-            duration: 2000
-          })
-          .add({
-            targets: Scenes.items.flange_claw1.item,
-            left: 303,
-            top: 122,
-            rotate: 127,
-          })
-          .add({
-            targets: Scenes.items.flange_claw2.item,
-            left: 378,
-            top: 143,
-            rotate: 127,
-            complete(){
-              Dom.setBlinkArrow(true,718,-35).play()
-              setCC("Click on the 'Steel Waler' to put it on the beam.")
-            }
-          })
-          break
-
-          case 1:
-            anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 2000
-            })
-            .add({
-              targets: Scenes.items.flange_claw3.item,
-              left: 156,
-              top: 220,
-              rotate: 130,
-            })
-            .add({
-              targets: Scenes.items.flange_claw4.item,
-              left: 240,
-              top: 244,
-              rotate: 130,
-              complete(){
-                Dom.setBlinkArrow(true, 790, 408).play();
-                setCC("Click 'Next' to go to next step");
-                setIsProcessRunning(false);
-                // Quiz.loadQuiz()
-              }
-            })
-            break
-      }
-      flangeClawCount++;
-    }
-
-     //! starter animes
-     beforeAfterRotationAnime()
-     
-     
-     //onclick pipe waler 
-     contentAdderBtns[0].onclick = steelWalerAnime;
-     contentAdderBtns[1].onclick = flangeClawAnime;
-
-     return true;
-
-    }),
-    (step5 = function () {
-      setIsProcessRunning(true);
-      Dom.hideAll()
-      Scenes.setStepHeading(
-        "Step 5",
-        "Lift the one side of column and attach CT prop."
-      );
-      // todo remove all previous
-      Scenes.items.contentAdderBox.setContent("");
-
-      //! Required Items
-      Scenes.items.beam_3d_with_holes3.set(178-100,78,345).zIndex(2)
-      Scenes.items.beam_3d_with_holes4.set(250-100,93,350).zIndex(2)
-      Scenes.items.sheathing_full2.set(173-100,110,358)
-      Scenes.items.tempTitle1.set(500,370).setContent("After Lifting").hide()
-
-      Scenes.items.steel_waler_tilt1.set(300-50,125,65).zIndex(5).rotate(-4)
-      Scenes.items.steel_waler_tilt2.set(155-50,224,65).zIndex(5).rotate(-4)
-      Scenes.items.flange_claw1.set(378-50,143,50,60).rotate(127).zIndex(4)
-      Scenes.items.flange_claw2.set(303-50,122,50,60).rotate(127).zIndex(4)
-      Scenes.items.flange_claw3.set(240-50,244,50,60).rotate(130).zIndex(4)
-      Scenes.items.flange_claw4.set(156-50,220,50,60).rotate(130).zIndex(4)
-      Scenes.items.column_side1.set(400,10,350).hide()
-      
-      
-      // !final pos
-      // Scenes.items.head_adapter1.set(220+150,90,25).rotate(35).zIndex(10)
-      // Scenes.items.head_adapter2.set(220+150,250,25).rotate(35).zIndex(10)
-      // Scenes.items.ct_prop1.     set(135+150,80,280,50).rotate(32).zIndex(11)
-      // Scenes.items.ct_prop2.     set(135+150,210,178,50).rotate(60).zIndex(11)
-      // Scenes.items.foot_adapter1.set(55+150,280,75).zIndex(12)
-     
 
       // content adder
       Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
-      Scenes.contentAdderAddBtn("Head Adapter");
-      Scenes.contentAdderAddBtn("Foot Adapter");
-      Scenes.contentAdderAddBtn("CT Prop");
+      Scenes.contentAdderAddBtn("Sheathing")
+      Scenes.contentAdderAddBtn("Nailing")
 
       let contentAdderBtns = getAll(".content-adder-box .btn");
 
-      const beforeAfterAnime = ()=>{
+      const sheathingAnime = ()=>{
+        Dom.setBlinkArrow(-1)
         anime.timeline({
           easing: "easeInOutQuad",
-          duration: 1000,
+          
         })
         .add({
-          complete(){
-            Scenes.items.arrowRound.set(350,50,65)
-          }
-        })
-        .add({
-          complete(){
-            Scenes.items.column_side1.show()
-          }
-        })
-        .add({
-          complete(){
-            Scenes.items.tempTitle1.show()      
-          }
-        })
-        .add({
+          targets: [Scenes.items.sheathing1.item],
           duration: 4000,
+          keyframes: [
+            {left: 0},
+            {top: 0},
+          ],
           complete(){
-            Scenes.items.arrowRound.hide()
-            Scenes.items.tempTitle1.hide()
-  
-  
-            Scenes.items.beam_3d_with_holes3.hide()
-            Scenes.items.beam_3d_with_holes4.hide()
-            Scenes.items.sheathing_full2.hide()
-            Scenes.items.steel_waler_tilt1.hide()
-            Scenes.items.steel_waler_tilt2.hide()
-            Scenes.items.flange_claw1.hide()
-            Scenes.items.flange_claw2.hide()
-            Scenes.items.flange_claw3.hide()
-            Scenes.items.flange_claw4.hide()
-      
-  
+            Scenes.items.nail_helper.set(0,0).zIndex(6)
+            Scenes.items.nail_helper_beam.set(0,0).zIndex(6)
+
+            Dom.setBlinkArrow(true, 710,15).play();
+            setCC("Click on the 'Nailing' to nail on the sheathing.");
           }
-        })        .add({
-          targets: Scenes.items.column_side1.item,
-          left: "-=150",
-          complete(){
-           
-            Scenes.items.head_adapter1.set(400,360,25    ).zIndex(10)
-            Scenes.items.head_adapter2.set(440,360,25    ).zIndex(10)
-            Scenes.items.foot_adapter1.set(510,310,75    ).zIndex(12)
-            Scenes.items.ct_prop1.     set(187,225,280,50).rotate(90).zIndex(11)
-            Scenes.items.ct_prop2.     set(153,305,178,50).rotate(90).zIndex(11)
-
-            setCC("Click on the 'Head Adapter' to connect it with steel waler.")
-            Dom.setBlinkArrow(true,680,-35).play()
-
-          }
-        })  
-      }
-
-      const headAdapterAnime = ()=>{
-            anime.timeline({
-                easing: "easeInOutQuad",
-                duration: 1000,
-            })
-            .add({
-              targets: Scenes.items.head_adapter1.item,
-              left:220+150,
-              top:90,
-              rotate: 35
-            })
-            .add({
-              targets: Scenes.items.head_adapter2.item,
-              left:220+150,
-              top:250,
-              rotate: 35,
-              complete(){
-                setCC("Click on the 'Foot Adapter' to support the CT Prop.")
-                Dom.setBlinkArrow(true,700,15).play()
-              }
-            })
-     
+        })
       }
       
-      const footAdapterAnime = ()=>{
-            anime({
-              easing: "easeInOutQuad",
-              targets: Scenes.items.foot_adapter1.item,
-              left:55+150,
-              top:280,
-              duration: 1000,
-              complete(){
-                setCC("Click on the 'CT Prop' to support the form floor panel.")
-                Dom.setBlinkArrow(true,700,65).play()
-              }
-            })
+      const nailingAnime = ()=>{
+        Dom.setBlinkArrow(-1)
+        anime.timeline({
+          easing: "easeInOutQuad",
+          duration: 2000,
+        })
+        // ! First nailing anime
+        .add({
+          targets: Scenes.items.nail1.item,
+          keyframes:[
+            {top: 0},
+            {left: 0},
+          ],
+        })
+        .add({
+          targets: Scenes.items.hammer.item,
+          left: 144,
+          top: 130,
+        })
+        .add({
+          begin(){
+            hammerAnime.play()
+          },
+          targets: [Scenes.items.nail1.item,Scenes.items.hammer.item],
+          top: ["+=0","+=9","+=6"],
+          duration: 3000
+        })
+        // ! Second nailing animation
+        .add({
+          targets: Scenes.items.nail2.item,
+          keyframes:[
+            {top: 0},
+            {left: 0},
+          ],
+        })
+        .add({
+          targets: Scenes.items.hammer.item,
+          left: 180,
+          top: 155,
+        })
+        .add({
+          begin(){
+            hammerAnime.play()
+          },
+          targets: [Scenes.items.nail2.item,Scenes.items.hammer.item],
+          top: ["+=0","+=9","+=9"],
+          duration: 3000
+        })
+        // ! Third nailing animation
+        .add({
+          targets: Scenes.items.nail3.item,
+          keyframes:[
+            {top: 0},
+            {left: 0},
+          ],
+        })
+        .add({
+          targets: Scenes.items.hammer.item,
+          left: 278,
+          top: 61,
+        })
+        .add({
+          begin(){
+            hammerAnime.play()
+          },
+          targets: [Scenes.items.nail3.item,Scenes.items.hammer.item],
+          top: ["+=0","+=9","+=5"],
+          duration: 3000
+        })
+        // ! 4 nailing animation
+        .add({
+          targets: Scenes.items.nail4.item,
+          keyframes:[
+            {top: 0},     
+            {left: 0},
+          ],
+        })
+        .add({
+          targets: Scenes.items.hammer.item,
+          left: 314,
+          top: 87,
+        })
+        .add({
+          begin(){
+            hammerAnime.play()
+          },
+          targets: [Scenes.items.nail4.item,Scenes.items.hammer.item],
+          top: ["+=0","+=9","+=5"],
+          duration: 3000
+        })
+       
+        // ! nailing completed ---xxx---
+        .add({
+          targets: Scenes.items.hammer.item,
+          left: 800,
+          top: 350,
+          rotate: 0,
+          complete(){
+            Dom.setBlinkArrow(true, 790, 408).play();
+            setCC("Click 'Next' to go to next step");
+            setIsProcessRunning(false);
+            // Quiz.loadQuiz()
+          }
+        })
       }
   
-      const ctPropAnime = ()=>{
-            anime.timeline({
-                easing: "easeInOutQuad",
-                duration: 1000,
-            })
-            .add({
-              targets: Scenes.items.ct_prop1.item,
-              left:135+150, 
-              top:80,
-              rotate: 32
-            })
-            .add({
-              targets: Scenes.items.ct_prop2.item,
-              left:135+150, 
-              top:210,
-              rotate: 60,
-              complete(){
-                setCC("Click 'Next' to go to next step");
-                Dom.setBlinkArrow(true, 790, 408).play();
-                setIsProcessRunning(false);
-                // Quiz.loadQuiz()
-              }
-            })
-      }
-
-
-    // !starter animes
-    beforeAfterAnime()
-    
-    
+      setCC("Click on the 'Sheathing' to add sheathing in the lab.");      
+      Dom.setBlinkArrow(true, 720,-35).play();
     //onclick
-    contentAdderBtns[0].onclick = headAdapterAnime
-    contentAdderBtns[1].onclick = footAdapterAnime
-    contentAdderBtns[2].onclick = ctPropAnime
+    contentAdderBtns[0].onclick = sheathingAnime
+    contentAdderBtns[1].onclick = nailingAnime
 
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
@@ -1859,21 +1817,79 @@ const Scenes = {
 
       Scenes.setStepHeading(
         "Step 6",
-        "Bring timber beam and drill holes on it to make other side."
+        "Placing inner and outer beam with the help of beam forming support (BFS) with extension."
       );
 
-      // todo remove all previous
-      Scenes.items.contentAdderBox.setContent("");
 
-      // todo Required Items
-      Scenes.items._wall_beam1.set(950,0)
-      Scenes.items._wall_beam2.set(950,0)
-      Scenes.items._wall_beam3.set(950,0)
-      Scenes.items._wall_beam4.set(950,0)
-      Scenes.items._wall_beam5.set(950,0)
-      Scenes.items._wall_beam6.set(950,0)
-        
-      Scenes.items.drill_machine.set(820,325,60).zIndex(2) 
+    // todo Required Items
+    Scenes.items.base_plate1.set(0,0)
+    Scenes.items.base_plate2.set(0,0)
+    Scenes.items.base_plate3.set(0,0)
+    Scenes.items.base_plate4.set(0,0)
+    
+    Scenes.items.ct_prop1.set(0,0).zIndex(0)
+    Scenes.items.ct_prop2.set(0,0)
+    Scenes.items.ct_prop3.set(0,0)
+    Scenes.items.ct_prop4.set(0,0).zIndex(2)
+
+    Scenes.items.u_head1.set(0,0)
+    Scenes.items.u_head2.set(0,0)
+    Scenes.items.u_head3.set(0,0)
+    Scenes.items.u_head4.set(0,0)
+
+    Scenes.items.brace_back1.set(0,0)
+    Scenes.items.brace_back2.set(0,0)
+    Scenes.items.brace_left1.set(0,0).zIndex(1)
+    Scenes.items.brace_left2.set(0,0).zIndex(1)
+    Scenes.items.brace_right1.set(0,0).zIndex(1)
+    Scenes.items.brace_right2.set(0,0).zIndex(1)
+    Scenes.items.brace_front1.set(0,0).zIndex(1)
+    Scenes.items.brace_front2.set(0,0).zIndex(1)
+    
+    Scenes.items.bolt1.set(132,199).rotate(20).zIndex(2)
+    Scenes.items.bolt2.set(138,274).rotate(20).zIndex(2)
+    Scenes.items.bolt3.set(209,272).rotate(-20).zIndex(2)
+    Scenes.items.bolt4.set(209,340).rotate(-20).zIndex(2)
+    Scenes.items.bolt5.set(330,202).rotate(-20).zIndex(2)
+    Scenes.items.bolt6.set(334,273).rotate(-20).zIndex(2)
+    Scenes.items.bolt7.set(258,133).rotate(-120).zIndex(0)
+    Scenes.items.bolt8.set(257,200).rotate(-120).zIndex(0)
+
+    Scenes.items.aluminium_beam1.set(0,0).zIndex(4)
+    Scenes.items.aluminium_beam2.set(0,0).zIndex(4)
+    Scenes.items.beam1.set(0,0).zIndex(4)
+    Scenes.items.beam2.set(0,0).zIndex(4)
+    Scenes.items.beam3.set(0,0).zIndex(4)
+    Scenes.items.beam4.set(0,0).zIndex(4)
+    Scenes.items.beam5.set(0,0).zIndex(4)
+    Scenes.items.beam6.set(0,0).zIndex(4)                                 
+    
+    Scenes.items.sheathing1.set(0,0).zIndex(5)
+    Scenes.items.nail_helper.set(0,0).zIndex(6)
+    Scenes.items.nail_helper_beam.set(0,0).zIndex(6)
+
+    Scenes.items.nail1.set(0,15).zIndex(6)
+    Scenes.items.nail2.set(0,18).zIndex(6)
+    Scenes.items.nail3.set(0,14).zIndex(6)
+    Scenes.items.nail4.set(0,14).zIndex(6)
+
+    Scenes.items.bfs_left1.set(430-150,270-120).zIndex(7)
+    Scenes.items.bfs_left2.set(538-150,238-120).zIndex(7)
+    Scenes.items.bfs_left3.set(640-150,205-120).zIndex(7)
+    
+    Scenes.items.beam_left1.set(300,268).zIndex(8).rotate(26.5)
+    Scenes.items.beam_left2.set(285,325).zIndex(8).rotate(26.5)
+
+    Scenes.items.sheathing2.set(270,360).zIndex(9).rotate(28)
+  
+
+    Scenes.items.videoBox.set(710,140,null).show("flex")
+    Scenes.items.videoBoxSrc.set(0,null,200)
+    Scenes.items.videoBoxSrc.item.src= Scenes.items.bfs_video.item.src
+    Scenes.items.videoBoxTitle.setContent("BFS Installation")
+    Scenes.items.videoBoxRestartBtn.item.onclick = ()=>{
+      Scenes.items.videoBoxSrc.item.play()
+    }
 
     // image Box
     // Scenes.items.imageBox.show("flex").set(750,200)
@@ -1894,233 +1910,182 @@ const Scenes = {
     // content adder
     Scenes.items.contentAdderBox.set(null, -50).show("flex").push()
     
-    Scenes.contentAdderAddBtn("Beam")
-    Scenes.contentAdderAddBtn("Drill")
-    Scenes.contentAdderAddBtn("Repeat")
+    Scenes.contentAdderAddBtn("BFS")
+    Scenes.contentAdderAddBtn("Timber Beam")
+    Scenes.contentAdderAddBtn("Sheathing")
 
     let contentAdderBtns = getAll(".content-adder-box .btn")
     
-    let timberBeamCount = 0
-    let drillMachineCount = 0
-
-    function timberBeamAnime(){
-      switch(timberBeamCount){
-        case 0:
-          anime(
-          {
-            targets: Scenes.items._wall_beam1.item,
-            left : 0,
-            easing: "easeInOutQuad",
-            duration: 2500,
-            complete(){
-              Scenes.items._wall_beam1_drill_layer.set(0,0).zIndex(3)
-              setCC("Click on the 'Drill Machine' to drill holes on timber beam.")
-              Dom.setBlinkArrow(true, 740, 15).play()
-            }
-          })
-          break
-
-          case 1:
-            anime({
-              targets: Scenes.items._wall_beam2.item,
-              left : 0,
-              easing: "easeInOutQuad",
-              duration: 2500,
-              complete(){
-              }
-            })
-            break
-
-          case 2:
-            anime({
-              targets: Scenes.items._wall_beam3.item,
-              left : 0,
-              easing: "easeInOutQuad",
-              duration: 2500,
-              complete(){
-                Scenes.items._wall_beam3_drill_layer.set(0,0).zIndex(3)
-              }
-            })
-            break
-
-          case 3:
-            anime({
-              targets: Scenes.items._wall_beam4.item,
-              left : 0,
-              easing: "easeInOutQuad",
-              duration: 2500,
-              complete(){
-              }
-            })
-            break
-
-          case 4:
-            anime({
-              targets: Scenes.items._wall_beam5.item,
-              left : 0,
-              easing: "easeInOutQuad",
-              duration: 2500,
-              complete(){
-                Scenes.items._wall_beam5_drill_layer.set(0,0).zIndex(3)
-              }
-            })
-            break
-
-          case 5:
-            anime({
-              targets: Scenes.items._wall_beam6.item,
-              left : 0,
-              easing: "easeInOutQuad",
-              duration: 2500,
-              complete(){
-                setCC("Click on the 'Next' to go to next step.")   
-                Dom.setBlinkArrow(true, 790, 408).play()
-                setIsProcessRunning(false)
-                // Quiz.loadQuiz()
-              }
-            })
-            break
-      }
-      timberBeamCount++
-    }
-
-    function drillMachineAnime(){
-      switch(drillMachineCount){
+    let bfsCount = 0
+    function bfsAnime(){
+      switch(bfsCount){
         case 0:
           anime.timeline({
             easing: "easeInOutQuad",
-              targets: Scenes.items.drill_machine.item,
-              duration: 3000,
+            duration: 2000,
+            
           })
           .add({
-            keyframes: [
-              {left: 214,top: 130},
-              {left: "-=17",duration: 1500},
-              {left: "+=17",duration: 1500}
-            ],
-            complete(){
-              Scenes.items._wall_beam1_with_one_hole.set(0,0)
-            }
+            targets: Scenes.items.bfs_left1.item,
+            left : 0,
+            top: 0,
           })
           .add({
-            top: 221,
+            targets: Scenes.items.bfs_left2.item,
+            left : 0,
+            top: 0,
           })
           .add({
-            keyframes: [
-              {left: 81,top: 221},
-              { left: "-=17",duration: 1500,},
-              {left: "+=17",duration: 1500,}
-            ],
+            targets: Scenes.items.bfs_left3.item,
+            left : 0,
+            top: 0,
             complete(){
-              Scenes.items._wall_beam1_with_holes.set(0,0).zIndex(1)
-              // Scenes.items.beam_3d_with_holes1.set(170,73,350) 
-            }
-          })    
-          .add({
-            left: 820,
-            top: 325,
-            duration: 1000,
-            complete(){
-              setCC("Click on the 'Repeat' to repeat the previous step.")   
-              Dom.setBlinkArrow(true, 740,65).play()
-            }
-          })      
+              setCC("Click on the 'Timber Beam' to attach it with bfs.");      
+              Dom.setBlinkArrow(true, 705,15).play();
+            }  
+          })
           break
-
+        
         case 1:
           anime.timeline({
             easing: "easeInOutQuad",
-              targets: Scenes.items.drill_machine.item,
-              duration: 2000,
-          })
-          .add({
-            keyframes: [
-              {left: 371,top: 157},
-              {left: "-=15",duration: 1500,},
-              {left: "+=15",duration: 1500,}
-            ],
-            complete(){
-              Scenes.items._wall_beam3_with_one_hole.set(0,0)        
-            }
-          })
-          .add({
-            top: 247,
-          })
-          .add({
-            keyframes: [
-              {left: 236},
-              { left: "-=17",duration: 1500,},
-              {left: "+=17",duration: 1500,}
-            ],
-            complete(){
-              Scenes.items._wall_beam3_with_holes.set(0,0).zIndex(1)
-            }
-          })    
-          .add({
-            left: 820,
-            top: 325,
-        
+            duration: 2000,
             
+          })
+          .add({
+            targets: Scenes.items.bfs_right1.item,
+            left : 0,
+            top: 0,
+          })
+          .add(
+            {
+            targets: Scenes.items.bfs_right2.item,
+            left : 0,
+            top: 0,
+          })
+          .add({
+            targets: Scenes.items.bfs_right3.item,
+            left : 0,
+            top: 0,
+            complete(){
+              setCC("Click on the 'Timber Beam' to attach it with bfs.");      
+              Dom.setBlinkArrow(true, 705,15).play();
+            }  
+          })
+          break
+      }
+      bfsCount++
+    }
+
+    let timberBeamCount = 0
+    function timberBeamAnime(){
+      switch(timberBeamCount){
+        case 0:
+          anime.timeline({
+            easing: "easeInOutQuad",
+            duration: 2000,
+          })
+          .add({
+            targets: Scenes.items.beam_left1.item,
+            left : 0,
+            top: 0,
+            rotate: 0,
+          })
+          .add({
+            targets: Scenes.items.beam_left2.item,
+            left : 0,
+            top: 0,
+            rotate: 0,
+            complete(){
+              setCC("Click on the 'Sheathing' and attach with timber beam");      
+              Dom.setBlinkArrow(true, 705,65).play();
+            }
           })     
           break
-
-          case 2:
-            anime.timeline({
-              easing: "easeInOutQuad",
-                targets: Scenes.items.drill_machine.item,
-                duration: 2000,
-            })
-            .add({
-              keyframes: [
-                {left: 543,top: 181},
-                {left: "-=15",duration: 1500,},
-                {left: "+=15",duration: 1500,}
-              ],
-              complete(){
-                Scenes.items._wall_beam5_with_one_hole.set(0,0)        
-              }
-            })
-            .add({
-              top: 272,
-            })
-            .add({
-              keyframes: [
-                {left: 407},
-                {left: "-=17",duration: 1500,},
-                {left: "+=17",duration: 1500,}
-              ],
-              complete(){
-                Scenes.items._wall_beam5_with_holes.set(0,0).zIndex(1)
-              }
-            })    
-            .add({
-              left: 820,
-              top: 325,
           
-              
-            })     
-            break
-      }                
-      drillMachineCount++                                     
+        case 1:
+          anime.timeline({
+            easing: "easeInOutQuad",
+            duration: 2000,
+          })
+          .add({
+            targets: Scenes.items.beam_right1.item,
+            left : 0,
+            top: 0,
+            rotate: 0,
+          })
+          .add({
+            targets: Scenes.items.beam_right2.item,
+            left : 0,
+            top: 0,
+            rotate: 0,
+            complete(){
+              setCC("Click on the 'Sheathing' and attach with timber beam");      
+              Dom.setBlinkArrow(true, 705,65).play();
+            }  
+          })     
+          break
+      }   
+      timberBeamCount++
     }
 
-    function repeatBeamDrill(){
-      timberBeamAnime()
-      if(timberBeamCount == 3 || timberBeamCount == 5)
-      anime({
-        duration: 2000,
-        complete(){
-          drillMachineAnime()
-        }
-      })
+    let sheathingCount = 0
+    function sheathingAnime(){
+      switch(sheathingCount){
+        case 0:
+          anime.timeline({
+            easing: "easeInOutQuad",
+            duration: 2000,
+          })
+          .add({
+            targets: Scenes.items.sheathing2.item,
+            left: 0,
+            top: 0,
+            rotate: 0,
+            complete(){
+              setCC("Click on the 'BFS' to attach beam forming support with timber beam.")
+              Dom.setBlinkArrow(true,705,-35).play()
+              
+             
+              Scenes.items.bfs_right1.set(430-200,270-200).zIndex(8)
+              Scenes.items.bfs_right2.set(538-200,238-200).zIndex(8)
+              Scenes.items.bfs_right3.set(640-200,205-200).zIndex(8)
+              
+              Scenes.items.beam_right1.set(300,268-70).zIndex(7).rotate(26.5)
+              Scenes.items.beam_right2.set(285,325-70).zIndex(7).rotate(26.5)
+
+              Scenes.items.sheathing3.set(290,360-60).zIndex(6).rotate(28)
+            
+            } 
+          })   
+          break
+        case 1:
+          anime.timeline({
+            easing: "easeInOutQuad",
+            duration: 2000,
+          })
+          .add({
+            targets: Scenes.items.sheathing3.item,
+            left: 0,
+            top: 0,
+            rotate: 0,
+            complete(){
+              Dom.setBlinkArrow(true, 790, 408).play();
+              setCC("Click 'Next' to go to next step");
+              setIsProcessRunning(false);
+              // Quiz.loadQuiz()
+            } 
+          })   
+          break
+      }      
+      sheathingCount++ 
     }
-    
-    setCC("Click on the 'Right Side' to add right side of column.")
-    Dom.setBlinkArrow(true,740,-35).play()
+    setCC("Click on the 'BFS' to attach beam forming support with timber beam.")
+    Dom.setBlinkArrow(true,705,-35).play()
     //onclick
-    contentAdderBtns[0].onclick = timberBeamAnime
-    contentAdderBtns[1].onclick = drillMachineAnime
-    contentAdderBtns[2].onclick = repeatBeamDrill
+    contentAdderBtns[0].onclick = bfsAnime
+    contentAdderBtns[1].onclick = timberBeamAnime
+    contentAdderBtns[2].onclick = sheathingAnime
 
     // setCC("Click 'Next' to go to  next step");
     //       Dom.setBlinkArrow(true, 790, 408).play();
@@ -2135,1224 +2100,9 @@ const Scenes = {
       return true
     }),
 
-    (step7 = function () {
-      setIsProcessRunning(true);
-
-      Scenes.setStepHeading(
-        "Step 7",
-        "Place playwood sheathing on a timberbeam with the help of nailing."
-      );
-
-      // todo remove all previous
-      Scenes.items.contentAdderBox.setContent("");
-
-      // todo Required Items
-      Scenes.items._wall_beam1_with_holes.set( 0 , 0).zIndex(0)
-      Scenes.items._wall_beam2.set( 0 , 0)
-      Scenes.items._wall_beam3_with_holes.set( 0 , 0).zIndex(0)
-      Scenes.items._wall_beam4.set( 0 , 0)
-      Scenes.items._wall_beam5_with_holes.set( 0 , 0).zIndex(0)
-      Scenes.items._wall_beam6.set( 0 , 0)
-
-      Scenes.items._wall_sheathing1.set(-670,-60)
-      Scenes.items._wall_sheathing2.set(-600,-60)
-
-      Scenes.items.hammer.set(800,350,45).zIndex(6)
-
-      Scenes.items._wall_nail1.set(400+100,210).zIndex(3)
-      Scenes.items._wall_nail2.set(310+100,210).zIndex(3)
-      Scenes.items._wall_nail3.set(220+100,210).zIndex(3)
-      Scenes.items._wall_nail4.set(130+100,210).zIndex(3)
-      Scenes.items._wall_nail5.set( 35+100,210).zIndex(3)
-      Scenes.items._wall_nail6.set(-55+100,210).zIndex(3)
-      
-      Scenes.items._wall_nail7.set(400+300,115).zIndex(3)
-      Scenes.items._wall_nail8.set(310+300,115).zIndex(3)
-      Scenes.items._wall_nail9.set(220+300,115).zIndex(3)
-      Scenes.items._wall_nail10.set(130+300,115).zIndex(3)
-      Scenes.items._wall_nail11.set(35+300,115).zIndex(3)
-      Scenes.items._wall_nail12.set(-55+300,115).zIndex(3)
-
-      let hammerAnime  =  anime({
-        targets: Scenes.items.hammer.item,
-        keyframes: [
-          {rotateZ: [0, 30]},
-          {rotateZ: [0, 30]},
-          {rotateZ: [0, 30]},
-          {rotateZ: [0, 30]},
-        ],
-        autoplay: false,
-        duration: 3000,
-      })
-
-    // image Box
-    // Scenes.items.imageBox.show("flex").set(750,200)
-    // Scenes.items.imageBoxSrc.item.src = "./src/images/real_head_adapter.png"
-    // Scenes.items.imageBoxTitle.setContent("Head Adapter")
-
-    //! remove
+    
    
-    
-    // content adder
-    Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
-    Scenes.contentAdderAddBtn("Sheathing")
-    Scenes.contentAdderAddBtn("Nailing")
-    let contentAdderBtns = getAll(".content-adder-box .btn");
-    
-     const sheathingAnime = ()=>{
-        Dom.setBlinkArrow(-1)
-            anime.timeline({
-              easing: "easeInOutQuad",
-              
-            })
-            .add({
-              targets: [Scenes.items._wall_sheathing1.item],
-              duration: 6000,
-              keyframes: [
-                {left: 0},
-                {top: 0},
-              ],
-            })
-            .add({
-              targets: [Scenes.items._wall_sheathing2.item],
-              duration: 6000,
-              keyframes: [
-                {left: 0},
-                {top: 0},
-              ],
-              complete(){
-                Scenes.items._wall_wall_without_rotate_layer.set(0,0).zIndex(3)
-                Dom.setBlinkArrow(true, 710,15).play();
-                setCC("Click on the 'Nailing' to nail on the sheathing.");
-              }
-            })
-          }
-
-      const nailingAnime = ()=>{
-        Dom.setBlinkArrow(-1)
-            anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 2000,
-            })
-            // ! First nailing anime
-            .add({
-              targets: Scenes.items._wall_nail1.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 215,
-              top: 70,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail1.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! Second nailing animation
-            .add({
-              targets: Scenes.items._wall_nail2.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 294,
-              top: 80,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail2.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! Third nailing animation
-            .add({
-              targets: Scenes.items._wall_nail3.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 372,
-              top: 95,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail3.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! 4 nailing animation
-            .add({
-              targets: Scenes.items._wall_nail4.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 450,
-              top: 106,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail4.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! 5 nailing animation
-            .add({
-              targets: Scenes.items._wall_nail5.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 533,
-              top: 118,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail5.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! 6 nailing animation
-            .add({
-              targets: Scenes.items._wall_nail6.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 610,
-              top: 130,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail6.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! 7 nailing animation
-            .add({
-              targets: Scenes.items._wall_nail7.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 73,
-              top: 160,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail7.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! 8 nailing animation
-            .add({
-              targets: Scenes.items._wall_nail8.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 151,
-              top: 167,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail8.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! 9 nailing animation
-            .add({
-              targets: Scenes.items._wall_nail9.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 229,
-              top: 180,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail9.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! 10 nailing animation
-            .add({
-              targets: Scenes.items._wall_nail10.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 307,
-              top: 190,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail10.item, Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! 11 nailing animation
-            .add({
-              targets: Scenes.items._wall_nail11.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 390,
-              top: 200,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail11.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! 12  nailing animation
-            .add({
-              targets: Scenes.items._wall_nail12.item,
-              keyframes:[
-                {top: 0},
-                {left: 0},
-              ],
-            })
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 468,
-              top: 215,
-            })
-            .add({
-              begin(){
-                hammerAnime.play()
-              },
-              targets: [Scenes.items._wall_nail12.item,Scenes.items.hammer.item],
-              top: ["+=0","+=9","+=9"],
-              duration: 3000
-            })
-            // ! nailing completed ---xxx---
-            .add({
-              targets: Scenes.items.hammer.item,
-              left: 800,
-              top: 350,
-              rotate: 0,
-              complete(){
-                Dom.setBlinkArrow(true, 790, 408).play();
-                setCC("Click 'Next' to go to next step");
-                setIsProcessRunning(false);
-                // Quiz.loadQuiz()
-              }
-            })
-      }
-
-      Dom.setBlinkArrow(true, 710, -35).play();
-      setCC("Click on the 'Sheathing' to put it on the beam.");
-      // onclick
-      contentAdderBtns[0].onclick = sheathingAnime;
-      contentAdderBtns[1].onclick = nailingAnime;
-      return true;
-    }),
-    (step8 = function () {
-      Dom.hideAll(); 
-      setIsProcessRunning(true);
-      Scenes.items.contentAdderBox.setContent("");
-      Scenes.setStepHeading(
-        "Step 8",
-        "Join the steel waler with timber beam using flenge claw assembly."
-      );
-
-    // required items
-    
-    let tup = -70
-    // Scenes.items._wall_flange_claw1.set(700,250).zIndex(1)
-    Scenes.items._wall_flange_claw1.set(416,250 +  tup).zIndex(1)
-    Scenes.items._wall_flange_claw2.set(350,227 + tup).zIndex(1)
-    Scenes.items._wall_flange_claw3.set(250,203 + tup).zIndex(1)
-    Scenes.items._wall_flange_claw4.set(520,230 + tup).zIndex(1)
-    Scenes.items._wall_flange_claw5.set(450,205 + tup).zIndex(1)
-    Scenes.items._wall_flange_claw6.set(350,180 + tup).zIndex(1)
-    
-
-    // Scenes.items.flange_claw1.set(569,280,50,60).rotate(0).zIndex(4)
-    // Scenes.items.flange_claw2.set(630,280,50,60).rotate(0).zIndex(4)
-    // Scenes.items.flange_claw3.set(599,330,50,60).rotate(0).zIndex(4)
-    // Scenes.items.flange_claw4.set(660,330,50,60).rotate(0).zIndex(4)
-    Scenes.items.steel_waler_blue1.set(20,300,30,435).zIndex(5)
-    Scenes.items.steel_waler_blue2.set(20,340,30,435).zIndex(5)
-
- 
-
-    // Scenes.items.flange_claw1.set(611,352,50)
-    // Scenes.items.flange_claw2.set(622,270,50)
-    // Scenes.items.flange_claw3.set(555,352,50)
-    // Scenes.items.flange_claw4.set(562,270,50)
-
-    // ! before rotation
-
-    // Scenes.items._wall_wall_without_rotate.set(5,-120)
-    // Scenes.items._wall_wall_with_rotate.set(0,70)
-    Scenes.items._wall_wall_with_rotate.set(0,0+tup)
-    // Scenes.items.arrowRound.set(620,120,70).rotate(75)
-
-  
-    Scenes.items.tempTitle1.set(10,170).setContent("Before Rotation").rotate(7).hide()
-    
-    // ! after rotation
-    Scenes.items.tempTitle2.set(10,360).setContent("After Rotation").rotate(7).hide()
-    
-    // Scenes.items.steel_waler1.set()
-    // Scenes.items.steel_waler2.set()
-
-    
-
-    //! final pos
-    
-    // Scenes.items._wall_flange_claw1.set(0,0+tup).zIndex(1)
-    // Scenes.items._wall_flange_claw2.set(0,0+tup).zIndex(1)
-    // Scenes.items._wall_flange_claw3.set(0,0+tup).zIndex(1)
-    // Scenes.items._wall_flange_claw4.set(-20,5+tup).zIndex(1)
-    // Scenes.items._wall_flange_claw5.set(-20,5+tup).zIndex(1)
-    // Scenes.items._wall_flange_claw6.set(-20,5+tup).zIndex(1)
-    
-    // Scenes.items._wall_steel_waler1.set(0,0+tup).zIndex(1)
-    // Scenes.items._wall_steel_waler2.set(0,4+tup).zIndex(1)
-    
-    // content adder
-    Scenes.items.contentAdderBox.set(null, -50).show("flex").push()
-
-    Scenes.contentAdderAddBtn("Steel Waler")
-    Scenes.contentAdderAddBtn("Flange Claw")
-    let contentAdderBtns = getAll(".content-adder-box .btn")
-      
-    const beforeAfterRotationAnime = ()=>{
-      anime.timeline({
-        easing: "easeInOutQuad",
-        duration: 1000,
-      })
-      .add({
-        complete(){
-          Scenes.items.arrowRound.set(620,120,70).rotate(75)
-        }
-      })
-      .add({
-        complete(){
-          Scenes.items._wall_wall_with_rotate.set(0,70)
-        }
-      })
-      .add({
-        complete(){
-          Scenes.items.tempTitle1.show()
-          Scenes.items.tempTitle2.show()      
-        }
-      })
-      .add({
-        duration: 4000,
-        complete(){
-          Scenes.items.arrowRound.hide()
-          Scenes.items.tempTitle1.hide()
-          Scenes.items.tempTitle2.hide()
-          
-          Scenes.items._wall_wall_without_rotate.hide()
-
-        }
-      })
-      .add({
-        targets: Scenes.items._wall_wall_with_rotate.item,
-        top: 0,
-        duration: 1000,
-        complete(){
-          Dom.setBlinkArrow(true,718,-35).play()
-          setCC("Click on the 'Steel Waler' to put it on the beam.")
-        }
-      })
-    }
-    
-    let steelWalerCount = 0
-    const steelWalerAnime = ()=>{
-    switch(steelWalerCount){
-      case 0:
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 2000,
-        })
-        .add({
-          targets: Scenes.items.steel_waler_blue1.item,
-          left: 144,
-          top: 22,
-          complete(){
-            Scenes.items.steel_waler_blue1.hide()
-            // tilt position of stel waler
-            Scenes.items._wall_steel_waler1.set(0,0+tup).zIndex(1)
-
-            Dom.setBlinkArrow(true,718,15).play()
-            setCC("Click on the 'Flange Claw' to attach it with steel waler.")
-          }
-        })
-        break
-      
-      case 1:
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 2000,
-        })
-        .add({
-          targets: Scenes.items.steel_waler_blue2.item,
-          left: 40,
-          top: 113,
-          complete(){
-            Scenes.items.steel_waler_blue2.hide()
-            // tilt position of steel waler
-            Scenes.items._wall_steel_waler2.set(0,4+tup).zIndex(1)
-            Dom.setBlinkArrow(true,718,15).play()
-            setCC("Click on the 'Flange Claw' to attach it with steel waler.")
-          }
-        })
-        break
-    }
-    steelWalerCount++
-    }
-
-    let flangeClawCount = 0
-    const flangeClawAnime = ()=>{
-      switch(flangeClawCount){
-        case 0:
-          anime.timeline({
-            easing: "easeInOutQuad",
-            duration: 2000
-          })
-          .add({
-            targets: Scenes.items._wall_flange_claw1.item,
-            left: 0,
-            top: tup,
-          })
-          .add({
-            targets: Scenes.items._wall_flange_claw2.item,
-            left: 0,
-            top: tup,
-          })
-          .add({
-            targets: Scenes.items._wall_flange_claw3.item,
-            left: 0,
-            top: tup,
-            complete(){
-              Dom.setBlinkArrow(true,718,-35).play()
-              setCC("Click on the 'Steel Waler' to put it on the beam.")
-            }
-          })
-          break
-
-          case 1:
-            anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 2000
-            })
-            .add({
-              targets: Scenes.items._wall_flange_claw4.item,
-              left: -20,
-              top: 5+tup,
-            })
-            .add({
-              targets: Scenes.items._wall_flange_claw5.item,
-              left: -20,
-              top: 5+tup,
-            })
-            .add({
-              targets: Scenes.items._wall_flange_claw6.item,
-              left: -20,
-              top: 5+tup,
-              complete(){
-                Dom.setBlinkArrow(true, 790, 408).play();
-                setCC("Click 'Next' to go to next step");
-                setIsProcessRunning(false);
-                // Quiz.loadQuiz()
-              }
-            })
-            break
-      }
-      flangeClawCount++;
-    }
-
-     //! starter animes
-    //  beforeAfterRotationAnime()
-     
-     
-     //onclick pipe waler 
-     contentAdderBtns[0].onclick = steelWalerAnime;
-     contentAdderBtns[1].onclick = flangeClawAnime;
-
-     return true;
-
-    }),
-    (step9 = function () {
-      setIsProcessRunning(true);
-      Dom.hideAll()
-      Scenes.setStepHeading(
-        "Step 9",
-        "Lift the one side of wall and attach CT prop."
-      );
-      // todo remove all previous
-      Scenes.items.contentAdderBox.setContent("");
-
-      //! Required Items
-      // Scenes.items._wall_wall_with_steel_waler_and_flange_claw.set(200,-150,800).hide()
-      Scenes.items._wall_wall_with_steel_waler_and_flange_claw.set(200,-150,800).hide()
-      Scenes.items._wall_wall_with_steel_waler_down.set(0,80,300)
-      Scenes.items.arrowRound.set(380 ,60,80).rotate(-20).hide()
-      Scenes.items.tempTitle1.set(529, 86).rotate(-45).setContent("After Lifting").hide()
-
-      Scenes.items.head_adapter1.set(500, 230, 25).zIndex(10).hide() 
-      Scenes.items.head_adapter2.set(540, 230, 25).zIndex(10).hide()
-      Scenes.items.head_adapter3.set(500, 270, 25).zIndex(10).hide()
-      Scenes.items.head_adapter4.set(540, 270, 25).zIndex(10).hide()
-      
-      Scenes.items.ct_prop1     .set(755,130,220,40).rotate(-90).zIndex(11).hide()
-      Scenes.items.ct_prop2     .set(755,190,150,40).rotate(-90).zIndex(11).hide()
-      Scenes.items.ct_prop3     .set(755,200,220,40).rotate(-90).zIndex(11).hide()
-      Scenes.items.ct_prop4     .set(755,260,150,40).rotate(-90).zIndex(11).hide()
-
-      Scenes.items.foot_adapter1.set(480-15, 310, 75).zIndex(12).hide()
-      Scenes.items.foot_adapter2.set(540-15, 310, 75).zIndex(12).hide()
-        
-     
-      
-      
-      // !final pos
-      // Scenes.items.head_adapter1.set(205,154,25).rotate(50).zIndex(10) 
-      // Scenes.items.head_adapter2.set(206,240,25).rotate(50).zIndex(10)
-      // Scenes.items.ct_prop1     .set(265,130,220,40).rotate(-40).zIndex(11)
-      // Scenes.items.ct_prop2     .set(265,215,150,40).rotate(-65).zIndex(11)
-      // Scenes.items.foot_adapter1.set(310, 260, 75).zIndex(12)
-
-      // Scenes.items.head_adapter3.set(205+80, 154-90 ,25).rotate(50).zIndex(10)
-      // Scenes.items.head_adapter4.set(206+80, 240-90 ,25).rotate(50).zIndex(10)
-      // Scenes.items.ct_prop3     .set(265+80, 130-90 ,220,40).rotate(-40).zIndex(11)
-      // Scenes.items.ct_prop4     .set(265+80, 215-90 ,150,40).rotate(-65).zIndex(11)
-      // Scenes.items.foot_adapter2.set(310+80, 260-90 , 75).zIndex(12)
-     
-      // content adder         
-      Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
-      Scenes.contentAdderAddBtn("Head Adapter");
-      Scenes.contentAdderAddBtn("Foot Adapter");
-      Scenes.contentAdderAddBtn("CT Prop");
-
-      let contentAdderBtns = getAll(".content-adder-box .btn");
-
-      const beforeAfterAnime = ()=>{
-      
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 1000,
-        })
-        .add({
-          complete(){
-            Scenes.items.arrowRound.show()
-          }
-        })
-        .add({
-          complete(){
-            Scenes.items._wall_wall_with_steel_waler_and_flange_claw.show()
-          }
-        })
-        .add({
-          complete(){
-            Scenes.items.tempTitle1.show()      
-          }
-        })
-        .add({
-          duration: 4000,
-          complete(){
-            Scenes.items.arrowRound.hide()
-            Scenes.items.tempTitle1.hide()
-          }
-        })
-        .add({
-          complete(){
-            Scenes.items._wall_wall_with_steel_waler_down.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items._wall_wall_with_steel_waler_and_flange_claw.item,
-          left: -200,
-          complete(){
-            setCC("Click on the 'Head Adapter' to connect it with steel waler.")
-            Dom.setBlinkArrow(true,680,-35).play()
-
-            Scenes.items.head_adapter1.show() 
-            Scenes.items.head_adapter2.show()
-            Scenes.items.head_adapter3.show()
-            Scenes.items.head_adapter4.show()
-            
-            Scenes.items.ct_prop1.show()
-            Scenes.items.ct_prop2.show()
-            Scenes.items.ct_prop3.show()
-            Scenes.items.ct_prop4.show()
-      
-            Scenes.items.foot_adapter1.show()
-            Scenes.items.foot_adapter2.show()
-          }
-        })  
-      }
-
-      let headAdapterCount = 0
-      const headAdapterAnime = ()=>{
-            switch(headAdapterCount){
-              case 0:
-                anime.timeline({
-                  easing: "easeInOutQuad",
-                  duration: 1000,
-              })
-              .add({
-                targets: Scenes.items.head_adapter1.item,
-                left:205,
-                top:154,
-                rotate: 50
-              })
-              .add({
-                targets: Scenes.items.head_adapter2.item,
-                left:206,
-                top:240,
-                rotate: 50,
-                complete(){
-                  setCC("Click on the 'Foot Adapter' to support the CT Prop.")
-                  Dom.setBlinkArrow(true,700,15).play()
-                }
-              })
-              break
-
-              case 1:
-                anime.timeline({
-                  easing: "easeInOutQuad",
-                  duration: 1000,
-              })
-              .add({
-                targets: Scenes.items.head_adapter3.item,
-                left:205+80,
-                top:154-90,
-                rotate: 50
-              })
-              .add({
-                targets: Scenes.items.head_adapter4.item,
-                left:205+80,
-                top:240-90,
-                rotate: 50,
-                complete(){
-                  setCC("Click on the 'Foot Adapter' to support the CT Prop.")
-                  Dom.setBlinkArrow(true,700,15).play()
-                }
-              })
-              break 
-            }
-            headAdapterCount++
-    }
-    
-      let footAdapterCount = 0
-      const footAdapterAnime = ()=>{
-            switch(footAdapterCount){
-              case 0:
-                anime({
-                  easing: "easeInOutQuad",
-                  targets: Scenes.items.foot_adapter1.item,
-                  left:310,
-                  top:260,
-                  duration: 1000,
-                  complete(){
-                    setCC("Click on the 'CT Prop' to support the form floor panel.")
-                    Dom.setBlinkArrow(true,700,65).play()
-                  }
-                })
-                break
-                
-                case 1:
-                  anime({
-                    easing: "easeInOutQuad",
-                    targets: Scenes.items.foot_adapter2.item,
-                    left:310+80,
-                    top:260-90,
-                    duration: 1000,
-                    complete(){
-                      setCC("Click on the 'CT Prop' to support the form floor panel.")
-                      Dom.setBlinkArrow(true,700,65).play()
-                    }
-                  })
-                  break
-            }
-            footAdapterCount++
-      }
-  
-      let ctPropCount = 0
-      const ctPropAnime = ()=>{
-           switch(ctPropCount){
-            case 0:
-              anime.timeline({
-                easing: "easeInOutQuad",
-                duration: 1000,
-            })
-            .add({
-              targets: Scenes.items.ct_prop1.item,
-              left:265, 
-              top:130,
-              rotate: -40
-            })
-            .add({
-              targets: Scenes.items.ct_prop2.item,
-              left:265, 
-              top:215,
-              rotate: -65,
-              complete(){
-                setCC("Click on the 'Head Adapter' to connect it with steel waler.")
-                Dom.setBlinkArrow(true,680,-35).play()
-              }
-            })
-            break
-
-            case 1:
-              anime.timeline({
-                easing: "easeInOutQuad",
-                duration: 1000,
-            })
-            .add({
-              targets: Scenes.items.ct_prop3.item,
-              left:265+80, 
-              top:130-90,
-              rotate: -40
-            })
-            .add({
-              targets: Scenes.items.ct_prop4.item,
-              left:265+80, 
-              top:215-90,
-              rotate: -65,
-              complete(){
-                setCC("Click 'Next' to go to next step");
-                Dom.setBlinkArrow(true, 790, 408).play();
-                setIsProcessRunning(false);
-                // Quiz.loadQuiz()
-              }
-            })
-            break
-           }
-
-           ctPropCount++
-      }
-
-
-    // !starter animes
-    beforeAfterAnime()
-    
-    
-    //onclick
-    contentAdderBtns[0].onclick = headAdapterAnime
-    contentAdderBtns[1].onclick = footAdapterAnime
-    contentAdderBtns[2].onclick = ctPropAnime
-
-    // setCC("Click 'Next' to go to next step");
-        //   Dom.setBlinkArrow(true, 790, 408).play();
-        //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
-        // };
-      return true;
-    }),
-    (step10 = function () {
-      setIsProcessRunning(true);
-      Dom.hideAll()
-      Scenes.setStepHeading(
-        "Step 10",
-        "Repeat step 2 to step 9 to build remaining three sides of the wall."
-      );
-      // todo remove all previous
-      Scenes.items.contentAdderBox.setContent("");
-
-      //! Required Items
-      Scenes.items._wall_wall_front_side.set(170-120,-30-50,700).zIndex(3)
-
-      // Scenes.items._wall_wall_left_side .set(-255,-30+45 ,470).zIndex(4)
-      // Scenes.items._wall_wall_back_side .set(170-100,-30-50,600).zIndex(2)
-      // Scenes.items._wall_wall_right_side.set(170-65 ,-30-10,400).zIndex(1)
-        
-     
-      
-      
-      // !final pos
-       // Scenes.items._wall_wall_left_side .set(170-255,-30+45 ,470).zIndex(4).hide()
-      // Scenes.items._wall_wall_back_side .set(170-100,-30-50,600).zIndex(2)
-      // Scenes.items._wall_wall_right_side.set(170-65 ,-30-10,400).zIndex(1).hide()
-     
-      // content adder         
-      Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
-      Scenes.contentAdderAddBtn("Left Side");
-      Scenes.contentAdderAddBtn("Back Side");
-      Scenes.contentAdderAddBtn("Right Side");
-
-      let contentAdderBtns = getAll(".content-adder-box .btn");
-
-
-      const leftSideAnime = ()=>{
-        // ! solution 
-              Scenes.items._wall_wall_left_side .set(-255,-30+45 ,470).zIndex(4)
-
-                anime.timeline({
-                  easing: "easeInOutQuad",
-                  duration: 2000,
-              })
-              .add({
-                targets: Scenes.items._wall_wall_left_side.item,
-                left:170-255,
-                complete(){
-                  setCC("Click on the 'Back Side' to add back side of the wall.")
-                  Dom.setBlinkArrow(true,720,15).play()
-                }
-              })
-              
-    }
-
-    const backSideAnime = ()=>{
-      // ! solution 
-            Scenes.items._wall_wall_back_side .set(-100,-30-50,600).zIndex(2)
-
-              anime.timeline({
-                easing: "easeInOutQuad",
-                duration: 2000,
-            })
-            .add({
-              targets: Scenes.items._wall_wall_back_side.item,
-              left:170-100,
-              complete(){
-                setCC("Click on the 'Right Side' to add right side of the wall.")
-                Dom.setBlinkArrow(true,720,65).play()
-              }
-            })
-            
-  }
-    const rightSideAnime = ()=>{
-      // ! solution 
-            Scenes.items._wall_wall_right_side .set(400 ,-30-10,400).zIndex(1)
-
-              anime.timeline({
-                easing: "easeInOutQuad",
-                duration: 2000,
-            })
-            .add({
-              targets: Scenes.items._wall_wall_right_side.item,
-              left:170-65,
-              complete(){
-                setCC("Click 'Next' to go to next step");
-                Dom.setBlinkArrow(true, 790, 408).play();
-                setIsProcessRunning(false);
-              }
-            })
-            
-  }
-
-    setCC("Click on the 'Left Side' to add left side of the wall.")
-    Dom.setBlinkArrow(true,720,-35).play()
-    //onclick
-    contentAdderBtns[0].onclick = leftSideAnime
-    contentAdderBtns[1].onclick = backSideAnime
-    contentAdderBtns[2].onclick = rightSideAnime
-
-    // setCC("Click 'Next' to go to next step");
-        //   Dom.setBlinkArrow(true, 790, 408).play();
-        //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
-        // };
-      return true;
-    }),
-    (step11 = function () {
-      setIsProcessRunning(true);
-      Scenes.setStepHeading(
-        "Step 11",
-        "Attach tie rod and wing nut to tighten the wall."
-      );
-      // todo remove all previous
-      Scenes.items.contentAdderBox.setContent("");
-
-      // todo Required Items
-      Scenes.items.column_sides_all.set(0,0)
-     Scenes.items.tie_rod1.set(763,270,150,50).rotate(90).zIndex(2)
-     Scenes.items.wing_nut_top1.set(766,365,14).zIndex(10)
-     Scenes.items.wing_nut_top2.set(800,365,14).zIndex(10)
-
-      // ! Final Position
-    //  Scenes.items.column_sides_all.set(0,0)
-    // Scenes.items.tie_rod1.set(355,85,150,50).rotate(57).zIndex(2)
-    // Scenes.items.tie_rod2.set(259,130,130,50).rotate(-57).zIndex(2)
-    // Scenes.items.tie_rod3.set(259,210,140,50).rotate(-52).zIndex(2)
-    // Scenes.items.tie_rod4.set(355,245,135,50).rotate(58).zIndex(2)
-    
-    // Scenes.items.wing_nut_top1.set(304,187,14).zIndex(10).rotate(-90)
-    // Scenes.items.wing_nut_top2.set(431,106,14).zIndex(10).rotate(60)
-    // Scenes.items.wing_nut_top3.set(216,160,14).zIndex(10).rotate(-70)
-    // Scenes.items.wing_nut_top4.set(327,228,14).zIndex(10).rotate(100)
-    // Scenes.items.wing_nut_top5.set(216,239,14).zIndex(10).rotate(-70)
-    // Scenes.items.wing_nut_top6.set(327,320,14).zIndex(10).rotate(100)
-    // Scenes.items.wing_nut_top7.set(307,335,14).zIndex(10).rotate(-100)
-    // Scenes.items.wing_nut_top8.set(429,264,14).zIndex(10).rotate(60)
-     
-    // content adder
-    Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
-    Scenes.contentAdderAddBtn("Tie Rod");
-    Scenes.contentAdderAddBtn("Wing Nut");
-    Scenes.contentAdderAddBtn("Repeat");
-    let contentAdderBtns = getAll(".content-adder-box .btn");
-
-    let tieRodCount = 0
-    const tieRodAnime = ()=>{
-      switch(tieRodCount){
-        case 0:
-          anime({
-            easing: "easeInOutQuad",
-            targets: Scenes.items.tie_rod1.item,
-            left: 355, 
-            top: 85,
-            rotate: 57,
-            complete(){
-              setCC("Click on the 'Wing Nut' to tighten the tie rod.")
-              Dom.setBlinkArrow(true,725,15).play()
-            }
-          })          
-          break
-
-          case 1:
-            anime({
-              easing: "easeInOutQuad",
-              targets: Scenes.items.tie_rod2.item,
-              left: 259, 
-              top: 130,
-              rotate: -57,
-            })
-            break
-          
-            case 2:
-            anime({
-              easing: "easeInOutQuad",
-              targets: Scenes.items.tie_rod3.item,
-              left: 259, 
-              top: 210,
-              rotate: -52,
-            })
-            break
-            
-            case 3:
-            anime({
-              easing: "easeInOutQuad",
-              targets: Scenes.items.tie_rod4.item,
-              left: 355, 
-              top: 245,
-              rotate: 58,
-            })
-            break
-      }
-      tieRodCount++;
-    }
-    
-    let wingNutCount = 0
-    const wingNutAnime = ()=>{
-      switch(wingNutCount){
-        case 0:
-          anime.timeline({
-            easing: "easeOutQuad",
-            duration: 3000,
-          })
-          .add({
-            targets: Scenes.items.wing_nut_top1.item,
-            left: 304,
-            top: 187,
-            rotate: -90,
-          })
-          .add({
-            targets: Scenes.items.wing_nut_top2.item,
-            left: 431,
-            top: 106,
-            rotate: 60,
-            complete(){
-              setCC("Click on the 'Repeat' the above steps.")
-              Dom.setBlinkArrow(true,725,65).play()
-
-              Scenes.items.tie_rod2.set(763,270,130,50).rotate(90).zIndex(2)
-              Scenes.items.wing_nut_top3.set(766,365,14).zIndex(10)
-              Scenes.items.wing_nut_top4.set(800,365,14).zIndex(10)
-            }
-          })
-          break
-
-          case 1:
-            anime.timeline({
-              easing: "easeOutQuad",
-              duration: 3000,
-            })
-            .add({
-              targets: Scenes.items.wing_nut_top3.item,
-              left: 216,
-              top: 160,
-              rotate: -70,
-            })
-            .add({
-              targets: Scenes.items.wing_nut_top4.item,
-              left: 327,
-              top: 228,
-              rotate: 100,
-              complete(){
-                Scenes.items.tie_rod3.set(763,270,140,50).rotate(90).zIndex(2)
-                Scenes.items.wing_nut_top5.set(766,365,14).zIndex(10)
-                Scenes.items.wing_nut_top6.set(800,365,14).zIndex(10)
-              }
-            })
-            break
-            
-          case 2:
-            anime.timeline({
-              easing: "easeOutQuad",
-              duration: 3000,
-            })
-            .add({
-              targets: Scenes.items.wing_nut_top5.item,
-              left: 216,
-              top: 239,
-              rotate: -70,
-            })
-            .add({
-              targets: Scenes.items.wing_nut_top6.item,
-              left: 327,
-              top: 320,
-              rotate: 100,
-              complete(){
-                Scenes.items.tie_rod4.set(763,270,135,50).rotate(90).zIndex(2)
-                Scenes.items.wing_nut_top7.set(766,365,14).zIndex(10)
-                Scenes.items.wing_nut_top8.set(800,365,14).zIndex(10)
-              }
-            })
-            break
-
-            case 3:
-              anime.timeline({
-                easing: "easeOutQuad",
-                duration: 3000,
-              })
-              .add({
-                targets: Scenes.items.wing_nut_top7.item,
-                left: 307,
-                top: 335,
-                rotate: -100,
-              })
-              .add({
-                targets: Scenes.items.wing_nut_top8.item,
-                left: 429,
-                top: 264,
-                rotate: 60,
-                complete(){
-                  setCC("Click 'Next' to go to next step");
-                  Dom.setBlinkArrow(true, 790, 408).play();
-                  setIsProcessRunning(false);
-                }
-              })
-              break
-      }
-      wingNutCount++
-
-    }
-
-    const repeatAnime = ()=>{
-      anime.timeline({
-        duration: 1000,
-      })
-      .add({
-        complete(){
-          tieRodAnime()
-        }
-      })
-      .add({
-        complete(){
-          wingNutAnime()
-        }
-      })
-    }
-
-    Dom.setBlinkArrow(true,725,-35).play()
-    setCC("Click on the 'Tie Rod' to attach it with steel waler.")
-    //onclick
-    contentAdderBtns[0].onclick = tieRodAnime
-    contentAdderBtns[1].onclick = wingNutAnime
-    contentAdderBtns[2].onclick = repeatAnime
-
-    // setCC("Click 'Next' to go to next step");
-    //       Dom.setBlinkArrow(true, 790, 408).play();
-    //       setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
-        // };
-      return true;
-    }),
-
-
+   
     (completed = function () {
       Dom.hideAll();
       Scenes.items.contentAdderBox.setContent("");
@@ -3411,8 +2161,9 @@ const Scenes = {
   },
 }
 
-Scenes.steps[1]() 
-// Scenes.next()  
+// stepcalling
+// Scenes.steps[3]()
+Scenes.next()  
 // Scenes.next()
 // Scenes.next()
 

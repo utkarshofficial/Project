@@ -13,7 +13,7 @@ def convert(name):
 def src(name :str,i :int):
     return name[0:name.find('.')] + ":this.allImgsDom[{0}],\n".format(i)
 
-names = os.listdir("E://Office Project//ProjectUtkarsh_repo//CE6//src//images//temp//Beam//")
+names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\CE6\\src\\images\\temp\\Beam")
 
 imgs = ''
 for name in names:
@@ -22,8 +22,8 @@ for name in names:
 
 srcs = ''
 for i in range(len(names)):
-    srcs = srcs + convert(names[i])
-    # srcs = srcs + src(names[i],i+13)
+    # srcs = srcs + convert(names[i])
+    srcs = srcs + src(names[i],i+96)
 
 
 

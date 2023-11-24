@@ -1,0 +1,94 @@
+
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail1.png"
+        title="left_sheathing1_nail1.png"
+        alt="left_sheathing1_nail1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail2.png"
+        title="left_sheathing1_nail2.png"
+        alt="left_sheathing1_nail2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail3.png"
+        title="left_sheathing1_nail3.png"
+        alt="left_sheathing1_nail3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail4.png"
+        title="left_sheathing1_nail4.png"
+        alt="left_sheathing1_nail4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail_helper.png"
+        title="left_sheathing1_nail_helper.png"
+        alt="left_sheathing1_nail_helper.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail1.png"
+        title="right_sheathing1_nail1.png"
+        alt="right_sheathing1_nail1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail2.png"
+        title="right_sheathing1_nail2.png"
+        alt="right_sheathing1_nail2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail3.png"
+        title="right_sheathing1_nail3.png"
+        alt="right_sheathing1_nail3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail4.png"
+        title="right_sheathing1_nail4.png"
+        alt="right_sheathing1_nail4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail_helper.png"
+        title="right_sheathing1_nail_helper.png"
+        alt="right_sheathing1_nail_helper.png"
+    />
+    
+
+left_sheathing1_nail1:this.allImgsDom[96],
+left_sheathing1_nail2:this.allImgsDom[97],
+left_sheathing1_nail3:this.allImgsDom[98],
+left_sheathing1_nail4:this.allImgsDom[99],
+left_sheathing1_nail_helper:this.allImgsDom[100],
+right_sheathing1_nail1:this.allImgsDom[101],
+right_sheathing1_nail2:this.allImgsDom[102],
+right_sheathing1_nail3:this.allImgsDom[103],
+right_sheathing1_nail4:this.allImgsDom[104],
+right_sheathing1_nail_helper:this.allImgsDom[105],
+
+
+left_sheathing1_nail1 : new Dom("left_sheathing1_nail1"),
+left_sheathing1_nail2 : new Dom("left_sheathing1_nail2"),
+left_sheathing1_nail3 : new Dom("left_sheathing1_nail3"),
+left_sheathing1_nail4 : new Dom("left_sheathing1_nail4"),
+left_sheathing1_nail_helper : new Dom("left_sheathing1_nail_helper"),
+right_sheathing1_nail1 : new Dom("right_sheathing1_nail1"),
+right_sheathing1_nail2 : new Dom("right_sheathing1_nail2"),
+right_sheathing1_nail3 : new Dom("right_sheathing1_nail3"),
+right_sheathing1_nail4 : new Dom("right_sheathing1_nail4"),
+right_sheathing1_nail_helper : new Dom("right_sheathing1_nail_helper"),

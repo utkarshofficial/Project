@@ -1712,7 +1712,7 @@ const Scenes = {
         easing: "easeInOutQuad",
         duration: 2000,
       })
-      .add({
+      .add({  
         targets: Scenes.items.aluminium_beam1.item,
         left : 0,
         top: 0,
@@ -1724,7 +1724,7 @@ const Scenes = {
         top: 0,
         rotate: 0,
         complete(){
-          setCC("Click on the 'Timber Beam' to add timber beam.");      
+          setCC("Click on the 'Timber Beam' to add timber beam.");  a    
           Dom.setBlinkArrow(true, 655,15).play();
         }  
       })
@@ -2134,18 +2134,27 @@ const Scenes = {
           })
           .add({
             targets: Scenes.items.bfs_left1.item,
-            left : 0,
-            top: 0,
+            keyframes: [
+              {top: -50},
+              {left : -60},
+              {top: 0,left: 0}
+            ]
           })
           .add({
             targets: Scenes.items.bfs_left2.item,
-            left : 0,
-            top: 0,
+            keyframes: [
+              {top: -80},
+              {left: -60},
+              {top: 0,left: 0}
+            ]
           })
           .add({
             targets: Scenes.items.bfs_left3.item,
-            left : 0,
-            top: 0,
+            keyframes: [
+              {top: -110},
+              {left: -60},
+              {top: 0,left: 0}
+            ],
             complete(){
               setCC("Click on the 'Timber Beam' to attach it with bfs.");      
               Dom.setBlinkArrow(true, 705,15).play();
@@ -2194,15 +2203,17 @@ const Scenes = {
           })
           .add({
             targets: Scenes.items.beam_left1.item,
-            left : 0,
-            top: 0,
-            rotate: 0,
+            keyframes: [
+              {top: -130,rotate: 0},
+              {top: 0,left: 0}
+            ]
           })
           .add({
             targets: Scenes.items.beam_left2.item,
-            left : 0,
-            top: 0,
-            rotate: 0,
+            keyframes: [
+              {top: -130,rotate: 0},
+              {top: 0,left: 0}
+            ],
             complete(){
               setCC("Click on the 'Sheathing' and attach with timber beam");      
               Dom.setBlinkArrow(true, 705,65).play();
@@ -2246,9 +2257,11 @@ const Scenes = {
           })
           .add({
             targets: Scenes.items.sheathing2.item,
-            left: 0,
-            top: 0,
-            rotate: 0,
+            keyframes: [
+              {top: -80,rotate: 0},
+              {left: "-=110"},
+              {top: 0,left: 0}
+            ],
             complete(){
               setCC("Click on the 'BFS' to attach beam forming support with timber beam.")
               Dom.setBlinkArrow(true,705,-35).play()
@@ -2369,7 +2382,7 @@ const Scenes = {
 }
 
 // stepcalling
-Scenes.currentStep = 0
+Scenes.currentStep = 6
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

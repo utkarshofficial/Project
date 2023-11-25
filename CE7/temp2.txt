@@ -1,94 +1,184 @@
 
     <img
         class="main-window-imgs"
-        src="./src/images/left_sheathing1_nail1.png"
-        title="left_sheathing1_nail1.png"
-        alt="left_sheathing1_nail1.png"
+        src="./src/images/left_bracing1.png"
+        title="left_bracing1.png"
+        alt="left_bracing1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/left_sheathing1_nail2.png"
-        title="left_sheathing1_nail2.png"
-        alt="left_sheathing1_nail2.png"
+        src="./src/images/left_bracing10.png"
+        title="left_bracing10.png"
+        alt="left_bracing10.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/left_sheathing1_nail3.png"
-        title="left_sheathing1_nail3.png"
-        alt="left_sheathing1_nail3.png"
+        src="./src/images/left_bracing2.png"
+        title="left_bracing2.png"
+        alt="left_bracing2.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/left_sheathing1_nail4.png"
-        title="left_sheathing1_nail4.png"
-        alt="left_sheathing1_nail4.png"
+        src="./src/images/left_bracing3.png"
+        title="left_bracing3.png"
+        alt="left_bracing3.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/left_sheathing1_nail_helper.png"
-        title="left_sheathing1_nail_helper.png"
-        alt="left_sheathing1_nail_helper.png"
+        src="./src/images/left_bracing4.png"
+        title="left_bracing4.png"
+        alt="left_bracing4.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/right_sheathing1_nail1.png"
-        title="right_sheathing1_nail1.png"
-        alt="right_sheathing1_nail1.png"
+        src="./src/images/left_bracing5.png"
+        title="left_bracing5.png"
+        alt="left_bracing5.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/right_sheathing1_nail2.png"
-        title="right_sheathing1_nail2.png"
-        alt="right_sheathing1_nail2.png"
+        src="./src/images/left_bracing6.png"
+        title="left_bracing6.png"
+        alt="left_bracing6.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/right_sheathing1_nail3.png"
-        title="right_sheathing1_nail3.png"
-        alt="right_sheathing1_nail3.png"
+        src="./src/images/left_bracing7.png"
+        title="left_bracing7.png"
+        alt="left_bracing7.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/right_sheathing1_nail4.png"
-        title="right_sheathing1_nail4.png"
-        alt="right_sheathing1_nail4.png"
+        src="./src/images/left_bracing8.png"
+        title="left_bracing8.png"
+        alt="left_bracing8.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/right_sheathing1_nail_helper.png"
-        title="right_sheathing1_nail_helper.png"
-        alt="right_sheathing1_nail_helper.png"
+        src="./src/images/left_bracing9.png"
+        title="left_bracing9.png"
+        alt="left_bracing9.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing1.png"
+        title="right_bracing1.png"
+        alt="right_bracing1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing10.png"
+        title="right_bracing10.png"
+        alt="right_bracing10.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing2.png"
+        title="right_bracing2.png"
+        alt="right_bracing2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing3.png"
+        title="right_bracing3.png"
+        alt="right_bracing3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing4.png"
+        title="right_bracing4.png"
+        alt="right_bracing4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing5.png"
+        title="right_bracing5.png"
+        alt="right_bracing5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing6.png"
+        title="right_bracing6.png"
+        alt="right_bracing6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing7.png"
+        title="right_bracing7.png"
+        alt="right_bracing7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing8.png"
+        title="right_bracing8.png"
+        alt="right_bracing8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_bracing9.png"
+        title="right_bracing9.png"
+        alt="right_bracing9.png"
     />
     
 
-left_sheathing1_nail1:this.allImgsDom[96],
-left_sheathing1_nail2:this.allImgsDom[97],
-left_sheathing1_nail3:this.allImgsDom[98],
-left_sheathing1_nail4:this.allImgsDom[99],
-left_sheathing1_nail_helper:this.allImgsDom[100],
-right_sheathing1_nail1:this.allImgsDom[101],
-right_sheathing1_nail2:this.allImgsDom[102],
-right_sheathing1_nail3:this.allImgsDom[103],
-right_sheathing1_nail4:this.allImgsDom[104],
-right_sheathing1_nail_helper:this.allImgsDom[105],
+left_bracing1:this.allImgsDom[108],
+left_bracing10:this.allImgsDom[109],
+left_bracing2:this.allImgsDom[110],
+left_bracing3:this.allImgsDom[111],
+left_bracing4:this.allImgsDom[112],
+left_bracing5:this.allImgsDom[113],
+left_bracing6:this.allImgsDom[114],
+left_bracing7:this.allImgsDom[115],
+left_bracing8:this.allImgsDom[116],
+left_bracing9:this.allImgsDom[117],
+right_bracing1:this.allImgsDom[118],
+right_bracing10:this.allImgsDom[119],
+right_bracing2:this.allImgsDom[120],
+right_bracing3:this.allImgsDom[121],
+right_bracing4:this.allImgsDom[122],
+right_bracing5:this.allImgsDom[123],
+right_bracing6:this.allImgsDom[124],
+right_bracing7:this.allImgsDom[125],
+right_bracing8:this.allImgsDom[126],
+right_bracing9:this.allImgsDom[127],
 
 
-left_sheathing1_nail1 : new Dom("left_sheathing1_nail1"),
-left_sheathing1_nail2 : new Dom("left_sheathing1_nail2"),
-left_sheathing1_nail3 : new Dom("left_sheathing1_nail3"),
-left_sheathing1_nail4 : new Dom("left_sheathing1_nail4"),
-left_sheathing1_nail_helper : new Dom("left_sheathing1_nail_helper"),
-right_sheathing1_nail1 : new Dom("right_sheathing1_nail1"),
-right_sheathing1_nail2 : new Dom("right_sheathing1_nail2"),
-right_sheathing1_nail3 : new Dom("right_sheathing1_nail3"),
-right_sheathing1_nail4 : new Dom("right_sheathing1_nail4"),
-right_sheathing1_nail_helper : new Dom("right_sheathing1_nail_helper"),
+left_bracing1 : new Dom("left_bracing1"),
+left_bracing10 : new Dom("left_bracing10"),
+left_bracing2 : new Dom("left_bracing2"),
+left_bracing3 : new Dom("left_bracing3"),
+left_bracing4 : new Dom("left_bracing4"),
+left_bracing5 : new Dom("left_bracing5"),
+left_bracing6 : new Dom("left_bracing6"),
+left_bracing7 : new Dom("left_bracing7"),
+left_bracing8 : new Dom("left_bracing8"),
+left_bracing9 : new Dom("left_bracing9"),
+right_bracing1 : new Dom("right_bracing1"),
+right_bracing10 : new Dom("right_bracing10"),
+right_bracing2 : new Dom("right_bracing2"),
+right_bracing3 : new Dom("right_bracing3"),
+right_bracing4 : new Dom("right_bracing4"),
+right_bracing5 : new Dom("right_bracing5"),
+right_bracing6 : new Dom("right_bracing6"),
+right_bracing7 : new Dom("right_bracing7"),
+right_bracing8 : new Dom("right_bracing8"),
+right_bracing9 : new Dom("right_bracing9"),

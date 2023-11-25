@@ -21,7 +21,7 @@ def dom(name):
 
 names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\CE7\\src\\images\\temp")
 
-count = 96
+count = 108
 
 srcs = ''
 doms = ''

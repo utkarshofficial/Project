@@ -3040,7 +3040,7 @@ objective : new Dom("objective"),
 
      return true;
 
-    }),
+    }), //f
     (completed = function () {
       Dom.hideAll();
       Scenes.items.contentAdderBox.setContent("");

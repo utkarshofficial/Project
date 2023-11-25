@@ -115,6 +115,7 @@ right_sheathing1_nail3:this.allImgsDom[103],
 right_sheathing1_nail4:this.allImgsDom[104],
 right_sheathing1_nail_helper:this.allImgsDom[105],
 hammer:this.allImgsDom[106],
+objective:this.allImgsDom[107],
 
 
       

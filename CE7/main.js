@@ -780,10 +780,10 @@ slab_beam2 : new Dom("slab_beam2"),
 slab_beam3 : new Dom("slab_beam3"),
 slab_beam4 : new Dom("slab_beam4"),
 slab_beam5 : new Dom("slab_beam5"),
-slab_ct_prop1 : new Dom("slab_ct_prop1"),
-slab_ct_prop2 : new Dom("slab_ct_prop2"),
-slab_ct_prop3 : new Dom("slab_ct_prop3"),
-slab_ct_prop4 : new Dom("slab_ct_prop4"),
+slab_short_prop1 : new Dom("slab_ct_prop1"),
+slab_short_prop2 : new Dom("slab_ct_prop2"),
+slab_short_prop3 : new Dom("slab_ct_prop3"),
+slab_short_prop4 : new Dom("slab_ct_prop4"),
 slab_sheathing1 : new Dom("slab_sheathing1"),
 slab_uhead1 : new Dom("slab_uhead1"),
 slab_uhead2 : new Dom("slab_uhead2"),
@@ -802,6 +802,7 @@ right_sheathing1_nail4 : new Dom("right_sheathing1_nail4"),
 right_sheathing1_nail_helper : new Dom("right_sheathing1_nail_helper"),
 hammer : new Dom("hammer"),
 bfs_video : new Dom("bfs_video"),
+objective : new Dom("objective"),
 
 
   },
@@ -1388,390 +1389,390 @@ bfs_video : new Dom("bfs_video"),
       return true;  
 
     }),
-    (step3 = function () {
-      setIsProcessRunning(true);
+    // (step3 = function () {
+    //   setIsProcessRunning(true);
 
-      // todo all previous elements hide
-      Dom.hideAll();
-      Scenes.items.contentAdderBox.item.innerHTML = ""
+    //   // todo all previous elements hide
+    //   Dom.hideAll();
+    //   Scenes.items.contentAdderBox.item.innerHTML = ""
 
-      Scenes.setStepHeading("Step 3", "Attaching horizontal and diagonal bracing to support HD Tower.");
+    //   Scenes.setStepHeading("Step 3", "Attaching horizontal and diagonal bracing to support HD Tower.");
       
-      // Required Elements
-      Scenes.items.base_plate1.set(0,0)
-      Scenes.items.base_plate2.set(0,0)
-      Scenes.items.base_plate3.set(0,0)
-      Scenes.items.base_plate4.set(0,0)
+    //   // Required Elements
+    //   Scenes.items.base_plate1.set(0,0)
+    //   Scenes.items.base_plate2.set(0,0)
+    //   Scenes.items.base_plate3.set(0,0)
+    //   Scenes.items.base_plate4.set(0,0)
       
-      Scenes.items.ct_prop1.set(0,0).zIndex(0)
-      Scenes.items.ct_prop2.set(0,0)
-      Scenes.items.ct_prop3.set(0,0).zIndex(1)
-      Scenes.items.ct_prop4.set(0,0).zIndex(2)
+    //   Scenes.items.ct_prop1.set(0,0).zIndex(0)
+    //   Scenes.items.ct_prop2.set(0,0)
+    //   Scenes.items.ct_prop3.set(0,0).zIndex(1)
+    //   Scenes.items.ct_prop4.set(0,0).zIndex(2)
 
-      Scenes.items.u_head1.set(0,0)
-      Scenes.items.u_head2.set(0,0)
-      Scenes.items.u_head3.set(0,0)
-      Scenes.items.u_head4.set(0,0)
+    //   Scenes.items.u_head1.set(0,0)
+    //   Scenes.items.u_head2.set(0,0)
+    //   Scenes.items.u_head3.set(0,0)
+    //   Scenes.items.u_head4.set(0,0)
 
-      Scenes.items.bolt1.set(637,368).zIndex(2)
-      Scenes.items.bolt2.set(637+15*1,368).zIndex(2)
-      Scenes.items.bolt3.set(637+15*2,368).zIndex(2)
-      Scenes.items.bolt4.set(637+15*3,368).zIndex(2)
-      Scenes.items.bolt5.set(637+15*4,368).zIndex(2)
-      Scenes.items.bolt6.set(637+15*5,368).zIndex(2)
-      Scenes.items.bolt7.set(637+15*6,368).zIndex(0)
-      Scenes.items.bolt8.set(637+15*7,368).zIndex(0)
+    //   Scenes.items.bolt1.set(637,368).zIndex(2)
+    //   Scenes.items.bolt2.set(637+15*1,368).zIndex(2)
+    //   Scenes.items.bolt3.set(637+15*2,368).zIndex(2)
+    //   Scenes.items.bolt4.set(637+15*3,368).zIndex(2)
+    //   Scenes.items.bolt5.set(637+15*4,368).zIndex(2)
+    //   Scenes.items.bolt6.set(637+15*5,368).zIndex(2)
+    //   Scenes.items.bolt7.set(637+15*6,368).zIndex(0)
+    //   Scenes.items.bolt8.set(637+15*7,368).zIndex(0)
      
-      //! Final position
-      // Scenes.items.brace_back1.set(0,0)
-      // Scenes.items.brace_back2.set(0,0)
-      // Scenes.items.brace_left1.set(0,0).zIndex(1)
-      // Scenes.items.brace_left2.set(0,0).zIndex(1)
-      // Scenes.items.brace_right1.set(0,0).zIndex(1)
-      // Scenes.items.brace_right2.set(0,0).zIndex(1)
-      // Scenes.items.brace_front1.set(0,0).zIndex(2)
-      // Scenes.items.brace_front2.set(0,0).zIndex(2)
+    //   //! Final position
+    //   // Scenes.items.brace_back1.set(0,0)
+    //   // Scenes.items.brace_back2.set(0,0)
+    //   // Scenes.items.brace_left1.set(0,0).zIndex(1)
+    //   // Scenes.items.brace_left2.set(0,0).zIndex(1)
+    //   // Scenes.items.brace_right1.set(0,0).zIndex(1)
+    //   // Scenes.items.brace_right2.set(0,0).zIndex(1)
+    //   // Scenes.items.brace_front1.set(0,0).zIndex(2)
+    //   // Scenes.items.brace_front2.set(0,0).zIndex(2)
       
-      // Scenes.items.bolt1.set(132,199).rotate(20).zIndex(2)
-      // Scenes.items.bolt2.set(138,274).rotate(20).zIndex(2)
-      // Scenes.items.bolt3.set(209,272).rotate(-20).zIndex(2)
-      // Scenes.items.bolt4.set(209,340).rotate(-20).zIndex(2)
-      // Scenes.items.bolt5.set(330,202).rotate(-20).zIndex(2)
-      // Scenes.items.bolt6.set(334,273).rotate(-20).zIndex(2)
-      // Scenes.items.bolt7.set(258,133).rotate(-120).zIndex(0)
-      // Scenes.items.bolt8.set(257,200).rotate(-120).zIndex(0)
+    //   // Scenes.items.bolt1.set(132,199).rotate(20).zIndex(2)
+    //   // Scenes.items.bolt2.set(138,274).rotate(20).zIndex(2)
+    //   // Scenes.items.bolt3.set(209,272).rotate(-20).zIndex(2)
+    //   // Scenes.items.bolt4.set(209,340).rotate(-20).zIndex(2)
+    //   // Scenes.items.bolt5.set(330,202).rotate(-20).zIndex(2)
+    //   // Scenes.items.bolt6.set(334,273).rotate(-20).zIndex(2)
+    //   // Scenes.items.bolt7.set(258,133).rotate(-120).zIndex(0)
+    //   // Scenes.items.bolt8.set(257,200).rotate(-120).zIndex(0)
 
-      // bracing
-      Scenes.items.brace_1.set(540,200+15*1,12) 
-      Scenes.items.brace_2.set(540,200+15*2,12) 
-      Scenes.items.brace_3.set(540,200+15*3,12) 
-      Scenes.items.brace_4.set(540,200+15*4,12) 
-      Scenes.items.brace_5.set(540,200+15*5,12) 
-      Scenes.items.brace_6.set(540,200+15*6,12) 
-      Scenes.items.brace_7.set(540,200+15*7,12) 
-      Scenes.items.brace_8.set(540,200+15*8,12) 
+    //   // bracing
+    //   Scenes.items.brace_1.set(540,200+15*1,12) 
+    //   Scenes.items.brace_2.set(540,200+15*2,12) 
+    //   Scenes.items.brace_3.set(540,200+15*3,12) 
+    //   Scenes.items.brace_4.set(540,200+15*4,12) 
+    //   Scenes.items.brace_5.set(540,200+15*5,12) 
+    //   Scenes.items.brace_6.set(540,200+15*6,12) 
+    //   Scenes.items.brace_7.set(540,200+15*7,12) 
+    //   Scenes.items.brace_8.set(540,200+15*8,12) 
 
-      Scenes.items.brace_9 .set(700,200+15*1,12) 
-      Scenes.items.brace_10.set(700,200+15*2,12) 
-      Scenes.items.brace_11.set(700,200+15*3,12) 
-      Scenes.items.brace_12.set(700,200+15*4,12) 
-      Scenes.items.brace_13.set(700,200+15*5,12) 
-      Scenes.items.brace_14.set(700,200+15*6,12) 
-      Scenes.items.brace_15.set(700,200+15*7,12) 
-      Scenes.items.brace_16.set(700,200+15*8,12)      
+    //   Scenes.items.brace_9 .set(700,200+15*1,12) 
+    //   Scenes.items.brace_10.set(700,200+15*2,12) 
+    //   Scenes.items.brace_11.set(700,200+15*3,12) 
+    //   Scenes.items.brace_12.set(700,200+15*4,12) 
+    //   Scenes.items.brace_13.set(700,200+15*5,12) 
+    //   Scenes.items.brace_14.set(700,200+15*6,12) 
+    //   Scenes.items.brace_15.set(700,200+15*7,12) 
+    //   Scenes.items.brace_16.set(700,200+15*8,12)      
       
       
       
-      Scenes.items.contentAdderBox.set(null,-50).show("flex")
-      Scenes.contentAdderAddBtn("Horizontal Bracing")
-      Scenes.contentAdderAddBtn("Diagonal Bracing")
-      Scenes.contentAdderAddBtn("Bolt")
+    //   Scenes.items.contentAdderBox.set(null,-50).show("flex")
+    //   Scenes.contentAdderAddBtn("Horizontal Bracing")
+    //   Scenes.contentAdderAddBtn("Diagonal Bracing")
+    //   Scenes.contentAdderAddBtn("Bolt")
 
-      let contentAdderBtns = getAll(".content-adder-box .btn")
+    //   let contentAdderBtns = getAll(".content-adder-box .btn")
       
 
 
-      const horizontalBracingAnime = ()=>{
-        Dom.setBlinkArrow(-1)
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 2000,
-        })
-        .add({
-          targets: Scenes.items.brace_1.item,
-          keyframes: [
-            {top: 70},
-            {left: 130},
-            {top: 230,rotate: -35},
-          ],
-          complete(){
-            Scenes.items.brace_back_horizontal_1.set(0,0);
-            Scenes.items.brace_1.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_2.item,
-          keyframes: [
-            {top: 70},
-            {left: 130},
-            {top: 155,rotate: -35},
-          ],
-          complete(){
-            Scenes.items.brace_back_horizontal_2.set(0,0);
-            Scenes.items.brace_2.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_3.item,
-          keyframes: [
-            {top: 70},
-            {left: 130},
-            {top: 310,rotate: 42,width: "-=30"},
-          ],
-          complete(){
-            Scenes.items.brace_left_horizontal_1.set(0,0)
-            Scenes.items.brace_3.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_4.item,
-          keyframes: [
-            {top: 70},
-            {left: 130},
-            {top: 234,rotate: 40,width: "-=30"},
-          ],
-          complete(){
-            Scenes.items.brace_left_horizontal_2.set(0,0)
-            Scenes.items.brace_4.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_5.item,
-          keyframes: [
-            {top: 70},
-            {left: 204},
-            {top: 310,rotate: -30},
-          ],
-          complete(){
-            Scenes.items.brace_front_horizontal_1.set(0,0)
-            Scenes.items.brace_5.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_6.item,
-          keyframes: [
-            {top: 70},
-            {left: 204},
-            {top: 240,rotate: -30},
-          ],
-          complete(){
-            Scenes.items.brace_front_horizontal_2.set(0,0)
-            Scenes.items.brace_6.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_7.item,
-          keyframes: [
-            {top: 70},
-            {left: 250},
-            {top: 230,rotate: 42,width: "-=30"},
-          ],
-          complete(){
-            Scenes.items.brace_right_horizontal_1.set(0,0)
-            Scenes.items.brace_7.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_8.item,
-          keyframes: [
-            {top: 70},
-            {left: 250},
-            {top: 160,rotate: 42,width: "-=30"},
-          ],
-          complete(){
-            Scenes.items.brace_right_horizontal_2.set(0,0)
-            Scenes.items.brace_8.hide()
+    //   const horizontalBracingAnime = ()=>{
+    //     Dom.setBlinkArrow(-1)
+    //     anime.timeline({
+    //       easing: "easeInOutQuad",
+    //       duration: 2000,
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_1.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 130},
+    //         {top: 230,rotate: -35},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_back_horizontal_1.set(0,0);
+    //         Scenes.items.brace_1.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_2.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 130},
+    //         {top: 155,rotate: -35},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_back_horizontal_2.set(0,0);
+    //         Scenes.items.brace_2.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_3.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 130},
+    //         {top: 310,rotate: 42,width: "-=30"},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_left_horizontal_1.set(0,0)
+    //         Scenes.items.brace_3.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_4.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 130},
+    //         {top: 234,rotate: 40,width: "-=30"},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_left_horizontal_2.set(0,0)
+    //         Scenes.items.brace_4.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_5.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 204},
+    //         {top: 310,rotate: -30},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_front_horizontal_1.set(0,0)
+    //         Scenes.items.brace_5.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_6.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 204},
+    //         {top: 240,rotate: -30},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_front_horizontal_2.set(0,0)
+    //         Scenes.items.brace_6.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_7.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 250},
+    //         {top: 230,rotate: 42,width: "-=30"},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_right_horizontal_1.set(0,0)
+    //         Scenes.items.brace_7.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_8.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 250},
+    //         {top: 160,rotate: 42,width: "-=30"},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_right_horizontal_2.set(0,0)
+    //         Scenes.items.brace_8.hide()
 
-            Dom.setBlinkArrow(true, 667, 15).play()
-            setCC("Click on the 'Diagonal Bracing' to attach it with HD Towers.")
-          }
-        })
-      }
+    //         Dom.setBlinkArrow(true, 667, 15).play()
+    //         setCC("Click on the 'Diagonal Bracing' to attach it with HD Towers.")
+    //       }
+    //     })
+    //   }
 
-      const diagonalBracingAnime = ()=>{
-        Dom.setBlinkArrow(-1)
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 2000,
-        })
-        .add({
-          targets: Scenes.items.brace_9.item,
-          keyframes: [
-            {top: 70},
-            {left: 130},
-            {top: 230,rotate: -35},
-          ],
-          complete(){
-            Scenes.items.brace_back_vertical_1.set(0,0);
-            Scenes.items.brace_9.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_10.item,
-          keyframes: [
-            {top: 70},
-            {left: 130},
-            {top: 155,rotate: -35},
-          ],
-          complete(){
-            Scenes.items.brace_back_vertical_2.set(0,0);
-            Scenes.items.brace_10.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_11.item,
-          keyframes: [
-            {top: 70},
-            {left: 130},
-            {top: 310,rotate: 42,width: "-=30"},
-          ],
-          complete(){
-            Scenes.items.brace_left_vertical_1.set(0,0)
-            Scenes.items.brace_11.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_12.item,
-          keyframes: [
-            {top: 70},
-            {left: 130},
-            {top: 234,rotate: 40,width: "-=30"},
-          ],
-          complete(){
-            Scenes.items.brace_left_vertical_2.set(0,0)
-            Scenes.items.brace_12.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_13.item,
-          keyframes: [
-            {top: 70},
-            {left: 204},
-            {top: 310,rotate: -30},
-          ],
-          complete(){
-            Scenes.items.brace_front_vertical_1.set(0,0)
-            Scenes.items.brace_13.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_14.item,
-          keyframes: [
-            {top: 70},
-            {left: 204},
-            {top: 240,rotate: -30},
-          ],
-          complete(){
-            Scenes.items.brace_front_vertical_2.set(0,0)
-            Scenes.items.brace_14.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_15.item,
-          keyframes: [
-            {top: 70},
-            {left: 250},
-            {top: 230,rotate: 42,width: "-=30"},
-          ],
-          complete(){
-            Scenes.items.brace_right_vertical_1.set(0,0)
-            Scenes.items.brace_15.hide()
-          }
-        })
-        .add({
-          targets: Scenes.items.brace_16.item,
-          keyframes: [
-            {top: 70},
-            {left: 250},
-            {top: 160,rotate: -42,width: "-=30"},
-          ],
-          complete(){
-            Scenes.items.brace_right_vertical_2.set(0,0)
-            Scenes.items.brace_16.hide()
+    //   const diagonalBracingAnime = ()=>{
+    //     Dom.setBlinkArrow(-1)
+    //     anime.timeline({
+    //       easing: "easeInOutQuad",
+    //       duration: 2000,
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_9.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 130},
+    //         {top: 230,rotate: -35},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_back_vertical_1.set(0,0);
+    //         Scenes.items.brace_9.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_10.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 130},
+    //         {top: 155,rotate: -35},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_back_vertical_2.set(0,0);
+    //         Scenes.items.brace_10.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_11.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 130},
+    //         {top: 310,rotate: 42,width: "-=30"},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_left_vertical_1.set(0,0)
+    //         Scenes.items.brace_11.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_12.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 130},
+    //         {top: 234,rotate: 40,width: "-=30"},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_left_vertical_2.set(0,0)
+    //         Scenes.items.brace_12.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_13.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 204},
+    //         {top: 310,rotate: -30},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_front_vertical_1.set(0,0)
+    //         Scenes.items.brace_13.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_14.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 204},
+    //         {top: 240,rotate: -30},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_front_vertical_2.set(0,0)
+    //         Scenes.items.brace_14.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_15.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 250},
+    //         {top: 230,rotate: 42,width: "-=30"},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_right_vertical_1.set(0,0)
+    //         Scenes.items.brace_15.hide()
+    //       }
+    //     })
+    //     .add({
+    //       targets: Scenes.items.brace_16.item,
+    //       keyframes: [
+    //         {top: 70},
+    //         {left: 250},
+    //         {top: 160,rotate: -42,width: "-=30"},
+    //       ],
+    //       complete(){
+    //         Scenes.items.brace_right_vertical_2.set(0,0)
+    //         Scenes.items.brace_16.hide()
 
-            Dom.setBlinkArrow(true, 667, 65).play()
-            setCC("Click on the 'Bolt' to attach it with bracing.")
-          }
-        })
-      }
+    //         Dom.setBlinkArrow(true, 667, 65).play()
+    //         setCC("Click on the 'Bolt' to attach it with bracing.")
+    //       }
+    //     })
+    //   }
 
-      const boltAnime = ()=>{
-        Dom.setBlinkArrow(-1)
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 2000,
-        })
-        .add({
-          targets: Scenes.items.bolt1.item,
-          keyframes: [
-            {top: 199},
-            {left: 132},
-            {rotate: 20},
-          ],
-        })
-        .add({
-          targets: Scenes.items.bolt2.item,
-          keyframes: [
-            {top: 274},
-            {left: 138},
-            {rotate: 20},
-          ],
-        })
-        .add({
-          targets: Scenes.items.bolt3.item,
-          keyframes: [
-            {top: 272},
-            {left: 209},
-            {rotate: -20},
-          ],
-        })
-        .add({
-          targets: Scenes.items.bolt4.item,
-          keyframes: [
-            {top: 340},
-            {left: 209},
-            {rotate: -20},
-          ],
-        })
-        .add({
-          targets: Scenes.items.bolt5.item,
-          keyframes: [
-            {top: 202},
-            {left: 330},
-            {rotate: -20},
-          ],
-        })
-        .add({
-          targets: Scenes.items.bolt6.item,
-          keyframes: [
-            {top: 273},
-            {left: 334},
-            {rotate: -20},
-          ],
-        })
-        .add({
-          targets: Scenes.items.bolt7.item,
-          keyframes: [
-            {top: 133},
-            {left: 258},
-            {rotate: -120},
-          ],
-        })
-        .add({
-          targets: Scenes.items.bolt8.item,
-          keyframes: [
-            {top: 200},
-            {left: 257},
-            {rotate: -120},
-          ],
-          complete(){
-            Dom.setBlinkArrow(true, 790, 408).play();
-            setCC("Click 'Next' to go to next step");
-            setIsProcessRunning(false);
-          }
-        })
-      }
+    //   const boltAnime = ()=>{
+    //     Dom.setBlinkArrow(-1)
+    //     anime.timeline({
+    //       easing: "easeInOutQuad",
+    //       duration: 2000,
+    //     })
+    //     .add({
+    //       targets: Scenes.items.bolt1.item,
+    //       keyframes: [
+    //         {top: 199},
+    //         {left: 132},
+    //         {rotate: 20},
+    //       ],
+    //     })
+    //     .add({
+    //       targets: Scenes.items.bolt2.item,
+    //       keyframes: [
+    //         {top: 274},
+    //         {left: 138},
+    //         {rotate: 20},
+    //       ],
+    //     })
+    //     .add({
+    //       targets: Scenes.items.bolt3.item,
+    //       keyframes: [
+    //         {top: 272},
+    //         {left: 209},
+    //         {rotate: -20},
+    //       ],
+    //     })
+    //     .add({
+    //       targets: Scenes.items.bolt4.item,
+    //       keyframes: [
+    //         {top: 340},
+    //         {left: 209},
+    //         {rotate: -20},
+    //       ],
+    //     })
+    //     .add({
+    //       targets: Scenes.items.bolt5.item,
+    //       keyframes: [
+    //         {top: 202},
+    //         {left: 330},
+    //         {rotate: -20},
+    //       ],
+    //     })
+    //     .add({
+    //       targets: Scenes.items.bolt6.item,
+    //       keyframes: [
+    //         {top: 273},
+    //         {left: 334},
+    //         {rotate: -20},
+    //       ],
+    //     })
+    //     .add({
+    //       targets: Scenes.items.bolt7.item,
+    //       keyframes: [
+    //         {top: 133},
+    //         {left: 258},
+    //         {rotate: -120},
+    //       ],
+    //     })
+    //     .add({
+    //       targets: Scenes.items.bolt8.item,
+    //       keyframes: [
+    //         {top: 200},
+    //         {left: 257},
+    //         {rotate: -120},
+    //       ],
+    //       complete(){
+    //         Dom.setBlinkArrow(true, 790, 408).play();
+    //         setCC("Click 'Next' to go to next step");
+    //         setIsProcessRunning(false);
+    //       }
+    //     })
+    //   }
 
-      Dom.setBlinkArrow(true, 667, -35).play();
-      setCC("Click on the 'Horizontal Bracing' to attach it with HD Towers.");
-      // onclick
-      contentAdderBtns[0].onclick = horizontalBracingAnime;
-      contentAdderBtns[1].onclick = diagonalBracingAnime;
-      contentAdderBtns[2].onclick = boltAnime;
+    //   Dom.setBlinkArrow(true, 667, -35).play();
+    //   setCC("Click on the 'Horizontal Bracing' to attach it with HD Towers.");
+    //   // onclick
+    //   contentAdderBtns[0].onclick = horizontalBracingAnime;
+    //   contentAdderBtns[1].onclick = diagonalBracingAnime;
+    //   contentAdderBtns[2].onclick = boltAnime;
 
-      return true;
+    //   return true;
 
-    }),
+    // }),
     (step4 = function () {
       Dom.hideAll(); 
       setIsProcessRunning(true);
@@ -2412,14 +2413,14 @@ bfs_video : new Dom("bfs_video"),
     Scenes.items.left_bfs2_right.set(-500,30).zIndex(6)
     Scenes.items.left_bfs3_right.set(-500,30).zIndex(6)
 
-    Scenes.items.left_beam1_left.set(-500,-80).zIndex(3)
-    Scenes.items.left_beam2_left.set(-500,-80).zIndex(3)
+    Scenes.items.left_beam1_left.set(-500,-85).zIndex(3)
+    Scenes.items.left_beam2_left.set(-500,-85).zIndex(3)
+    Scenes.items.left_beam1_right.set(-500,-85).zIndex(6)
+    Scenes.items.left_beam2_right.set(-500,-85).zIndex(6)
 
-    Scenes.items.left_sheathing_left.set(-500,-30).zIndex(6)
-    Scenes.items.left_sheathing_right.set(-500,-30).zIndex(3)
+    Scenes.items.left_sheathing_left.set(-500,-85).zIndex(6)
+    Scenes.items.left_sheathing_right.set(-500,-85).zIndex(3)
 
-    Scenes.items.left_beam1_right.set(-500,-30).zIndex(6)
-    Scenes.items.left_beam2_right.set(-500,-30).zIndex(6)
 
     Scenes.items.right_bfs1_left.set(-500,-30).zIndex(2)
     Scenes.items.right_bfs2_left.set(-500,-30).zIndex(2)
@@ -2428,14 +2429,14 @@ bfs_video : new Dom("bfs_video"),
     Scenes.items.right_bfs2_right.set(-500,30).zIndex(9)
     Scenes.items.right_bfs3_right.set(-500,30).zIndex(9)
 
-    Scenes.items.right_beam1_left.set(-500,30).zIndex(3)
-    Scenes.items.right_beam2_left.set(-500,30).zIndex(3)
+    Scenes.items.right_beam1_left.set(-500,-85).zIndex(3)
+    Scenes.items.right_beam2_left.set(-500,-85).zIndex(3)
+    Scenes.items.right_beam1_right.set(-500,-85).zIndex(8)
+    Scenes.items.right_beam2_right.set(-500,-85).zIndex(8)
 
-    Scenes.items.right_sheathing_left.set(-500,30).zIndex(6)
-    Scenes.items.right_sheathing_right.set(-500,30).zIndex(7)
+    Scenes.items.right_sheathing_left.set(-500,-85).zIndex(6)
+    Scenes.items.right_sheathing_right.set(-500,-85).zIndex(7)
 
-    Scenes.items.right_beam1_right.set(-500,30).zIndex(8)
-    Scenes.items.right_beam2_right.set(-500,30).zIndex(8)
 
     
     // content adder
@@ -2598,34 +2599,53 @@ bfs_video : new Dom("bfs_video"),
               {left: 150},
               {left: 0,top: 0}
             ],
-            complete(){
-              setCC("Click on the 'Sheathing' and attach with timber beam");      
-              Dom.setBlinkArrow(true, 705,65).play();
-            }
           })     
-          break
-          
-        case 1:
-          anime.timeline({
-            easing: "easeInOutQuad",
-            duration: 2000,
-          })
           .add({
             targets: Scenes.items.left_beam1_right.item,
-            left : 0,
-            top: 0,
-            rotate: 0,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ],
           })
           .add({
             targets: Scenes.items.left_beam2_right.item,
-            left : 0,
-            top: 0,
-            rotate: 0,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ],
+          })     
+          .add({
+            targets: Scenes.items.right_beam1_left.item,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ]
+          })
+          .add({
+            targets: Scenes.items.right_beam2_left.item,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ],
+          })     
+          .add({
+            targets: Scenes.items.right_beam1_right.item,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ],
+          })
+          .add({
+            targets: Scenes.items.right_beam2_right.item,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ],
             complete(){
               setCC("Click on the 'Sheathing' and attach with timber beam");      
               Dom.setBlinkArrow(true, 705,65).play();
             }  
-          })     
+          }) 
           break
       }   
       timberBeamCount++
@@ -2640,47 +2660,43 @@ bfs_video : new Dom("bfs_video"),
             duration: 2000,
           })
           .add({
-            targets: Scenes.items.sheathing2.item,
-            left: 0,
-            top: 0,
-            rotate: 0,
-            complete(){
-              setCC("Click on the 'BFS' to attach beam forming support with timber beam.")
-              Dom.setBlinkArrow(true,705,-35).play()
-              
-             
-              Scenes.items.bfs_right1.set(430-200,270-200).zIndex(8)
-              Scenes.items.bfs_right2.set(538-200,238-200).zIndex(8)
-              Scenes.items.bfs_right3.set(640-200,205-200).zIndex(8)
-              
-              Scenes.items.beam_right1.set(300,268-70).zIndex(7).rotate(26.5)
-              Scenes.items.beam_right2.set(285,325-70).zIndex(7).rotate(26.5)
-
-              Scenes.items.sheathing3.set(290,360-60).zIndex(6).rotate(28)
-            
-            } 
-          })   
-          break
-        case 1:
-          anime.timeline({
-            easing: "easeInOutQuad",
-            duration: 2000,
+            targets: Scenes.items.left_sheathing_left.item,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ]
           })
           .add({
-            targets: Scenes.items.sheathing3.item,
-            left: 0,
-            top: 0,
-            rotate: 0,
+            targets: Scenes.items.left_sheathing_right.item,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ],
+          })     
+          .add({
+            targets: Scenes.items.right_sheathing_left.item,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ],
+          })
+          .add({
+            targets: Scenes.items.right_sheathing_right.item,
+            keyframes: [
+              {left: 150},
+              {left: 0,top: 0}
+            ],
             complete(){
               Dom.setBlinkArrow(true, 790, 408).play();
               setCC("Click 'Next' to go to next step");
               setIsProcessRunning(false);
               // Quiz.loadQuiz()
-            } 
-          })   
+            }  
+          }) 
           break
-      }      
-      sheathingCount++ 
+      }   
+      sheathingCount++
+       
     }
     setCC("Click on the 'BFS' to attach beam forming support with timber beam.")
     Dom.setBlinkArrow(true,705,-35).play()
@@ -2700,6 +2716,330 @@ bfs_video : new Dom("bfs_video"),
         //   });
         // };
       return true
+    }),
+    (step7 = function () {
+      Dom.hideAll(); 
+      setIsProcessRunning(true);
+      Scenes.items.contentAdderBox.setContent("");
+      Scenes.setStepHeading(
+        "Step 7",
+        "Making Slab using short prop, aluminum beam and timber beam."
+      );
+
+    // ! required item
+    Scenes.items.left_base_plate1.set(0,0)
+    Scenes.items.left_base_plate2.set (0,0)
+    Scenes.items.left_base_plate3.set(0,0)
+    Scenes.items.left_base_plate4.set(0,0)  
+
+    Scenes.items.right_base_plate1.set(0,0)
+    Scenes.items.right_base_plate2.set(0,0)
+    Scenes.items.right_base_plate3.set(0,0)
+    Scenes.items.right_base_plate4.set(0,0)  
+    
+    Scenes.items.left_ct_prop1.set(0,0)
+    Scenes.items.left_ct_prop2.set(0,0)
+    Scenes.items.left_ct_prop3.set(0,0)
+    Scenes.items.left_ct_prop4.set(0,0)
+    Scenes.items.right_ct_prop1.set(0,0)
+    Scenes.items.right_ct_prop2.set(0,0)
+    Scenes.items.right_ct_prop3.set(0,0)
+    Scenes.items.right_ct_prop4.set(0,0)
+
+    Scenes.items.left_uhead1.set(0,0)
+    Scenes.items.left_uhead2.set(0,0)
+    Scenes.items.left_uhead3.set(0,0)
+    Scenes.items.left_uhead4.set(0,0)
+    Scenes.items.right_uhead1.set(0,0)
+    Scenes.items.right_uhead2.set(0,0)
+    Scenes.items.right_uhead3.set(0,0)
+    Scenes.items.right_uhead4.set(0,0)
+
+    Scenes.items.left_aluminium1.set(0,0).zIndex(1)
+    Scenes.items.left_aluminium2.set(0,0).zIndex(1)
+    Scenes.items.right_aluminium1.set(0,0).zIndex(1)
+    Scenes.items.right_aluminium2.set(0,0).zIndex(1)
+    
+    Scenes.items .left_beam1.set(0,0).zIndex(2)
+    Scenes.items .left_beam2.set(0,0).zIndex(2)
+    Scenes.items .left_beam3.set(0,0).zIndex(2)
+    Scenes.items .left_beam4.set(0,0).zIndex(2)
+    Scenes.items .left_beam5.set(0,0).zIndex(2)
+    Scenes.items .left_beam6.set(0,0).zIndex(2)
+    Scenes.items.right_beam1.set(0,0).zIndex(2)
+    Scenes.items.right_beam2.set(0,0).zIndex(2)
+    Scenes.items.right_beam3.set(0,0).zIndex(2)
+    Scenes.items.right_beam4.set(0,0).zIndex(2)
+    Scenes.items.right_beam5.set(0,0).zIndex(2)
+    Scenes.items.right_beam6.set(0,0).zIndex(2)
+
+    Scenes.items.left_sheathing1.set(0,0).zIndex(3) 
+    Scenes.items.left_sheathing1_nail_helper.set(0,0).zIndex(5)
+    Scenes.items.left_sheathing1_nail1.set(0,8).zIndex(4)
+    Scenes.items.left_sheathing1_nail2.set(0,8).zIndex(4)
+    Scenes.items.left_sheathing1_nail3.set(0,8).zIndex(4)
+    Scenes.items.left_sheathing1_nail4.set(0,8).zIndex(4)
+    
+    Scenes.items.right_sheathing1.set(0,0).zIndex(3)
+    Scenes.items.right_sheathing1_nail_helper.set(0,0).zIndex(5)
+    Scenes.items.right_sheathing1_nail1.set(0,8).zIndex(4)
+    Scenes.items.right_sheathing1_nail2.set(0,8).zIndex(4)
+    Scenes.items.right_sheathing1_nail3.set(0,8).zIndex(4)
+    Scenes.items.right_sheathing1_nail4.set(0,8).zIndex(4)
+  
+    // image Box
+    // Scenes.items.imageBox.show("flex").set(750,200)
+    // Scenes.items.imageBoxSrc.item.src = "./src/images/real_head_adapter.png"
+    // Scenes.items.imageBoxTitle.setContent("Head Adapter")
+
+    Scenes.items.left_bfs1_left.set(0,0).zIndex(2)
+    Scenes.items.left_bfs2_left.set(0,0).zIndex(2)
+    Scenes.items.left_bfs3_left.set(0,0).zIndex(2)
+    Scenes.items.left_bfs1_right.set(0,0).zIndex(6)
+    Scenes.items.left_bfs2_right.set(0,0).zIndex(6)
+    Scenes.items.left_bfs3_right.set(0,0).zIndex(6)
+
+    Scenes.items.left_beam1_left.set(0,0).zIndex(3)
+    Scenes.items.left_beam2_left.set(0,0).zIndex(3)
+    Scenes.items.left_beam1_right.set(0,0).zIndex(6)
+    Scenes.items.left_beam2_right.set(0,0).zIndex(6)
+
+    Scenes.items.left_sheathing_left.set(0,0).zIndex(6)
+    Scenes.items.left_sheathing_right.set(0,0).zIndex(3)
+
+
+    Scenes.items.right_bfs1_left.set(0,0).zIndex(2)
+    Scenes.items.right_bfs2_left.set(0,0).zIndex(2)
+    Scenes.items.right_bfs3_left.set(0,0).zIndex(2)
+    Scenes.items.right_bfs1_right.set(0,0).zIndex(9)
+    Scenes.items.right_bfs2_right.set(0,0).zIndex(9)
+    Scenes.items.right_bfs3_right.set(0,0).zIndex(9)
+
+    Scenes.items.right_beam1_left.set(0,0).zIndex(3)
+    Scenes.items.right_beam2_left.set(0,0).zIndex(3)
+    Scenes.items.right_beam1_right.set(0,0).zIndex(8)
+    Scenes.items.right_beam2_right.set(0,0).zIndex(8)
+
+    Scenes.items.right_sheathing_left.set(0,0).zIndex(6)
+    Scenes.items.right_sheathing_right.set(0,0).zIndex(7)
+    
+
+    //! final pos
+    Scenes.items.slab_short_prop1.set(-500,-30).zIndex(8)
+    Scenes.items.slab_short_prop2.set(-500,-30).zIndex(8)
+    Scenes.items.slab_short_prop3.set(-500,-30).zIndex(5)
+    Scenes.items.slab_short_prop4.set(-500,-30).zIndex(5)
+
+    Scenes.items.slab_uhead1.set(-500,-30).zIndex(8)
+    Scenes.items.slab_uhead2.set(-500,-30).zIndex(8)
+    Scenes.items.slab_uhead3.set(-500,-30).zIndex(8)
+    Scenes.items.slab_uhead4.set(-500,-30).zIndex(8)
+    
+    Scenes.items.slab_aluminium1.set(-500,-30).zIndex(9)
+    Scenes.items.slab_aluminium2.set(-500,-30).zIndex(9)
+    
+    Scenes.items.slab_beam1.set(-500,-30).zIndex(9)
+    Scenes.items.slab_beam2.set(-500,-30).zIndex(9)
+    Scenes.items.slab_beam3.set(-500,-30).zIndex(9)
+    Scenes.items.slab_beam4.set(-500,-30).zIndex(9)
+    Scenes.items.slab_beam5.set(-500,-30).zIndex(9)
+
+    Scenes.items.slab_sheathing1.set(-500,-30).zIndex(10)
+
+
+
+
+    // content adder
+    Scenes.items.contentAdderBox.set(null, -50).show("flex").push()
+    Scenes.contentAdderAddBtn("Short Prop")
+    Scenes.contentAdderAddBtn("U-Head")
+    Scenes.contentAdderAddBtn("Aluminium Beam")
+    Scenes.contentAdderAddBtn("Timber Beam")
+    Scenes.contentAdderAddBtn("Sheathing")
+    let contentAdderBtns = getAll(".content-adder-box .btn")
+      
+    function shortPropAnime(){
+      anime.timeline({
+        easing: "easeInOutQuad",
+        duration: 2000,
+      })
+      .add({  
+        targets: Scenes.items.slab_short_prop1.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({
+        targets: Scenes.items.slab_short_prop2.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({  
+        targets: Scenes.items.slab_short_prop3.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({
+        targets: Scenes.items.slab_short_prop4.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ],
+        complete(){
+          setCC("Click on the 'U-Head' to attach u-head with shot prop.")    
+          Dom.setBlinkArrow(true, 675,15).play()
+        }  
+      })
+    }
+
+    function uHeadAnime(){
+      anime.timeline({
+        easing: "easeInOutQuad",
+        duration: 2000,
+      })
+      .add({  
+        targets: Scenes.items.slab_uhead1.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({
+        targets: Scenes.items.slab_uhead2.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({  
+        targets: Scenes.items.slab_uhead3.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({
+        targets: Scenes.items.slab_uhead4.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ],
+        complete(){
+          setCC("Click on the 'Aluminium Beam' to add aluminium beam.")    
+          Dom.setBlinkArrow(true, 675,65).play()
+        }  
+      })
+    }
+
+    function aluminiumBeamAnime(){
+      anime.timeline({
+        easing: "easeInOutQuad",
+        duration: 2000,
+      })
+      .add({  
+        targets: Scenes.items.slab_aluminium1.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({
+        targets: Scenes.items.slab_aluminium2.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ],
+        complete(){
+          setCC("Click on the 'Timber Beam' to add timber beam.")    
+          Dom.setBlinkArrow(true, 675,115).play()
+        }  
+      })
+    }
+
+    function timberBeamAnime(){
+      anime.timeline({
+        easing: "easeInOutQuad",
+        duration: 2000,
+      })
+      .add({
+        targets: Scenes.items.slab_beam1.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({
+        targets: Scenes.items.slab_beam2.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({
+        targets: Scenes.items.slab_beam3.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({
+        targets: Scenes.items.slab_beam4.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ]   
+      })
+      .add({
+        targets: Scenes.items.slab_beam5.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ],
+        complete(){
+          setCC("Click on the 'Sheathing' to add sheathing on the top of timber beam.")    
+          Dom.setBlinkArrow(true, 675,165).play()
+        }   
+      })     
+    }
+
+    function sheathingAnime(){
+      anime.timeline({
+        easing: "easeInOutQuad",
+        duration: 2000,
+      })
+      .add({  
+        targets: Scenes.items.slab_sheathing1.item,
+        keyframes : [
+          {left : 0},
+          {top: 0},
+        ],
+        complete(){
+          Dom.setBlinkArrow(true, 790, 408).play();
+          setCC("Click 'Next' to go to next step");
+          setIsProcessRunning(false);
+          // Quiz.loadQuiz()
+        }  
+      })
+    }
+     
+     
+      Dom.setBlinkArrow(true, 675, -35).play();
+      setCC("Click on the 'Short Prop' and attach it with steel waler");
+     //onclick pipe waler 
+     i=0
+     contentAdderBtns[i++].onclick = shortPropAnime;
+     contentAdderBtns[i++].onclick = uHeadAnime;
+     contentAdderBtns[i++].onclick = aluminiumBeamAnime;
+     contentAdderBtns[i++].onclick = timberBeamAnime;
+     contentAdderBtns[i++].onclick = sheathingAnime;
+
+     return true;
+
     }),
     (completed = function () {
       Dom.hideAll();
@@ -2760,7 +3100,7 @@ bfs_video : new Dom("bfs_video"),
 }
 
 // stepcalling
-Scenes.currentStep = 6
+Scenes.currentStep = 0
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

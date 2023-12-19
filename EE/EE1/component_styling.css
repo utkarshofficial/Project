@@ -1,0 +1,20 @@
+
+
+.qs{
+    cursor: pointer;
+    /* display: none; */
+    position: absolute;
+    /* display: flex; */
+    text-align: center;
+    box-shadow: 1px 1px 5px lime;
+    border-radius: 10px;
+    font-size: 3.5em;
+    font-weight: bolder;
+    color: white;
+    height: 70px;
+    width: 70px;
+    background-color: #05bc57;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

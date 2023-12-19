@@ -1,0 +1,85 @@
+
+    <img
+        class="main-window-imgs"
+        src="./src/images/box_img.png"
+        title="box_img.png"
+        alt="box_img.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/component_battery.png"
+        title="component_battery.png"
+        alt="component_battery.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/component_capacitor.png"
+        title="component_capacitor.png"
+        alt="component_capacitor.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/component_diode.png"
+        title="component_diode.png"
+        alt="component_diode.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/component_inductor.png"
+        title="component_inductor.png"
+        alt="component_inductor.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/component_mosfet.png"
+        title="component_mosfet.png"
+        alt="component_mosfet.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/component_register.png"
+        title="component_register.png"
+        alt="component_register.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/full_circuit.png"
+        title="full_circuit.png"
+        alt="full_circuit.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/full_circuit2.png"
+        title="full_circuit2.png"
+        alt="full_circuit2.png"
+    />
+    
+
+box_img:this.allImgsDom[13],
+component_battery:this.allImgsDom[14],
+component_capacitor:this.allImgsDom[15],
+component_diode:this.allImgsDom[16],
+component_inductor:this.allImgsDom[17],
+component_mosfet:this.allImgsDom[18],
+component_register:this.allImgsDom[19],
+full_circuit:this.allImgsDom[20],
+full_circuit2:this.allImgsDom[21],
+
+
+box_img : new Dom("box_img"),
+component_battery : new Dom("component_battery"),
+component_capacitor : new Dom("component_capacitor"),
+component_diode : new Dom("component_diode"),
+component_inductor : new Dom("component_inductor"),
+component_mosfet : new Dom("component_mosfet"),
+component_register : new Dom("component_register"),
+full_circuit : new Dom("full_circuit"),
+full_circuit2 : new Dom("full_circuit2"),

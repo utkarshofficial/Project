@@ -69,15 +69,18 @@
 }
 .part3_table_one td{
     text-align: center;
+    font-weight: bold;
 }
 .part3_table_one td:nth-child(2){
     background-color: #d9d9d9;
 }
 .part3_table_one td:nth-child(3){
     background-color: #0000ff;
+    color: white;
 }
 .part3_table_one td:nth-child(6){
     background-color: #00b050;
+    color: white;
 }
 
 /* part3 second table */
@@ -143,10 +146,19 @@
 .part3_table_three tbody tr{
     height: 30px;
 }
-.part3_table_one td{
+.part3_table_three td{
     text-align: center;
+    font-weight: bold;
 }
-
+.part3_table_three td:nth-child(2){
+    background-color: rgb(194, 194, 194);
+}
+.part3_table_three td:nth-child(3){
+    background-color: rgb(194, 194, 194);
+}
+.part3_table_three td:nth-child(4){
+    background-color: rgb(194, 194, 194);
+}
 /* table four */
 .part3_table_four{
     display: none;
@@ -172,6 +184,7 @@
 }
 .part3_table_four td{
     text-align: center;
+    font-weight: bold;
 }
 
 /* part 4 two */
@@ -182,7 +195,6 @@
     position: absolute;
     left: 250px;
     text-align: center;
-    gap: 20px;
     border-collapse: collapse;
 }
 .part3_table_four_2 td,tr,th{
@@ -200,8 +212,18 @@
 }
 .part3_table_four_2 td{
     text-align: center;
+    font-weight: bold;
 }
 
+.part3_table_four_2 tbody tr:nth-child(1){
+    color: blue!important;
+}
+.part3_table_four_2 tbody tr:nth-child(2){
+    color: red!important;
+}
+.part3_table_four_2 tbody tr:nth-child(3){
+    color: purple!important;
+}
 .deactive{
     opacity: 0.5;
 }

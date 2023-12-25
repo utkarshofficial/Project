@@ -296,9 +296,15 @@ body{
 .temp{
     display: none;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     position: absolute;
     text-align: justify;
+    background-color: black!important;
+    color: white;
+    width: 30px;
+    max-width: 50px;
+    padding: 0 5px; 
+    border-radius: 4px;
 }
 
 

@@ -922,7 +922,7 @@ right_tick_4 : new Dom("right_tick_4"),
       Scenes.setStepHeading("Step 1", "Circuit Formulation");
         
 
-      setCC("Click on the correct BOX(?) for placing the highlighed component.")
+      setCC("Click on the correct BOX(?) for placing the highlighted component.")
       Scenes.items.full_circuit.set(0,0)
 
       // box img mapping to domQus
@@ -940,7 +940,7 @@ right_tick_4 : new Dom("right_tick_4"),
       Scenes.items.component_register.set(-470,-215)
       Scenes.items.component_diode.set(-190,-120)
       Scenes.items.component_inductor.set(200,-120)
-      Scenes.items.component_battery.set(440,-215) 
+      Scenes.items.component_battery.set(440,-215).zIndex(2) 
       Scenes.items.component_capacitor.set(160,-220)
 
       Scenes.items.slider_box.hide()
@@ -948,10 +948,10 @@ right_tick_4 : new Dom("right_tick_4"),
       // * Part One Logic
       Scenes.items.domQs1.set(388,227)
       Scenes.items.domQs2.set(677,236)
-      Scenes.items.domQs3.set(504,138)
+      Scenes.items.domQs3.set(504,138).zIndex(3)
       Scenes.items.domQs4.set(285,143)
       Scenes.items.domQs5.set(203,226)
-      Scenes.items.domQs6.set(598,238)
+      Scenes.items.domQs6.set(598,238).zIndex(3)
       let qsBtns = document.querySelectorAll(".qs")
 
       // Adding onclick to all qs
@@ -960,6 +960,16 @@ right_tick_4 : new Dom("right_tick_4"),
           checkClick(i)
         }
       }
+      Scenes.items.domQs6.item.onclick = function(){
+          if(boxCount>5){
+            // after complete
+            Scenes.items.box_img.hide()
+            Dom.setBlinkArrow(true, 790, 408).play();
+            setCC("Click 'Next' to go to next step");
+            setIsProcessRunning(false);
+          }
+          checkClick(Scenes.items.domQs6.item)
+      }
 
       const checkClick = (qsBtnDom) =>{
         let isSame = qsBtnDom.classList.contains(`qs${boxCount}`)
@@ -967,13 +977,7 @@ right_tick_4 : new Dom("right_tick_4"),
           animateComponent(qsBtnDom);
           // to go to next component
           boxCount++
-          console.log(boxCount)
-          if(boxCount>5){
-              // after complete
-              Dom.setBlinkArrow(true, 790, 408).play();
-              setCC("Click 'Next' to go to next step");
-              setIsProcessRunning(false);
-          }
+          
         }
         else{
           qsBtnDom.style.backgroundColor = 'red';
@@ -1058,9 +1062,10 @@ right_tick_4 : new Dom("right_tick_4"),
  
       Scenes.setStepHeading(
         "Step 2",
-        "Part 2"
+        "Voltage and current waveforms."
       )
-
+      setCC("Slide the slider of 'D' duty ratio from 0.25, 0.5 and 0.75 to see the graph.")
+      Scenes.items.slider_box.show("flex")
 
       //! Required Items
        Scenes.items.run_btn.set(60,340,55)
@@ -1077,23 +1082,28 @@ right_tick_4 : new Dom("right_tick_4"),
         Scenes.items.tempTitle2.setContent("0").set(460,118),
         Scenes.items.tempTitle3.setContent("0").set(378,141),
         Scenes.items.tempTitle4.setContent("0").set(449,141),
+
         Scenes.items.tempTitle5.setContent("0").set(597,121),
         Scenes.items.tempTitle6.setContent("0").set(665,141),
+
         Scenes.items.tempTitle7.setContent("0").set(817,121),
         Scenes.items.tempTitle8.setContent("0").set(884,121),
         Scenes.items.tempTitle9.setContent("0").set(890,141),
+
         Scenes.items.tempTitle10.setContent("0").set(381,342),
         Scenes.items.tempTitle11.setContent("0").set(449,342),
         Scenes.items.tempTitle12.setContent("0").set(378,364),
         Scenes.items.tempTitle13.setContent("0").set(446,364),
+        
         Scenes.items.tempTitle14.setContent("0").set(665,342),
         Scenes.items.tempTitle15.setContent("0").set(596,364),
+
         Scenes.items.tempTitle16.setContent("0").set(818,344),
         Scenes.items.tempTitle17.setContent("0").set(886,344),
         Scenes.items.tempTitle18.setContent("0").set(817,364),
         Scenes.items.tempTitle19.setContent("0").set(886,364)
        ]
-
+ 
        let currentGraph = Scenes.items.part_2_graph_1
 
        // *  chage the step size of the sliders
@@ -1102,35 +1112,52 @@ right_tick_4 : new Dom("right_tick_4"),
        dutyRatioSlider.max = "0.75"
        dutyRatioSlider.step = "0.25"        
        Scenes.items.slider_D.item.children[1].children[1].innerHTML = "0.25"
-       
+        
        // ! onclick for record
        Scenes.items.run_btn.item.onclick = function(){
           let allSliderValue = $(".range-slider__value");
-
+ 
           let vInValue = Number(allSliderValue[0].innerHTML)
           let dutyRatioValue = Number(allSliderValue[1].innerHTML)
           let resistanceValue = Number(allSliderValue[2].innerHTML)
 
           updateValues(vInValue,dutyRatioValue,resistanceValue)
 
+          let v0 = Formulas.v0(values)
+          let iIn = Formulas.iIn(values)
+          let i0 = Formulas.i0(values)
+
+          v0 = v0.toFixed(1)
+          iIn = iIn.toFixed(1)
+          i0 = i0.toFixed(1)
+          
+          Scenes.items.tempTitle2.setContent(Formulas.v0(values))
 
           if(dutyRatioValue==0.25){
-            // for(let i of allTempTitles){
-            //   i.hide()
-            // }
+            Scenes.items.tempTitle1.setContent(vInValue)
+            Scenes.items.tempTitle2.setContent(Number(v0 - iIn).toFixed(1))
+            Scenes.items.tempTitle3.setContent(iIn)
+            Scenes.items.tempTitle4.setContent(iIn)
 
-            // anime.timeline({
-            //   easing: "easeInOutQuad",
-            //   duration: 2000,
-            // })  
-            // .add({
-            //   targets: currentGraph.item,
-            //   opacity: 0,
-            // })
-            // .add({
-            //   targets: Scenes.items.part_2_graph_1.item,
-            //   opacity: 1
-            // })
+            Scenes.items.tempTitle5.setContent(v0)
+            Scenes.items.tempTitle6.setContent(iIn)
+
+            Scenes.items.tempTitle7.setContent(v0)
+            Scenes.items.tempTitle8.setContent(v0)
+            Scenes.items.tempTitle9.setContent(Number(iIn - i0).toFixed(1))
+
+            Scenes.items.tempTitle10.setContent(vInValue)
+            Scenes.items.tempTitle11.setContent(vInValue)
+            Scenes.items.tempTitle12.setContent(iIn)
+            Scenes.items.tempTitle13.setContent(iIn)
+            
+            Scenes.items.tempTitle14.setContent(v0)
+            Scenes.items.tempTitle15.setContent(iIn)
+
+            Scenes.items.tempTitle16.setContent(v0)
+            Scenes.items.tempTitle17.setContent(v0)
+            Scenes.items.tempTitle18.setContent(i0)
+            Scenes.items.tempTitle19.setContent(i0) 
 
             currentGraph.hide()
             Scenes.items.part_2_graph_1.show()
@@ -1139,27 +1166,7 @@ right_tick_4 : new Dom("right_tick_4"),
 
 
           if(dutyRatioValue==0.5){
-            // for(let i of allTempTitles){
-            //   i.hide()
-            // }
-
-            // anime.timeline({
-            //   easing: "easeInOutQuad",
-            //   duration: 2000,
-            // })  
-            // .add({
-            //   targets: currentGraph.item,
-            //   opacity: 0,
-            // })
-            // .add({
-            //   targets: Scenes.items.part_2_graph_3.item,
-            //   opacity: 1,
-            //   complete(){
-            //     for(let i of allTempTitles){
-            //       i.show()
-            //     }
-            //   }
-            // })
+            
             currentGraph.hide()
             Scenes.items.part_2_graph_2.show()
             currentGraph = Scenes.items.part_2_graph_2
@@ -1167,27 +1174,7 @@ right_tick_4 : new Dom("right_tick_4"),
 
 
           if(dutyRatioValue==0.75){
-            // for(let i of allTempTitles){
-            //   i.hide()
-            // }
-
-            // anime.timeline({
-            //   easing: "easeInOutQuad",
-            //   duration: 2000,
-            // })  
-            // .add({
-            //   targets: currentGraph.item,
-            //   opacity: 0,
-            // })
-            // .add({
-            //   targets: Scenes.items.part_2_graph_3.item,
-            //   opacity: 1,
-            //   complete(){
-            //     for(let i of allTempTitles){
-            //       i.show()
-            //     }
-            //   }
-            // })
+            
 
             currentGraph.hide()
             Scenes.items.part_2_graph_3.show()
@@ -1195,7 +1182,7 @@ right_tick_4 : new Dom("right_tick_4"),
 
             // after complete
             Dom.setBlinkArrow(true, 790, 408).play();
-            setCC("If all reading done, Click 'Next' to go to next step");
+            setCC("Click 'Next' to go to next step");
             setIsProcessRunning(false);
           }
 
@@ -1215,6 +1202,7 @@ right_tick_4 : new Dom("right_tick_4"),
       Scenes.items.contentAdderBox.item.innerHTML = ""
 
       Scenes.setStepHeading("Step 3", "Performance Analysis.");
+      setCC("Click on the 'ICON' to plot the performance characteristics.")
       
       // * Required Elements
 
@@ -1329,13 +1317,24 @@ right_tick_4 : new Dom("right_tick_4"),
         "Step 4",
         "Ideal voltage gain plot."
       );
+
+      setCC("Record minimum 7 reading for different Duty Ratio.")
+      
       // ! required item
       Scenes.items.circuit_full_3.set(230,-70,200)
       Scenes.items.part_3_option_1.set(10, 170)
       Scenes.items.record_btn.set(40,310,70)
       Scenes.items.part3_table_one.show()
+      Scenes.items.right_tick_1.set(-12,185)
 
-
+      // *  chage the step size of the sliders
+      let dutyRatioSlider = Scenes.items.slider_D.item.children[1].children[0];
+      dutyRatioSlider.min = "0.1"
+      dutyRatioSlider.max = "0.9"
+      dutyRatioSlider.step = "0.1"        
+      dutyRatioSlider.value = 0.1
+      rangeSlider()
+      // Scenes.items.slider_D.item.children[1].children[1].innerHTML = "0.1"
       
       let table = Scenes.items.part3_table_one.item
       // ! onclick for record
@@ -1388,18 +1387,29 @@ right_tick_4 : new Dom("right_tick_4"),
         "Step 5",
         "Non-ideal voltage gain plot."
       );
+      setCC("Record minimum 7 reading for 3 different load resistances.")
+
 
       //! Required Items
       Scenes.items.circuit_full_3.set(230,-70,200)
       Scenes.items.part_3_option_2.set(-20, 170)
        Scenes.items.record_btn.set(40,310,70)
        Scenes.items.part3_table_two.show("flex")
+       Scenes.items.right_tick_1.set(-3,185)
 
        // vIn already set to 12
        Scenes.items.slider_vIn.item.children[1].children[0].value = 12
        Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
        Scenes.items.slider_vIn.item.children[1].children[0].classList.add("deactive")
        
+       // *  chage the step size of  the sliders
+        let dutyRatioSlider = Scenes.items.slider_D.item.children[1].children[0];
+        dutyRatioSlider.min = "0.1"
+        dutyRatioSlider.max = "0.95"
+        dutyRatioSlider.step = "0.01"        
+        dutyRatioSlider.value = 0.1
+        rangeSlider()
+
        //! final pos
 
        //to access thead of the table 
@@ -1444,7 +1454,7 @@ right_tick_4 : new Dom("right_tick_4"),
             
 
             if(recordBtnClickIdx==0){
-              tableHead1.cells[0].innerHTML = "R = " + resistanceValue
+              tableHead1.cells[0].innerHTML = `R = ${resistanceValue} Ω`
               Scenes.items.slider_R.item.children[1].children[0].disabled = true
               Scenes.items.slider_R.item.classList.add("deactive")
             }
@@ -1463,11 +1473,12 @@ right_tick_4 : new Dom("right_tick_4"),
           else if(recordBtnClickIdx < 15){
             // vIn already 
             Scenes.items.slider_vIn.item.children[1].children[0].value = 24
-            Scenes.items.slider_vIn.item.children[1].children[1].value = 24
+            Scenes.items.slider_vIn.item.children[1].children[1].innerHTML = 24
+
             Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
 
             if(recordBtnClickIdx%7==0){
-              tableHead2.cells[0].innerHTML = "R = " + resistanceValue
+              tableHead2.cells[0].innerHTML =  `R = ${resistanceValue} Ω`
               Scenes.items.slider_R.item.children[1].children[0].disabled = true
               Scenes.items.slider_R.item.classList.add("deactive")
             }
@@ -1479,7 +1490,7 @@ right_tick_4 : new Dom("right_tick_4"),
             tableRow.cells[0].innerHTML = dutyRatioValue
             tableRow.cells[1].innerHTML = Formulas.M_2(values)
 
-            if(recordBtnClickIdx==14){
+            if(recordBtnClickIdx==15){
               Scenes.items.slider_R.item.children[1].children[0].disabled = false
               Scenes.items.slider_R.item.classList.remove("deactive")
             }
@@ -1487,11 +1498,11 @@ right_tick_4 : new Dom("right_tick_4"),
           else{
              // vIn already 
              Scenes.items.slider_vIn.item.children[1].children[0].value = 36
-             Scenes.items.slider_vIn.item.children[1].children[1].value = 36
+             Scenes.items.slider_vIn.item.children[1].children[1].innerHTML = 36
              Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
  
-             if(recordBtnClickIdx%7==0){
-               tableHead3.cells[0].innerHTML = "R = " + resistanceValue
+             if(recordBtnClickIdx > 15){
+               tableHead3.cells[0].innerHTML =  `R = ${resistanceValue} Ω`
                Scenes.items.slider_R.item.children[1].children[0].disabled = true
                Scenes.items.slider_R.item.classList.add("deactive")
              }
@@ -1530,6 +1541,7 @@ right_tick_4 : new Dom("right_tick_4"),
         "Step 6",
         "Efficiency. Plot"
       )
+      setCC("Record minimum 7 reading for different Load Resistances (R0)")
 
 
       //! Required Items
@@ -1537,6 +1549,7 @@ right_tick_4 : new Dom("right_tick_4"),
        Scenes.items.part_3_option_3.set(-30, 170)
        Scenes.items.record_btn.set(40,310,70)
        Scenes.items.part3_table_three.show()
+       Scenes.items.right_tick_1.set(-5,185)
 
        
        let table = Scenes.items.part3_table_three.item
@@ -1599,6 +1612,14 @@ right_tick_4 : new Dom("right_tick_4"),
        Scenes.items.record_btn.set(40,310,70)
        Scenes.items.part3_table_four.show()
        Scenes.items.part3_table_four_2.show()
+       Scenes.items.right_tick_1.set(0,185)
+
+       // *  chage the step size of the sliders
+       let dutyRatioSlider = Scenes.items.slider_D.item.children[1].children[0];
+       dutyRatioSlider.min = "0.1"
+       dutyRatioSlider.max = "0.9"
+       dutyRatioSlider.step = "0.1"        
+       dutyRatioSlider.value = 0.1
 
        // *  chage the step size of the sliders
        let resistanceSlider = Scenes.items.slider_R.item.children[1].children[0];
@@ -1631,6 +1652,17 @@ right_tick_4 : new Dom("right_tick_4"),
          tableRow.cells[5-1].innerHTML = Formulas.M_1(values)
          tableRow.cells[6-1].innerHTML = Formulas.iIn(values)
          tableRow.cells[7-1].innerHTML = Formulas.i0(values)
+
+         // table two changes
+         let table2Row = Scenes.items.part3_table_four_2.item.tBodies[0].rows
+        table2Row[0].cells[1].innerHTML = `> v<sub>S</sub> (${Formulas.v0(values)})`
+        table2Row[1].cells[1].innerHTML = `> v<sub>D</sub> (${Formulas.v0(values)})`
+        table2Row[2].cells[1].innerHTML = `> v<sub>C</sub> (${Formulas.v0(values)})`
+        
+        table2Row[0].cells[2].innerHTML = `> i<sub>S</sub> (${Formulas.iIn(values)})`
+        table2Row[1].cells[2].innerHTML = `> i<sub>D</sub> (${Formulas.iIn(values)})`
+        table2Row[2].cells[2].innerHTML = `> i<sub>C</sub> (${Formulas.i0(values)})`
+
         
           // after complete
           Dom.setBlinkArrow(true, 790, 408).play();

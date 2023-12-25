@@ -4,12 +4,12 @@ const Formulas = {
     },
     v0(values){
         let ans = values.vIn / this.one_minus_D(values.D)
-        return ans.toFixed(2)
+        return Number(ans.toFixed(2))
     },
 
     M_1(values){
         let ans = 1 / this.one_minus_D(values.D)
-        return ans.toFixed(2)
+        return Number(ans.toFixed(2))
     },
 
     M_2(values){
@@ -19,32 +19,32 @@ const Formulas = {
         let bottom = this.one_minus_D(values.D) * (1 + (( rl + rs * values.D) /  (values.R * Math.pow(this.one_minus_D(values.D),2)) ) )
 
         let ans = upper / bottom
-        return ans.toFixed(2)
+        return Number(ans.toFixed(2))
     },
 
     iIn(values){
         let ans = values.vIn / ( Math.pow(this.one_minus_D(values.D),2) * values.R )
-        return ans.toFixed(2)
+        return Number(ans.toFixed(2))
     },
 
     i0(values){
         let ans = values.vIn / (this.one_minus_D(values.D) * values.R)
-        return ans.toFixed(2)
+        return Number(ans.toFixed(2))
     },
 
     pIn(values){
         let ans = values.vIn / (this.one_minus_D(values.D) * values.R)
-        return ans.toFixed(2)
+        return Number(ans.toFixed(2))
     },
 
     p0(values){
         let ans = values.vIn / (this.one_minus_D(values.D) * values.R)
-        return ans.toFixed(2)
+        return Number(ans.toFixed(2))
     },
 
     eff(values){
         let ans = values.vIn / (this.one_minus_D(values.D) * values.R)
-        return ans.toFixed(2)
+        return Number(ans.toFixed(2))
     }
 }
 

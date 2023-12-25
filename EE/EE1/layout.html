@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="progressBar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="imgs.css" />
     <link rel="stylesheet" href="scenes.css" />
-    <link rel="stylesheet" href="table.css" />
+    <!-- <link rel="stylesheet" href="table.css" /> -->
     <link rel="stylesheet" href="quiz.css" />
     <link rel="stylesheet" href="certificate.css" />
     <link rel="stylesheet" href="chart.css" />
     <link rel="stylesheet" href="component_styling.css" />
   </head>
   <img src="" alt="" />
-  <body>
-    <!-- <body  onmousemove="getCursor(event)"> -->
+  <!-- <body> -->
+    <body  onmousemove="getCursor(event)">
     <!-- Mouse Position -->
-    <!-- <div id="demo" style="position: absolute">
+    <div id="demo" style="position: absolute">
       <div id="info"></div>
-    </div> -->
+    </div>
     <div class="main-container">
       <!-- * Drawer Side Navbar -->
       <nav id="drawer">
@@ -257,101 +258,391 @@
                 </tbody>
               </table>
 
+              <!-- part 3 first table -->
+              <table class="part3_table_one">
+                <thead>
+                  <tr>
+                    <th>S.No.</th>
+                    <th>V<sub>in</sub>(V)</th>
+                    <th>D</th>
+                    <th>R</th>
+                    <th>V<sub>o</sub>(V)</th>
+                    <th>M</th>
+                    <th>I<sub>in</sub>(A)</th>
+                    <th>I<sub>o</sub>(A)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- part 3 second table -->
+              <div class="part3_table_two">
+                <table>
+                  <thead>
+                    <tr>
+                      <th colspan="2" >R = 200</th>
+                    </tr>
+                    <tr>
+                      <th>Duty Ratio</th>
+                      <th>M</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table>
+                  <thead>
+                    <tr>
+                      <th colspan="2" >R = 200</th>
+                    </tr>
+                    <tr>
+                      <th>Duty Ratio</th>
+                      <th>M</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table>
+                  <thead>
+                    <tr>
+                      <th colspan="2" >R = 200</th>
+                    </tr>
+                    <tr>
+                      <th>Duty Ratio</th>
+                      <th>M</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+          <!-- part 3 first table -->
+              <table class="part3_table_three">
+                <thead>
+                  <tr>
+                    <th>S.No.</th>
+                    <th>V<sub>in</sub>(V)</th>
+                    <th>D</th>
+                    <th>R<sub>1</sub></th>
+                    <th>V<sub>o</sub>(V)</th>
+                    <th>M</th>
+                    <th>I<sub>in</sub>(A)</th>
+                    <th>I<sub>o</sub>(A)</th>
+                    <th>P<sub>in</sub>(A)</th>
+                    <th>P<sub>o</sub>(A)</th>
+                    <th>Eff</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+               <!-- part 3 four table -->
+               <table class="part3_table_four">
+                <thead>
+                  <tr>
+                    <th>V<sub>in</sub>(V)</th>
+                    <th>D</th>
+                    <th>R</th>
+                    <th>V<sub>o</sub>(V)</th>
+                    <th>M</th>
+                    <th>I<sub>in</sub>(A)</th>
+                    <th>I<sub>o</sub>(A)</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+              <table class="part3_table_four_2">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>voltage Rating (V)</th>
+                    <th>Current Rating (A)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Switch</td>
+                    <td>> v<sub>S</sub> (value)</td>
+                    <td>> i<sub>S</sub> (value)</td>
+                  </tr>
+                  <tr>
+                    <td>Diode</td>
+                    <td>> v<sub>D</sub> (value)</td>
+                    <td>> i<sub>D</sub> (value)</td>
+                  </tr>
+                  <tr>
+                    <td>Capacitor</td>
+                    <td>> v<sub>C</sub> (value)</td>
+                    <td>> i<sub>C</sub> (value)</td>
+                  </tr>
+                </tbody>
+              </table>
+
               <!-- * Result table -->
-              <main class="table result-table">
-                <section class="table__header">
-                  <h4 style="margin-left: 32px">
-                    Results<br />Date of test: <span id="date"></span><br />
-                                               Grade of Steel: 550 SD steel
-                  </h4>
-                </section>
-                <section
-                  class="table__body"
-                  style="
-                    display: flex;
-                    justify-content: center;
-                    overflow-y: overlay;
-                  "
-                >
-                  <table class="">
-                    <tbody>
-                      <tr>
-                        <th class="cell" scope="col">Weight of specimen (g)</th>
-                        <td class="cell">698</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">
-                          Length of specimen (mm)
-                        </th>
-                        <td class="cell">805</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">
-                          Effective cross-sectional area,
-                          S<sub>o</sub>(mm<sup>2</sup>) =
-                          <img
-                            height="45"
-                            src="./src/images/S0_formula5"
-                            alt=""
-                          />
-                        </th>
-                        <td class="cell">110.4</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">
-                          Original gauge length L (mm) =
-                          <img
-                            height="20"
-                            src="./src/images/S0_formula3"
-                            alt=""
-                          />
-                        </th>
-                        <td class="cell">59.4</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">
-                          Choosen gauge length L<sub>o</sub> (mm)
-                        </th>
-                        <td class="cell">60</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">Yield Stress (MPa)</th>
-                        <td class="cell">480.84</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">Tensile Strength (MPa)</th>
-                        <td class="cell">600.62</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">TS/YS Ratio</th>
-                        <td class="cell">1.25</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">
-                          Final gauge length, L<sub>u</sub> mm
-                        </th>
-                        <td class="cell">77</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">
-                          Final diameter minimum (mm)
-                        </th>
-                        <td class="cell">7.1</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">
-                          % Elongation after fracture
-                        </th>
-                        <td class="cell">28.33</td>
-                      </tr>
-                      <tr>
-                        <th class="cell" scope="col">% Reduction in area</th>
-                        <td class="cell">64.13</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </section>
-              </main>
+              <!-- removed -->
 
               <!-- * chart Js Canvas-->
               <div class="chart">
@@ -442,6 +733,56 @@
                       >which is developed by
                       <span class="bold sans">VIRTUAL LABS - IIT Delhi</span>
                     </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- * Slider Box -->
+              <div class="slider-box">
+                <div class="slider slider_vIn">
+                  <span class="title">V<sub>in</sub></span>
+                  <div class="range-slider">
+                    <input
+                      class="range-slider__range"
+                      type="range"
+                      value="12"
+                      min="12"
+                      max="36"
+                      step="12"
+                    />
+                    <span class="range-slider__value">0</span>
+                    <span> V</span>
+                  </div>
+                </div>
+            
+                <div class="slider slider_D">
+                  <span class="title">D</span>
+                  <div class="range-slider">
+                    <input
+                      class="range-slider__range"
+                      type="range"
+                      value="0.1"
+                      min="0.1"
+                      max="0.95"
+                      step="0.01"
+                    />
+                    <span class="range-slider__value">0</span>
+                    <span></span>
+                  </div>
+                </div>
+            
+                <div class="slider slider_R">
+                  <span class="title">R</span>
+                  <div class="range-slider">
+                    <input
+                      class="range-slider__range"
+                      type="range"
+                      value="10"
+                      min="10"
+                      max="500"
+                    />
+                    <span class="range-slider__value">0</span>
+                    <span> Ω</span>
                   </div>
                 </div>
               </div>
@@ -612,8 +953,108 @@ src="./src/images/full_circuit2.png"
 title="full_circuit2.png"
 alt="full_circuit2.png"
 />
+<img
+class="main-window-imgs"
+src="./src/images/circuit_full_2.png"
+title="circuit_full_2.png"
+alt="circuit_full_2.png"
+/>
 
+<img
+class="main-window-imgs"
+src="./src/images/circuit_full_3.png"
+title="circuit_full_3.png"
+alt="circuit_full_3.png"
+/>
 
+<img
+class="main-window-imgs"
+src="./src/images/part_3_graph_arrow.png"
+title="part_3_graph_arrow.png"
+alt="part_3_graph_arrow.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/part_3_option_1.png"
+title="part_3_option_1.png"
+alt="part_3_option_1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/part_3_option_2.png"
+title="part_3_option_2.png"
+alt="part_3_option_2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/part_3_option_3.png"
+title="part_3_option_3.png"
+alt="part_3_option_3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/part_3_option_4.png"
+title="part_3_option_4.png"
+alt="part_3_option_4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/record_btn.png"
+/>
+<img
+class="main-window-imgs"
+src="./src/images/part_2_circuit.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/part_2_graph_1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/part_2_graph_2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/part_2_graph_3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/run_btn.png"
+/>
+
+<img
+        class="main-window-imgs"
+        src="./src/images/right_tick.png"
+    />
+    <img
+    class="main-window-imgs"
+    src="./src/images/right_tick.png"
+    alt="right_tick.png"
+/>
+    <img
+    class="main-window-imgs"
+    src="./src/images/right_tick.png"
+    alt="right_tick.png"
+/>
+    <img
+    class="main-window-imgs"
+    src="./src/images/right_tick.png"
+    alt="right_tick.png"
+/>
+    <img
+    class="main-window-imgs"
+    src="./src/images/right_tick.png"
+    alt="right_tick.png"
+/>
 
 
 
@@ -705,6 +1146,38 @@ alt="full_circuit2.png"
                 style="background-color: transparent; font-weight: bold"
                 class="temp temp-title12"
               ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title13"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title14"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title15"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title16"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title17"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title18"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title19"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title20"
+              ></span>
             </section>
 
             <!-- * Anime Footer -->
@@ -732,5 +1205,6 @@ alt="full_circuit2.png"
     <script src="progressBar.js"></script>
     <script src="layout.js"></script>
     <script src="main.js"></script>
+    <script src="formulas.js"></script>
   </body>
 </html>

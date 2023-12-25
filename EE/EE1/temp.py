@@ -19,10 +19,10 @@ def dom(name):
     return f'{name1} : new Dom("{name1}"),\n'
 
 
-names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\EE\\EE1\\src\\images\\Boost Converter")
+names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\EE\\EE1\\src\\images\\temp\\temp23")
 
-BASE_COUNT = 13
-count = 13
+BASE_COUNT = 22
+count = 30
 
 srcs = ''
 doms = ''

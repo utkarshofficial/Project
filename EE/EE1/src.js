@@ -35,6 +35,25 @@ component_register:this.allImgsDom[19],
 full_circuit:this.allImgsDom[20],
 full_circuit2:this.allImgsDom[21],
 
+circuit_full_2:this.allImgsDom[22],
+circuit_full_3:this.allImgsDom[23],
+part_3_graph_arrow:this.allImgsDom[24],
+part_3_option_1:this.allImgsDom[25],
+part_3_option_2:this.allImgsDom[26],
+part_3_option_3:this.allImgsDom[27],
+part_3_option_4:this.allImgsDom[28],
+record_btn:this.allImgsDom[29],
+
+part_2_circuit:this.allImgsDom[30],
+part_2_graph_1:this.allImgsDom[31],
+part_2_graph_2:this.allImgsDom[32],
+part_2_graph_3:this.allImgsDom[33],
+run_btn:this.allImgsDom[34],
+right_tick_1:this.allImgsDom[35],
+right_tick_2:this.allImgsDom[36],
+right_tick_3:this.allImgsDom[37],
+right_tick_4:this.allImgsDom[38],
+
 
       // * Question Mark
       domQs1: this.allQsDom[0],

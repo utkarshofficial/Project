@@ -48,7 +48,7 @@ const Formulas = {
     }
 }
 
-
+{}
 let values = {
     vIn:0,
     D:0,

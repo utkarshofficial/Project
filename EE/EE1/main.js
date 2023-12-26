@@ -1399,7 +1399,7 @@ right_tick_4 : new Dom("right_tick_4"),
       dutyRatioSlider.value = 0.1
       rangeSlider()
       // Scenes.items.slider_D.item.children[1].children[1].innerHTML = "0.1"
-      
+       
       let table = Scenes.items.part3_table_one.item
       // ! onclick for record
       let recordBtnClickIdx = 0
@@ -1428,12 +1428,24 @@ right_tick_4 : new Dom("right_tick_4"),
         tableRow.cells[6].innerHTML = Formulas.iIn(values)
         tableRow.cells[7].innerHTML = Formulas.i0(values)
 
-        if(recordBtnClickIdx>6){
+        if(recordBtnClickIdx==6){
+          // ! sort the table
+          // todo
+
+          
           // after complete
           Dom.setBlinkArrow(true, 790, 408).play();
           setCC("Click 'Next' to go to next step");
           setIsProcessRunning(false); 
           Scenes.currentStep = 4
+        }
+
+        if(recordBtnClickIdx>7){
+          // after complete
+          // Dom.setBlinkArrow(true, 790, 408).play()
+          // setCC("Click 'Next' to go to next step")
+          // setIsProcessRunning(false)
+          // Scenes.currentStep = 4
         }
       }    
 
@@ -1461,10 +1473,16 @@ right_tick_4 : new Dom("right_tick_4"),
        Scenes.items.part3_table_two.show("flex")
        Scenes.items.right_tick_1.set(-3,185)
 
+       // ! 7 fixed dutry ration
+       let dutyRatio = [0.1,0.5,0.8,0.83,0.86,0.89,0.92]
+
        // vIn already set to 12
        Scenes.items.slider_vIn.item.children[1].children[0].value = 12
-       Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
-       Scenes.items.slider_vIn.item.children[1].children[0].classList.add("deactive")
+
+       // duty ratio will be disabled for all
+       Scenes.items.slider_D.item.children[1].children[0].disabled = true
+       Scenes.items.slider_D.item.classList.add("deactive")
+      
        
        // *  chage the step size of  the sliders
         let dutyRatioSlider = Scenes.items.slider_D.item.children[1].children[0];
@@ -1518,15 +1536,22 @@ right_tick_4 : new Dom("right_tick_4"),
             
 
             if(recordBtnClickIdx==0){
+              // disable the vIn slider after first click
+              Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
+              Scenes.items.slider_vIn.item.classList.add("deactive")
+
               tableHead1.cells[0].innerHTML = `R = ${resistanceValue} Ω`
               Scenes.items.slider_R.item.children[1].children[0].disabled = true
               Scenes.items.slider_R.item.classList.add("deactive")
             }
             
-            updateValues(vInValue,dutyRatioValue,resistanceValue)
+            updateValues(
+              vInValue,
+              dutyRatio[(recordBtnClickIdx)%7],
+              resistanceValue
+            )
             
             let tableRow = table1.tBodies[0].rows[recordBtnClickIdx++]
-            tableRow.cells[0].innerHTML = dutyRatioValue
             tableRow.cells[1].innerHTML = Formulas.M_2(values)
             
             if(recordBtnClickIdx==7){
@@ -1535,9 +1560,6 @@ right_tick_4 : new Dom("right_tick_4"),
             }
           }
           else if(recordBtnClickIdx < 15){
-            // vIn already 
-            Scenes.items.slider_vIn.item.children[1].children[0].value = 24
-            Scenes.items.slider_vIn.item.children[1].children[1].innerHTML = 24
 
             Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
 
@@ -1548,10 +1570,13 @@ right_tick_4 : new Dom("right_tick_4"),
             }
             
 
-            updateValues(vInValue,dutyRatioValue,resistanceValue)
+            updateValues(
+              vInValue,
+              dutyRatio[(recordBtnClickIdx-1)%7],
+              resistanceValue
+            )
 
             let tableRow = table2.tBodies[0].rows[recordBtnClickIdx++%8]
-            tableRow.cells[0].innerHTML = dutyRatioValue
             tableRow.cells[1].innerHTML = Formulas.M_2(values)
 
             if(recordBtnClickIdx==15){
@@ -1560,10 +1585,7 @@ right_tick_4 : new Dom("right_tick_4"),
             }
           } 
           else{
-             // vIn already 
-             Scenes.items.slider_vIn.item.children[1].children[0].value = 36
-             Scenes.items.slider_vIn.item.children[1].children[1].innerHTML = 36
-             Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
+            
  
              if(recordBtnClickIdx > 15){
                tableHead3.cells[0].innerHTML =  `R = ${resistanceValue} Ω`
@@ -1572,10 +1594,13 @@ right_tick_4 : new Dom("right_tick_4"),
              }
              
  
-             updateValues(vInValue,dutyRatioValue,resistanceValue)
+             updateValues(
+              vInValue,
+              dutyRatio[(recordBtnClickIdx-2)%7],
+              resistanceValue
+            )
  
-             let tableRow = table3.tBodies[0].rows[recordBtnClickIdx++%8]
-             tableRow.cells[0].innerHTML = dutyRatioValue
+            let tableRow = table3.tBodies[0].rows[recordBtnClickIdx++%8]
              tableRow.cells[1].innerHTML = Formulas.M_2(values)
 
              if(recordBtnClickIdx>22){
@@ -1817,7 +1842,7 @@ var rangeSlider = function () {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 6
+Scenes.currentStep = 2
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

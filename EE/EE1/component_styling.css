@@ -227,3 +227,20 @@
 .deactive{
     opacity: 0.5;
 }
+
+.graph_box{
+    position: absolute;
+    right: 10px;
+    top: -70px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px;
+}
+
+.graph{
+    /* background-color: white; */
+    padding: 5px;
+    /* background-color: #202020; */
+    display: none;
+}

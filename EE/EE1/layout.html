@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="layout.css" />
     <link rel="stylesheet" href="progressBar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="imgs.css" />
     <link rel="stylesheet" href="scenes.css" />
@@ -259,7 +260,21 @@
               </table>
 
               <!-- * Graphs -->
-              
+              <div class="graph_box">
+                <canvas class="graph graph1"></canvas>
+              </div>
+              <div class="graph_box" >
+                <canvas class="graph graph2"></canvas>
+              </div>
+              <div class="graph_box" >
+                <canvas class="graph graph3"></canvas>
+              </div>
+              <div class="graph_box" >
+                <canvas class="graph graph4"></canvas>
+              </div>
+              <div class="graph_box graph_box5" >
+                <canvas class="graph graph5"></canvas>
+              </div>
               
               <!-- part 3 first table -->
               <table class="part3_table_one">
@@ -651,7 +666,10 @@
               <div class="chart">
                 <canvas id="myChart"></canvas>
               </div>
+              
+              
 
+              
               <!-- * Input box format for in anime questions -->
               <form onsubmit="return false" class="temp-input">
                 <span class="text1"></span

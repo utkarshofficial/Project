@@ -944,6 +944,8 @@ right_tick_4 : new Dom("right_tick_4"),
       Scenes.items.component_capacitor.set(160,-220)
 
       Scenes.items.slider_box.hide()
+
+      let tempText = Scenes.items.tempText.set(50,200).hide()
       
       // * Part One Logic
       Scenes.items.domQs1.set(388,227)
@@ -977,9 +979,25 @@ right_tick_4 : new Dom("right_tick_4"),
           animateComponent(qsBtnDom);
           // to go to next component
           boxCount++
-          
+          tempText.show()
+          tempText.setContent("Correct component click.")
+          tempText.item.style.color = "green"
+          anime({
+            targets: tempText.item,
+            duration: 400,
+            opacity: [0,0.5,1]
+          })
         }
         else{
+          tempText.show()
+          tempText.setContent("Incorrect component click.")
+          tempText.item.style.color = "RED"
+          anime({
+            targets: tempText.item,
+            duration: 400,
+            opacity: [0,0.5,1]
+          })
+          
           qsBtnDom.style.backgroundColor = 'red';
         }
        
@@ -1068,40 +1086,41 @@ right_tick_4 : new Dom("right_tick_4"),
       Scenes.items.slider_box.show("flex")
 
       //! Required Items
+      let hConst = 15
        Scenes.items.run_btn.set(60,340,55)
        Scenes.items.part_2_circuit.set(5,180,140)
-       Scenes.items.part_2_graph_1.set(280,-40,430)
-       Scenes.items.part_2_graph_2.set(280,-40,430).hide()
-       Scenes.items.part_2_graph_3.set(280,-40,430).hide()
+       Scenes.items.part_2_graph_1.set(280,hConst-40,430)
+       Scenes.items.part_2_graph_2.set(280,hConst-40,430).hide()
+       Scenes.items.part_2_graph_3.set(280,hConst-40,430).hide()
        
        let graphLeft = 280, graphTop = -40, graphHeight = 430
 
        // temp text on required positions
        let allTempTitles = [
-        Scenes.items.tempTitle1.setContent("0").set(381,118),
-        Scenes.items.tempTitle2.setContent("0").set(460,118),
-        Scenes.items.tempTitle3.setContent("0").set(378,141),
-        Scenes.items.tempTitle4.setContent("0").set(449,141),
+        Scenes.items.tempTitle1.setContent("0").set(381,hConst+118),
+        Scenes.items.tempTitle2.setContent("0").set(460,hConst+118),
+        Scenes.items.tempTitle3.setContent("0").set(378,hConst+141),
+        Scenes.items.tempTitle4.setContent("0").set(449,hConst+141),
 
-        Scenes.items.tempTitle5.setContent("0").set(597,121),
-        Scenes.items.tempTitle6.setContent("0").set(665,141),
+        Scenes.items.tempTitle5.setContent("0").set(597,hConst+121),
+        Scenes.items.tempTitle6.setContent("0").set(665,hConst+141),
 
-        Scenes.items.tempTitle7.setContent("0").set(817,121),
-        Scenes.items.tempTitle8.setContent("0").set(884,121),
-        Scenes.items.tempTitle9.setContent("0").set(890,141),
+        Scenes.items.tempTitle7.setContent("0").set(817,hConst+121),
+        Scenes.items.tempTitle8.setContent("0").set(884,hConst+121),
+        Scenes.items.tempTitle9.setContent("0").set(890,hConst+141),
 
-        Scenes.items.tempTitle10.setContent("0").set(381,342),
-        Scenes.items.tempTitle11.setContent("0").set(449,342),
-        Scenes.items.tempTitle12.setContent("0").set(378,364),
-        Scenes.items.tempTitle13.setContent("0").set(446,364),
+        Scenes.items.tempTitle10.setContent("0").set(381,hConst+342),
+        Scenes.items.tempTitle11.setContent("0").set(449,hConst+342),
+        Scenes.items.tempTitle12.setContent("0").set(378,hConst+364),
+        Scenes.items.tempTitle13.setContent("0").set(446,hConst+364),
         
-        Scenes.items.tempTitle14.setContent("0").set(665,342),
-        Scenes.items.tempTitle15.setContent("0").set(596,364),
+        Scenes.items.tempTitle14.setContent("0").set(665,hConst+342),
+        Scenes.items.tempTitle15.setContent("0").set(596,hConst+364),
 
-        Scenes.items.tempTitle16.setContent("0").set(818,344),
-        Scenes.items.tempTitle17.setContent("0").set(886,344),
-        Scenes.items.tempTitle18.setContent("0").set(817,364),
-        Scenes.items.tempTitle19.setContent("0").set(886,364)
+        Scenes.items.tempTitle16.setContent("0").set(818,hConst+344),
+        Scenes.items.tempTitle17.setContent("0").set(886,hConst+344),
+        Scenes.items.tempTitle18.setContent("0").set(817,hConst+364),
+        Scenes.items.tempTitle19.setContent("0").set(886,hConst+364)
        ]
  
        let currentGraph = Scenes.items.part_2_graph_1
@@ -1134,6 +1153,8 @@ right_tick_4 : new Dom("right_tick_4"),
           Scenes.items.tempTitle2.setContent(Formulas.v0(values))
 
           if(dutyRatioValue==0.25){
+            updateValues(vInValue,dutyRatioValue,resistanceValue)
+
             Scenes.items.tempTitle1.setContent(vInValue)
             Scenes.items.tempTitle2.setContent(Number(v0 - iIn).toFixed(1))
             Scenes.items.tempTitle3.setContent(iIn)
@@ -1166,7 +1187,33 @@ right_tick_4 : new Dom("right_tick_4"),
 
 
           if(dutyRatioValue==0.5){
+            updateValues(vInValue,dutyRatioValue,resistanceValue)
+
+            Scenes.items.tempTitle1.setContent(vInValue)
+            Scenes.items.tempTitle2.setContent(Number(v0 - iIn).toFixed(1))
+            Scenes.items.tempTitle3.setContent(iIn)
+            Scenes.items.tempTitle4.setContent(iIn)
+
+            Scenes.items.tempTitle5.setContent(v0)
+            Scenes.items.tempTitle6.setContent(iIn)
+
+            Scenes.items.tempTitle7.setContent(v0)
+            Scenes.items.tempTitle8.setContent(v0)
+            Scenes.items.tempTitle9.setContent(Number(iIn - i0).toFixed(1))
+
+            Scenes.items.tempTitle10.setContent(vInValue)
+            Scenes.items.tempTitle11.setContent(vInValue)
+            Scenes.items.tempTitle12.setContent(iIn)
+            Scenes.items.tempTitle13.setContent(iIn)
             
+            Scenes.items.tempTitle14.setContent(v0)
+            Scenes.items.tempTitle15.setContent(iIn)
+
+            Scenes.items.tempTitle16.setContent(v0)
+            Scenes.items.tempTitle17.setContent(v0)
+            Scenes.items.tempTitle18.setContent(i0)
+            Scenes.items.tempTitle19.setContent(i0) 
+
             currentGraph.hide()
             Scenes.items.part_2_graph_2.show()
             currentGraph = Scenes.items.part_2_graph_2
@@ -1174,7 +1221,32 @@ right_tick_4 : new Dom("right_tick_4"),
 
 
           if(dutyRatioValue==0.75){
+             updateValues(vInValue,dutyRatioValue,resistanceValue)
+
+            Scenes.items.tempTitle1.setContent(vInValue)
+            Scenes.items.tempTitle2.setContent(Number(v0 - iIn).toFixed(1))
+            Scenes.items.tempTitle3.setContent(iIn)
+            Scenes.items.tempTitle4.setContent(iIn)
+
+            Scenes.items.tempTitle5.setContent(v0)
+            Scenes.items.tempTitle6.setContent(iIn)
+
+            Scenes.items.tempTitle7.setContent(v0)
+            Scenes.items.tempTitle8.setContent(v0)
+            Scenes.items.tempTitle9.setContent(Number(iIn - i0).toFixed(1))
+
+            Scenes.items.tempTitle10.setContent(vInValue)
+            Scenes.items.tempTitle11.setContent(vInValue)
+            Scenes.items.tempTitle12.setContent(iIn)
+            Scenes.items.tempTitle13.setContent(iIn)
             
+            Scenes.items.tempTitle14.setContent(v0)
+            Scenes.items.tempTitle15.setContent(iIn)
+
+            Scenes.items.tempTitle16.setContent(v0)
+            Scenes.items.tempTitle17.setContent(v0)
+            Scenes.items.tempTitle18.setContent(i0)
+            Scenes.items.tempTitle19.setContent(i0) 
 
             currentGraph.hide()
             Scenes.items.part_2_graph_3.show()
@@ -1252,43 +1324,35 @@ right_tick_4 : new Dom("right_tick_4"),
         Scenes.items.part_3_option_3,
         Scenes.items.part_3_option_4,
       ]
-      options[0].item.onclick = ()=>{
-        if(Scenes.optionsDone[0]==1){
-          return
-        }
-        
+      
+      
+      const opOne = ()=>{
         Scenes.optionsDone[0]=1;
-
         Scenes.steps[0+5]()
       }
-      options[1].item.onclick = ()=>{
-        if(Scenes.optionsDone[1]==1){
-          return
-        }
-        
+      const opTwo = ()=>{
         Scenes.optionsDone[1]=1;
-
         Scenes.steps[1+5]()
       }
-      options[2].item.onclick = ()=>{
-        if(Scenes.optionsDone[2]==1){
-          return
-        }
-        
+      const opThree = ()=>{
         Scenes.optionsDone[2]=1;
-
         Scenes.steps[2+5]()
       }
-      options[3].item.onclick = ()=>{
-        if(Scenes.optionsDone[3]==1){
-          return
-        }
-        
+      const opFour = ()=>{
         Scenes.optionsDone[3]=1;
-
         Scenes.steps[3+5]()
-
       }
+      options[0].item.onclick = opOne
+      rightTicks[0].item.onclick = opOne
+
+      options[1].item.onclick =  opTwo
+      rightTicks[1].item.onclick = opTwo
+
+      options[2].item.onclick =  opThree
+      rightTicks[2].item.onclick = opThree
+
+      options[3].item.onclick =  opFour
+      rightTicks[3].item.onclick = opFour
 
       // ! if all options done then exit
       let exit = true
@@ -1753,8 +1817,7 @@ var rangeSlider = function () {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 2
-
+Scenes.currentStep = 6
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

@@ -39,9 +39,16 @@
     opacity: 0;
     display: none;
 }
-.main-window-imgs, .blinkArrow{
+.main-window-imgs{
     display: none;
     position: absolute;
+
+}
+.blinkArrow{
+    display: none;
+    filter:brightness(4);
+    position: absolute;
+
 }
 
 .main-window-videos{

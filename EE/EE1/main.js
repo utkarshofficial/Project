@@ -727,7 +727,7 @@ full_circuit : new Dom("full_circuit"),
 full_circuit2 : new Dom("full_circuit2"),
 circuit_full_2 : new Dom("circuit_full_2"),
 circuit_full_3 : new Dom("circuit_full_3"),
-part_3_graph_arrow : new Dom("part_3_graph_arrow"),
+graph_arrow : new Dom("part_3_graph_arrow"),
 part_3_option_1 : new Dom("part_3_option_1"),
 part_3_option_2 : new Dom("part_3_option_2"),
 part_3_option_3 : new Dom("part_3_option_3"),
@@ -756,6 +756,8 @@ graph2: new Dom(".graph2"),
 graph3: new Dom(".graph3"),
 graph4: new Dom(".graph4"),
 graph5: new Dom(".graph5"),
+graph1_arrow : new Dom("graph1_arrow"),
+graph2_arrow : new Dom("graph2_arrow"),
 
 
 // ! new items dom
@@ -934,7 +936,7 @@ graph5: new Dom(".graph5"),
       let boxCount = 1;
  
       // ! Required Postion
-      Scenes.items.box_img.set(58,-10,150)
+      Scenes.items.box_img.set(58,-20,160)
       // Scenes.items.box_img.set(190,-10,150,80)
       // Scenes.items.box_img.set(270,10,100,150)
       // Scenes.items.box_img.set(445,13,100,180)
@@ -1087,7 +1089,7 @@ graph5: new Dom(".graph5"),
         "Step 2",
         "Voltage and current waveforms."
       )
-      setCC("Slide the slider of 'D' duty ratio from 0.25, 0.5 and 0.75 to see the graph.")
+      setCC("Slide 'D' duty ratio from 0.25, 0.5 and 0.75 and click the 'RUN' to see the graph.")
       Scenes.items.slider_box.show("flex")
 
       //! Required Items
@@ -1097,6 +1099,7 @@ graph5: new Dom(".graph5"),
        Scenes.items.part_2_graph_1.set(280,hConst-40,430)
        Scenes.items.part_2_graph_2.set(280,hConst-40,430).hide()
        Scenes.items.part_2_graph_3.set(280,hConst-40,430).hide()
+       Scenes.items.run_btn.item.style.cursor = "pointer"
        
        let graphLeft = 280, graphTop = -40, graphHeight = 430
 
@@ -1147,15 +1150,15 @@ graph5: new Dom(".graph5"),
 
           updateValues(vInValue,dutyRatioValue,resistanceValue)
 
-          let v0 = Formulas.v0(values)
-          let iIn = Formulas.iIn(values)
-          let i0 = Formulas.i0(values)
+          let v0 = Formulas.step2.v0(values)
+          let iIn = Formulas.step2.iIn(values)
+          let i0 = Formulas.step2.i0(values)
 
           v0 = v0.toFixed(1)
           iIn = iIn.toFixed(1)
           i0 = i0.toFixed(1)
           
-          Scenes.items.tempTitle2.setContent(Formulas.v0(values))
+          Scenes.items.tempTitle2.setContent(v0)
 
           if(dutyRatioValue==0.25){
             updateValues(vInValue,dutyRatioValue,resistanceValue)
@@ -1382,11 +1385,11 @@ graph5: new Dom(".graph5"),
     }),
     (step4 = function () {
       Dom.hideAll(); 
-      optionsDone
+      // optionsDone
       setIsProcessRunning(true);
       Scenes.items.contentAdderBox.setContent("");
       Scenes.setStepHeading(
-        "Step 4",
+        "",
         "Ideal voltage gain plot."
       );
 
@@ -1398,7 +1401,8 @@ graph5: new Dom(".graph5"),
       Scenes.items.record_btn.set(40,310,70)
       Scenes.items.part3_table_one.show()
       Scenes.items.right_tick_1.set(-12,185)
-      
+      Scenes.items.graph1_arrow.set(-5,0)
+
       // ! graph
       // * add x,y parameters for graph
       let graphData = []
@@ -1462,7 +1466,7 @@ graph5: new Dom(".graph5"),
           chart.update()
         }
       }
-      plotGraph(null,"Voltage Gain","Voltage Gain (M)","Duty Ratio (D)")
+      plotGraph(null,"Voltage Gain","Duty Ratio (D)","Voltage Gain (M)")
 
       // ! data already present
       // if(Scenes.optionsDone[0]==1){
@@ -1528,6 +1532,7 @@ graph5: new Dom(".graph5"),
             )
           }
           plotGraph(graphData,"Voltage Gain","Voltage Gain (M)","Duty Ratio (D)")
+          Scenes.items.graph1.set(null,null,190,355)
 
           // after complete
           Dom.setBlinkArrow(true, 790, 408).play()
@@ -1545,7 +1550,7 @@ graph5: new Dom(".graph5"),
 
         // deactivate the sliders after first value done
         // todo
-       if(recordBtnClickIdx == 0){
+        if(recordBtnClickIdx == 0){
           Scenes.items.slider_vIn.item.classList.add("deactive")
           Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
           Scenes.items.slider_R.item.children[1].children[0].disabled = true
@@ -1581,7 +1586,7 @@ graph5: new Dom(".graph5"),
       setIsProcessRunning(true);
       Dom.hideAll()
       Scenes.setStepHeading(
-        "Step 5",
+        "",
         "Non-ideal voltage gain plot."
       );
       setCC("Record minimum 7 reading for 3 different load resistances.")
@@ -1593,6 +1598,9 @@ graph5: new Dom(".graph5"),
        Scenes.items.record_btn.set(40,310,70)
        Scenes.items.part3_table_two.show("flex")
        Scenes.items.right_tick_1.set(-3,185)
+      Scenes.items.graph2_arrow.set(-5,0)
+
+
 
        // ! graph
       Scenes.items.graph2.set(null,null,190,345)
@@ -1830,7 +1838,7 @@ graph5: new Dom(".graph5"),
       setIsProcessRunning(true);
  
       Scenes.setStepHeading(
-        "Step 6",
+        "",
         "Efficiency. Plot"
       )
       setCC("Record minimum 7 reading for different Load Resistances (R0)")
@@ -1842,6 +1850,7 @@ graph5: new Dom(".graph5"),
        Scenes.items.record_btn.set(40,310,70)
        Scenes.items.part3_table_three.show()
        Scenes.items.right_tick_1.set(-5,185)
+
 
        // ! graph
       Scenes.items.graph3.set(null,null,220,355)
@@ -1955,7 +1964,7 @@ graph5: new Dom(".graph5"),
       setIsProcessRunning(true);
  
       Scenes.setStepHeading(
-        "Step 7",
+        "",
         "Component Stress and Selection"
       )
 
@@ -2174,14 +2183,14 @@ graph5: new Dom(".graph5"),
          tableRow.cells[1-1].innerHTML = vInValue
          tableRow.cells[2-1].innerHTML = dutyRatioValue
          tableRow.cells[3-1].innerHTML = resistanceValue
-         tableRow.cells[4-1].innerHTML = Formulas.v0(values)
-         tableRow.cells[5-1].innerHTML = Formulas.M_1(values)
-         tableRow.cells[6-1].innerHTML = Formulas.iIn(values)
-         tableRow.cells[7-1].innerHTML = Formulas.i0(values)
+         tableRow.cells[4-1].innerHTML = Formulas.stress.v0(values)
+         tableRow.cells[5-1].innerHTML = Formulas.stress.M(values)
+         tableRow.cells[6-1].innerHTML = Formulas.stress.iIn(values)
+         tableRow.cells[7-1].innerHTML = Formulas.stress.i0(values)
 
          let v0 = Formulas.stress.v0(values)
          let iIn = Formulas.stress.iIn(values)
-         let ic = Number(vInValue - Formulas.stress.i0(values)).toFixed(2)
+         let ic = Number(Formulas.stress.iIn(values) - Formulas.stress.i0(values)).toFixed(2)
          // table two changes
          let table2Row = Scenes.items.part3_table_four_2.item.tBodies[0].rows
         table2Row[0].cells[1].innerHTML = `> v<sub>S</sub> (${v0})`
@@ -2194,7 +2203,7 @@ graph5: new Dom(".graph5"),
 
         // ! add values to graph
         let graph1_data = [v0,v0,v0]
-        let graph2_data = [iIn,iIn,i0]
+        let graph2_data = [iIn,iIn,ic]
 
         graph.addData(chart1,0,graph1_data)
         graph.addData(chart2,0,graph2_data)
@@ -2295,7 +2304,7 @@ var rangeSlider = function () {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 4
+Scenes.currentStep = 2
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

@@ -31,7 +31,7 @@
         <div class="codelab-time-container" style="display: none"></div>
         <div class="steps">
           <ol>
-            <li class="">
+            <!-- <li class="">
               <a>
                 <span class="step">
                   <span>Introduction</span>
@@ -44,7 +44,7 @@
                   <span>Objective</span>
                 </span>
               </a>
-            </li>
+            </li> -->
             <!-- <li>
               <a>
                 <span class="step">
@@ -119,13 +119,13 @@
                 </span>
               </a>
             </li> -->
-            <li>
+            <!-- <li>
               <a>
                 <span class="step">
                   <span>Completed</span>
                 </span>
               </a>
-            </li>
+            </li> -->
           </ol>
         </div>
       </nav>
@@ -141,9 +141,9 @@
               ></div>
               <div class="progress-step" data-title=""></div>
               <div class="progress-step" data-title=""></div>
-              <div class="progress-step" data-title=""></div>
-              <div class="progress-step" data-title=""></div>
-              <div class="progress-step" data-title=""></div>
+              <!-- <div class="progress-step" data-title=""></div> -->
+              <!-- <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div> -->
               <!-- <div class="progress-step" data-title=""></div> -->
               <!-- <div class="progress-step" data-title=""></div> -->
               <!-- <div class="progress-step" data-title=""></div>
@@ -759,7 +759,7 @@
               </div>
 
               <!-- * Slider Box -->
-              <div class="slider-box">
+              <div class="slider-box" style="z-index: 1000;">
                 <div class="slider slider_vIn">
                   <span class="title">V<sub>in</sub></span>
                   <div class="range-slider">
@@ -1029,7 +1029,7 @@ alt="part_3_option_4.png"
 
 <img
 class="main-window-imgs"
-style="cursor: pointer;"
+style="cursor: pointer;z-index: 1000;"
 src="./src/images/record_btn.png"
 />
 <img
@@ -1081,6 +1081,14 @@ src="./src/images/run_btn.png"
     src="./src/images/right_tick.png"
     alt="right_tick.png"
 />
+<img
+        class="main-window-imgs"
+        src="./src/images/graph2_arrow.png"
+    />
+<img
+        class="main-window-imgs"
+        src="./src/images/graph2_arrow.png"
+    />
 
 
 
@@ -1117,7 +1125,7 @@ src="./src/images/run_btn.png"
 
              <!-- * Temp texts for showing some text in anime -->
               <span
-                style="background-color:gold; height: fit-content; border-radius: 5px; width: 100px; font-weight: bolder"
+                style="background-color:white; height: fit-content; font-size: large; border-radius: 5px; width: 120px; font-weight: bolder"
                 class="temp-text"
               ></span>
               <span
@@ -1212,7 +1220,7 @@ src="./src/images/run_btn.png"
               <!-- * Bottom Subtitles Div -->
               <div style="margin-left: 120px;" class="steps-subtitle">
                 <!-- <p class="user-name">Hey👋 Sneha</p> -->
-                <p style="text-align: center;" class="subtitle" id="subtitle"></p>
+                <p style="text-align: center; font-size: 1.3em; " class="subtitle" id="subtitle"></p>
               </div>
               <btn class="btn btn-next">Next</btn>
               <btn

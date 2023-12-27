@@ -53,6 +53,8 @@ right_tick_1:this.allImgsDom[35],
 right_tick_2:this.allImgsDom[36],
 right_tick_3:this.allImgsDom[37],
 right_tick_4:this.allImgsDom[38],
+graph1_arrow:this.allImgsDom[40],
+graph2_arrow:this.allImgsDom[41],
 
 
       // * Question Mark

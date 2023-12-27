@@ -2,6 +2,20 @@ const Formulas = {
     one_minus_D(D){
         return 1 - D
     },
+    step2:{
+        v0(values){
+            let ans = values.vIn / Formulas.one_minus_D(values.D)
+            return Number(ans.toFixed(2))
+        },
+        i0(values){
+            let ans = this.v0(values) / values.R
+            return Number(ans.toFixed(2))
+        },
+        iIn(values){
+            let ans = this.i0(values) / Formulas.one_minus_D(values.D)
+            return Number(ans.toFixed(2))
+        }
+    },
     ideal:{
         v0(values){
             let ans = values.vIn / Formulas.one_minus_D(values.D)
@@ -35,7 +49,7 @@ const Formulas = {
     },
     efficiencyPlot:{
         v0(values){
-            let ans = this.M(values) * this.vIn(values)
+            let ans = this.M(values) * values.vIn
             return Number(ans.toFixed(2))
         },
         M(values){
@@ -72,16 +86,11 @@ const Formulas = {
     },
     stress:{
         v0(values){
-            let ans = this.M(values) * this.vIn(values)
+            let ans = this.M(values) * values.vIn
             return Number(ans.toFixed(2))
         },
         M(values){
-            const rl = 0.2, rs = 0.2, vFD = 0.7, rc = 0.25
-            
-            let upper = 1 - ((vFD * Formulas.one_minus_D(values.D)) /  values.vIn)
-            let bottom = Formulas.one_minus_D(values.D) * (1 + (( rl + rs * values.D) /  (values.R * Math.pow(Formulas.one_minus_D(values.D),2)) ) )
-
-            let ans = upper / bottom
+            let ans = 1 / Formulas.one_minus_D(values.D)
             return Number(ans.toFixed(2))
         },
         iIn(values){

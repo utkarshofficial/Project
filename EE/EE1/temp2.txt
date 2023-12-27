@@ -1,13 +1,13 @@
 
     <img
         class="main-window-imgs"
-        src="./src/images/right_tick.png"
-        title="right_tick.png"
-        alt="right_tick.png"
+        src="./src/images/graph2_arrow.png"
+        title="graph2_arrow.png"
+        alt="graph2_arrow.png"
     />
     
 
-right_tick:this.allImgsDom[30],
+graph2_arrow:this.allImgsDom[30],
 
 
-right_tick : new Dom("right_tick"),
+graph2_arrow : new Dom("graph2_arrow"),

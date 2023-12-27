@@ -55,6 +55,7 @@ right_tick_3:this.allImgsDom[37],
 right_tick_4:this.allImgsDom[38],
 graph1_arrow:this.allImgsDom[40],
 graph2_arrow:this.allImgsDom[41],
+part_2_graph_empty:this.allImgsDom[42],
 
 
       // * Question Mark

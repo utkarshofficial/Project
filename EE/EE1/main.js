@@ -758,6 +758,7 @@ graph4: new Dom(".graph4"),
 graph5: new Dom(".graph5"),
 graph1_arrow : new Dom("graph1_arrow"),
 graph2_arrow : new Dom("graph2_arrow"),
+part_2_graph_empty : new Dom("part_2_graph_empty"),
 
 
 // ! new items dom
@@ -1096,7 +1097,8 @@ graph2_arrow : new Dom("graph2_arrow"),
       let hConst = 15
        Scenes.items.run_btn.set(60,340,55)
        Scenes.items.part_2_circuit.set(5,180,140)
-       Scenes.items.part_2_graph_1.set(280,hConst-40,430)
+       Scenes.items.part_2_graph_empty.set(280,hConst-40,430)
+       Scenes.items.part_2_graph_1.set(280,hConst-40,430).hide()
        Scenes.items.part_2_graph_2.set(280,hConst-40,430).hide()
        Scenes.items.part_2_graph_3.set(280,hConst-40,430).hide()
        Scenes.items.run_btn.item.style.cursor = "pointer"
@@ -1131,7 +1133,7 @@ graph2_arrow : new Dom("graph2_arrow"),
         Scenes.items.tempTitle19.setContent("0").set(886,hConst+364)
        ]
  
-       let currentGraph = Scenes.items.part_2_graph_1
+       let currentGraph = Scenes.items.part_2_graph_empty
 
        // *  chage the step size of the sliders
        let dutyRatioSlider = Scenes.items.slider_D.item.children[1].children[0];
@@ -1375,7 +1377,7 @@ graph2_arrow : new Dom("graph2_arrow"),
 
       if(exit){
         // after complete
-        Dom.setBlinkArrow(true, 790, 408).play();
+        // Dom.setBlinkArrow(true, 790, 408).play();
         setCC("Simulator Done");
         setIsProcessRunning(false);
       }
@@ -2226,31 +2228,31 @@ graph2_arrow : new Dom("graph2_arrow"),
       
       return true
     }),
-    (completed = function () {
-      Dom.hideAll();
-      Scenes.items.contentAdderBox.setContent("");
+    // (completed = function () {
+    //   Dom.hideAll();
+    //   Scenes.items.contentAdderBox.setContent("");
 
-      // get(".btn-save").style.display = "block";
-      Scenes.items.btn_save.show().push();
-      Dom.setBlinkArrow(-1);
-      setCC("Download it and share with your friends.");
-      // certificate name
-      let certificateStuName = get("#certificateStuName");
-      certificateStuName.innerHTML = student_name;
-      // get("#quizScore").innerHTML = Quiz.score;
-      get("#certificateDate").innerHTML = currentDateGlobal;
-      Scenes.items.certificate.show("flex").push();
+    //   // get(".btn-save").style.display = "block";
+    //   Scenes.items.btn_save.show().push();
+    //   Dom.setBlinkArrow(-1);
+    //   setCC("Download it and share with your friends.");
+    //   // certificate name
+    //   let certificateStuName = get("#certificateStuName");
+    //   certificateStuName.innerHTML = student_name;
+    //   // get("#quizScore").innerHTML = Quiz.score;
+    //   get("#certificateDate").innerHTML = currentDateGlobal;
+    //   Scenes.items.certificate.show("flex").push();
 
-      // * restart btn
+    //   // * restart btn
 
-      let nxtBtn = get(".btn-next");
-      nxtBtn.innerHTML = "Restart";
-      nxtBtn.onclick = function () {
-        location.reload();
-      }
+    //   let nxtBtn = get(".btn-next");
+    //   nxtBtn.innerHTML = "Restart";
+    //   nxtBtn.onclick = function () {
+    //     location.reload();
+    //   }
 
-      return true;
-    }),
+    //   return true;
+    // }),
   ],
   back() {
     //! animation isRunning

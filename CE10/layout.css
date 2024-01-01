@@ -1,0 +1,373 @@
+/* #drawer  */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    /* padding-top: 70px; */
+    font-family: Roboto;
+}
+#drawer{
+    font-family: Roboto,Noto,sans-serif;
+    min-width: 230px;
+    max-width: 230px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    height: 638px;
+    overflow-y: auto;
+    grid-area: drawer;
+    grid-column-start: 1;
+}
+
+#drawer ol{
+    list-style: none;
+    margin: 0px auto !important;
+    padding: 0;
+}
+
+#drawer ol li{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 6px 0;
+    padding: 3px 10px;
+    min-height: 48px;
+    border-radius: 5px;
+    border: 1px solid rgb(218, 220, 224);
+    counter-increment: li-count;
+    opacity: 0.7;
+    line-height: 20px;
+    font-stretch: 100%;
+}
+
+#drawer ol li a .step{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#drawer ol li a .step::before{
+    content: counter(li-count);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    min-width: 26px;
+    border-radius: 50%;
+    background-color: gray;
+    margin-right: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.right-container{
+    /* overflow: hidden; */
+    width: 100%;
+    display: flex;
+}
+
+.active{
+    box-shadow: 2px 2px 4px rgba(0,0,0,.15);
+    font-weight: bold!important;
+    opacity: 1!important;
+}
+
+.active .step::before{
+    background-color: #2b80ee!important;
+}
+
+.completed{
+    opacity: 1!important;
+    font-weight: 400;
+}
+
+.completed .step::before{
+    background-color: #2b80ee!important;
+}
+
+/* Other */
+.main-container{
+    display: flex;
+    /* gap: 25px; */
+    /* display: grid; */
+    /* grid-template-areas: "drawer progressBar" */
+        /* "drawer mainWindow"; */
+}
+
+.main-window{
+    background-color: #f1ece3;
+    position: relative;
+    grid-area: mainWindow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: calc(100vh - 78px - 60px); */
+    min-height: calc(404px + 200px);
+    width: 950px;
+    border: 2px solid;
+    overflow: hidden;
+}
+
+.main-window .anime-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 50px;
+    color: white;
+    background-color: #3D246C;
+}
+.main-window .anime-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* height: 70px; */
+    height: 55px;
+    color: white;
+    background-color: #5C4B99;
+}
+
+.right-box{
+    display: flex;
+    margin-left: 1%;
+    flex-direction: column;
+    overflow: hiddenw1;
+}
+
+.anime-footer .steps-subtitle{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.anime-footer .steps-subtitle .user-name{
+    font-size: 1.05rem;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+.anime-footer .steps-subtitle .subtitle{
+    font-size: 1.1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+/* Steps Title description */
+.step-heading{
+    display: none;
+    gap: 10px;
+    margin-left: 20px;
+    align-items: center;
+}
+.step-heading .step-title{
+    background-color: #9F91CC;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.step-heading .step-description{
+    font-weight: bold;
+}
+
+.anime-main .measurements{
+    position: absolute;
+    z-index: 300;
+    /* border: 1px solid; */
+    display: none;
+}
+.anime-main .measurements .cell{
+    border: 1px solid;
+}
+
+/* temp text */
+.anime-main .temp-text, .temp-text2{
+    position: absolute;
+    background-color: white;
+    padding: 5px 10px;
+    display: none;
+}
+
+/* Project Welcome */
+.welcome-box{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+  }
+  .welcome-box .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:  25px;
+    gap: 4px;
+  }
+  .welcome-box .iit-logo{
+    height: 140px;
+    width: 200px;
+  }
+  .welcome-box .prof-img{
+    /* margin-top: 20px; */
+    height: 120px;
+    width: 100px;
+  }
+  .welcome-box .title span{
+    font-size: 1.5rem;
+  }
+  .welcome-box .title span:nth-child(2n - 1){
+    color: red
+  }
+  .welcome-box .title span:nth-child(2n){
+    font-weight: bold;
+    color: black;
+    font-family: Roboto;
+  }
+  .welcome-box .prof-description{
+    font-size: 0.8rem;
+    transform: translate(40px,15px);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid;
+    border-radius: 5px;
+    align-self: end;
+  }
+
+  /* Mute Btn */
+.btn-mute{
+    z-index: 500;
+}
+
+/* Video box */
+.video-box{
+    position: absolute;
+    display:none ;
+    /* display: flex; */
+    flex-direction: column;
+    border: 2px solid;
+    box-shadow: 5px 5px 10px 2px black;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+/* .video-box .video{
+    /* height: 150px!important; */
+/* } */ 
+
+.video-box .title{
+    background-color: purple;
+    margin: 0;
+    text-align: center;
+    color: white;
+    padding: 3px;
+    font-size: 1.2em;
+
+}
+
+.video-box .controls{
+    display: flex;
+    background-color: purple;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+.video-box .controls img{
+    height: 26px;
+
+}
+
+.video-box .controls .restart{
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Temp texts/titles */
+.temp{
+    display: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: absolute;
+    text-align: justify;
+}
+
+
+/* Content Adder Boxc */
+.content-adder-box{
+    padding: 10px 5px;
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    height: fit-content;
+    width: fit-content;
+    z-index: 1000;
+    border-radius: 10px;
+    background-color: #5c4b99;
+    box-shadow: 3px 3px 5px ;
+    position: absolute;
+    right: 20px;
+    top: 80px!important;
+}
+
+
+  /* print */
+  @media print{
+    #drawer, .progress-bar, .anime-header, .anime-footer{
+        display: none!important;
+    }
+    .main-window{
+        border: none;
+    }
+    .certificate{
+        display: flex;
+        transform: translateY(400px) rotate(90deg) scale(1.5,2);
+
+
+    }
+  }
+  /* for transparent box */
+  .transparent-box{
+    display: none;
+    height: 100% ;
+    width: 950px;
+    background-color: transparent;
+    z-index: 500;
+    position: absolute;
+
+  }
+
+  
+  .image-box{
+    /* display: flex; */
+    display: none;
+    border: 2px solid;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: white; */
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    padding: 3px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 14px ;
+  }
+  .image-box .title{
+    margin: 0;
+    font-weight: bold;
+  }
+  .image-box .image{
+    border-radius: 10px;
+
+  }

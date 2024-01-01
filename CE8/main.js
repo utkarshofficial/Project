@@ -1215,14 +1215,12 @@ objective : new Dom("objective"),
       Scenes.items.column_right.set(0,210).zIndex(1)
       Scenes.items.column_left.set(0,210).zIndex(1)
 
-
       Scenes.items.contentAdderBox.set(null,-50).show("flex")
       Scenes.contentAdderAddBtn("Base")
       Scenes.contentAdderAddBtn("Bare Rebar")
       Scenes.contentAdderAddBtn("Columns")
 
-
-      function basePlateAnime(){
+      function basePlateAnime(){ 
         Dom.setBlinkArrow(-1)
         anime.timeline({
           easing: "easeInOutQuad",

@@ -348,7 +348,6 @@ function setCC(text = null, speed = null) {
     strings: ["", ...ccQueue],
     typeSpeed: 25,
     onStringTyped(){
-      console.log(ccQueue);
       ccQueue.shift();
       // if(ccQueue.length != 0){
       //   setCC(ccQueue.shift())
@@ -1602,7 +1601,8 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
 
         let vInValue = Number(allSliderValue[0].innerHTML)
         let dutyRatioValue = Number(allSliderValue[1].innerHTML)
-        let resistanceValue = Number(allSliderValue[2].innerHTML)
+        let resistanceValue = Number(allSliderValue[2].value)
+        console.log(resistanceValue)
         updateValues(vInValue,dutyRatioValue,resistanceValue)
 
         // deactivate the sliders after first value done
@@ -2080,12 +2080,56 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
        let table = Scenes.items.part3_table_three.item
       // ! onclick for record
       let recordBtnClickIdx = 0
-      Scenes.items.record_btn.item.onclick = function(){
+      Scenes.items.record_btn.item.onclick = function(){          
+
+        // ! sort the data
+        if(recordBtnClickIdx==7){
+
+          function sortTable(){
+            var rows = table.tBodies[0].rows
+
+            let n=7
+            for(let i=0;i<n;i++){
+                for(let j=0;j<n-i-1;j++){
+                    if(rows[j].cells[8].innerHTML > rows[j+1].cells[8].innerHTML){
+                        let temp = rows[j].innerHTML
+                        rows[j].innerHTML = rows[j+1].innerHTML
+                        rows[j+1].innerHTML = temp
+                    }
+                }
+            }
+            for(let i=0;i<n;i++){
+                rows[i].cells[0].innerHTML = i+1
+            }
+          }
+          sortTable()
+
+          // * plot the graph
+          // adding parameter to x,y graph
+          var rows = table.tBodies[0].rows
+          let n = 7
+          for(let i=0;i<n;i++){
+            graph.addData(0,
+              {
+                x: rows[i].cells[9].innerHTML,
+                y: rows[i].cells[10].innerHTML
+              }
+            )
+          }
+
+          // after complete
+          Dom.setBlinkArrow(true, 790, 408).play()
+          setCC("Click 'Next' to go to next step")
+          setIsProcessRunning(false)
+          Scenes.currentStep = 4
+        }
+
+
         let allSliderValue = $(".range-slider__value");
 
         let vInValue = Number(allSliderValue[0].innerHTML)
         let dutyRatioValue = Number(allSliderValue[1].innerHTML)
-        let resistanceValue = Number(allSliderValue[2].innerHTML)
+        let resistanceValue = Number(allSliderValue[2].value)
         updateValues(vInValue,dutyRatioValue,resistanceValue)
 
         // deactivate the sliders after first value  done
@@ -2108,17 +2152,21 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
         tableRow.cells[9].innerHTML = Number(Formulas.efficiencyPlot.p0(values)).toFixed(2)
         tableRow.cells[10].innerHTML = Number(Formulas.efficiencyPlot.eff(values)).toFixed(2)
 
-        let x = tableRow.cells[9].innerHTML
-        let y = tableRow.cells[10].innerHTML
-        // ! addData to graph
-        graph.addData(0,{x:x,y:y})
+        // let x = tableRow.cells[9].innerHTML
+        // let y = tableRow.cells[10].innerHTML
+        // // ! addData to graph
+        // graph.addData(0,{x:x,y:y})
 
-        if(recordBtnClickIdx>6){
-          // after complete
-          Dom.setBlinkArrow(true, 790, 408).play();
-          setCC("Click 'Next' to go to next step");
-          setIsProcessRunning(false); 
-          Scenes.currentStep = 4
+        // if(recordBtnClickIdx>6){
+        //   // after complete
+        //   Dom.setBlinkArrow(true, 790, 408).play();
+        //   setCC("Click 'Next' to go to next step");
+        //   setIsProcessRunning(false); 
+        //   Scenes.currentStep = 4
+        // }
+        // warning for sorting the data
+        if(recordBtnClickIdx==7){
+          setCC("Click 'Record' to sort the table according to D and plot the graph.")
         }
       }    
        
@@ -2532,9 +2580,9 @@ $(".resistance-input").on("keyup", () => {
 
   let min = 1;
   let max = Number(slider.attr("max"));
-  if (input.value < min) {
-    input.value = min;
-  }
+  // if (input.value < min) {
+  //   input.value = min;
+  // }
   if (input.value > max) {
     input.value = max;
   }
@@ -2543,7 +2591,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 8
+Scenes.currentStep = 7
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

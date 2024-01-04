@@ -1444,7 +1444,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       Scenes.items.record_btn.set(40,310,70)
       Scenes.items.part3_table_one.show()
       Scenes.items.right_tick_1.set(-12,185)
-      Scenes.items.graph1_arrow.set(-5,0)
+      Scenes.items.graph1_arrow.set(-5,6)
 
       // ! graph
       // * add x,y parameters for graph
@@ -1471,9 +1471,16 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
                 {
                   scaleLabel: {
                     display: true,
-                    labelString:yLabel,
+                    labelString: yLabel,
+                    fontColor: 'black',
+                    fontSize: 17,
+  
                   },
-                  ticks: { beginAtZero:true }
+                  ticks: { 
+                    beginAtZero:true,
+                    fontColor: 'black',
+                    fontSize: 14,
+                  }
                 },
               ],
               xAxes: [
@@ -1481,13 +1488,19 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
                   scaleLabel: {
                     display: true,
                     labelString: xLabel,
+                    fontColor: 'black',
+                    fontSize: 17,
                   },
-                  ticks: { beginAtZero:true }
+                  ticks: { 
+                    beginAtZero:true,
+                    fontColor: 'black',
+                    fontSize: 14,
+                  }
                 },
               ],
             },
           },
-        });
+        })
       }
       const graph = {
         addDataset(chart,label,bgColor,data){
@@ -1647,7 +1660,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
 
 
        // ! graph
-      Scenes.items.graph2.set(null,null,190,345)
+      Scenes.items.graph2.set(null,null,190,355)
       let ctx = Scenes.items.graph2.item
 
       let xLabel = "Duty Ratio (D)"
@@ -1661,9 +1674,16 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
               {
                 scaleLabel: {
                   display: true,
-                  labelString:yLabel,
+                  labelString: yLabel,
+                  fontColor: 'black',
+                  fontSize: 17,
+
                 },
-                ticks: { beginAtZero:true }
+                ticks: { 
+                  beginAtZero:true,
+                  fontColor: 'black',
+                  fontSize: 14,
+                }
               },
             ],
             xAxes: [
@@ -1671,8 +1691,14 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
                 scaleLabel: {
                   display: true,
                   labelString: xLabel,
+                  fontColor: 'black',
+                  fontSize: 17,
                 },
-                ticks: { beginAtZero:true }
+                ticks: { 
+                  beginAtZero:true,
+                  fontColor: 'black',
+                  fontSize: 14,
+                }
               },
             ],
           },
@@ -1967,20 +1993,43 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       Scenes.items.graph3.set(null,null,220,355)
       let ctx = Scenes.items.graph3.item
       
-      let xLabel = "Output Power (P0)"
+      // let xLabel = "Output Power (Po)"
+      let xLabel = ""
       let yLabel = "Efficiency (%)"
 
       let chart = new Chart(ctx,{
         type: "scatter",
+        plugins: [{
+          afterDraw: chart => {
+            var ctx = chart.chart.ctx;
+            ctx.save();
+            ctx.textAlign = 'center';
+            ctx.font = '18px Arial';
+            ctx.fillStyle = 'black';
+            ctx.fillText('Output Power (P )', chart.chart.width / 2, chart.chart.height - 24);
+            ctx.textAlign = 'left';
+            ctx.font = '10px Arial';
+            ctx.fillText('0', chart.chart.width - 119, chart.chart.height - 12);
+            ctx.restore();
+          },
+          
+        }],
         options: {
           scales: {
             yAxes: [
               {
                 scaleLabel: {
                   display: true,
-                  labelString:yLabel,
+                  labelString: yLabel,
+                  fontColor: 'black',
+                  fontSize: 17,
+
                 },
-                ticks: { beginAtZero:true }
+                ticks: { 
+                  beginAtZero:true,
+                  fontColor: 'black',
+                  fontSize: 14,
+                }
               },
             ],
             xAxes: [
@@ -1988,8 +2037,14 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
                 scaleLabel: {
                   display: true,
                   labelString: xLabel,
+                  fontColor: 'black',
+                  fontSize: 17,
                 },
-                ticks: { beginAtZero:true }
+                ticks: { 
+                  beginAtZero:true,
+                  fontColor: 'black',
+                  fontSize: 14,
+                }
               },
             ],
           },
@@ -2120,6 +2175,21 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
             display: true,
             text: "Voltage Stress"
           },
+          plugins: [{
+            afterDraw: chart => {
+              var ctx = chart.chart.ctx;
+              ctx.save();
+              ctx.textAlign = 'center';
+              ctx.font = '18px Arial';
+              ctx.fillStyle = 'black';
+              ctx.fillText('Output Power (P )', chart.chart.width / 2, chart.chart.height - 24);
+              ctx.textAlign = 'left';
+              ctx.font = '10px Arial';
+              ctx.fillText('0', chart.chart.width - 119, chart.chart.height - 12);
+              ctx.restore();
+            },
+            
+          }],
           scales: {
             yAxes: [
               {
@@ -2147,7 +2217,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
         {
           type: "bar",
           data: {
-            labels: ["Vs", "Vd", "Vc", "Vo"],
+            labels: ["", "", "", ""],
             datasets: [
               {
                 backgroundColor: ['blue','red','purple', 'green'],
@@ -2155,31 +2225,51 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
               },
             ]
           },
+          plugins: [{
+            afterDraw: chart => {
+              var ctx = chart.chart.ctx;
+              ctx.save();
+              ctx.textAlign = 'center';
+              ctx.font = '20px Arial';
+              ctx.fillStyle = 'black';
+              ctx.fillText('v         v         v        v', chart.chart.width - 120- 10 , chart.chart.height - 24);
+              ctx.textAlign = 'left';
+              ctx.font = '12px Arial';
+              ctx.fillText('S               D               C              0', chart.chart.width - 200- 10, chart.chart.height - 16);
+              ctx.restore();
+            },
+            
+          }],
           options: {
             legend: {
               display: false
             },
             title:{
               display: true,
-              text: "Voltage Stress"
+              text: "Voltage Stress",
+              fontColor: 'black',
+              fontSize: 15,
             },
             scales: {
               yAxes: [
                 {
-                  scaleLabel: {
-                    display: false,
-                    labelString:yLabel,
-                  },
-                  ticks: { beginAtZero:true }
+                  ticks: { 
+                    beginAtZero:true,
+                    fontColor: 'black',
+                    fontSize: 15,
+                  }
                 },
               ],
               xAxes: [
                 {
                   scaleLabel: {
-                    display: false,
-                    labelString: xLabel,
+                    display: true,
                   },
-                  ticks: { beginAtZero:true }
+                  ticks: { 
+                    beginAtZero:true,
+                    fontColor: 'black',
+                    fontSize: 15,
+                  }
                 },
               ],
             },
@@ -2190,7 +2280,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
         {
           type: "bar",
           data: {
-            labels: ["Is", "Id", "Ic", 'Iin'],
+            labels: ["", "", "", ''],
             datasets: [
               {
                 backgroundColor: ['blue','red','purple', 'brown'],
@@ -2198,31 +2288,51 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
               },
             ]
           },
+          plugins: [{
+            afterDraw: chart => {
+              var ctx = chart.chart.ctx;
+              ctx.save();
+              ctx.textAlign = 'center';
+              ctx.font = '20px Arial';
+              ctx.fillStyle = 'black';
+              ctx.fillText('i          i          i          i', chart.chart.width - 110 - 30 , chart.chart.height - 24);
+              ctx.textAlign = 'left';
+              ctx.font = '12px Arial';
+              ctx.fillText('S               D               C                in', chart.chart.width - 195 - 30, chart.chart.height - 16);
+              ctx.restore();
+            },
+            
+          }],
           options: {
             legend: {
               display: false
             },
             title:{
               display: true,
-              text: "Current Stress"
+              text: "Current Stress",
+              fontColor: 'black',
+              fontSize: 15,
             },
             scales: {
               yAxes: [
                 {
-                  scaleLabel: {
-                    display: false,
-                    labelString:yLabel,
-                  },
-                  ticks: { beginAtZero:true }
+                  ticks: { 
+                    beginAtZero:true,
+                    fontColor: 'black',
+                    fontSize: 15,
+                  }
                 },
               ],
               xAxes: [
                 {
                   scaleLabel: {
-                    display: false,
-                    labelString: xLabel,
+                    display: true,
                   },
-                  ticks: { beginAtZero:true }
+                  ticks: { 
+                    beginAtZero:true,
+                    fontColor: 'black',
+                    fontSize: 15,
+                  }
                 },
               ],
             },
@@ -2412,9 +2522,24 @@ var rangeSlider = function () {
 
     range.on("input", function () {
       $(this).next(value).html(this.value);
+      $(this).next(value).val(this.value);
     });
   });
 };
+$(".resistance-input").on("keyup", () => {
+  let slider = $(".slider_R .range-slider__range");
+  let input = document.querySelector(".resistance-input");
+
+  let min = 1;
+  let max = Number(slider.attr("max"));
+  if (input.value < min) {
+    input.value = min;
+  }
+  if (input.value > max) {
+    input.value = max;
+  }
+  slider.val(input.value);
+});
 rangeSlider();
 
 // stepcalling

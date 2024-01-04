@@ -46,7 +46,7 @@
 }
 .blinkArrow{
     display: none;
-    filter:brightness(4);
+    filter:brightness(200);
     position: absolute;
 
 }

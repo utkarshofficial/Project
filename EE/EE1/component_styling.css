@@ -107,6 +107,7 @@
 .part3_table_two td,tr,th,td{
     font-size: 1.05em;
     border: 1px solid black;
+    font-weight: bold;
 }
 .part3_table_two table thead tr th{
     background-color: #c55a11;
@@ -115,11 +116,38 @@
     background-color: yellow;
 }
 .part3_table_two td:nth-child(1){
+    /* background-color: #00b050; */
+    /* color: white; */
+    
+}
+/* .part3_table_two td:nth-child(2){
+    background-color: #0000ff;
+    color: white;
+} */
+
+/* Color change different */
+.part3_table_two table:nth-child(1) td:nth-child(2), .part3_table_two table:nth-child(1) th{
+    background-color: #0000ff;
+    color: white;
+}
+.part3_table_two table:nth-child(1) thead tr:nth-child(3) th{
+    background-color: gray;
+    color: white;
+}
+.part3_table_two table:nth-child(2) td:nth-child(2), .part3_table_two table:nth-child(2) th{
+    background-color: #ff0000;
+    color: white;
+}
+.part3_table_two table:nth-child(2) thead tr:nth-child(3) th{
+    background-color: gray;
+    color: white;
+}
+.part3_table_two table:nth-child(3) td:nth-child(2), .part3_table_two table:nth-child(3) th{
     background-color: #00b050;
     color: white;
 }
-.part3_table_two td:nth-child(2){
-    background-color: #0000ff;
+.part3_table_two table:nth-child(3) thead tr:nth-child(3) th{
+    background-color: gray;
     color: white;
 }
 
@@ -164,7 +192,7 @@
     display: none;
     bottom: 0px;
     position: absolute;
-    right: 180px;
+    left: 205px;
     text-align: center;
     gap: 20px;
     border-collapse: collapse;
@@ -191,9 +219,9 @@
 /* table four */
 .part3_table_four_2{
     display: none;
-    bottom: 100px;
+    top: 160px;
     position: absolute;
-    left: 250px;
+    left: 205px;
     text-align: center;
     border-collapse: collapse;
 }
@@ -205,10 +233,10 @@
     color: white;
 }
 .part3_table_four_2 thead tr th{
-    width: 100px;
+    width: 140px;
 }
 .part3_table_four_2 tbody tr{
-    height: 30px;
+    height: 40px;
 }
 .part3_table_four_2 td{
     text-align: center;
@@ -244,3 +272,57 @@
     /* background-color: #202020; */
     display: none;
 }
+
+/* ! Next Btn Deactive class */
+.btn-deactive{
+    transition: 1s;
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: rgb(97, 97, 97);
+    box-shadow: 1px 1px 5px black;
+    color: black;
+}
+
+.btn-deactive:hover {
+    box-shadow: none!important;
+}
+
+.btn-deactive:active{
+    opacity: none!important;
+    transform: none!important;
+}
+
+/* * Part 3 table two btns */
+.btn-box1 button{
+    background-color: #0000ff;
+}
+
+.btn-box2 button{
+    background-color: #d26315; 
+}
+.btn-box3 button{
+    background-color: #5d8c3b;
+}
+
+.table-btn{
+    color: white;
+    position: relative;
+    width: 31.5%;
+    padding: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    z-index: 1000;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid black
+}
+.table-btn:hover{
+    border-color: white;
+    transition: 0.2s;
+}
+.table-btn:active{
+    transition: 0s;
+    border-color: black;
+    background-color: black;
+}
+

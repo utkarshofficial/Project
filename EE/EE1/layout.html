@@ -369,10 +369,17 @@
                 <table>
                   <thead>
                     <tr>
-                      <th colspan="2" >R = R1</th>
+                      <th colspan="2" >R1 (𝜴)</th>
                     </tr>
                     <tr>
-                      <th>Duty Ratio</th>
+                      <td colspan="2" class="table-btn-box btn-box1">
+                        <button class="table-btn">5</button>
+                        <button class="table-btn">10</button>
+                        <button class="table-btn">15</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>D</th>
                       <th>M</th>
                     </tr>
                   </thead>
@@ -407,13 +414,21 @@
                     </tr>
                   </tbody>
                 </table>
+               
                 <table>
                   <thead>
                     <tr>
-                      <th colspan="2" >R = R2</th>
+                      <th colspan="2" >R2 (𝜴)</th>
                     </tr>
                     <tr>
-                      <th>Duty Ratio</th>
+                      <td colspan="2" class="table-btn-box btn-box2 deactive">
+                        <button class="table-btn">40</button>
+                        <button class="table-btn">50</button>
+                        <button class="table-btn">60</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>D</th>
                       <th>M</th>
                     </tr>
                   </thead>
@@ -448,13 +463,21 @@
                     </tr>
                   </tbody>
                 </table>
+                
                 <table>
                   <thead>
                     <tr>
-                      <th colspan="2" >R = R3</th>
+                      <th colspan="2" >R3 (𝜴)</th>
                     </tr>
                     <tr>
-                      <th>Duty Ratio</th>
+                      <td colspan="2" class="table-btn-box btn-box3 deactive">
+                        <button class="table-btn">300</button>
+                        <button class="table-btn">325</button>
+                        <button class="table-btn">350</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>D</th>
                       <th>M</th>
                     </tr>
                   </thead>
@@ -505,7 +528,7 @@
                     <th>I<sub>o</sub>(A)</th>
                     <th>P<sub>in</sub>(A)</th>
                     <th>P<sub>o</sub>(A)</th>
-                    <th>Eff</th>
+                    <th>Eff %</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -607,12 +630,12 @@
                <table class="part3_table_four">
                 <thead>
                   <tr>
-                    <th>V<sub>in</sub>(V)</th>
+                    <th>v<sub>in</sub>(V)</th>
                     <th>D</th>
                     <th>R</th>
-                    <th>V<sub>o</sub>(V)</th>
+                    <th>v<sub>o</sub>(V)</th>
                     <th>M</th>
-                    <th>I<sub>in</sub>(A)</th>
+                    <th>I<sub>L2</sub>(A)</th>
                     <th>I<sub>o</sub>(A)</th>
                     
                   </tr>
@@ -642,19 +665,19 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Switch</td>
-                    <td>> v<sub>S</sub> (value)</td>
-                    <td>> i<sub>S</sub> (value)</td>
+                    <td>Switch(v<sub>S</sub>, i<sub>S</sub>)</td>
+                    <td>> v<sub>0</sub> (value)</td>
+                    <td>> i<sub>L2</sub> (value)</td>
                   </tr>
                   <tr>
-                    <td>Diode</td>
-                    <td>> v<sub>D</sub> (value)</td>
-                    <td>> i<sub>D</sub> (value)</td>
+                    <td>Diode(v<sub>D</sub>, i<sub>D</sub>)</td>
+                    <td>> v<sub>0</sub> (value)</td>
+                    <td>> i<sub>L2</sub> (value)</td>
                   </tr>
                   <tr>
-                    <td>Capacitor</td>
-                    <td>> v<sub>C</sub> (value)</td>
-                    <td>> i<sub>C</sub> (value)</td>
+                    <td>Capacitor(v<sub>C</sub>, i<sub>C</sub>)</td>
+                    <td>> v<sub>0</sub> (value)</td>
+                    <td>> (i<sub>L2</sub>-i<sub>0</sub>) (value)</td>
                   </tr>
                 </tbody>
               </table>
@@ -1093,6 +1116,10 @@ src="./src/images/run_btn.png"
         class="main-window-imgs"
         src="./src/images/part_2_graph_empty.png"
     />
+<img
+        class="main-window-imgs"
+        src="./src/images/part_3_option_4_graph.png"
+    />
 
 
 
@@ -1216,6 +1243,10 @@ src="./src/images/run_btn.png"
                 style="background-color: transparent; font-weight: bold"
                 class="temp temp-title20"
               ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title21"
+              ></span>
             </section>
 
             <!-- * Anime Footer -->
@@ -1226,7 +1257,7 @@ src="./src/images/run_btn.png"
                 <!-- <p class="user-name">Hey👋 Sneha</p> -->
                 <p style="text-align: center; font-size: 1.3em; " class="subtitle" id="subtitle"></p>
               </div>
-              <btn class="btn btn-next">Next</btn>
+              <btn class="btn btn-next" >Next</btn>
               <btn
                 class="btn btn-save"
                 style="position: absolute; right: 90px; bottom: 5px"
@@ -1246,4 +1277,3 @@ src="./src/images/run_btn.png"
     <script src="main.js"></script>
   </body>
 </html>
-`

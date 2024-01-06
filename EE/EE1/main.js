@@ -264,7 +264,9 @@ function toggleNextBtn(){
 }
 const setIsProcessRunning = (value) => {
   // calling toggle the next
-  toggleNextBtn()
+  if(value != isRunning){
+    toggleNextBtn()
+  }
 
   isRunning = value;
   if(value){
@@ -1164,7 +1166,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
  
           let vInValue = Number(allSliderValue[0].innerHTML)
           let dutyRatioValue = Number(allSliderValue[1].innerHTML)
-          let resistanceValue = Number(allSliderValue[2].innerHTML)
+          let resistanceValue = Number(allSliderValue[2].value)
 
           updateValues(vInValue,dutyRatioValue,resistanceValue)
 
@@ -1352,6 +1354,11 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
         Scenes.items.slider_D.item.value = 0
         Scenes.items.slider_vIn.item.value = 0
         Scenes.items.slider_R.item.value = 0
+        // Scenes.items.slider_R.item.style.opacity = 1
+        // Scenes.items.slider_D.item.style.opacity = 1
+        // Scenes.items.slider_R.show("flex")
+        // Scenes.items.slider_D.show("flex")
+  
       }
       
       const opOne = ()=>{
@@ -1436,6 +1443,63 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       );
 
       setCC("Record  7 reading for different Duty Ratio.")
+
+      // * change the position of D <-> R
+      function swapPositionSlider(){
+        Scenes.items.slider_box.item.innerHTML = `
+        <div class="slider slider_vIn">
+                  <span class="title">V<sub>in</sub></span>
+                  <div class="range-slider">
+                    <input
+                      class="range-slider__range"
+                      type="range"
+                      value="12"
+                      min="12"
+                      max="36"
+                      step="12"
+                    />
+                    <span class="range-slider__value">0</span>
+                    <span> V</span>
+                  </div>
+                </div>
+          
+                <div class="slider slider_R">
+                  <span class="title">R</span>
+                  <div class="range-slider">
+                    <input
+                      class="range-slider__range"
+                      type="range"
+                      value="10"
+                      min="10"
+                      max="500"
+                    />
+                    <input
+                      value="10"
+                      type="input"
+                      class="range-slider__value resistance-input"
+                    />
+                    <span> Ω</span>
+                  </div>
+                </div>
+                
+                <div class="slider slider_D">
+                  <span class="title">D</span>
+                  <div class="range-slider">
+                    <input
+                      class="range-slider__range"
+                      type="range"
+                      value="0.1"
+                      min="0.1"
+                      max="0.95"
+                      step="0.01"
+                    />
+                    <span class="range-slider__value">0</span>
+                    <span></span>
+                  </div>
+                </div>
+        `
+      }
+      // swapPositionSlider()
       
       // ! required item
       Scenes.items.circuit_full_3.set(230,-50,150)
@@ -1444,12 +1508,16 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       Scenes.items.part3_table_one.show()
       Scenes.items.right_tick_1.set(-12,185)
       Scenes.items.graph1_arrow.set(-5,6)
+      let table = Scenes.items.part3_table_one.item      
 
       // ! graph
       // * add x,y parameters for graph
-      let graphData = []
+      // let graphData = []
+      
+
       Scenes.items.graph1.set(null,null,190,355)
       let ctx = Scenes.items.graph1.item
+
       function plotGraph(data,label,xLabel,yLabel){
         var x = new Chart(ctx, {
           type: "scatter",
@@ -1501,43 +1569,57 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
           },
         })
       }
-      const graph = {
-        addDataset(chart,label,bgColor,data){
-          chart.data.datasets.push(
-            {
-              label: label,
-              fill: true,
-              borderColor: bgColor,
-              data: data,
-            }
-          )
-          chart.update()
-        },
-        addData(chart,index,data){
-          if(data.length > 0){
-            chart.data.datasets[index].data = data
-          }else{
-            chart.data.datasets[index].data.push(data)
-          }
-          chart.update()
-        }
-      }
-      plotGraph(null,"Voltage Gain","Duty Ratio (D)","Voltage Gain (M)")
-
-      // ! data already present
-      // if(Scenes.optionsDone[0]==1){
-      //   var rows = Scenes.items.part3_table_one.item.tBodies[0].rows
-      //   let n = 7
-      //   for(let i=0;i<n;i++){
-      //     graphData.push(
+      // const graph = {
+      //   addDataset(chart,label,bgColor,data){
+      //     chart.data.datasets.push(
       //       {
-      //         x: rows[i].cells[2].innerHTML,
-      //         y: rows[i].cells[5].innerHTML
+      //         label: label,
+      //         fill: true,
+      //         borderColor: bgColor,
+      //         data: data,
       //       }
       //     )
+      //     chart.update()
+      //   },
+      //   addData(chart,index,data){
+      //     if(data.length > 0){
+      //       chart.data.datasets[index].data = data
+      //     }else{
+      //       chart.data.datasets[index].data.push(data)
+      //     }
+      //     chart.update()
       //   }
-      //   plotGraph(graphData,"Voltage Gain","Voltage Gain (M)","Duty Ratio (D)")
       // }
+      
+
+      // get data
+      function setDataToGraph(){
+        let graphData = []
+        var rows = table.tBodies[0].rows
+        let n = 7
+        for(let i=0;i<n;i++){
+          graphData.push(
+            {
+              x: rows[i].cells[2].innerHTML,
+              y: rows[i].cells[5].innerHTML
+            }
+          )
+        }
+        plotGraph(graphData,"Voltage Gain","Duty Ratio (D)","Voltage Gain (M)")
+        Scenes.items.graph1.set(null,null,190,355)
+      }
+      // ! ------------> If data already present plot the graph
+      if(table.tBodies[0].rows[6].cells[2].innerHTML !== ""){
+        // setDataToGraph()= 
+          setIsProcessRunning(false)
+          Scenes.currentStep = 4
+      }else{
+        plotGraph([{}],"Voltage Gain","Duty Ratio (D)","Voltage Gain (M)")
+        Scenes.items.graph1.set(null,null,190,355)
+      }
+       
+
+      
 
       // *  chage the step size of the sliders
       let dutyRatioSlider = Scenes.items.slider_D.item.children[1].children[0];
@@ -1548,7 +1630,6 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       rangeSlider()
       // Scenes.items.slider_D.item.children[1].children[1].innerHTML = "0.1"
        
-      let table = Scenes.items.part3_table_one.item      
       // ! onclick for record
       let recordBtnClickIdx = 0
       Scenes.items.record_btn.item.onclick = function(){
@@ -1577,18 +1658,8 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
 
           // * plot the graph
           // adding parameter to x,y graph
-          var rows = table.tBodies[0].rows
-          let n = 7
-          for(let i=0;i<n;i++){
-            graphData.push(
-              {
-                x: rows[i].cells[2].innerHTML,
-                y: rows[i].cells[5].innerHTML
-              }
-            )
-          }
-          plotGraph(graphData,"Voltage Gain","Duty Ratio (D)","Voltage Gain (M)")
-          Scenes.items.graph1.set(null,null,190,355)
+          // ! calling the graph update function
+          setDataToGraph()
 
           // after complete
           Dom.setBlinkArrow(true, 790, 408).play()
@@ -1602,6 +1673,10 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
         let vInValue = Number(allSliderValue[0].innerHTML)
         let dutyRatioValue = Number(allSliderValue[1].innerHTML)
         let resistanceValue = Number(allSliderValue[2].value)
+
+        // let vInValue = Number(allSliderValue[0].innerHTML)
+        // let resistanceValue = Number(allSliderValue[1].value)
+        // let dutyRatioValue = Number(allSliderValue[2].innerHTML)
         console.log(resistanceValue)
         updateValues(vInValue,dutyRatioValue,resistanceValue)
 
@@ -1632,10 +1707,6 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
         
       }    
 
-      
-
-      
-
       return true;
 
     }),
@@ -1657,6 +1728,13 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
        Scenes.items.right_tick_1.set(-3,185)
       Scenes.items.graph2_arrow.set(-5,0)
 
+
+      // hide side bar
+      Scenes.items.slider_R.item.style.opacity = 0
+      Scenes.items.slider_D.item.style.opacity = 0
+      Scenes.items.slider_R.hide()
+      Scenes.items.slider_D.hide()
+      
 
 
        // ! graph
@@ -1959,10 +2037,6 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
               Scenes.currentStep = 4
              }
           } 
-         
-         
-         
- 
        }    
  
   
@@ -1976,7 +2050,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
  
       Scenes.setStepHeading(
         "",
-        "Efficiency. Plot"
+        "Efficiency Plot."
       )
       setCC("Record  7 reading for different Load Resistances (R0)")
 
@@ -1987,6 +2061,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
        Scenes.items.record_btn.set(40,310,70)
        Scenes.items.part3_table_three.show()
        Scenes.items.right_tick_1.set(-5,185)
+       let table = Scenes.items.part3_table_three.item
 
 
        // ! graph
@@ -1996,88 +2071,181 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       // let xLabel = "Output Power (Po)"
       let xLabel = ""
       let yLabel = "Efficiency (%)"
-
-      let chart = new Chart(ctx,{
-        type: "scatter",
-        plugins: [{
-          afterDraw: chart => {
-            var ctx = chart.chart.ctx;
-            ctx.save();
-            ctx.textAlign = 'center';
-            ctx.font = '18px Arial';
-            ctx.fillStyle = 'black';
-            ctx.fillText('Output Power (P )', chart.chart.width / 2, chart.chart.height - 24);
-            ctx.textAlign = 'left';
-            ctx.font = '10px Arial';
-            ctx.fillText('0', chart.chart.width - 119, chart.chart.height - 12);
-            ctx.restore();
-          },
-          
-        }],
-        options: {
-          scales: {
-            yAxes: [
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: yLabel,
-                  fontColor: 'black',
-                  fontSize: 17,
-
+      function plotGraph(data,label,xLabel,yLabel){
+        let x = new Chart(ctx, {
+          type: "scatter",
+          plugins: [{
+            afterDraw: chart => {
+              var ctx = chart.chart.ctx;
+              ctx.save();
+              ctx.textAlign = 'center';
+              ctx.font = '18px Arial';
+              ctx.fillStyle = 'black';
+              ctx.fillText('Output Power (P )', chart.chart.width / 2, chart.chart.height - 24);
+              ctx.textAlign = 'left';
+              ctx.font = '10px Arial';
+              ctx.fillText('0', chart.chart.width - 119, chart.chart.height - 12);
+              ctx.restore();
+            },
+            
+          }],
+          data: {
+            datasets: [
+                {
+                  label: label,
+                  fill: false,
+                  borderColor: "red",
+                  backgroundColor: "red",
+                  data: data,
                 },
-                ticks: { 
-                  beginAtZero:true,
-                  fontColor: 'black',
-                  fontSize: 14,
-                }
-              },
-            ],
-            xAxes: [
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: xLabel,
-                  fontColor: 'black',
-                  fontSize: 17,
-                },
-                ticks: { 
-                  beginAtZero:true,
-                  fontColor: 'black',
-                  fontSize: 14,
-                }
-              },
             ],
           },
-        },
-      })
-
-      const graph = {
-        addDataset: (label,bgColor,data)=>{
-          chart.data.datasets.push(
-            {
-              label: label,
-              fill: false,
-              borderColor: bgColor,
-              backgroundColor: bgColor,
-              data: data,
-            }
-          )
-          chart.update()
-        },
-        addData(index,data){
-          chart.data.datasets[index].data.push(data)
-          chart.update()
-        }
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: yLabel,
+                    fontColor: 'black',
+                    fontSize: 17,
+  
+                  },
+                  ticks: { 
+                    beginAtZero:false,
+                    fontColor: 'black',
+                    fontSize: 14,
+                  }
+                },
+              ],
+              xAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: xLabel,
+                    fontColor: 'black',
+                    fontSize: 17,
+                  },
+                  ticks: { 
+                    beginAtZero:false,
+                    fontColor: 'black',
+                    fontSize: 14,
+                  }
+                },
+              ],
+            },
+          },
+        })
       }
 
-      // ! adding data set
-      graph.addDataset(
-        "Efficiency",
-        "red",
-        []
-      )
+      
+
+      // let chart = new Chart(ctx,{
+      //   type: "scatter",
+      //   plugins: [{
+      //     afterDraw: chart => {
+      //       var ctx = chart.chart.ctx;
+      //       ctx.save();
+      //       ctx.textAlign = 'center';
+      //       ctx.font = '18px Arial';
+      //       ctx.fillStyle = 'black';
+      //       ctx.fillText('Output Power (P )', chart.chart.width / 2, chart.chart.height - 24);
+      //       ctx.textAlign = 'left';
+      //       ctx.font = '10px Arial';
+      //       ctx.fillText('0', chart.chart.width - 119, chart.chart.height - 12);
+      //       ctx.restore();
+      //     },
+          
+      //   }],
+      //   options: {
+      //     scales: {
+      //       yAxes: [
+      //         {
+      //           scaleLabel: {
+      //             display: true,
+      //             labelString: yLabel,
+      //             fontColor: 'black',
+      //             fontSize: 17,
+
+      //           },
+      //           ticks: { 
+      //             beginAtZero:true,
+      //             fontColor: 'black',
+      //             fontSize: 14,
+      //           }
+      //         },
+      //       ],
+      //       xAxes: [
+      //         {
+      //           scaleLabel: {
+      //             display: true,
+      //             labelString: xLabel,
+      //             fontColor: 'black',
+      //             fontSize: 17,
+      //           },
+      //           ticks: { 
+      //             beginAtZero:true,
+      //             fontColor: 'black',
+      //             fontSize: 14,
+      //           }
+      //         },
+      //       ],
+      //     },
+      //   },
+      // })
+
+      // const graph = {
+      //   addDataset: (label,bgColor,data)=>{
+      //     chart.data.datasets.push(
+      //       {
+      //         label: label,
+      //         fill: false,
+      //         borderColor: bgColor,
+      //         backgroundColor: bgColor,
+      //         data: data,
+      //       }
+      //     )
+      //     chart.update()
+      //   },
+      //   addData(index,data){
+      //     chart.data.datasets[index].data.push(data)
+      //     chart.update()
+      //   }
+      // }
+
+      // get data
+      function setDataToGraph(){
+        let graphData = []
+        var rows = table.tBodies[0].rows
+        let n = 7
+        for(let i=0;i<n;i++){
+          graphData.push(
+            {
+              x: rows[i].cells[9].innerHTML,
+              y: rows[i].cells[10].innerHTML
+            }
+          )
+        }
+        plotGraph(graphData,"Efficiency","",yLabel)
+        Scenes.items.graph3.set(null,null,220,355)
+      }
+      // ! ------------> If data already present plot the graph
+      if(table.tBodies[0].rows[6].cells[2].innerHTML !== ""){
+        setIsProcessRunning(false)
+        Scenes.currentStep = 4
+      }else{
+        // ! Please note this when plot the graph then show the graph ... 
+        plotGraph([{}],"Efficiency","",yLabel) 
+        Scenes.items.graph3.set(null,null,220,355)
+      }
+
+      // // ! adding data set
+      // graph.addDataset(
+      //   "Efficiency",
+      //   "red",
+      //   []
+      // )
        
-       let table = Scenes.items.part3_table_three.item
       // ! onclick for record
       let recordBtnClickIdx = 0
       Scenes.items.record_btn.item.onclick = function(){          
@@ -2106,16 +2274,17 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
 
           // * plot the graph
           // adding parameter to x,y graph
-          var rows = table.tBodies[0].rows
-          let n = 7
-          for(let i=0;i<n;i++){
-            graph.addData(0,
-              {
-                x: rows[i].cells[9].innerHTML,
-                y: rows[i].cells[10].innerHTML
-              }
-            )
-          }
+          // var rows = table.tBodies[0].rows
+          // let n = 7
+          // for(let i=0;i<n;i++){
+          //   graph.addData(0,
+          //     {
+          //       x: rows[i].cells[9].innerHTML,
+          //       y: rows[i].cells[10].innerHTML
+          //     }
+          //   )
+          // }
+          setDataToGraph()
 
           // after complete
           Dom.setBlinkArrow(true, 790, 408).play()
@@ -2591,7 +2760,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 7
+Scenes.currentStep = 4
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

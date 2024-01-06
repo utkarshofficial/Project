@@ -80,7 +80,7 @@ const Formulas = {
         },
     
         eff(values){
-            let ans = this.p0(values) / this.pIn(values)
+            let ans = (this.p0(values) * 100) / this.pIn(values)
             return Number(ans.toFixed(4))
         }
     },

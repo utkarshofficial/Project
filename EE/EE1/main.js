@@ -820,6 +820,22 @@ btn_reset : new Dom(".btn-reset"),
   intru: null,
   intruVoice: null,
   optionsDone:[0,0,0,0],
+  resetSlider(){
+    let defaultValues = [12,0.1,10]
+    let sliderInputs = document.querySelectorAll(".range-slider__range")
+    sliderInputs.forEach((ele,idx)=>{
+      ele.value=defaultValues[idx]
+    })
+    document.querySelector(".resistance-input").value = 10
+
+    let sliders = document.querySelectorAll(".slider")
+        sliders.forEach((ele)=>{
+          ele.children[1].children[0].disabled = false
+          ele.classList.remove("deactive")
+        })
+
+    rangeSlider()
+  },
   steps: [
     (intro = () => {
       // remove all dom element for back and setProcessRunning
@@ -1352,29 +1368,13 @@ btn_reset : new Dom(".btn-reset"),
         Scenes.items.part_3_option_3,
         Scenes.items.part_3_option_4,
       ]
-      function resetSlider(){
-        // Scenes.items.slider_vIn.item.value = 12
-        // Scenes.items.slider_D.item.value = 0.1
-        // Scenes.items.slider_R.item.value = 10
 
-        $(".slider_vIn").val(12)
-        $(".slider_D").val(0.1)
-        $(".slider_R").val(10)
-        document.querySelector(".resistance-input").value = 10
-        rangeSlider()
-        // Scenes.items.slider_R.item.style.opacity = 1
-        // Scenes.items.slider_D.item.style.opacity = 1
-        // Scenes.items.slider_R.show("flex")
-        // Scenes.items.slider_D.show("flex")
-  
-      }
+      //! RESET ALL THE SLIDER VALUES
+      Scenes.resetSlider()
       
       const opOne = ()=>{
         // ! show the slider
         Scenes.items.slider_box.show()
-
-        // * reset the slider
-        resetSlider()
 
         Scenes.optionsDone[0]=1;
         Scenes.steps[0+5]()
@@ -1383,9 +1383,6 @@ btn_reset : new Dom(".btn-reset"),
         // ! show the slider
         Scenes.items.slider_box.show()
 
-        // * reset the slider
-        resetSlider()
-
         Scenes.optionsDone[1]=1;
         Scenes.steps[1+5]()
       }
@@ -1393,18 +1390,12 @@ btn_reset : new Dom(".btn-reset"),
         // ! show the slider
         Scenes.items.slider_box.show()
 
-        // * reset the slider
-        resetSlider()
-
         Scenes.optionsDone[2]=1;
         Scenes.steps[2+5]()
       }
       const opFour = ()=>{
         // ! show the slider
         Scenes.items.slider_box.show()
-
-        // * reset the slider
-        resetSlider()
 
         Scenes.optionsDone[3]=1;
         Scenes.steps[3+5]()
@@ -1647,12 +1638,12 @@ btn_reset : new Dom(".btn-reset"),
       
       //!onclick for delete btn
       Scenes.items.btn_delete.item.onclick =  function(){
-        if(recordBtnClickIdx == 0 ){
+        if(recordBtnClickIdx == 0 || recordBtnClickIdx > 7){
           return
         }
         let row = Scenes.items.part3_table_one.item.tBodies[0].rows
-        let n=7
-        for(let i=1;i<=n;i++){
+        let n=8
+        for(let i=1;i<n;i++){
           row[recordBtnClickIdx-1].cells[i].innerHTML = "" ;
         }
         recordBtnClickIdx = recordBtnClickIdx-1
@@ -1662,24 +1653,18 @@ btn_reset : new Dom(".btn-reset"),
       Scenes.items.btn_reset.item.onclick = function(){
         var rows = table.tBodies[0].rows
         let n=7
+        let m=8
 
         for(let i=0;i<n;i++){
-          for(let j=1;j<=n;j++){
+          for(let j=1;j<m;j++){
             rows[i].cells[j].innerHTML = "";
           }
         }
 
         // reset all the parameters
-        recordBtnClickIdx=0;
-        plotGraph([{}],"Voltage Gain","Duty Ratio (D)","Voltage Gain (M)")
-        Scenes.items.slider_vIn.item.children[1].children[0].disabled = false
-        Scenes.items.slider_vIn.item.classList.remove("deactive")
-
-        Scenes.items.slider_D.item.children[1].children[0].disabled = false
-        Scenes.items.slider_D.item.classList.remove("deactive")
-
-        Scenes.items.slider_R.item.children[1].children[0].disabled = false
-        Scenes.items.slider_R.item.classList.remove("deactive")
+        // so just simply call this step again
+        Scenes.resetSlider()
+        Scenes.steps[5]() 
         
       }
       
@@ -2121,10 +2106,12 @@ btn_reset : new Dom(".btn-reset"),
 
       //! Required Items
       Scenes.items.circuit_full_3.set(230,-50,150)
-       Scenes.items.part_3_option_3.set(-30, 170)
-       Scenes.items.record_btn.set(40,310,70)
+      Scenes.items.part_3_option_3.set(-30, 155)
        Scenes.items.part3_table_three.show()
-       Scenes.items.right_tick_1.set(-5,185)
+       Scenes.items.right_tick_1.set(-5,175)
+      Scenes.items.record_btn.set(60,270,70)
+      Scenes.items.btn_reset.set(10+20,350)
+      Scenes.items.btn_delete.set(100+20,350)
        let table = Scenes.items.part3_table_three.item
 
 
@@ -2310,8 +2297,43 @@ btn_reset : new Dom(".btn-reset"),
       //   []
       // )
        
-      // ! onclick for record
+      // * index for handle the record 
       let recordBtnClickIdx = 0
+
+       //!onclick for delete btn
+       Scenes.items.btn_delete.item.onclick =  function(){
+        if(recordBtnClickIdx == 0 || recordBtnClickIdx > 7){
+          return
+        }
+        let row = table.tBodies[0].rows
+        let n=11
+        
+        for(let i=1;i<n;i++){
+          row[recordBtnClickIdx-1].cells[i].innerHTML = "" ;
+        }
+        recordBtnClickIdx = recordBtnClickIdx-1
+      }
+
+      //! onclick for reset 
+      Scenes.items.btn_reset.item.onclick = function(){
+        var rows = table.tBodies[0].rows
+        let n=7
+        let m=11
+
+        for(let i=0;i<n;i++){
+          for(let j=1;j<m;j++){
+            rows[i].cells[j].innerHTML = "";
+          }
+        }
+
+        // reset all the parameters
+        // so just simply call this step again
+        Scenes.resetSlider()
+        Scenes.steps[7]()        
+        
+      }
+
+      // ! onclick for record
       Scenes.items.record_btn.item.onclick = function(){          
 
         // ! sort the data
@@ -2847,7 +2869,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 5
+Scenes.currentStep = 4
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

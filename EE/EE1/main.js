@@ -1667,10 +1667,25 @@ btn_reset : new Dom(".btn-reset"),
         Scenes.steps[5]() 
         
       }
-      
+      let valuesToMatch = []
       // ! onclick for record
       Scenes.items.record_btn.item.onclick = function(){
 
+        let allSliderValue = $(".range-slider__value");
+        
+        let vInValue = Number(allSliderValue[0].innerHTML)
+        let dutyRatioValue = Number(allSliderValue[1].innerHTML)
+        let resistanceValue = Number(allSliderValue[2].value)
+        updateValues(vInValue,dutyRatioValue,resistanceValue)
+
+        // ! Can't select same values
+        if(recordBtnClickIdx < 7 && valuesToMatch.indexOf(dutyRatioValue)!=-1){
+          setCC("Please select different value.")
+          return
+        }else{
+          valuesToMatch.push(dutyRatioValue)
+        }
+        
         // ! sort the data
         if(recordBtnClickIdx==7){
 
@@ -1705,17 +1720,9 @@ btn_reset : new Dom(".btn-reset"),
           Scenes.currentStep = 4
         }
 
-        let allSliderValue = $(".range-slider__value");
-
-        let vInValue = Number(allSliderValue[0].innerHTML)
-        let dutyRatioValue = Number(allSliderValue[1].innerHTML)
-        let resistanceValue = Number(allSliderValue[2].value)
-
         // let vInValue = Number(allSliderValue[0].innerHTML)
         // let resistanceValue = Number(allSliderValue[1].value)
         // let dutyRatioValue = Number;(allSliderValue[2].innerHTML)
-        console.log(resistanceValue)
-        updateValues(vInValue,dutyRatioValue,resistanceValue)
 
         // deactivate the sliders after first value done
         // todo
@@ -2384,8 +2391,23 @@ btn_reset : new Dom(".btn-reset"),
         
       }
 
+      let valuesToMatch = []
       // ! onclick for record
       Scenes.items.record_btn.item.onclick = function(){          
+        let allSliderValue = $(".range-slider__value");
+
+        let vInValue = Number(allSliderValue[0].innerHTML)
+        let dutyRatioValue = Number(allSliderValue[1].innerHTML)
+        let resistanceValue = Number(allSliderValue[2].value)
+        updateValues(vInValue,dutyRatioValue,resistanceValue)
+
+        // ! Can't select same values
+        if(recordBtnClickIdx < 7 && valuesToMatch.indexOf(resistanceValue)!=-1){
+          setCC("Please select different value.")
+          return
+        }else{
+          valuesToMatch.push(resistanceValue)
+        }
 
         // ! sort the data
         if(recordBtnClickIdx==7){
@@ -2433,12 +2455,7 @@ btn_reset : new Dom(".btn-reset"),
         }
 
 
-        let allSliderValue = $(".range-slider__value");
-
-        let vInValue = Number(allSliderValue[0].innerHTML)
-        let dutyRatioValue = Number(allSliderValue[1].innerHTML)
-        let resistanceValue = Number(allSliderValue[2].value)
-        updateValues(vInValue,dutyRatioValue,resistanceValue)
+        
 
         // deactivate the sliders after first value  done
         // todo
@@ -2920,7 +2937,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 6
+Scenes.currentStep = 7
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

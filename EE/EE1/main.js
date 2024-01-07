@@ -1726,7 +1726,13 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       Scenes.items.part3_table_two.show("flex")
       Scenes.items.right_tick_1.set(-3,185)
       Scenes.items.graph2_arrow.set(-5,0)
+        // to access thead of the table 
+      // Scenes.items.part3_table_two.item.children[0].tHead.rows[0].innerHTML
 
+       let table = Scenes.items.part3_table_two.item
+       let table1 = table.children[0]
+       let table2 = table.children[1]
+       let table3 = table.children[2]
 
       // hide side bar
       Scenes.items.slider_R.item.style.opacity = 0
@@ -1742,45 +1748,48 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
 
       let xLabel = "Duty Ratio (D)"
       let yLabel = "Voltage Gain (M)"
+      let chart = null
 
-      let chart = new Chart(ctx,{
-        type: "scatter",
-        options: {
-          scales: {
-            yAxes: [
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: yLabel,
-                  fontColor: 'black',
-                  fontSize: 17,
-
+      function plotGraph(){
+        chart = new Chart(ctx,{
+          type: "scatter",
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: yLabel,
+                    fontColor: 'black',
+                    fontSize: 17,
+  
+                  },
+                  ticks: { 
+                    beginAtZero:true,
+                    fontColor: 'black',
+                    fontSize: 14,
+                  }
                 },
-                ticks: { 
-                  beginAtZero:true,
-                  fontColor: 'black',
-                  fontSize: 14,
-                }
-              },
-            ],
-            xAxes: [
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: xLabel,
-                  fontColor: 'black',
-                  fontSize: 17,
+              ],
+              xAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: xLabel,
+                    fontColor: 'black',
+                    fontSize: 17,
+                  },
+                  ticks: { 
+                    beginAtZero:true,
+                    fontColor: 'black',
+                    fontSize: 14,
+                  }
                 },
-                ticks: { 
-                  beginAtZero:true,
-                  fontColor: 'black',
-                  fontSize: 14,
-                }
-              },
-            ],
+              ],
+            },
           },
-        },
-      })
+        })
+      }
 
       const graph = {
         addDataset: (label,bgColor,data)=>{
@@ -1800,7 +1809,16 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
           chart.update()
         }
       }
-       
+
+      // ! ------------> If data already present plot the graph
+      if(table3.tBodies[0].rows[6].cells[1].innerHTML !== ""){
+          setIsProcessRunning(false)
+          Scenes.currentStep = 4
+      }else{
+        plotGraph()
+      Scenes.items.graph2.set(null,null,190,355)
+      }   
+
        // ! 7 fixed dutry ration
        let dutyRatio = [0.1,0.5,0.8,0.83,0.86,0.89,0.92]
 
@@ -1822,13 +1840,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
 
        //! final pos
 
-      // to access thead of the table 
-      // Scenes.items.part3_table_two.item.children[0].tHead.rows[0].innerHTML
-
-       let table = Scenes.items.part3_table_two.item
-       let table1 = table.children[0]
-       let table2 = table.children[1]
-       let table3 = table.children[2]
+      
       //  console.log("sneha")
       //  console.log(table1.tHead.rows[0])
       // ! Reset Button onclick

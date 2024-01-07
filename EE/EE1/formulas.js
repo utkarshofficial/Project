@@ -86,21 +86,32 @@ const Formulas = {
     },
     stress:{
         v0(values){
-            let ans = this.M(values) * values.vIn
-            return Number(ans.toFixed(4))
-        },
-        M(values){
-            let ans = 1 / Formulas.one_minus_D(values.D)
-            return Number(ans.toFixed(4))
-        },
-        iIn(values){
-            let ans = this.i0(values) / Formulas.one_minus_D(values.D)
+            let ans = values.vIn / Formulas.one_minus_D(values.D)
             return Number(ans.toFixed(4))
         },
         i0(values){
             let ans = this.v0(values) / values.R
             return Number(ans.toFixed(4))
         },
+        M(values){
+            let ans = 1 / Formulas.one_minus_D(values.D)
+            return Number(ans.toFixed(4))
+        },
+        I_In(values){
+            let ans = this.M(values) * this.i0(values)
+            return Number(ans.toFixed(4))
+        },
+        i_L2(values){
+            let L = 2 * Math.pow(10,-3)
+            let fs = 50 * Math.pow(10,3)
+
+            let upper = values.D * values.vIn
+            let lower = 2 * L * fs
+
+            let ans = this.I_In(values) + (upper / lower)
+
+            return Number(ans.toFixed(4))
+        }
     },
 }
 

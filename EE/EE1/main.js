@@ -2378,9 +2378,12 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       Scenes.items.graph4.set(null,null,190,290)
       Scenes.items.graph5.set(null,200,190,290)
       graph_box5.set(null,140)
+      let table = Scenes.items.part3_table_four.item
 
       let ctx1 = Scenes.items.graph4.item
       let ctx2 = Scenes.items.graph5.item
+      let chart1 = null
+      let chart2 = null
       
       let xLabel = ""
       let yLabel = ""
@@ -2442,132 +2445,134 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
         },
       }
 
-      let chart1 = new Chart(ctx1,
-        {
-          type: "bar",
-          data: {
-            labels: ["", "", "", ""],
-            datasets: [
-              {
-                backgroundColor: ['blue','red','purple', 'green'],
-                // data: [10,10,20],
+      function plotGraph(){
+        chart1 = new Chart(ctx1,
+          {
+            type: "bar",
+            data: {
+              labels: ["", "", "", ""],
+              datasets: [
+                {
+                  backgroundColor: ['blue','red','purple', 'green'],
+                  // data: [10,10,20],
+                },
+              ]
+            },
+            plugins: [{
+              afterDraw: chart => {
+                var ctx = chart.chart.ctx;
+                ctx.save();
+                ctx.textAlign = 'center';
+                ctx.font = '20px Arial';
+                ctx.fillStyle = 'black';
+                ctx.fillText('v         v         v        v', chart.chart.width - 120- 10 , chart.chart.height - 24);
+                ctx.textAlign = 'left';
+                ctx.font = '12px Arial';
+                ctx.fillText('S               D               C              0', chart.chart.width - 200- 10, chart.chart.height - 16);
+                ctx.restore();
               },
-            ]
-          },
-          plugins: [{
-            afterDraw: chart => {
-              var ctx = chart.chart.ctx;
-              ctx.save();
-              ctx.textAlign = 'center';
-              ctx.font = '20px Arial';
-              ctx.fillStyle = 'black';
-              ctx.fillText('v         v         v        v', chart.chart.width - 120- 10 , chart.chart.height - 24);
-              ctx.textAlign = 'left';
-              ctx.font = '12px Arial';
-              ctx.fillText('S               D               C              0', chart.chart.width - 200- 10, chart.chart.height - 16);
-              ctx.restore();
-            },
-            
-          }],
-          options: {
-            legend: {
-              display: false
-            },
-            title:{
-              display: true,
-              text: "Voltage Stress",
-              fontColor: 'black',
-              fontSize: 15,
-            },
-            scales: {
-              yAxes: [
-                {
-                  ticks: { 
-                    beginAtZero:true,
-                    fontColor: 'black',
-                    fontSize: 15,
-                  }
-                },
-              ],
-              xAxes: [
-                {
-                  scaleLabel: {
-                    display: true,
-                  },
-                  ticks: { 
-                    beginAtZero:true,
-                    fontColor: 'black',
-                    fontSize: 15,
-                  }
-                },
-              ],
-            },
-          },
-        }
-      )
-      let chart2 = new Chart(ctx2,
-        {
-          type: "bar",
-          data: {
-            labels: ["", "", "", ''],
-            datasets: [
-              {
-                backgroundColor: ['blue','red','purple', 'brown'],
-                // data: [10,10,20],
+              
+            }],
+            options: {
+              legend: {
+                display: false
               },
-            ]
-          },
-          plugins: [{
-            afterDraw: chart => {
-              var ctx = chart.chart.ctx;
-              ctx.save();
-              ctx.textAlign = 'center';
-              ctx.font = '20px Arial';
-              ctx.fillStyle = 'black';
-              ctx.fillText('i          i          i          i', chart.chart.width - 110 - 30 , chart.chart.height - 24);
-              ctx.textAlign = 'left';
-              ctx.font = '12px Arial';
-              ctx.fillText('S               D               C                in', chart.chart.width - 195 - 30, chart.chart.height - 16);
-              ctx.restore();
-            },
-            
-          }],
-          options: {
-            legend: {
-              display: false
-            },
-            title:{
-              display: true,
-              text: "Current Stress",
-              fontColor: 'black',
-              fontSize: 15,
-            },
-            scales: {
-              yAxes: [
-                {
-                  ticks: { 
-                    beginAtZero:true,
-                    fontColor: 'black',
-                    fontSize: 15,
-                  }
-                },
-              ],
-              xAxes: [
-                {
-                  scaleLabel: {
-                    display: true,
+              title:{
+                display: true,
+                text: "Voltage Stress",
+                fontColor: 'black',
+                fontSize: 15,
+              },
+              scales: {
+                yAxes: [
+                  {
+                    ticks: { 
+                      beginAtZero:true,
+                      fontColor: 'black',
+                      fontSize: 15,
+                    }
                   },
-                  ticks: { 
-                    beginAtZero:true,
-                    fontColor: 'black',
-                    fontSize: 15,
-                  }
-                },
-              ],
+                ],
+                xAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                    },
+                    ticks: { 
+                      beginAtZero:true,
+                      fontColor: 'black',
+                      fontSize: 15,
+                    }
+                  },
+                ],
+              },
             },
-          },
-        }  
-      )
+          }
+        )
+        chart2 = new Chart(ctx2,
+          {
+            type: "bar",
+            data: {
+              labels: ["", "", "", ''],
+              datasets: [
+                {
+                  backgroundColor: ['blue','red','purple', 'brown'],
+                  // data: [10,10,20],
+                },
+              ]
+            },
+            plugins: [{
+              afterDraw: chart => {
+                var ctx = chart.chart.ctx;
+                ctx.save();
+                ctx.textAlign = 'center';
+                ctx.font = '20px Arial';
+                ctx.fillStyle = 'black';
+                ctx.fillText('i          i          i          i', chart.chart.width - 110 - 30 , chart.chart.height - 24);
+                ctx.textAlign = 'left';
+                ctx.font = '12px Arial';
+                ctx.fillText('S               D               C                in', chart.chart.width - 195 - 30, chart.chart.height - 16);
+                ctx.restore();
+              },
+              
+            }],
+            options: {
+              legend: {
+                display: false
+              },
+              title:{
+                display: true,
+                text: "Current Stress",
+                fontColor: 'black',
+                fontSize: 15,
+              },
+              scales: {
+                yAxes: [
+                  {
+                    ticks: { 
+                      beginAtZero:true,
+                      fontColor: 'black',
+                      fontSize: 15,
+                    }
+                  },
+                ],
+                xAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                    },
+                    ticks: { 
+                      beginAtZero:true,
+                      fontColor: 'black',
+                      fontSize: 15,
+                    }
+                  },
+                ],
+              },
+            },
+          }  
+        )
+      }
 
 
       const graph = {
@@ -2583,6 +2588,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
           chart.update()
         },
         addData(chart,index,data){
+          console.log(data)
           if(data.length > 0){
             chart.data.datasets[index].data = data
           }else{
@@ -2591,6 +2597,18 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
           chart.update()
         }
       }
+
+       // ! ------------> If data already present plot the graph
+        if(table.tBodies[0].rows[0].cells[6].innerHTML !== ""){
+          setIsProcessRunning(false)
+          Scenes.currentStep = 4
+        }else{
+          plotGraph()
+          // Scenes.items.graph2.set(null,null,190,355)
+          Scenes.items.graph4.set(null,null,190,290)
+          Scenes.items.graph5.set(null,200,190,290)
+        }   
+
 
        // *  chage the step size of the sliders
        let dutyRatioSlider = Scenes.items.slider_D.item.children[1].children[0];
@@ -2605,7 +2623,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
        resistanceSlider.value = "10"
        resistanceSlider.max = "70"
        resistanceSlider.step = "1"
-       Scenes.items.slider_R.item.children[1].children[1].innerHTML = "10"
+      //  Scenes.items.slider_R.item.children[1].children[1].innerHTML = "10"
 
       // Resistance slider
       // resistanceSlider.oninput = ()=>{
@@ -2621,15 +2639,16 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       // }
         
 
-       //! final pos
-       let table = Scenes.items.part3_table_four.item
+      
+       
        // ! onclick for record
        Scenes.items.record_btn.item.onclick = function(){
          let allSliderValue = $(".range-slider__value");
  
          let vInValue = Number(allSliderValue[0].innerHTML)
          let dutyRatioValue = Number(allSliderValue[1].innerHTML)
-         let resistanceValue = Number(allSliderValue[2].innerHTML)
+         let resistanceValue = Number(allSliderValue[2].value)
+
          updateValues(vInValue,dutyRatioValue,resistanceValue)
  
          let tableRow = table.tBodies[0].rows[0]
@@ -2638,26 +2657,28 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
          tableRow.cells[3-1].innerHTML = resistanceValue
          tableRow.cells[4-1].innerHTML = Number(Formulas.stress.v0(values)).toFixed(2)
          tableRow.cells[5-1].innerHTML = Number(Formulas.stress.M(values)).toFixed(2)
-         tableRow.cells[6-1].innerHTML = Number(Formulas.stress.iIn(values)).toFixed(2)
+         tableRow.cells[6-1].innerHTML = Number(Formulas.stress.i_L2(values)).toFixed(2)
          tableRow.cells[7-1].innerHTML = Number(Formulas.stress.i0(values)).toFixed(2)
 
+         let iIn = Number(Formulas.stress.I_In(values)).toFixed(2)
          let v0 = Number(Formulas.stress.v0(values)).toFixed(2)
-         let iIn = Number(Formulas.stress.iIn(values)).toFixed(2)
-         let ic = Number(Formulas.stress.iIn(values) - Formulas.stress.i0(values)).toFixed(2)
+         let iL2 = Number(Formulas.stress.i_L2(values)).toFixed(2)
+         let ic = Number(Formulas.stress.i_L2(values) - Formulas.stress.i0(values)).toFixed(2)
          // table two changes
          let table2Row = Scenes.items.part3_table_four_2.item.tBodies[0].rows
         table2Row[0].cells[1].innerHTML = `> v<sub>S</sub> (${v0})`
         table2Row[1].cells[1].innerHTML = `> v<sub>D</sub> (${v0})`
         table2Row[2].cells[1].innerHTML = `> v<sub>C</sub> (${v0})`
         
-        table2Row[0].cells[2].innerHTML = `> i<sub>S</sub> (${iIn})`
-        table2Row[1].cells[2].innerHTML = `> i<sub>D</sub> (${iIn})`
+        table2Row[0].cells[2].innerHTML = `> i<sub>S</sub> (${iL2})`
+        table2Row[1].cells[2].innerHTML = `> i<sub>D</sub> (${iL2})`
         table2Row[2].cells[2].innerHTML = `> i<sub>C</sub> (${ic})`
 
         // ! add values to graph
-        let graph1_data = [v0,v0,v0]
-        let graph2_data = [iIn,iIn,ic]
+        let graph1_data = [v0,v0,v0,v0]
+        let graph2_data = [iL2,iL2,ic,iIn]
 
+        plotGraph()
         graph.addData(chart1,0,graph1_data)
         graph.addData(chart2,0,graph2_data)
         
@@ -2668,11 +2689,11 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
           Scenes.currentStep = 4
 
           // ! fix resistance value to its original
-          resistanceSlider.min = 10
-          resistanceSlider.max = 500
-          resistanceSlider.step = 1        
-          resistanceSlider.value = 10
-          resistanceSlider.oninput = ()=>{}
+          // resistanceSlider.min = 10
+          // resistanceSlider.max = 500
+          // resistanceSlider.step = 1        
+          // resistanceSlider.value = 10
+          // resistanceSlider.oninput = ()=>{}
        }    
       
 

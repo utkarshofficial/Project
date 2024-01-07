@@ -1676,7 +1676,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
 
         // let vInValue = Number(allSliderValue[0].innerHTML)
         // let resistanceValue = Number(allSliderValue[1].value)
-        // let dutyRatioValue = Number(allSliderValue[2].innerHTML)
+        // let dutyRatioValue = Number;(allSliderValue[2].innerHTML)
         console.log(resistanceValue)
         updateValues(vInValue,dutyRatioValue,resistanceValue)
 
@@ -1719,13 +1719,12 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       );
       setCC("Record  7 reading for 3 different load resistances.")
 
-
       //! Required Items
       Scenes.items.circuit_full_3.set(230,-50,150)
       Scenes.items.part_3_option_2.set(-20, 170)
-       Scenes.items.record_btn.set(40,310,70)
-       Scenes.items.part3_table_two.show("flex")
-       Scenes.items.right_tick_1.set(-3,185)
+      Scenes.items.record_btn.set(40,310,70)
+      Scenes.items.part3_table_two.show("flex")
+      Scenes.items.right_tick_1.set(-3,185)
       Scenes.items.graph2_arrow.set(-5,0)
 
 
@@ -1823,8 +1822,8 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
 
        //! final pos
 
-       //to access thead of the table 
-      //  Scenes.items.part3_table_two.item.children[0].tHead.rows[0].innerHTML
+      // to access thead of the table 
+      // Scenes.items.part3_table_two.item.children[0].tHead.rows[0].innerHTML
 
        let table = Scenes.items.part3_table_two.item
        let table1 = table.children[0]
@@ -1853,6 +1852,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
           for (let i=0;i<3;i++){
             resistanceBtns[i].onclick = ()=>{}
           }
+          
           // if pressed then calculate
           resistanceBtnPressed = true;
         }
@@ -1888,7 +1888,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
                 `R = ${resistanceValue}`,
                 "blue",
                 []
-              )
+              ) 
 
               // disable the vIn slider after first click
               Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
@@ -2259,7 +2259,7 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
             let n=7
             for(let i=0;i<n;i++){
                 for(let j=0;j<n-i-1;j++){
-                    if(rows[j].cells[8].innerHTML > rows[j+1].cells[8].innerHTML){
+                    if(rows[j].cells[9].innerHTML > rows[j+1].cells[9].innerHTML){
                         let temp = rows[j].innerHTML
                         rows[j].innerHTML = rows[j+1].innerHTML
                         rows[j+1].innerHTML = temp

@@ -1758,11 +1758,15 @@ btn_reset : new Dom(".btn-reset"),
 
       //! Required Items
       Scenes.items.circuit_full_3.set(230,-50,150)
-      Scenes.items.part_3_option_2.set(-20, 170)
-      Scenes.items.record_btn.set(40,310,70)
+      Scenes.items.part_3_option_2.set(-20, 170-120).zIndex(2000)
+      Scenes.items.right_tick_1.set(-3,185-120).zIndex(2000)
       Scenes.items.part3_table_two.show("flex")
-      Scenes.items.right_tick_1.set(-3,185)
       Scenes.items.graph2_arrow.set(-5,0)
+      Scenes.items.record_btn.set(60,270,70)
+      Scenes.items.btn_reset.set(77,350)
+      
+      // Scenes.items.btn_delete.set(100+20,350)
+
         // to access thead of the table 
       // Scenes.items.part3_table_two.item.children[0].tHead.rows[0].innerHTML
 
@@ -1770,6 +1774,9 @@ btn_reset : new Dom(".btn-reset"),
        let table1 = table.children[0]
        let table2 = table.children[1]
        let table3 = table.children[2]
+       let tableHead1 = table1.tHead.rows[0]
+      let tableHead2 = table2.tHead.rows[0]
+      let tableHead3 = table3.tHead.rows[0]
 
       // hide side bar
       // Scenes.items.slider_R.item.style.opacity = 0
@@ -1844,6 +1851,10 @@ btn_reset : new Dom(".btn-reset"),
         addData(index,data){
           chart.data.datasets[index].data.push(data)
           chart.update()
+        },
+        removeData(index){
+          chart.data.datasets[index].data.pop()
+          chart.update()
         }
       }
 
@@ -1859,20 +1870,19 @@ btn_reset : new Dom(".btn-reset"),
        // ! 7 fixed dutry ration
        let dutyRatio = [0.1,0.5,0.8,0.83,0.86,0.89,0.92]
 
-       // vIn already set to 12
-       Scenes.items.slider_vIn.item.children[1].children[0].value = 12
-
        // duty ratio will be disabled for all
        Scenes.items.slider_D.item.children[1].children[0].disabled = true
        Scenes.items.slider_D.item.classList.add("deactive")
+       Scenes.items.slider_R.item.children[1].children[0].disabled = true
+       Scenes.items.slider_R.item.classList.add("deactive")
       
        
-       // *  chage the step size of  the sliders
-        let dutyRatioSlider = Scenes.items.slider_D.item.children[1].children[0];
-        dutyRatioSlider.min = "0.1"
-        dutyRatioSlider.max = "0.95"
-        dutyRatioSlider.step = "0.01"        
-        dutyRatioSlider.value = 0.1
+      //  // *  chage the step size of  the sliders
+      //   let dutyRatioSlider = Scenes.items.slider_D.item.children[1].children[0];
+      //   dutyRatioSlider.min = "0.1"
+      //   dutyRatioSlider.max = "0.95"
+      //   dutyRatioSlider.step = "0.01"        
+      //   dutyRatioSlider.value = 0.1
         rangeSlider()
 
        //! final pos
@@ -1895,7 +1905,7 @@ btn_reset : new Dom(".btn-reset"),
         resistanceBtns[i].onclick = ()=>{
           // ! value from btn
           resistanceValue = Number(resistanceBtns[i].innerHTML)
-          resistanceBtns[i].style.backgroundColor = 'black'
+          resistanceBtns[i].classList.add("bg-black")
 
           // remove all the onclick event after one click done
           for (let i=0;i<3;i++){
@@ -1906,9 +1916,53 @@ btn_reset : new Dom(".btn-reset"),
           resistanceBtnPressed = true;
         }
       }
+      // to handle records
+      let recordBtnClickIdx = 0
+
+      // //!onclick for delete btn
+      // Scenes.items.btn_delete.item.onclick =  function(){
+      //   if(recordBtnClickIdx == 0 || recordBtnClickIdx > 7){
+      //     return
+      //   }
+      //   let row = table.tBodies[0].rows
+      //   let n=11
+        
+      //   for(let i=1;i<n;i++){
+      //     row[recordBtnClickIdx-1].cells[i].innerHTML = "" ;
+      //   }
+      //   recordBtnClickIdx = recordBtnClickIdx-1
+      // }
+
+      //! onclick for reset 
+      Scenes.items.btn_reset.item.onclick = function(){
+        var tables = [
+          table1.tBodies[0].rows,
+          table2.tBodies[0].rows,
+          table3.tBodies[0].rows
+        ]
+
+        // to empty cells of table
+        for(let table of tables){
+          for(let row of table){
+            row.cells[1].innerHTML = ""
+          }
+        }
+
+        // reset the resistance buttons
+        let tableBtns = document.querySelectorAll(".table-btn")
+        tableBtns.forEach(ele=>{
+          ele.classList.remove("bg-black")
+        })
+        // deactive others
+        document.querySelector(".btn-box2").classList.add("deactive")
+        document.querySelector(".btn-box3").classList.add("deactive")
+
+        Scenes.resetSlider()
+        Scenes.steps[6]()        
+        
+      }
 
        // ! onclick for record
-       let recordBtnClickIdx = 0
        Scenes.items.record_btn.item.onclick = function(){
         // * if not select any resistance value
         if(!resistanceBtnPressed){
@@ -1919,10 +1973,7 @@ btn_reset : new Dom(".btn-reset"),
          let allSliderValue = $(".range-slider__value");
  
          let vInValue = Number(allSliderValue[0].innerHTML)
- 
-         let tableHead1 = table1.tHead.rows[0]
-         let tableHead2 = table2.tHead.rows[0]
-         let tableHead3 = table3.tHead.rows[0]
+
 
         //  tableHead1.innerHTML = resistanceValue
         //  tableHead2.innerHTML = resistanceValue
@@ -1975,7 +2026,7 @@ btn_reset : new Dom(".btn-reset"),
                 resistanceBtns[i].onclick = ()=>{
                   // ! value from btn
                   resistanceValue = Number(resistanceBtns[i].innerHTML)
-                  resistanceBtns[i].style.backgroundColor = 'black'
+                  resistanceBtns[i].classList.add("bg-black")
 
                   // remove all the onclick event after one click done
                   for (let i=3;i<6;i++){
@@ -2034,7 +2085,7 @@ btn_reset : new Dom(".btn-reset"),
                 resistanceBtns[i].onclick = ()=>{
                   // ! value from btn
                   resistanceValue = Number(resistanceBtns[i].innerHTML)
-                  resistanceBtns[i].style.backgroundColor = 'black'
+                  resistanceBtns[i].classList.add("bg-black")
 
                   // remove all the onclick event after one click done
                   for (let i=6;i<9;i++){
@@ -2869,7 +2920,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 4
+Scenes.currentStep = 6
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

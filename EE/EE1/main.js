@@ -339,7 +339,7 @@ textToSpeach = (text) => {
 let ccQueue = [];
 // for subtitile
 let ccObj = null;
-function setCC(text = null, speed = null) {
+function setCC(text = null, speed = 25) {
   if (ccObj != null) {
     ccObj.destroy();
   }
@@ -348,7 +348,7 @@ function setCC(text = null, speed = null) {
   ccQueue.push(text);
   ccObj = new Typed(ccDom, {
     strings: ["", ...ccQueue],
-    typeSpeed: 25,
+    typeSpeed: speed,
     onStringTyped(){
       ccQueue.shift();
       // if(ccQueue.length != 0){
@@ -475,13 +475,50 @@ class Dom {
   static resetItems() {
     Dom.arrayOfItems = [];
   }
+  static setBlinkArrowRed(
+    isX = true,
+    left = null,
+    top = null,
+    height = 30,
+    width = null,
+    rotate = 0,
+  ) {
+    let blinkArrow = new Dom(".blinkArrowRed")
+      .set(left, top, height, width)
+      .rotate(rotate)
+      .zIndex(200);
+    if (isX === -1) {
+      blinkArrow.hide();
+      return;
+    }
+    let x = 0,
+      y = 0;
+    if (isX) {
+      x = 20;
+    } else {
+      y = 20;
+    }
+    var blink = anime({
+      targets: blinkArrow.item,
+      easing: "easeInOutQuad",
+      opacity: 1,
+      translateX: x,
+      translateY: y,
+      direction: "alternate",
+      loop: true,
+      autoplay: false,
+      duration: 300,
+    });
+
+    return blink;
+  }
   static setBlinkArrow(
     isX = true,
     left = null,
     top = null,
     height = 60,
     width = 60,
-    rotate = 0
+    rotate = 0,
   ) {
     // because we added the blinkArrow image out of the anime-main
     top += 130
@@ -1441,7 +1478,7 @@ btn_reset : new Dom(".btn-reset"),
         "Ideal voltage gain plot."
       );
 
-      setCC("Record  7 reading for different Duty Ratio.")
+      // setCC("Record  7 reading for different Duty Ratio.")
 
       // * change the position of D <-> R
       function swapPositionSlider(){
@@ -1509,6 +1546,124 @@ btn_reset : new Dom(".btn-reset"),
       Scenes.items.record_btn.set(60,270,70)
       Scenes.items.btn_reset.set(10+20,350)
       Scenes.items.btn_delete.set(100+20,350)
+      let sliders = document.querySelectorAll(".range-slider__range")
+      let slidersValue = document.querySelectorAll(".range-slider__value")
+      let valuesToMatch = []
+
+     
+      // ! Tutorial Function
+      function stepTutorial(){
+        anime.timeline({
+          easing: "easeInOutQuad",
+          duration: 4000,
+        })
+        .add({
+          begin(){
+            // blink arrow
+            Dom.setBlinkArrowRed(true,225,10).play()
+            setCC("Select the value of source voltage (V<sub>in</sub>)",3)
+          }
+        })
+        // .add({
+        //   targets:  sliders[0],
+        //   value: 24,
+        //   duration: 100,
+        //   begin(){
+        //     slidersValue[0].innerHTML = 24
+        //   }
+        // })
+        .add({
+          begin(){
+            // blink arrow
+            Dom.setBlinkArrowRed(true,225,60).play()
+            setCC("Select the value of Duty Ratio (D)")
+          }
+        })
+        // .add({
+        //   targets: [sliders[1],values],
+        //   D: 0.35,
+        //   value: 0.35,
+        //   update(){
+        //     slidersValue[1].innerHTML = Number(values.D).toFixed(2)
+        //   }
+        // })
+        .add({
+          begin(){
+            // blink arrow
+            Dom.setBlinkArrowRed(true,225,110).play()
+            setCC("Select the value of Load Resistance (R)")
+          }
+        })
+        // .add({
+        //   targets: [sliders[2],values],
+        //   R: 134,
+        //   value: 134,
+        //   update(){
+        //     slidersValue[2].value = values.R.toFixed(0)
+        //   }
+        // })
+        .add({
+          begin(){
+            // blink arrow
+            Dom.setBlinkArrowRed(true,180,280).play()
+            setCC("Press record button to do record the reading observation table",4)
+          }
+        })
+        // .add({
+        //   begin(){
+        //     Scenes.items.record_btn.item.click()
+        //   }
+        // })
+        .add({
+          begin(){
+            // blink arrow
+            Dom.setBlinkArrowRed(true,225,60).play()
+            setCC("Change the value of Duty Ratio (D) in steps and record it",4)
+          }
+        })
+        // .add({
+        //   targets: [sliders[1]],
+        //   value: 0.85,
+        //   update(){
+        //     slidersValue[1].innerHTML = sliders[1].value
+        //   }
+        // })
+        .add({
+          begin(){
+            // blink arrow
+            Dom.setBlinkArrowRed(true,180,280).play()
+            setCC("Press record button")
+          }
+        })
+        // .add({
+        //   begin(){
+        //     Scenes.items.record_btn.item.click()
+        //   },
+        //   complete(){
+        //     setCC("Now record your own readings.")
+        //   }
+        // })
+        // .add({
+        //   begin(){
+        //     Dom.setBlinkArrowRed(-1)
+        //     Scenes.items.btn_delete.item.click()
+        //     Scenes.items.btn_delete.item.click()
+        //     Scenes.items.slider_vIn.item.classList.remove("deactive")
+        //     Scenes.items.slider_R.item.classList.remove("deactive")
+        //     sliders[0].disabled = false
+        //     sliders[2].disabled = false
+        //   }
+        //   ,complete(){
+        //     setCC("Record  7 reading for 3 different load resistances.")
+        //   }
+        // })
+        .add({
+          begin(){
+            setCC("Record  7 reading for 3 different load resistances.")
+          }
+        })
+      }
+      stepTutorial()
 
       let table = Scenes.items.part3_table_one.item      
 
@@ -1647,6 +1802,7 @@ btn_reset : new Dom(".btn-reset"),
           row[recordBtnClickIdx-1].cells[i].innerHTML = "" ;
         }
         recordBtnClickIdx = recordBtnClickIdx-1
+        valuesToMatch.pop()
       }
 
       //! onclick for reset 
@@ -1667,7 +1823,6 @@ btn_reset : new Dom(".btn-reset"),
         Scenes.steps[5]() 
         
       }
-      let valuesToMatch = []
       // ! onclick for record
       Scenes.items.record_btn.item.onclick = function(){
 
@@ -1761,7 +1916,7 @@ btn_reset : new Dom(".btn-reset"),
         "",
         "Non-ideal voltage gain plot."
       );
-      setCC("Record  7 reading for 3 different load resistances.")
+      setCC("Record 7 reading for 3 different load resistances.")
 
       //! Required Items
       Scenes.items.circuit_full_3.set(230,-50,150)
@@ -2171,6 +2326,7 @@ btn_reset : new Dom(".btn-reset"),
       Scenes.items.btn_reset.set(10+20,350)
       Scenes.items.btn_delete.set(100+20,350)
        let table = Scenes.items.part3_table_three.item
+       let valuesToMatch = []
 
 
        // ! graph
@@ -2370,6 +2526,7 @@ btn_reset : new Dom(".btn-reset"),
           row[recordBtnClickIdx-1].cells[i].innerHTML = "" ;
         }
         recordBtnClickIdx = recordBtnClickIdx-1
+        valuesToMatch.pop()
       }
 
       //! onclick for reset 
@@ -2391,7 +2548,6 @@ btn_reset : new Dom(".btn-reset"),
         
       }
 
-      let valuesToMatch = []
       // ! onclick for record
       Scenes.items.record_btn.item.onclick = function(){          
         let allSliderValue = $(".range-slider__value");
@@ -2937,7 +3093,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 7
+Scenes.currentStep = 2
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

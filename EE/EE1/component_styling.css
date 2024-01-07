@@ -339,3 +339,25 @@
     background-color: black;
 }
 
+/* ! Delte reset */
+.btn-delete{
+    background-color: #ff0505!important;
+    color: black;
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    /* top: 360px;
+    left: 10px;  */
+    
+}
+
+.btn-reset{
+    background-color: #0579cc!important;
+    color: black;
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    /* top: 360px;
+    left: 120px;  */
+    
+}

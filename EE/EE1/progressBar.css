@@ -99,7 +99,7 @@
 }
 
 .btn {
-    box-shadow: 3px 2px 4px 0px;
+    box-shadow: 3px 2px 4px 0px black;
     padding: 0.75rem;
     display: block; 
     text-decoration: none;

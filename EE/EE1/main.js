@@ -770,6 +770,8 @@ graph1_arrow : new Dom("graph1_arrow"),
 graph2_arrow : new Dom("graph2_arrow"),
 part_2_graph_empty : new Dom("part_2_graph_empty"),
 part_3_option_4_graph : new Dom("part_3_option_4_graph"),
+btn_delete : new Dom(".btn-delete"),
+btn_reset : new Dom(".btn-reset"),
 
 
 // ! new items dom
@@ -1509,11 +1511,14 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       
       // ! required item
       Scenes.items.circuit_full_3.set(230,-50,150)
-      Scenes.items.part_3_option_1.set(10, 170)
-      Scenes.items.record_btn.set(40,310,70)
+      Scenes.items.part_3_option_1.set(10, 170-15)
+      Scenes.items.right_tick_1.set(-12,185-15)
       Scenes.items.part3_table_one.show()
-      Scenes.items.right_tick_1.set(-12,185)
       Scenes.items.graph1_arrow.set(-5,6)
+      Scenes.items.record_btn.set(60,270,70)
+      Scenes.items.btn_reset.set(10+20,350)
+      Scenes.items.btn_delete.set(100+20,350)
+
       let table = Scenes.items.part3_table_one.item      
 
       // ! graph
@@ -1636,8 +1641,49 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       rangeSlider()
       // Scenes.items.slider_D.item.children[1].children[1].innerHTML = "0.1"
        
-      // ! onclick for record
+      
+      // * index to handle records
       let recordBtnClickIdx = 0
+      
+      //!onclick for delete btn
+      Scenes.items.btn_delete.item.onclick =  function(){
+        if(recordBtnClickIdx == 0 ){
+          return
+        }
+        let row = Scenes.items.part3_table_one.item.tBodies[0].rows
+        let n=7
+        for(let i=1;i<=n;i++){
+          row[recordBtnClickIdx-1].cells[i].innerHTML = "" ;
+        }
+        recordBtnClickIdx = recordBtnClickIdx-1
+      }
+
+      //! onclick for reset 
+      Scenes.items.btn_reset.item.onclick = function(){
+        var rows = table.tBodies[0].rows
+        let n=7
+
+        for(let i=0;i<n;i++){
+          for(let j=1;j<=n;j++){
+            rows[i].cells[j].innerHTML = "";
+          }
+        }
+
+        // reset all the parameters
+        recordBtnClickIdx=0;
+        plotGraph([{}],"Voltage Gain","Duty Ratio (D)","Voltage Gain (M)")
+        Scenes.items.slider_vIn.item.children[1].children[0].disabled = false
+        Scenes.items.slider_vIn.item.classList.remove("deactive")
+
+        Scenes.items.slider_D.item.children[1].children[0].disabled = false
+        Scenes.items.slider_D.item.classList.remove("deactive")
+
+        Scenes.items.slider_R.item.children[1].children[0].disabled = false
+        Scenes.items.slider_R.item.classList.remove("deactive")
+        
+      }
+      
+      // ! onclick for record
       Scenes.items.record_btn.item.onclick = function(){
 
         // ! sort the data
@@ -2801,7 +2847,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 4
+Scenes.currentStep = 5
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

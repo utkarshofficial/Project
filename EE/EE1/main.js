@@ -1351,9 +1351,15 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
         Scenes.items.part_3_option_4,
       ]
       function resetSlider(){
-        Scenes.items.slider_D.item.value = 0
-        Scenes.items.slider_vIn.item.value = 0
-        Scenes.items.slider_R.item.value = 0
+        // Scenes.items.slider_vIn.item.value = 12
+        // Scenes.items.slider_D.item.value = 0.1
+        // Scenes.items.slider_R.item.value = 10
+
+        $(".slider_vIn").val(12)
+        $(".slider_D").val(0.1)
+        $(".slider_R").val(10)
+        document.querySelector(".resistance-input").value = 10
+        rangeSlider()
         // Scenes.items.slider_R.item.style.opacity = 1
         // Scenes.items.slider_D.item.style.opacity = 1
         // Scenes.items.slider_R.show("flex")
@@ -1362,44 +1368,44 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
       }
       
       const opOne = ()=>{
+        // ! show the slider
+        Scenes.items.slider_box.show()
+
+        // * reset the slider
+        resetSlider()
+
         Scenes.optionsDone[0]=1;
         Scenes.steps[0+5]()
-
-        // ! show the slider
-        Scenes.items.slider_box.show()
-
-        // * reset the slider
-        resetSlider()
       }
       const opTwo = ()=>{
+        // ! show the slider
+        Scenes.items.slider_box.show()
+
+        // * reset the slider
+        resetSlider()
+
         Scenes.optionsDone[1]=1;
         Scenes.steps[1+5]()
-
-        // ! show the slider
-        Scenes.items.slider_box.show()
-
-        // * reset the slider
-        resetSlider()
       }
       const opThree = ()=>{
+        // ! show the slider
+        Scenes.items.slider_box.show()
+
+        // * reset the slider
+        resetSlider()
+
         Scenes.optionsDone[2]=1;
         Scenes.steps[2+5]()
-
-        // ! show the slider
-        Scenes.items.slider_box.show()
-
-        // * reset the slider
-        resetSlider()
       }
       const opFour = ()=>{
-        Scenes.optionsDone[3]=1;
-        Scenes.steps[3+5]()
-
         // ! show the slider
         Scenes.items.slider_box.show()
 
         // * reset the slider
         resetSlider()
+
+        Scenes.optionsDone[3]=1;
+        Scenes.steps[3+5]()
       }
       options[0].item.onclick = opOne
       rightTicks[0].item.onclick = opOne
@@ -1735,10 +1741,10 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
        let table3 = table.children[2]
 
       // hide side bar
-      Scenes.items.slider_R.item.style.opacity = 0
-      Scenes.items.slider_D.item.style.opacity = 0
-      Scenes.items.slider_R.hide()
-      Scenes.items.slider_D.hide()
+      // Scenes.items.slider_R.item.style.opacity = 0
+      // Scenes.items.slider_D.item.style.opacity = 0
+      // Scenes.items.slider_R.hide()
+      // Scenes.items.slider_D.hide()
       
 
 
@@ -2271,7 +2277,9 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
             let n=7
             for(let i=0;i<n;i++){
                 for(let j=0;j<n-i-1;j++){
-                    if(rows[j].cells[9].innerHTML > rows[j+1].cells[9].innerHTML){
+                    let val1 = Number(rows[j].cells[9].innerHTML)
+                    let val2 = Number(rows[j+1].cells[9].innerHTML)
+                    if(val1 > val2){
                         let temp = rows[j].innerHTML
                         rows[j].innerHTML = rows[j+1].innerHTML
                         rows[j+1].innerHTML = temp

@@ -1367,7 +1367,7 @@ btn_reset : new Dom(".btn-reset"),
 
       let rightTicks = [
         Scenes.items.right_tick_1.set(20,280).hide(),
-        Scenes.items.right_tick_2.set(208,280).hide(),
+        Scenes.items.right_tick_2.set(208,280).hide().zIndex(2001),
         Scenes.items.right_tick_3.set(435,280).hide(),
         Scenes.items.right_tick_4.set(630,280).hide()
       ]
@@ -1659,7 +1659,7 @@ btn_reset : new Dom(".btn-reset"),
         // })
         .add({
           begin(){
-            setCC("Record  7 reading for 3 different load resistances.")
+            setCC("Record  7 reading for 3 different duty ratio.")
             Dom.setBlinkArrowRed(-1)
           }
         })

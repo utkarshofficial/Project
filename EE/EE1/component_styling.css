@@ -367,3 +367,15 @@
 .bg-black{
     background-color: black!important;
 }
+
+/* Record btn */
+.btn-record:hover{
+    opacity: 0.9!important;
+    transform: scale(1.03)!important;
+}
+.btn-record:active{
+    opacity: 0.9!important;
+    transform: scale(0.99)!important;
+}
+
+

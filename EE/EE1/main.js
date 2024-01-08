@@ -1549,6 +1549,9 @@ btn_reset : new Dom(".btn-reset"),
       let sliders = document.querySelectorAll(".range-slider__range")
       let slidersValue = document.querySelectorAll(".range-slider__value")
       let valuesToMatch = []
+      // * index to handle records
+      let table = Scenes.items.part3_table_one.item      
+      let recordBtnClickIdx = (table.tBodies[0].rows[6].cells[4].innerHTML==""?0:7)
 
      
       // ! Tutorial Function
@@ -1664,9 +1667,38 @@ btn_reset : new Dom(".btn-reset"),
           }
         })
       }
-      stepTutorial()
 
-      let table = Scenes.items.part3_table_one.item      
+      // let slidersBox = document.querySelectorAll(".slider")
+      let slidersBox = document.querySelectorAll(".range-slider__range")
+      function stepTutorial2(){
+
+        Dom.setBlinkArrowRed(true,225,10).play()
+        setCC("Select the value of source voltage (V<sub>in</sub>)",6)
+
+        slidersBox[0].onclick = ()=>{
+          Dom.setBlinkArrowRed(true,225,60).play()
+          setCC("Select the value of Duty Ratio (D)")
+
+          slidersBox[1].onclick = ()=>{
+            Dom.setBlinkArrowRed(true,225,110).play()
+            setCC("Select the value of Load Resistance (R)")
+
+            slidersBox[2].onclick = ()=>{
+              Dom.setBlinkArrowRed(true,180,280).play()
+              setCC("Press record button to do record the reading observation table",4)
+
+              slidersBox.forEach(ele=>{
+                ele.onclick = ()=>{}
+              })
+            }
+          }
+        }
+      }
+      if(recordBtnClickIdx == 0){
+        stepTutorial2()
+      }
+      
+
 
       // ! graph
       // * add x,y parameters for graph
@@ -1766,11 +1798,28 @@ btn_reset : new Dom(".btn-reset"),
         plotGraph(graphData,"Voltage Gain","Duty Ratio (D)","Voltage Gain (M)")
         Scenes.items.graph1.set(null,null,190,355)
       }
+
+      
+
       // ! ------------> If data already present plot the graph
       if(table.tBodies[0].rows[6].cells[2].innerHTML !== ""){
         // setDataToGraph()= 
           setIsProcessRunning(false)
           Scenes.currentStep = 4
+
+          recordBtnClickIdx = 7
+          let rows = Scenes.items.part3_table_one.item.tBodies[0].rows
+          let n=7
+          // * to get old values from table for matching
+          for(let i=0;i<n;i++){
+            let val = rows[i].cells[2].innerHTML
+            valuesToMatch.push(Number(val))
+          }
+
+          Scenes.items.slider_vIn.item.classList.add("deactive")
+          Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
+          Scenes.items.slider_R.item.children[1].children[0].disabled = true
+          Scenes.items.slider_R.item.classList.add("deactive")
       }else{
         plotGraph([{}],"Voltage Gain","Duty Ratio (D)","Voltage Gain (M)")
         Scenes.items.graph1.set(null,null,190,355)
@@ -1789,12 +1838,9 @@ btn_reset : new Dom(".btn-reset"),
       // Scenes.items.slider_D.item.children[1].children[1].innerHTML = "0.1"
        
       
-      // * index to handle records
-      let recordBtnClickIdx = 0
-      
       //!onclick for delete btn
       Scenes.items.btn_delete.item.onclick =  function(){
-        if(recordBtnClickIdx == 0 || recordBtnClickIdx > 7){
+        if(recordBtnClickIdx == 0 || recordBtnClickIdx > 8){
           return
         }
         let row = Scenes.items.part3_table_one.item.tBodies[0].rows
@@ -1803,6 +1849,12 @@ btn_reset : new Dom(".btn-reset"),
           row[recordBtnClickIdx-1].cells[i].innerHTML = "" ;
         }
         recordBtnClickIdx = recordBtnClickIdx-1
+        if(recordBtnClickIdx==0){
+          Scenes.items.slider_vIn.item.classList.remove("deactive")
+          Scenes.items.slider_vIn.item.children[1].children[0].disabled = false
+          Scenes.items.slider_R.item.children[1].children[0].disabled = false
+          Scenes.items.slider_R.item.classList.remove("deactive")
+        }
         valuesToMatch.pop()
       }
 
@@ -1826,7 +1878,19 @@ btn_reset : new Dom(".btn-reset"),
       }
       // ! onclick for record
       Scenes.items.record_btn.item.onclick = function(){
-
+        // for arrow system
+        if(recordBtnClickIdx < 6){
+          Dom.setBlinkArrowRed(true,225,60).play()
+          setCC("Change the value of Duty ratio (D) in steps and record it")
+          slidersBox[1].onclick = ()=>{
+            Dom.setBlinkArrowRed(true,180,280).play()
+            setCC("Press record button",7)
+          }
+        }else{
+          Dom.setBlinkArrowRed(-1)
+          slidersBox[1].onclick = ()=>{}
+        }
+        
         let allSliderValue = $(".range-slider__value");
         
         let vInValue = Number(allSliderValue[0].innerHTML)
@@ -1838,7 +1902,7 @@ btn_reset : new Dom(".btn-reset"),
         if(recordBtnClickIdx < 7 && valuesToMatch.indexOf(dutyRatioValue)!=-1){
           setCC("Please select different value.")
           return
-        }else{
+        }else if(recordBtnClickIdx < 7){
           valuesToMatch.push(dutyRatioValue)
         }
         
@@ -1888,16 +1952,16 @@ btn_reset : new Dom(".btn-reset"),
           Scenes.items.slider_R.item.children[1].children[0].disabled = true
           Scenes.items.slider_R.item.classList.add("deactive")
         }
-        let tableRow = table.tBodies[0].rows[recordBtnClickIdx++]
-        tableRow.cells[1].innerHTML = vInValue
-        tableRow.cells[2].innerHTML = dutyRatioValue
-        tableRow.cells[3].innerHTML = resistanceValue
-        tableRow.cells[4].innerHTML = Number(Formulas.ideal.v0(values)).toFixed(2)
-        tableRow.cells[5].innerHTML = Number(Formulas.ideal.M(values)).toFixed(2)
-        tableRow.cells[6].innerHTML = Number(Formulas.ideal.iIn(values)).toFixed(2)
-        tableRow.cells[7].innerHTML = Number(Formulas.ideal.i0(values)).toFixed(2)
-
-        
+        if(recordBtnClickIdx < 7){
+          let tableRow = table.tBodies[0].rows[recordBtnClickIdx++]
+          tableRow.cells[1].innerHTML = vInValue
+          tableRow.cells[2].innerHTML = dutyRatioValue
+          tableRow.cells[3].innerHTML = resistanceValue
+          tableRow.cells[4].innerHTML = Number(Formulas.ideal.v0(values)).toFixed(2)
+          tableRow.cells[5].innerHTML = Number(Formulas.ideal.M(values)).toFixed(2)
+          tableRow.cells[6].innerHTML = Number(Formulas.ideal.iIn(values)).toFixed(2)
+          tableRow.cells[7].innerHTML = Number(Formulas.ideal.i0(values)).toFixed(2)
+        }
 
         // warning for sorting the data
         if(recordBtnClickIdx==7){
@@ -2213,6 +2277,10 @@ btn_reset : new Dom(".btn-reset"),
 
       //! onclick for reset 
       Scenes.items.btn_reset.item.onclick = function(){
+        tableHead1.cells[0].innerHTML =  `R1 (Ω)`
+        tableHead2.cells[0].innerHTML =  `R2 (Ω)`
+        tableHead3.cells[0].innerHTML =  `R3 (Ω)`
+        
         var tables = [
           table1.tBodies[0].rows,
           table2.tBodies[0].rows,
@@ -3212,7 +3280,8 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 2
+Scenes.currentStep = 5
+
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

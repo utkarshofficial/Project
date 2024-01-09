@@ -2341,6 +2341,7 @@ btn_reset : new Dom(".btn-reset"),
               // Scenes.items.slider_R.item.children[1].children[0].disabled = false
               // Scenes.items.slider_R.item.classList.remove("deactive")
               document.querySelector(".btn-box2").classList.remove("deactive")
+              document.querySelector(".btn-box1").classList.add("deactive")
               resistanceBtnPressed = false;
 
               // show arrow
@@ -2407,6 +2408,7 @@ btn_reset : new Dom(".btn-reset"),
               // Scenes.items.slider_R.item.children[1].children[0].disabled = false
               // Scenes.items.slider_R.item.classList.remove("deactive")
               document.querySelector(".btn-box3").classList.remove("deactive")
+              document.querySelector(".btn-box2").classList.add("deactive")
               resistanceBtnPressed = false;
 
               // show arrow

@@ -1952,7 +1952,9 @@ btn_reset : new Dom(".btn-reset"),
       // to handle records
       let recordBtnClickIdx = (table3.tBodies[0].rows[6].cells[1].innerHTML==""?0:1)
 
-      document.querySelector(".btn-box1").classList.remove("deactive")
+      if(table3.tBodies[0].rows[6].cells[1].innerHTML==""){
+        document.querySelector(".btn-box1").classList.remove("deactive")
+      }
 
       // hide side bar
       // Scenes.items.slider_R.item.style.opacity = 0

@@ -1934,6 +1934,8 @@ btn_reset : new Dom(".btn-reset"),
       Scenes.items.graph2_arrow.set(-5,0)
       Scenes.items.record_btn.set(60,270,70)
       Scenes.items.btn_reset.set(77,350)
+        // to handle records
+        let recordBtnClickIdx = 0
       
       // Scenes.items.btn_delete.set(100+20,350)
 
@@ -2027,6 +2029,35 @@ btn_reset : new Dom(".btn-reset"),
           chart.update()
         }
       }
+          // let slidersBox = document.querySelectorAll(".slider")
+          let slidersBox = document.querySelectorAll(".range-slider__range")
+          function stepTutorial2(){
+    
+            Dom.setBlinkArrowRed(true,225,10).play()
+            setCC("Select the value of source voltage (V<sub>in</sub>)",6)
+    
+            slidersBox[0].onclick = ()=>{
+              Dom.setBlinkArrowRed(true,375,90,null,null,-90).play()
+              setCC("Select the value of load resistance (R1) from 3 options",5)
+    
+              slidersBox[1].onclick = ()=>{
+                Dom.setBlinkArrowRed(true,225,110).play()
+                setCC("Select the value of Load Resistance (R)")
+    
+                slidersBox[2].onclick = ()=>{
+                  Dom.setBlinkArrowRed(true,180,280).play()
+                  setCC("Press record button to do record the reading observation table",4)
+    
+                  slidersBox.forEach(ele=>{
+                    ele.onclick = ()=>{}
+                  })
+                }
+              }
+            }
+          }
+          if(recordBtnClickIdx == 0){
+            stepTutorial2()
+          }
 
       // ! Tutorial Function
       function stepTutorial(){
@@ -2068,7 +2099,7 @@ btn_reset : new Dom(".btn-reset"),
           begin(){
             // blink arrow
             Dom.setBlinkArrowRed(true,375,90,null,null,-90).play()
-            setCC("Select the value of load resistance (R1)from 3 options",5)
+            setCC("Select the value of load resistance (R1) from 3 options",5)
           }
         })
         // .add({
@@ -2141,7 +2172,7 @@ btn_reset : new Dom(".btn-reset"),
           }
         })
       }
-      stepTutorial()
+      // stepTutorial()
 
       // ! ------------> If data already present plot the graph
       if(table3.tBodies[0].rows[6].cells[1].innerHTML !== ""){
@@ -2199,10 +2230,12 @@ btn_reset : new Dom(".btn-reset"),
           
           // if pressed then calculate
           resistanceBtnPressed = true;
+          Dom.setBlinkArrowRed(true,180,280).play()
+          setCC("Press record button",10)
+
         }
       }
-      // to handle records
-      let recordBtnClickIdx = 0
+    
 
       // //!onclick for delete btn
       // Scenes.items.btn_delete.item.onclick =  function(){
@@ -2310,6 +2343,10 @@ btn_reset : new Dom(".btn-reset"),
               document.querySelector(".btn-box2").classList.remove("deactive")
               resistanceBtnPressed = false;
 
+              // show arrow
+              Dom.setBlinkArrowRed(true,575,90,null,null,-90).play()
+              setCC("Select the value of load resistance (R2) from 3 options",5)
+
               // loop on only three btns
               for (let i=3;i<6;i++){
                 resistanceBtns[i].onclick = ()=>{
@@ -2323,6 +2360,9 @@ btn_reset : new Dom(".btn-reset"),
                   }
                   // if pressed then calculate
                   resistanceBtnPressed = true;
+
+                  Dom.setBlinkArrowRed(true,180,280).play()
+                  setCC("Press record button",10)
                 }
               }
             }
@@ -2369,6 +2409,10 @@ btn_reset : new Dom(".btn-reset"),
               document.querySelector(".btn-box3").classList.remove("deactive")
               resistanceBtnPressed = false;
 
+              // show arrow
+              Dom.setBlinkArrowRed(true,775,90,null,null,-90).play()
+              setCC("Select the value of load resistance (R3) from 3 options",5)
+
               // loop on only three btns
               for (let i=6;i<9;i++){
                 resistanceBtns[i].onclick = ()=>{
@@ -2382,6 +2426,9 @@ btn_reset : new Dom(".btn-reset"),
                   }
                   // if pressed then calculate
                   resistanceBtnPressed = true;
+
+                  Dom.setBlinkArrowRed(true,180,280).play()
+                  setCC("Press record button",10)
                 }
               }
             }
@@ -2422,6 +2469,7 @@ btn_reset : new Dom(".btn-reset"),
               // after complete
               Dom.setBlinkArrow(true, 790, 408).play();
               setCC("Click 'Next' to go to next step");
+              Dom.setBlinkArrowRed(-1)
               setIsProcessRunning(false); 
               Scenes.currentStep = 4
              }
@@ -2465,7 +2513,7 @@ btn_reset : new Dom(".btn-reset"),
       // let xLabel = "Output Power (Po)"
       let xLabel = ""
       let yLabel = "Efficiency (%)"
-      function plotGraph(data,label,xLabel,yLabel){
+      function plotGraph(data,label,xLabel,yLabel,beginAtZero=false){
         let x = new Chart(ctx, {
           type: "scatter",
           plugins: [{
@@ -2506,7 +2554,7 @@ btn_reset : new Dom(".btn-reset"),
   
                   },
                   ticks: { 
-                    beginAtZero:false,
+                    beginAtZero:beginAtZero,
                     fontColor: 'black',
                     fontSize: 14,
                   }
@@ -2521,7 +2569,7 @@ btn_reset : new Dom(".btn-reset"),
                     fontSize: 17,
                   },
                   ticks: { 
-                    beginAtZero:false,
+                    beginAtZero:beginAtZero,
                     fontColor: 'black',
                     fontSize: 14,
                   }
@@ -2671,7 +2719,7 @@ btn_reset : new Dom(".btn-reset"),
         Scenes.items.slider_D.item.classList.add("deactive")
       }else{
         // ! Please note this when plot the graph then show the graph ... 
-        plotGraph([{}],"Efficiency","",yLabel) 
+        plotGraph([{}],"Efficiency","",yLabel,true) 
         Scenes.items.graph3.set(null,null,220,355)
       }
 
@@ -2698,8 +2746,8 @@ btn_reset : new Dom(".btn-reset"),
         if(recordBtnClickIdx==0){
           Scenes.items.slider_vIn.item.classList.remove("deactive")
           Scenes.items.slider_vIn.item.children[1].children[0].disabled = false
-          Scenes.items.slider_R.item.children[1].children[0].disabled = false
-          Scenes.items.slider_R.item.classList.remove("deactive")
+          Scenes.items.slider_D.item.children[1].children[0].disabled = false
+          Scenes.items.slider_D.item.classList.remove("deactive")
         }
         valuesToMatch.pop()
       }
@@ -3284,7 +3332,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 7
+Scenes.currentStep = 6
 
 Scenes.next()  
 // Scenes.steps[3]()

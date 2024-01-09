@@ -1935,7 +1935,7 @@ btn_reset : new Dom(".btn-reset"),
       Scenes.items.record_btn.set(60,270,70)
       Scenes.items.btn_reset.set(77,350)
         // to handle records
-        let recordBtnClickIdx = 0
+        let recordBtnClickIdx = (Scenes.items.part3_table_two.tBodies)
       
       // Scenes.items.btn_delete.set(100+20,350)
 
@@ -2029,6 +2029,8 @@ btn_reset : new Dom(".btn-reset"),
           chart.update()
         }
       }
+      // ! Tutorial Function
+
           // let slidersBox = document.querySelectorAll(".slider")
           let slidersBox = document.querySelectorAll(".range-slider__range")
           function stepTutorial2(){
@@ -2059,119 +2061,7 @@ btn_reset : new Dom(".btn-reset"),
             stepTutorial2()
           }
 
-      // ! Tutorial Function
-      function stepTutorial(){
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 4000,
-        })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,225,10).play()
-            setCC("Select the value of source voltage (V<sub>in</sub>)",3)
-          }
-        })
-        // .add({
-        //   targets:  sliders[0],
-        //   value: 24,
-        //   duration: 100,
-        //   begin(){
-        //     slidersValue[0].innerHTML = 24
-        //   }
-        // })
-        // .add({
-        //   begin(){
-        //     // blink arrow
-        //     Dom.setBlinkArrowRed(true,225,60).play()
-        //     setCC("Select the value of Duty Ratio (D)")
-        //   }
-        // })
-        // .add({
-        //   targets: [sliders[1],values],
-        //   D: 0.35,
-        //   value: 0.35,
-        //   update(){
-        //     slidersValue[1].innerHTML = Number(values.D).toFixed(2)
-        //   }
-        // })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,375,90,null,null,-90).play()
-            setCC("Select the value of load resistance (R1) from 3 options",5)
-          }
-        })
-        // .add({
-        //   targets: [sliders[2],values],
-        //   R: 134,
-        //   value: 134,
-        //   update(){
-        //     slidersValue[2].value = values.R.toFixed(0)
-        //   }
-        // })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,180,280).play()
-            setCC("Keep pressing record button to record the reading",4)
-          }
-        })
-        // .add({
-        //   begin(){
-        //     Scenes.items.record_btn.item.click()
-        //   }
-        // })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,575,90,null,null,-90).play()
-            setCC("Select the value of load resistance (R2)from 3 options",4)
-          }
-        })
-        // .add({
-        //   targets: [sliders[1]],
-        //   value: 0.85,
-        //   update(){
-        //     slidersValue[1].innerHTML = sliders[1].value
-        //   }
-        // })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,180,280).play()
-            setCC("Keep pressing record button to record the reading")
-          }
-        })
-        // .add({
-        //   begin(){
-        //     Scenes.items.record_btn.item.click()
-        //   },
-        //   complete(){
-        //     setCC("Now record your own readings.")
-        //   }
-        // })
-        // .add({
-        //   begin(){
-        //     Dom.setBlinkArrowRed(-1)
-        //     Scenes.items.btn_delete.item.click()
-        //     Scenes.items.btn_delete.item.click()
-        //     Scenes.items.slider_vIn.item.classList.remove("deactive")
-        //     Scenes.items.slider_R.item.classList.remove("deactive")
-        //     sliders[0].disabled = false
-        //     sliders[2].disabled = false
-        //   }
-        //   ,complete(){
-        //     setCC("Record  7 reading for 3 different load resistances.")
-        //   }
-        // })
-        .add({
-          begin(){
-            // setCC("Record  7 reading for 3 different load resistances.")
-            Dom.setBlinkArrowRed(-1)
-          }
-        })
-      }
+      
       // stepTutorial()
 
       // ! ------------> If data already present plot the graph
@@ -3334,7 +3224,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 6
+Scenes.currentStep = 2
 
 Scenes.next()  
 // Scenes.steps[3]()

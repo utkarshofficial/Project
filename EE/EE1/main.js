@@ -1934,8 +1934,7 @@ btn_reset : new Dom(".btn-reset"),
       Scenes.items.graph2_arrow.set(-5,0)
       Scenes.items.record_btn.set(60,270,70)
       Scenes.items.btn_reset.set(77,350)
-        // to handle records
-        let recordBtnClickIdx = (Scenes.items.part3_table_two.tBodies)
+        
       
       // Scenes.items.btn_delete.set(100+20,350)
 
@@ -1949,6 +1948,11 @@ btn_reset : new Dom(".btn-reset"),
        let tableHead1 = table1.tHead.rows[0]
       let tableHead2 = table2.tHead.rows[0]
       let tableHead3 = table3.tHead.rows[0]
+
+      // to handle records
+      let recordBtnClickIdx = (table3.tBodies[0].rows[6].cells[1].innerHTML==""?0:1)
+
+      document.querySelector(".btn-box1").classList.remove("deactive")
 
       // hide side bar
       // Scenes.items.slider_R.item.style.opacity = 0

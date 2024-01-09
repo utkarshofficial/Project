@@ -1479,63 +1479,6 @@ btn_reset : new Dom(".btn-reset"),
       );
 
       // setCC("Record  7 reading for different Duty Ratio.")
-
-      // * change the position of D <-> R
-      function swapPositionSlider(){
-        Scenes.items.slider_box.item.innerHTML = `
-        <div class="slider slider_vIn">
-                  <span class="title">V<sub>in</sub></span>
-                  <div class="range-slider">
-                    <input
-                      class="range-slider__range"
-                      type="range"
-                      value="12"
-                      min="12"
-                      max="36"
-                      step="12"
-                    />
-                    <span class="range-slider__value">0</span>
-                    <span> V</span>
-                  </div>
-                </div>
-          
-                <div class="slider slider_R">
-                  <span class="title">R</span>
-                  <div class="range-slider">
-                    <input
-                      class="range-slider__range"
-                      type="range"
-                      value="10"
-                      min="10"
-                      max="500"
-                    />
-                    <input
-                      value="10"
-                      type="input"
-                      class="range-slider__value resistance-input"
-                    />
-                    <span> Ω</span>
-                  </div>
-                </div>
-                
-                <div class="slider slider_D">
-                  <span class="title">D</span>
-                  <div class="range-slider">
-                    <input
-                      class="range-slider__range"
-                      type="range"
-                      value="0.1"
-                      min="0.1"
-                      max="0.95"
-                      step="0.01"
-                    />
-                    <span class="range-slider__value">0</span>
-                    <span></span>
-                  </div>
-                </div>
-        `
-      }
-      // swapPositionSlider()
       
       // ! required item
       Scenes.items.circuit_full_3.set(230,-50,150)
@@ -1549,8 +1492,8 @@ btn_reset : new Dom(".btn-reset"),
       let sliders = document.querySelectorAll(".range-slider__range")
       let slidersValue = document.querySelectorAll(".range-slider__value")
       let valuesToMatch = []
-      // * index to handle records
       let table = Scenes.items.part3_table_one.item      
+      // * index to handle records
       let recordBtnClickIdx = (table.tBodies[0].rows[6].cells[4].innerHTML==""?0:7)
 
      
@@ -2511,6 +2454,8 @@ btn_reset : new Dom(".btn-reset"),
       Scenes.items.btn_delete.set(100+20,350)
        let table = Scenes.items.part3_table_three.item
        let valuesToMatch = []
+        // * index to handle records
+      let recordBtnClickIdx = (table.tBodies[0].rows[6].cells[4].innerHTML==""?0:7)
 
 
        // ! graph
@@ -2587,7 +2532,35 @@ btn_reset : new Dom(".btn-reset"),
         })
       }
 
-      
+      // let slidersBox = document.querySelectorAll(".slider")
+      let slidersBox = document.querySelectorAll(".range-slider__range")
+      function stepTutorial2(){
+
+        Dom.setBlinkArrowRed(true,225,10).play()
+        setCC("Select the value of source voltage (V<sub>in</sub>)",6)
+
+        slidersBox[0].onclick = ()=>{
+          Dom.setBlinkArrowRed(true,225,60).play()
+          setCC("Select the value of Duty Ratio (D)")
+
+          slidersBox[1].onclick = ()=>{
+            Dom.setBlinkArrowRed(true,225,110).play()
+            setCC("Select the value of Load Resistance (R)")
+
+            slidersBox[2].onclick = ()=>{
+              Dom.setBlinkArrowRed(true,180,280).play()
+              setCC("Press record button to do record the reading observation table",4)
+
+              slidersBox.forEach(ele=>{
+                ele.onclick = ()=>{}
+              })
+            }
+          }
+        }
+      }
+      if(recordBtnClickIdx == 0){
+        stepTutorial2()
+      }
 
       // let chart = new Chart(ctx,{
       //   type: "scatter",
@@ -2682,6 +2655,20 @@ btn_reset : new Dom(".btn-reset"),
       if(table.tBodies[0].rows[6].cells[2].innerHTML !== ""){
         setIsProcessRunning(false)
         Scenes.currentStep = 4
+
+        recordBtnClickIdx = 7
+        let rows = table.tBodies[0].rows
+        let n=7
+        // * to get old values from table for matching
+        for(let i=0;i<n;i++){
+          let val = rows[i].cells[2].innerHTML
+          valuesToMatch.push(Number(val))
+        }
+
+        Scenes.items.slider_vIn.item.classList.add("deactive")
+        Scenes.items.slider_vIn.item.children[1].children[0].disabled = true
+        Scenes.items.slider_D.item.children[1].children[0].disabled = true
+        Scenes.items.slider_D.item.classList.add("deactive")
       }else{
         // ! Please note this when plot the graph then show the graph ... 
         plotGraph([{}],"Efficiency","",yLabel) 
@@ -2695,12 +2682,10 @@ btn_reset : new Dom(".btn-reset"),
       //   []
       // )
        
-      // * index for handle the record 
-      let recordBtnClickIdx = 0
 
        //!onclick for delete btn
        Scenes.items.btn_delete.item.onclick =  function(){
-        if(recordBtnClickIdx == 0 || recordBtnClickIdx > 7){
+        if(recordBtnClickIdx == 0 || recordBtnClickIdx > 8){
           return
         }
         let row = table.tBodies[0].rows
@@ -2710,6 +2695,12 @@ btn_reset : new Dom(".btn-reset"),
           row[recordBtnClickIdx-1].cells[i].innerHTML = "" ;
         }
         recordBtnClickIdx = recordBtnClickIdx-1
+        if(recordBtnClickIdx==0){
+          Scenes.items.slider_vIn.item.classList.remove("deactive")
+          Scenes.items.slider_vIn.item.children[1].children[0].disabled = false
+          Scenes.items.slider_R.item.children[1].children[0].disabled = false
+          Scenes.items.slider_R.item.classList.remove("deactive")
+        }
         valuesToMatch.pop()
       }
 
@@ -2733,7 +2724,20 @@ btn_reset : new Dom(".btn-reset"),
       }
 
       // ! onclick for record
-      Scenes.items.record_btn.item.onclick = function(){          
+      Scenes.items.record_btn.item.onclick = function(){ 
+         // for arrow system
+         if(recordBtnClickIdx < 6){
+          Dom.setBlinkArrowRed(true,225,110).play()
+            setCC("Select the value of Load Resistance (R)")
+          slidersBox[2].onclick = ()=>{
+            Dom.setBlinkArrowRed(true,180,280).play()
+            setCC("Press record button",7)
+          }
+        }else{
+          Dom.setBlinkArrowRed(-1)
+          slidersBox[1].onclick = ()=>{}
+        }
+        
         let allSliderValue = $(".range-slider__value");
 
         let vInValue = Number(allSliderValue[0].innerHTML)
@@ -3280,7 +3284,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 5
+Scenes.currentStep = 7
 
 Scenes.next()  
 // Scenes.steps[3]()

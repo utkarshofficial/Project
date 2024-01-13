@@ -1,13 +1,156 @@
 
-    <img
-        class="main-window-imgs"
-        src="./src/images/graph2_arrow.png"
-        title="graph2_arrow.png"
-        alt="graph2_arrow.png"
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_14_helper.png"
+        alt="slide_14_helper.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_14_page_1.png"
+        alt="slide_14_page_1.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_14_page_1_ball.png"
+        alt="slide_14_page_1_ball.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_14_page_2_1_blink.png"
+        alt="slide_14_page_2_1_blink.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_14_page_2_2_text.png"
+        alt="slide_14_page_2_2_text.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_14_page_3_1_symbols.png"
+        alt="slide_14_page_3_1_symbols.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_14_page_3_2_green_graph_and_start_ball.png"
+        alt="slide_14_page_3_2_green_graph_and_start_ball.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_14_page_3_3_white_image_for_blue_line.png"
+        alt="slide_14_page_3_3_white_image_for_blue_line.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_1.png"
+        alt="slide_15_page_1.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_1_ball.png"
+        alt="slide_15_page_1_ball.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_1_green_graph.png"
+        alt="slide_15_page_1_green_graph.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_1_minus.png"
+        alt="slide_15_page_1_minus.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_1_plus.png"
+        alt="slide_15_page_1_plus.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_2_1_blink.png"
+        alt="slide_15_page_2_1_blink.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_2_2_text.png"
+        alt="slide_15_page_2_2_text.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_3_1_arrow_and_text.png"
+        alt="slide_15_page_3_1_arrow_and_text.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_3_1_white.png"
+        alt="slide_15_page_3_1_white.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_3_2_graph.png"
+        alt="slide_15_page_3_2_graph.png"
+    />
+    
+     <img
+        class="main-window-imgs theory"
+        src="./src/images/Theory/slide_15_page_3_3_text.png"
+        alt="slide_15_page_3_3_text.png"
     />
     
 
-graph2_arrow:this.allImgsDom[30],
+slide_14_helper:this.allImgsDom[115],
+slide_14_page_1:this.allImgsDom[116],
+slide_14_page_1_ball:this.allImgsDom[117],
+slide_14_page_2_1_blink:this.allImgsDom[118],
+slide_14_page_2_2_text:this.allImgsDom[119],
+slide_14_page_3_1_symbols:this.allImgsDom[120],
+slide_14_page_3_2_green_graph_and_start_ball:this.allImgsDom[121],
+slide_14_page_3_3_white_image_for_blue_line:this.allImgsDom[122],
+slide_15_page_1:this.allImgsDom[123],
+slide_15_page_1_ball:this.allImgsDom[124],
+slide_15_page_1_green_graph:this.allImgsDom[125],
+slide_15_page_1_minus:this.allImgsDom[126],
+slide_15_page_1_plus:this.allImgsDom[127],
+slide_15_page_2_1_blink:this.allImgsDom[128],
+slide_15_page_2_2_text:this.allImgsDom[129],
+slide_15_page_3_1_arrow_and_text:this.allImgsDom[130],
+slide_15_page_3_1_white:this.allImgsDom[131],
+slide_15_page_3_2_graph:this.allImgsDom[132],
+slide_15_page_3_3_text:this.allImgsDom[133],
 
 
-graph2_arrow : new Dom("graph2_arrow"),
+slide_14_helper : new Dom("slide_14_helper"),
+slide_14_page_1 : new Dom("slide_14_page_1"),
+slide_14_page_1_ball : new Dom("slide_14_page_1_ball"),
+slide_14_page_2_1_blink : new Dom("slide_14_page_2_1_blink"),
+slide_14_page_2_2_text : new Dom("slide_14_page_2_2_text"),
+slide_14_page_3_1_symbols : new Dom("slide_14_page_3_1_symbols"),
+slide_14_page_3_2_green_graph_and_start_ball : new Dom("slide_14_page_3_2_green_graph_and_start_ball"),
+slide_14_page_3_3_white_image_for_blue_line : new Dom("slide_14_page_3_3_white_image_for_blue_line"),
+slide_15_page_1 : new Dom("slide_15_page_1"),
+slide_15_page_1_ball : new Dom("slide_15_page_1_ball"),
+slide_15_page_1_green_graph : new Dom("slide_15_page_1_green_graph"),
+slide_15_page_1_minus : new Dom("slide_15_page_1_minus"),
+slide_15_page_1_plus : new Dom("slide_15_page_1_plus"),
+slide_15_page_2_1_blink : new Dom("slide_15_page_2_1_blink"),
+slide_15_page_2_2_text : new Dom("slide_15_page_2_2_text"),
+slide_15_page_3_1_arrow_and_text : new Dom("slide_15_page_3_1_arrow_and_text"),
+slide_15_page_3_1_white : new Dom("slide_15_page_3_1_white"),
+slide_15_page_3_2_graph : new Dom("slide_15_page_3_2_graph"),
+slide_15_page_3_3_text : new Dom("slide_15_page_3_3_text"),

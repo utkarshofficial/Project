@@ -1,0 +1,128 @@
+:root {
+    --primary-color: rgb(11, 78, 179);
+    --gray: #e5e5e5;
+    --gray2: #808080;
+    --blue: #2183dd;
+    --primary: #0d6efc;
+    --green: #009900;
+    --white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+/* Progressbar */
+.progress-bar {
+    /* width: clamp(320px, 30%, 430px); */
+    grid-area: progressBar;
+    font-family: Roboto;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+}
+
+.progressbar::before,
+.progress {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5px;
+    width: 100%;
+    background-color: var(--gray);
+    z-index: -1;
+}
+
+.progress {
+    background-color: var(--primary);
+    width: 0%;
+    transition: 0.3s;
+}
+
+.progress-step {
+    width: 1.5rem;
+    height: 1.5rem;
+    /* background-color: var(--gray); */
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid var(--gray2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+    font-weight: bold;
+    /* content: "\f00c"; */
+}
+
+.progress-step::after {
+    display: none;
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.progress-step-active {
+    background-color: var(--primary);
+    color: #f3f3f3;
+}
+
+/* Form */
+
+
+
+/* Button */
+.btns-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.btn {
+    box-shadow: 3px 2px 4px 0px;
+    padding: 0.75rem;
+    display: block; 
+    text-decoration: none;
+    /* background-color: var(--primary); */
+    background-color: #FFDBC3;
+    color: black;
+    text-align: center;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.3s;
+    height: fit-content;
+    margin: 0 10px;
+    font-family: Roboto;
+    font-weight: bold;
+    
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--green);
+}
+
+.btn:active{
+    opacity: 0.8;
+    transform: scale(0.9);
+}

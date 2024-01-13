@@ -1,11 +1,9 @@
 import os
-
 def html(name):
     return '''
-    <img
+     <img
         class="main-window-imgs"
         src="./src/images/{0}"
-        title="{0}"
         alt="{0}"
     />
     '''.format(name)
@@ -19,10 +17,16 @@ def dom(name):
     return f'{name1} : new Dom("{name1}"),\n'
 
 
-names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\EE\\EE1\\src\\images\\temp\\temp23")
+names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\EE\\EE1\\src\\images\\Theory")
 
-BASE_COUNT = 22
-count = 30
+# namesStr = ''
+# for name in names:
+#     namesStr = namesStr + f'{name}\n'
+
+# open("temp3.txt","w").write(namesStr)
+
+BASE_COUNT = 13
+count = 115
 
 srcs = ''
 doms = ''
@@ -32,6 +36,7 @@ for i in range(len(names)):
     doms = doms + dom(names[i])
     srcs = srcs + src(names[i],i+count)
 
+        
 
 
 # open("temp.txt","w").write()
@@ -40,4 +45,4 @@ open("temp2.txt","w").write(allItems)
 
 print("Done 👍")
 # print(os.__path__)
-# 
+#            

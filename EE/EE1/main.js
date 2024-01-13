@@ -365,10 +365,12 @@ class Dom {
     this.item = null;
     if (selector[0] == "." || selector[0] == "#") {
       this.item = get(selector);
+    } else if(selector instanceof HTMLElement) {
+      this.item = selector
     } else {
       this.item = src.get(selector);
     }
-    this.selector = selector
+    this.selector = selector            
     // push
   }
   hidden(isHidden){
@@ -409,8 +411,6 @@ class Dom {
     right = null,
     disp = "block"
   ) {
-    //! push for every element
-    this.push()
 
     // coordinates
     this.left = left
@@ -434,6 +434,9 @@ class Dom {
     return this;
   }
   show(disp = "block") {
+    //! push for every element
+    this.push()
+
     this.item.style.display = disp;
     // this.opacity();
     return this;
@@ -558,137 +561,6 @@ class Dom {
   }
 }
 
-// support class for axis
-// class Img {
-//   constructor(
-//     imgName = null
-//     // left = null,
-//     // top = null,
-//     // height = null,
-//     // width = null,
-//     // bottom = null,
-//     // right = null
-//   ) {
-//     // coordinates
-//     // this.left = left;
-//     // this.top = top;
-//     // this.bottom = bottom;
-//     // this.right = right;
-//     // this.height = height;
-//     // this.width = this.width;
-//     this.img = src.get(imgName);
-//     return this;
-//   }
-//   zIndex(idx) {
-//     this.img.style.zIndex = idx;
-//     return this;
-//   }
-//   opacity(val = 1) {
-//     this.img.style.opacity = val;
-//     return this;
-//   }
-//   rotate(deg) {
-//     this.img.style.transform = `rotate(${deg}deg)`;
-//     return this;
-//   }
-//   scale(val = 1) {
-//     this.img.style.scale = val;
-//     return this;
-//   }
-//   get() {
-//     return this.img;
-//   }
-//   set(
-//     left = null,
-//     top = null,
-//     height = null,
-//     width = null,
-//     bottom = null,
-//     right = null
-//   ) {
-//     // coordinates
-//     this.left = left;
-//     this.top = top;
-//     this.bottom = bottom;
-//     this.right = right;
-//     this.height = height;
-//     this.width = width;
-//     this.img.style.opacity = 1;
-//     this.img.style.transform = "translateX(0) translateY(0)";
-
-//     if (this.left !== null) this.img.style.left = String(this.left) + "px";
-//     if (this.top !== null) this.img.style.top = String(this.top) + "px";
-//     if (this.bottom !== null)
-//       this.img.style.bottom = String(this.bottom) + "px";
-//     if (this.right !== null) this.img.style.right = String(this.right) + "px";
-//     if (this.height !== null)
-//       this.img.style.height = String(this.height) + "px";
-//     if (this.width !== null) this.img.style.width = String(this.width) + "px";
-//     this.show();
-//     return this;
-//   }
-//   show() {
-//     this.img.style.display = "block";
-//     this.opacity();
-//     return this;
-//   }
-//   hide() {
-//     this.img.style.display = "none";
-//     return this;
-//   }
-//   static arrayOfImages = [];
-//   static hideAll() {
-//     for (let i of Img.arrayOfImages) {
-//       i.hide();
-//       i.opacity();
-//     }
-//     Img.resetImages();
-//   }
-//   static resetImages() {
-//     Img.arrayOfImages = [];
-//   }
-//   static setBlinkArrow(
-//     isX = true,
-//     left = null,
-//     top = null,
-//     height = 60,
-//     width = null,
-//     rotate = 0
-//   ) {
-//     let blinkArrow = new Img("blinkArrow")
-//       .set(left, top, height, width)
-//       .rotate(rotate)
-//       .zIndex(200);
-//     if (isX === -1) {
-//       blinkArrow.hide();
-//       return;
-//     }
-//     let x = 0,
-//       y = 0;
-//     if (isX) {
-//       x = 20;
-//     } else {
-//       y = 20;
-//     }
-//     var blink = anime({
-//       targets: blinkArrow.img,
-//       easing: "easeInOutQuad",
-//       opacity: 1,
-//       translateX: x,
-//       translateY: y,
-//       direction: "alternate",
-//       loop: true,
-//       autoplay: false,
-//       duration: 300,
-//     });
-
-//     return blink;
-//   }
-//   push() {
-//     Img.arrayOfImages.push(this);
-//     return this;
-//   }
-// }
 
 // * for cursor pointer
 function cursorPointer(ele) {
@@ -810,6 +682,102 @@ part_3_option_4_graph : new Dom("part_3_option_4_graph"),
 btn_delete : new Dom(".btn-delete"),
 btn_reset : new Dom(".btn-reset"),
 
+// Theory
+slide_1 : new Dom("slide_1"),
+slide_2 : new Dom("slide_2"),
+slide_3_page_1 : new Dom("slide_3_page_1"),
+slide_3_page_2 : new Dom("slide_3_page_2"),
+slide_3_page_3 : new Dom("slide_3_page_3"),
+slide_3_page_4 : new Dom("slide_3_page_4"),
+slide_4_page_1 : new Dom("slide_4_page_1"),
+slide_4_page_1_fan : new Dom("slide_4_page_1_fan"),
+slide_4_page_2_battery_1 : new Dom("slide_4_page_2_battery_1"),
+slide_4_page_2_battery_2 : new Dom("slide_4_page_2_battery_2"),
+slide_4_page_2_battery_3 : new Dom("slide_4_page_2_battery_3"),
+slide_4_page_2_volt_text : new Dom("slide_4_page_2_volt_text"),
+slide_4_page_3_text_1 : new Dom("slide_4_page_3_text_1"),
+slide_4_page_3_text_2 : new Dom("slide_4_page_3_text_2"),
+slide_4_page_3_wire : new Dom("slide_4_page_3_wire"),
+slide_5_page_1 : new Dom("slide_5_page_1"),
+slide_5_page_2_text_1 : new Dom("slide_5_page_2_text_1"),
+slide_5_page_2_volt_text : new Dom("slide_5_page_2_volt_text"),
+slide_5_page_3_1_text_1 : new Dom("slide_5_page_3_1_text_1"),
+slide_5_page_3_2_wire : new Dom("slide_5_page_3_2_wire"),
+slide_5_page_3_3_light : new Dom("slide_5_page_3_3_light"),
+slide_5_page_3_4_blast : new Dom("slide_5_page_3_4_blast"),
+slide_5_page_3_5_cross : new Dom("slide_5_page_3_5_cross"),
+slide_5_page_3_6_emoji : new Dom("slide_5_page_3_6_emoji"),
+slide_5_page_3_7_text_2 : new Dom("slide_5_page_3_7_text_2"),
+slide_5_page_3_8_text_3 : new Dom("slide_5_page_3_8_text_3"),
+slide_5_page_4_1_text_1 : new Dom("slide_5_page_4_1_text_1"),
+slide_6_page_1 : new Dom("slide_6_page_1"),
+slide_6_page_2_1_text_1 : new Dom("slide_6_page_2_1_text_1"),
+slide_6_page_2_2_emoji_blink : new Dom("slide_6_page_2_2_emoji_blink"),
+slide_6_page_3_1_text_1 : new Dom("slide_6_page_3_1_text_1"),
+slide_6_page_3_2_emoji_blink : new Dom("slide_6_page_3_2_emoji_blink"),
+slide_7_page_1_1 : new Dom("slide_7_page_1_1"),
+slide_7_page_1_2 : new Dom("slide_7_page_1_2"),
+slide_7_page_1_3 : new Dom("slide_7_page_1_3"),
+slide_8_page_1 : new Dom("slide_8_page_1"),
+slide_8_page_2_and_rotate_the_fan : new Dom("slide_8_page_2_and_rotate_the_fan"),
+slide_8_page_3_1 : new Dom("slide_8_page_3_1"),
+slide_8_page_3_2_light : new Dom("slide_8_page_3_2_light"),
+slide_8_page_3_3_blank : new Dom("slide_8_page_3_3_blank"),
+slide_8_page_3_4_emoji : new Dom("slide_8_page_3_4_emoji"),
+slide_8_page_3_5_text : new Dom("slide_8_page_3_5_text"),
+slide_9 : new Dom("slide_9"),
+slide_10_page_1 : new Dom("slide_10_page_1"),
+slide_10_page_2 : new Dom("slide_10_page_2"),
+slide_10_page_3 : new Dom("slide_10_page_3"),
+slide_10_page_4_1 : new Dom("slide_10_page_4_1"),
+slide_10_page_4_2_plus : new Dom("slide_10_page_4_2_plus"),
+slide_10_page_4_3_minus : new Dom("slide_10_page_4_3_minus"),
+slide_10_page_4_4_arrow : new Dom("slide_10_page_4_4_arrow"),
+slide_10_page_4_5_text : new Dom("slide_10_page_4_5_text"),
+slide_11_page_1 : new Dom("slide_11_page_1"),
+slide_11_page_2_1 : new Dom("slide_11_page_2_1"),
+slide_11_page_2_2_blink : new Dom("slide_11_page_2_2_blink"),
+slide_11_page_3_1 : new Dom("slide_11_page_3_1"),
+slide_11_page_3_2_rotate_it : new Dom("slide_11_page_3_2_rotate_it"),
+slide_11_page_3_3_text_and_arrow : new Dom("slide_11_page_3_3_text_and_arrow"),
+slide_12_page_1 : new Dom("slide_12_page_1"),
+slide_12_page_2_1_pwm_blink : new Dom("slide_12_page_2_1_pwm_blink"),
+slide_12_page_2_2 : new Dom("slide_12_page_2_2"),
+slide_12_page_2_3_text : new Dom("slide_12_page_2_3_text"),
+slide_12_page_3_1_pwn_blink : new Dom("slide_12_page_3_1_pwn_blink"),
+slide_12_page_3_2 : new Dom("slide_12_page_3_2"),
+slide_12_page_3_3_text : new Dom("slide_12_page_3_3_text"),
+slide_12_page_3_4_text_2 : new Dom("slide_12_page_3_4_text_2"),
+slide_13_page_1 : new Dom("slide_13_page_1"),
+slide_13_page_2 : new Dom("slide_13_page_2"),
+slide_13_page_3_1_plus : new Dom("slide_13_page_3_1_plus"),
+slide_13_page_3_2_minus_rotate_both : new Dom("slide_13_page_3_2_minus_rotate_both"),
+slide_13_page_3_4 : new Dom("slide_13_page_3_4"),
+slide_13_page_3_5_text : new Dom("slide_13_page_3_5_text"),
+slide_14_helper : new Dom("slide_14_helper"),
+slide_14_page_1 : new Dom("slide_14_page_1"),
+slide_14_page_1_ball : new Dom("slide_14_page_1_ball"),
+slide_14_page_2_1_blink : new Dom("slide_14_page_2_1_blink"),
+slide_14_page_2_2_text : new Dom("slide_14_page_2_2_text"),
+slide_14_page_3_1_symbols : new Dom("slide_14_page_3_1_symbols"),
+slide_14_page_3_2_green_graph_and_start_ball : new Dom("slide_14_page_3_2_green_graph_and_start_ball"),
+slide_14_page_3_3_white_image_for_blue_line : new Dom("slide_14_page_3_3_white_image_for_blue_line"),
+slide_15_page_1 : new Dom("slide_15_page_1"),
+slide_15_page_1_ball : new Dom("slide_15_page_1_ball"),
+slide_15_page_1_green_graph : new Dom("slide_15_page_1_green_graph"),
+slide_15_page_1_minus : new Dom("slide_15_page_1_minus"),
+slide_15_page_1_plus : new Dom("slide_15_page_1_plus"),
+slide_15_page_2_1_blink : new Dom("slide_15_page_2_1_blink"),
+slide_15_page_2_2_text : new Dom("slide_15_page_2_2_text"),
+slide_15_page_3_1_arrow_and_text : new Dom("slide_15_page_3_1_arrow_and_text"),
+slide_15_page_3_1_white : new Dom("slide_15_page_3_1_white"),
+slide_15_page_3_2_graph : new Dom("slide_15_page_3_2_graph"),
+slide_15_page_3_3_text : new Dom("slide_15_page_3_3_text"),
+
+btn_transparent: new Dom(".btn-transparent"),
+
+
+        
 
 // ! new items dom
  domQs1: new Dom("domQs1"),
@@ -961,30 +929,1159 @@ btn_reset : new Dom(".btn-reset"),
     (objective = function () {
       setIsProcessRunning(true);
       Dom.hideAll()
-
-      // to stop current voice
-      window.speechSynthesis.cancel();
- 
-      Scenes.items.welcomeBox.hide();
-      Dom.setBlinkArrow(-1);
-      setCC("");
       
-      // * Required Items
-      Scenes.items.projectIntro.show()
-      Scenes.items.objective.set(0,45)
+      // require
       
+      // !images array
+      let imgs = document.querySelectorAll(".theory");
+      
+      let btn_transparent = Scenes.items.btn_transparent.item;
+      
+      
+      
+      let zIndex = 1003
+      let prevAnime = null
+      let slides = []
+      let currSlideIdx = 0
+      let pages = []
+      let currPageIdx = 0
+      let animeIsRunning = true
 
-    anime({
-      duration:4000, 
-      complete(){
-        setIsProcessRunning(false);
-        Dom.setBlinkArrow(true, 790, 444).play();
-        setCC("Click 'Next' to go to next step");
+      //! function is anime active
+      function nextBtnToggle(){
+        if(animeIsRunning){
+          animeIsRunning = false
+          btn_transparent.classList.remove("btn-deactive")
+          // setCC("Click next to goto next slide.")
+          Dom.setBlinkArrow(true, 790, 414).play();
+        }else{
+          animeIsRunning = true
+          btn_transparent.classList.add("btn-deactive")
+          Dom.setBlinkArrow(-1);
+          
+        }
+      }
+      nextBtnToggle()
 
+      // ! uncomment after done
+      function resetNextBtn(){
+        btn_transparent.onclick = ()=>{
+          Dom.hideAll()
+          // setCC("Click next to goto next slide.")
+          Dom.setBlinkArrow(true, 790, 414).play();
+          slides[++i]()          
+        }
       }
 
-    })
-    return true;
+      function pagesNextBtn(){
+        btn_transparent.onclick = ()=>{
+          if(animeIsRunning){
+            return
+          }
+          if(currPageIdx == pages.length){
+            resetNextBtn()
+            btn_transparent.click()
+            currPageIdx = 0
+            return
+          }
+          // for calling pages in slides
+          pages[currPageIdx++]()
+        }
+      }
+
+      function fadeAnime(target,begin=()=>{},complete=()=>{}){
+        anime({
+          targets: target.item,
+          opacity: [0,1],
+          duration: 1000,
+          easing: 'linear',
+          round: 100,
+          begin(){
+            target.show()
+            begin()
+            // animeIsRunning = true
+          },
+          complete(){
+            complete()
+            // nextBtnToggle()
+          }
+        })
+      }
+
+      function blinkAnime(target,begin=()=>{},complete=()=>{}){
+        target.show()
+        anime({
+          targets: target.item,
+          opacity: [0.6,1,0.6],
+          loop: true,
+          easing: "linear",
+          round: 100,
+          duration: 700,
+          begin(){
+            begin()
+          },
+        })
+        anime({
+          delay: 1000,
+          complete(){
+            complete()
+          }
+        })
+      }
+
+      function rotateAnime(target,begin=()=>{},complete=()=>{}){
+        return anime({
+          targets: target.item,
+          rotate: 360,
+          easing: "linear",
+          loop: true,
+          duration: 800,
+          begin(){
+            begin()
+          },
+          complete(){
+            complete()
+          }
+        })
+      }
+
+      Scenes.items.btn_next.hide()
+
+      slides = [
+        // slide1 = ()=>{
+        //   Scenes.items.slide_1.show()
+        // },
+        slide2 = ()=>{
+          Scenes.items.slide_2.show()
+        },
+        slide3 = ()=>{
+          Scenes.items.slide_3_page_1.show()
+
+          pages = [
+            ()=>{
+              let target = Scenes.items.slide_3_page_2
+              anime({
+                targets: target.item,
+                opacity: [0,1],
+                duration: 1000,
+                easing: 'linear',
+                round: 100,
+                begin(){
+                  target.show()
+                  nextBtnToggle()
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              let target = Scenes.items.slide_3_page_3
+              anime({
+                targets: target.item,
+                opacity: [0,1],
+                duration: 1000,
+                easing: 'linear',
+                round: 100,
+                begin(){
+                  target.show()
+                  nextBtnToggle()
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              let target = Scenes.items.slide_3_page_4
+              anime({
+                targets: target.item,
+                opacity: [0,1],
+                duration: 1000,
+                easing: 'linear',
+                round: 100,
+                begin(){
+                  target.show()
+                  nextBtnToggle()
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+          ]
+
+          pagesNextBtn()
+        },
+        slide4 = ()=>{
+          Scenes.items.slide_4_page_1.show()
+          Scenes.items.slide_4_page_1_fan.set(270,193,90,90)
+
+          let battery = [
+            Scenes.items.slide_4_page_2_battery_1.set(120-500,-295).item,
+            Scenes.items.slide_4_page_2_battery_2.set(60-500,-240).item,
+            Scenes.items.slide_4_page_2_battery_3.set(0-500,-186).item
+          ]
+          let tempI = 0
+          let idx = [120,60,0]
+          anime.timeline({
+            duration: 500,
+            easing: "easeInOutExpo",
+          })
+          .add({
+            targets: battery[tempI],
+            left: idx[tempI++]
+          })
+          .add({
+            targets: battery[tempI],
+            left: idx[tempI++]
+          })
+          .add({
+            targets: battery[tempI],
+            left: idx[tempI++]
+          })
+                    
+
+          
+          // Scenes.items.slide_4_page_2_volt_text.show()
+          
+          pages = [
+            ()=>{
+              tempI = 0
+              topIdx = -45
+              leftIdx = 0
+              anime.timeline({
+                duration: 1000,
+                easing: "easeInOutExpo",
+              })
+              .add({
+                targets: battery[tempI++],
+                left: leftIdx,
+                top: topIdx,
+                begin(){
+                  nextBtnToggle()
+                }
+              })
+              .add({
+                targets: battery[tempI++],
+                left: leftIdx,
+                top: topIdx,
+              })
+              .add({
+                targets: battery[tempI++],
+                left: leftIdx,
+                top: topIdx,
+                complete(){
+                  fadeAnime(Scenes.items.slide_4_page_2_volt_text,()=>{},()=>{
+                  nextBtnToggle()
+                  })
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  nextBtnToggle()
+                  fadeAnime(Scenes.items.slide_4_page_3_wire)
+                  prevAnime = anime({
+                    targets: Scenes.items.slide_4_page_1_fan.item,
+                    rotate: 360,
+                    easing: "linear",
+                    loop: true,
+                    duration: 800,
+                  })
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_4_page_3_text_1)
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_4_page_3_text_2,
+                  ()=>{},
+                  ()=>{
+                    nextBtnToggle()
+                  })
+                }
+              })
+            },
+          ]
+
+          pagesNextBtn()
+        },
+        slide5 = ()=>{
+          // old anime pause
+          prevAnime.pause()
+          
+          Scenes.items.slide_5_page_1.show()
+          // Scenes.items.slide_5_page_3_4_blast.set(220,170,220,160)
+
+          let battery = [
+            Scenes.items.slide_4_page_2_battery_1.set(120-500,-295).zIndex(zIndex++).item,
+            Scenes.items.slide_4_page_2_battery_2.set(60-500,-240).zIndex(zIndex++).item,
+          ]
+
+          let tempI = 0
+          let idx = [120,60]
+
+          anime.timeline({
+            duration: 800,
+            easing: "easeInOutExpo",
+          })
+          .add({
+            targets: battery[tempI],
+            left: idx[tempI++]
+          })
+          .add({
+            targets: battery[tempI],
+            left: idx[tempI++]
+          })
+                    
+          // Scenes.items.slide_4_page_2_volt_text.show()
+          
+          pages = [
+            ()=>{
+              tempI = 0
+              topIdx = -45
+              leftIdx = 0
+              anime.timeline({
+                duration: 1000,
+                easing: "easeInOutExpo",
+              })
+              .add({
+                targets: battery[tempI++],
+                left: leftIdx,
+                top: topIdx,
+                begin(){
+                  nextBtnToggle()
+                }
+              })
+              .add({
+                targets: battery[tempI++],
+                left: leftIdx,
+                top: topIdx,
+                complete(){
+                  fadeAnime(Scenes.items.slide_5_page_2_volt_text)
+                }
+              })
+              .add({
+                complete(){
+                  fadeAnime(Scenes.items.slide_5_page_2_text_1)
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 1000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  Scenes.items.slide_5_page_2_text_1.hide()
+                  fadeAnime(Scenes.items.slide_5_page_3_1_text_1)
+                  nextBtnToggle()
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_5_page_3_2_wire)
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_5_page_3_3_light)
+                }
+              })
+              // * For GIF
+              .add({
+                begin(){
+                  Scenes.items.slide_5_page_3_3_light.hide()
+                  Scenes.items.slide_5_page_3_4_blast.set(220,170,220,160)
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_5_page_3_5_cross.zIndex(zIndex++))
+                }
+              })
+              .add({
+                begin(){
+                  Scenes.items.slide_5_page_3_1_text_1.hide()
+                  fadeAnime(Scenes.items.slide_5_page_3_6_emoji)
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_5_page_3_7_text_2)
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_5_page_3_8_text_3)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              Scenes.items.slide_5_page_4_1_text_1.show()
+            },
+          ]
+
+          pagesNextBtn()
+        },
+        slide6 = ()=>{
+          Scenes.items.slide_6_page_1.show()
+
+          pages = [
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_6_page_2_1_text_1)
+                  nextBtnToggle()
+                }
+              })
+              .add({
+                begin(){
+                  let target = Scenes.items.slide_6_page_2_2_emoji_blink
+                  fadeAnime(target)
+                  blinkAnime(target)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_6_page_3_1_text_1)
+                  nextBtnToggle()
+                }
+              })
+              .add({
+                begin(){
+                  let target = Scenes.items.slide_6_page_3_2_emoji_blink
+                  fadeAnime(target)
+                  blinkAnime(target)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+          ]
+
+          pagesNextBtn()
+        },
+        slide7 = ()=>{
+          Scenes.items.slide_7_page_1_1.show()
+          nextBtnToggle()
+          fadeAnime(Scenes.items.slide_7_page_1_2,
+            ()=>{},()=>{
+              fadeAnime(Scenes.items.slide_7_page_1_3,
+                ()=>{},
+                ()=>{
+                  nextBtnToggle()
+                })
+            })
+
+        },
+        slide8 = ()=>{
+          Scenes.items.slide_8_page_1.show()
+          Scenes.items.slide_4_page_1_fan.set(272,193,83,83).zIndex(zIndex++)
+
+          pages = [
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_8_page_2_and_rotate_the_fan,
+                    ()=>{},
+                    ()=>{
+                      rotateAnime(Scenes.items.slide_4_page_1_fan)
+                    }  
+                  )
+                  nextBtnToggle()
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 1000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_8_page_3_1)
+                  nextBtnToggle()
+                }
+              })
+              .add({
+                duration: 300,
+                begin(){
+                  fadeAnime(Scenes.items.slide_8_page_3_2_light)
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_8_page_3_3_blank)
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_8_page_3_4_emoji)
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_8_page_3_5_text)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+          ]
+
+          pagesNextBtn()
+        },
+        slide9 = ()=>{
+          // old anime pause
+          prevAnime.pause()
+
+          Scenes.items.slide_9.show()
+        },
+        slide10 = ()=>{
+          Scenes.items.slide_10_page_1.show()
+          // Scenes.items.slide_10_page_2.show()
+          // Scenes.items.slide_10_page_3.show()
+          // Scenes.items.slide_10_page_4_1.show()
+          // Scenes.items.slide_10_page_4_2_plus.show()
+          // Scenes.items.slide_10_page_4_3_minus.show()
+
+          pages = [
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_10_page_2)
+                  nextBtnToggle()
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_10_page_3)
+                  nextBtnToggle()
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_10_page_4_1)
+                  nextBtnToggle()
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_10_page_4_2_plus)
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_10_page_4_3_minus)
+                }
+              })
+              .add({
+                begin(){
+                  // rotate the minus plus
+                  let plus = Scenes.items.slide_10_page_4_2_plus
+                  let minus = Scenes.items.slide_10_page_4_3_minus
+
+                  blinkAnime(plus)
+                  blinkAnime(minus)
+                  anime({
+                    targets: plus.item,
+                    easing: "linear",
+                    keyframes: [
+                      {translateY: 40},
+                      {translateX: 130},
+                      {translateY: 0},
+                    ],
+                    duration: 2000,
+                  })
+                  anime({
+                    targets: minus.item,
+                    easing: "linear",
+                    keyframes: [
+                      {translateY: -70},
+                      {translateX: -130},
+                      {translateY: 0},
+                    ],
+                    duration: 2000,
+                  })
+                }
+              })
+              .add({
+                delay: 3000,
+                complete(){
+                  fadeAnime(Scenes.items.slide_10_page_4_4_arrow,
+                    ()=>{},
+                    ()=>{
+                      fadeAnime(Scenes.items.slide_10_page_4_5_text,
+                        ()=>{},
+                        ()=>{
+                          nextBtnToggle()
+                      })    
+                    }
+                  )
+                }
+              })
+            },
+            
+          ]
+
+          pagesNextBtn()
+        },
+        slide11 = ()=>{
+          Scenes.items.slide_11_page_1.show()
+          // Scenes.items.slide_11_page_2_1.show()
+          // Scenes.items.slide_11_page_2_2_blink.show()
+          // Scenes.items.slide_11_page_3_1.show()
+          // Scenes.items.slide_11_page_3_2_rotate_it.set(595,248,23,90)
+
+          pages = [
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_11_page_2_1)
+                  nextBtnToggle()
+                },
+              })
+              .add({
+                begin(){
+                  blinkAnime(Scenes.items.slide_11_page_2_2_blink)
+                  fadeAnime(Scenes.items.slide_11_page_2_2_blink)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_11_page_3_1)
+                  nextBtnToggle()
+                },
+              })
+              .add({
+                begin(){
+                  let rightArrow = Scenes.items.slide_11_page_3_2_rotate_it.set(595,248,23,90)
+                  fadeAnime(rightArrow,
+                    ()=>{},
+                    ()=>{
+                      anime({
+                        targets: rightArrow.item, 
+                        rotate: 180,
+                        duration: 2000,
+                        easing: 'easeOutQuad',
+                        complete(){
+                          blinkAnime(rightArrow,
+                            ()=>{},
+                            ()=>{
+                              fadeAnime(Scenes.items.slide_11_page_3_3_text_and_arrow.zIndex(zIndex++),
+                              ()=>{},
+                              ()=>{
+                                nextBtnToggle()
+                              })
+                            }  
+                          )
+                        }
+                      })
+                    }
+                  )
+                },
+              })
+            },
+          ]
+
+          pagesNextBtn()
+        },
+        slide12 = ()=>{
+          Scenes.items.slide_12_page_1.show()
+          // Scenes.items.slide_12_page_2_1_pwm_blink.show()
+          // Scenes.items.slide_12_page_2_2.show()
+          // Scenes.items.slide_12_page_2_3_text.show()
+
+          pages = [
+            ()=>{
+              anime.timeline({
+                duration: 1000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_12_page_2_1_pwm_blink)
+                  blinkAnime(Scenes.items.slide_12_page_2_1_pwm_blink)
+                  nextBtnToggle()
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_12_page_2_2)
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_12_page_2_3_text)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 1000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_12_page_3_1_pwn_blink)
+                  blinkAnime(Scenes.items.slide_12_page_3_1_pwn_blink)
+                  nextBtnToggle()
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_12_page_3_2)
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_12_page_3_3_text)
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_12_page_3_4_text_2)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+          ]
+
+          pagesNextBtn()
+        },
+        slide13 = ()=>{
+          Scenes.items.slide_13_page_1.show()
+          // Scenes.items.slide_13_page_2.show()
+          // Scenes.items.slide_13_page_3_1_plus.show()
+          // Scenes.items.slide_13_page_3_2_minus_rotate_both.show()
+          // Scenes.items.slide_13_page_3_4.show()
+          // Scenes.items.slide_13_page_3_5_text.show()
+
+          pages = [
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_13_page_2)
+                  nextBtnToggle()
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_13_page_3_1_plus)
+                  fadeAnime(Scenes.items.slide_13_page_3_2_minus_rotate_both)
+                  nextBtnToggle()
+                },
+              })
+              .add({
+                begin(){
+                  anime({
+                    targets: Scenes.items.slide_13_page_3_1_plus.item,
+                    easing: "linear",
+                    keyframes: [
+                      {translateY: 40},
+                      {translateX: 100},
+                      {translateY: 0},
+                    ],
+                    duration: 2000,
+                  })
+                  anime({
+                    targets: Scenes.items.slide_13_page_3_2_minus_rotate_both.item,
+                    easing: "linear",
+                    keyframes: [
+                      {translateY: -40},
+                      {translateX: -100},
+                      {translateY: 0},
+                    ],
+                    duration: 2000,
+                  })
+                }
+              })
+              .add({
+                // delay: 2000,
+                begin(){
+                  fadeAnime(Scenes.items.slide_13_page_3_4)
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_13_page_3_5_text)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+          ]
+
+          pagesNextBtn()
+        },    
+        slide14 = ()=>{
+          Scenes.items.slide_14_page_1.show()
+          Scenes.items.slide_14_page_1_ball.show().zIndex(zIndex++)
+
+          // Scenes.items.slide_14_page_3_3_white_image_for_blue_line.item.style.border = "1px solid black"
+          Scenes.items.slide_14_page_3_3_white_image_for_blue_line.set(342,347,29,81).hide()
+
+          
+          pages = [
+            ()=>{
+              anime.timeline({
+                duration: 1000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_14_page_2_1_blink)
+                  blinkAnime(Scenes.items.slide_14_page_2_1_blink)
+                  nextBtnToggle()
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_14_page_2_2_text)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_14_page_3_1_symbols.zIndex(zIndex++)
+                    ,()=>{
+                      Scenes.items.slide_14_page_1_ball.show().zIndex(zIndex++)
+                      Scenes.items.slide_14_page_3_3_white_image_for_blue_line.show().zIndex(zIndex++)
+                    }
+                    ,()=>{
+                      Scenes.items.slide_14_page_3_2_green_graph_and_start_ball.show().zIndex(zIndex-4).set(-75)
+                    }
+                  )
+                  nextBtnToggle()
+                },
+              })
+              .add({
+                begin(){
+                  let timeFrame = 1700
+                  anime({
+                    targets: Scenes.items.slide_14_page_1_ball.item,
+                    keyframes: [
+                      {translateY: -42, duration: 10},
+                      {translateX: 389},
+                      {translateY: 180},
+                      {translateX: 0},
+                      {translateY: 0},
+                    ],
+                    duration: timeFrame,
+                    easing: "easeInOutQuad",
+                    loop: true
+                  })
+                  anime({
+                    targets: Scenes.items.slide_14_page_3_2_green_graph_and_start_ball.item,
+                    keyframes: [
+                      {left: 0,duration: timeFrame-300},
+                      {left: -75, duration: 0},
+                    ],
+                    easing: "easeInQuad",
+                    loop: true,
+                  })
+                  anime({
+                    targets: Scenes.items.slide_14_page_3_3_white_image_for_blue_line.item,
+                    keyframes: [
+                      {translateX: 81, width: 0, duration: timeFrame-300},
+                      {width:81, duration: 0},
+                    ],
+                    easing: "easeInQuad",
+                    loop: true,
+                  })
+                }
+              })
+              .add({
+                begin(){
+                  anime({
+                    targets: Scenes.items.slide_13_page_3_1_plus.item,
+                    easing: "linear",
+                    keyframes: [
+                      {translateY: 40},
+                      {translateX: 100},
+                      {translateY: 0},
+                    ],
+                    duration: 2000,
+                  })
+                  anime({
+                    targets: Scenes.items.slide_13_page_3_2_minus_rotate_both.item,
+                    easing: "linear",
+                    keyframes: [
+                      {translateY: -40},
+                      {translateX: -100},
+                      {translateY: 0},
+                    ],
+                    duration: 2000,
+                  })
+                }
+              })
+              .add({
+                // delay: 2000,
+                begin(){
+                  fadeAnime(Scenes.items.slide_13_page_3_4)
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_13_page_3_5_text)
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+          ]
+
+          pagesNextBtn()
+        }, 
+        slide15 = ()=>{
+          Scenes.items.slide_15_page_1.show().zIndex(zeIndex++)
+          Scenes.items.slide_15_page_1_ball.show().zIndex(zIndex++)
+          Scenes.items.slide_15_page_1_green_graph.show()
+          Scenes.items.slide_15_page_1_plus.show().zIndex(zIndex)
+          Scenes.items.slide_15_page_1_minus.show().zIndex(zIndex)
+
+          Scenes.items.slide_15_page_3_1_white.set(363,347,29,76).zIndex(zIndex).hide()
+
+          pages = [
+            ()=>{
+              anime.timeline({
+                duration: 1000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_15_page_2_1_blink.zIndex(zIndex))
+                  blinkAnime(Scenes.items.slide_15_page_2_1_blink)
+                  nextBtnToggle()
+                },
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_15_page_2_2_text.zIndex(zIndex))
+                },
+                complete(){
+                  nextBtnToggle()
+                }
+              })
+            },
+            ()=>{
+              anime.timeline({
+                duration: 2000,
+                easing: "linear",
+              })
+              .add({
+                begin(){
+                  blinkAnime(Scenes.items.slide_15_page_1_plus)
+                  blinkAnime(Scenes.items.slide_15_page_1_minus)
+                  nextBtnToggle()
+                }
+              })
+              .add({
+                begin(){
+                  anime({
+                    targets: Scenes.items.slide_15_page_1_plus.item,
+                    easing: "linear",
+                    keyframes: [
+                      {translateY: 18},
+                      {translateX: 130},
+                      {translateY: 0},
+                    ],
+                    duration: 2000,
+                  })
+                  anime({
+                    targets: Scenes.items.slide_15_page_1_minus.item,
+                    easing: "linear",
+                    keyframes: [
+                      {translateY: -18},
+                      {translateX: -130},
+                      {translateY: 0},
+                    ],
+                    duration: 2000,
+                  })
+                }
+              })
+              .add({
+                begin(){
+                  fadeAnime(Scenes.items.slide_15_page_3_1_arrow_and_text.zIndex(zIndex),()=>{
+                    Scenes.items.slide_15_page_3_1_white.show()
+                  })
+                },
+              })
+              .add({
+                begin(){
+                  let timeFrame = 1700
+                  anime({
+                    targets: Scenes.items.slide_15_page_1_ball.item,
+                    keyframes: [
+                      {translateY: -42, duration: 10},
+                      {translateX: 588},
+                      {translateY: 180},
+                      {translateX: 0},
+                      {translateY: 0},
+                    ],
+                    duration: timeFrame,
+                    easing: "easeInOutQuad",
+                    loop: true
+                  })
+                  anime({
+                    targets: Scenes.items.slide_15_page_1_green_graph.item,
+                    keyframes: [
+                      {left: 75,duration: timeFrame-300},
+                      {left: 0, duration: 0},
+                    ],
+                    easing: "easeInQuad",
+                    loop: true,
+                  })
+                  anime({
+                    targets: Scenes.items.slide_15_page_3_1_white.item,
+                    keyframes: [
+                      {translateX: 81, width: 0, duration: timeFrame-300},
+                      {width:81, duration: 0},
+                    ],
+                    easing: "easeInQuad",
+                    loop: true,
+                  })
+                  anime({
+                    delay: timeFrame,
+                    duration: 2000,
+                    begin(){
+                      fadeAnime(Scenes.items.slide_15_page_3_2_graph.zIndex(zIndex))
+                    },
+                    complete(){
+                      fadeAnime(Scenes.items.slide_15_page_3_3_text.zIndex(zIndex),
+                      ()=>{},
+                      ()=>{
+                        nextBtnToggle()
+                        Scenes.items.btn_next.show()
+                        Scenes.items.btn_transparent.hide()
+                        // for going to next animation
+                        anime({
+                          duration:40, 
+                          complete(){
+                            setIsProcessRunning(false);
+                            Dom.setBlinkArrow(true, 790, 414).play();
+                            setCC("Click 'Next' to go to next step");
+                          }
+                        })
+                      })
+                    }
+                  })
+                }
+              })
+            },
+          ]
+ 
+          pagesNextBtn()
+        }, 
+      ]
+
+      let i=0;
+      slides[i]()
+      resetNextBtn()
+
+
+        
+      return true;
     }),  
     (step1 = function () {
       setIsProcessRunning(true);
@@ -1038,6 +2135,7 @@ btn_reset : new Dom(".btn-reset"),
       }
       Scenes.items.domQs6.item.onclick = function(){
           if(boxCount>5){
+    
             // after complete
             Scenes.items.box_img.hide()
             // Dom.setBlinkArrow(true, 790, 408).play();
@@ -1301,7 +2399,7 @@ btn_reset : new Dom(".btn-reset"),
 
 
           if(dutyRatioValue==0.75){
-             updateValues(vInValue,dutyRatioValue,resistanceValue)
+            updateValues(vInValue,dutyRatioValue,resistanceValue)
 
             Scenes.items.tempTitle1.setContent(vInValue)
             Scenes.items.tempTitle2.setContent(Number(v0 - iIn).toFixed(1))
@@ -1498,118 +2596,6 @@ btn_reset : new Dom(".btn-reset"),
 
      
       // ! Tutorial Function
-      function stepTutorial(){
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 4000,
-        })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,225,10).play()
-            setCC("Select the value of source voltage (V<sub>in</sub>)",3)
-          }
-        })
-        // .add({
-        //   targets:  sliders[0],
-        //   value: 24,
-        //   duration: 100,
-        //   begin(){
-        //     slidersValue[0].innerHTML = 24
-        //   }
-        // })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,225,60).play()
-            setCC("Select the value of Duty Ratio (D)")
-          }
-        })
-        // .add({
-        //   targets: [sliders[1],values],
-        //   D: 0.35,
-        //   value: 0.35,
-        //   update(){
-        //     slidersValue[1].innerHTML = Number(values.D).toFixed(2)
-        //   }
-        // })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,225,110).play()
-            setCC("Select the value of Load Resistance (R)")
-          }
-        })
-        // .add({
-        //   targets: [sliders[2],values],
-        //   R: 134,
-        //   value: 134,
-        //   update(){
-        //     slidersValue[2].value = values.R.toFixed(0)
-        //   }
-        // })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,180,280).play()
-            setCC("Press record button to do record the reading observation table",4)
-          }
-        })
-        // .add({
-        //   begin(){
-        //     Scenes.items.record_btn.item.click()
-        //   }
-        // })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,225,60).play()
-            setCC("Change the value of Duty Ratio (D) in steps and record it",4)
-          }
-        })
-        // .add({
-        //   targets: [sliders[1]],
-        //   value: 0.85,
-        //   update(){
-        //     slidersValue[1].innerHTML = sliders[1].value
-        //   }
-        // })
-        .add({
-          begin(){
-            // blink arrow
-            Dom.setBlinkArrowRed(true,180,280).play()
-            setCC("Press record button")
-          }
-        })
-        // .add({
-        //   begin(){
-        //     Scenes.items.record_btn.item.click()
-        //   },
-        //   complete(){
-        //     setCC("Now record your own readings.")
-        //   }
-        // })
-        // .add({
-        //   begin(){
-        //     Dom.setBlinkArrowRed(-1)
-        //     Scenes.items.btn_delete.item.click()
-        //     Scenes.items.btn_delete.item.click()
-        //     Scenes.items.slider_vIn.item.classList.remove("deactive")
-        //     Scenes.items.slider_R.item.classList.remove("deactive")
-        //     sliders[0].disabled = false
-        //     sliders[2].disabled = false
-        //   }
-        //   ,complete(){
-        //     setCC("Record  7 reading for 3 different load resistances.")
-        //   }
-        // })
-        .add({
-          begin(){
-            setCC("Record  7 reading for 3 different duty ratio.")
-            Dom.setBlinkArrowRed(-1)
-          }
-        })
-      }
 
       // let slidersBox = document.querySelectorAll(".slider")
       let slidersBox = document.querySelectorAll(".range-slider__range")
@@ -3008,7 +3994,35 @@ btn_reset : new Dom(".btn-reset"),
         )
       }
 
+      // let slidersBox = document.querySelectorAll(".slider")
+      let slidersBox = document.querySelectorAll(".range-slider__range")
+      function stepTutorial2(){
 
+        Dom.setBlinkArrowRed(true,225,10).play()
+        setCC("Select the value of source voltage (V<sub>in</sub>)",6)
+
+        slidersBox[0].onclick = ()=>{
+          Dom.setBlinkArrowRed(true,225,60).play()
+          setCC("Select the value of Duty Ratio (D)")
+
+          slidersBox[1].onclick = ()=>{
+            Dom.setBlinkArrowRed(true,225,110).play()
+            setCC("Select the value of Load Resistance (R)")
+
+            slidersBox[2].onclick = ()=>{
+              Dom.setBlinkArrowRed(true,170,315).play()
+              setCC("Press record button",10)
+
+              slidersBox.forEach(ele=>{
+                ele.onclick = ()=>{}
+              })
+            }
+          }
+        }
+      }
+      if(table.tBodies[0].rows[0].cells[3].innerHTML == ""){
+        stepTutorial2()
+      }
       const graph = {
         addDataset(chart,label,bgColor,data){
           chart.data.datasets.push(
@@ -3077,7 +4091,7 @@ btn_reset : new Dom(".btn-reset"),
        
        // ! onclick for record
        Scenes.items.record_btn.item.onclick = function(){
-       
+        Dom.setBlinkArrowRed(-1)
 
          let allSliderValue = $(".range-slider__value");
  
@@ -3230,7 +4244,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 2
+Scenes.currentStep = 1
 
 Scenes.next()  
 // Scenes.steps[3]()

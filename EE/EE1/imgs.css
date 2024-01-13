@@ -50,6 +50,10 @@
     position: absolute;
 
 }
+.blinkArrowRed{
+    display: none;
+    position: absolute;
+}
 
 .main-window-videos{
     display: none;

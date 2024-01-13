@@ -378,4 +378,40 @@
     transform: scale(0.99)!important;
 }
 
+.theory{
+    height: 495px;
+    width: 950px;
+    top: -46px;
+    left: 0;
+    z-index: 1001;
+}
 
+
+.btn-transparent{
+    /* display: none; */
+    position: absolute;
+    width: 64px;
+    height: 44px;
+    bottom: -95px;
+    right: 3px;
+    /* background-color: red; */
+    z-index: 2001;
+}
+.btn-transparent {
+    position: absolute;
+    /* width: 64px; */
+    /* height: 48px; */
+    bottom: -95px;
+    right: 1px;
+    /* background-color: red; */
+    font-size: 1.2em;
+    z-index: 2001;
+  }
+  
+  
+  .btn-transparent:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(4px, 4px);
+  }
+
+  

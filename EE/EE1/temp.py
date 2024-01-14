@@ -17,7 +17,7 @@ def dom(name):
     return f'{name1} : new Dom("{name1}"),\n'
 
 
-names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\EE\\EE1\\src\\images\\Theory")
+names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\EE\\EE1\\src\\images\\temp\\temp23")
 
 # namesStr = ''
 # for name in names:
@@ -26,7 +26,7 @@ names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\EE\\EE1\\src\\image
 # open("temp3.txt","w").write(namesStr)
 
 BASE_COUNT = 13
-count = 115
+count = 134
 
 srcs = ''
 doms = ''

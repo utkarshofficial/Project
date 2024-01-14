@@ -776,6 +776,14 @@ slide_15_page_3_3_text : new Dom("slide_15_page_3_3_text"),
 
 btn_transparent: new Dom(".btn-transparent"),
 
+formulas_component_stress : new Dom("formulas_component_stress"),
+formulas_efficiency : new Dom("formulas_efficiency"),
+formulas_ideal : new Dom("formulas_ideal"),
+formulas_nomenclautre : new Dom("formulas_nomenclautre"),
+formulas_non_ideal : new Dom("formulas_non_ideal"),
+formulas_procedure : new Dom("formulas_procedure"),
+formulas_universal : new Dom("formulas_universal"),
+
 
         
 
@@ -4256,7 +4264,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 8
+Scenes.currentStep = 1
 
 Scenes.next()  
 // Scenes.steps[3]()
@@ -4290,6 +4298,43 @@ muteBtn.addEventListener("click", () => {
     muteBtn.title = "Click to Unmute";
   }
 });
+
+// ! Anime Header Hover Buttons
+function btnPopupBox(){
+  let popupBtns = document.querySelectorAll(".btn-popup")
+  let popupWindow = document.querySelector(".btn-popup-window")
+  
+  popupBtns[0].onmouseover = ()=>{
+    popupWindow.src = Scenes.items.formulas_procedure.item.src
+  }
+  popupBtns[1].onmouseover = ()=>{
+    popupWindow.src = Scenes.items.formulas_nomenclautre.item.src
+  }
+  popupBtns[2].onmouseover = ()=>{
+    switch (Scenes.currentStep-1) {
+      case 5:
+        popupWindow.src = Scenes.items.formulas_ideal.item.src
+        break;
+
+      case 6:
+        popupWindow.src = Scenes.items.formulas_non_ideal.item.src
+        break;
+
+      case 7:
+        popupWindow.src = Scenes.items.formulas_efficiency.item.src
+        break;
+
+      case 8:
+        popupWindow.src = Scenes.items.formulas_component_stress.item.src
+        break;
+    
+      default:
+        popupWindow.src = Scenes.items.formulas_universal.item.src
+        break;
+    }
+  }
+}
+btnPopupBox()
 
 // Scenes.steps[2]()
 // Scenes.steps[6]()

@@ -151,6 +151,15 @@ slide_15_page_3_1_white:this.allImgsDom[131],
 slide_15_page_3_2_graph:this.allImgsDom[132],
 slide_15_page_3_3_text:this.allImgsDom[133],
 
+formulas_component_stress:this.allImgsDom[134],
+formulas_efficiency:this.allImgsDom[135],
+formulas_ideal:this.allImgsDom[136],
+formulas_nomenclautre:this.allImgsDom[137],
+formulas_non_ideal:this.allImgsDom[138],
+formulas_procedure:this.allImgsDom[139],
+formulas_universal:this.allImgsDom[140],
+
+
       // * Question Mark
       domQs1: this.allQsDom[0],
       domQs2: this.allQsDom[1],

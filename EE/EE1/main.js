@@ -945,6 +945,7 @@ formulas_universal : new Dom("formulas_universal"),
       
       let btn_transparent = Scenes.items.btn_transparent.item;
       Scenes.items.btn_transparent.show()
+      // Scenes.items.btn_next.hide()
       
       
       let zIndex = 1003
@@ -975,6 +976,7 @@ formulas_universal : new Dom("formulas_universal"),
       function resetNextBtn(){
         btn_transparent.onclick = ()=>{
           Dom.hideAll()
+          Scenes.items.btn_transparent.show()
           // setCC("Click next to goto next slide.")
           Dom.setBlinkArrow(true, 790, 414).play();
           slides[++i]()          
@@ -1053,7 +1055,6 @@ formulas_universal : new Dom("formulas_universal"),
         })
       }
 
-      Scenes.items.btn_next.hide()
 
       slides = [
         // slide1 = ()=>{
@@ -1942,7 +1943,7 @@ formulas_universal : new Dom("formulas_universal"),
           pagesNextBtn()
         }, 
         slide15 = ()=>{
-          Scenes.items.slide_15_page_1.show().zIndex(zeIndex++)
+          Scenes.items.slide_15_page_1.show().zIndex(zIndex++)
           Scenes.items.slide_15_page_1_ball.show().zIndex(zIndex++)
           Scenes.items.slide_15_page_1_green_graph.show()
           Scenes.items.slide_15_page_1_plus.show().zIndex(zIndex)
@@ -2015,7 +2016,7 @@ formulas_universal : new Dom("formulas_universal"),
                   })
                 },
               })
-              .add({
+            .add({
                 begin(){
                   let timeFrame = 1700
                   anime({
@@ -2097,6 +2098,8 @@ formulas_universal : new Dom("formulas_universal"),
       Dom.hideAll();
       Scenes.items.projectIntro.hide()
       Dom.setBlinkArrow(-1);
+      // Scenes.items.btn_next.show()
+      // Scenes.items.btn_transparent.hide()
 
       Scenes.setStepHeading("Step-1", "Circuit Formulation");
         

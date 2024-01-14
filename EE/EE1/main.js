@@ -936,7 +936,7 @@ btn_transparent: new Dom(".btn-transparent"),
       let imgs = document.querySelectorAll(".theory");
       
       let btn_transparent = Scenes.items.btn_transparent.item;
-      
+      Scenes.items.btn_transparent.show()
       
       
       let zIndex = 1003
@@ -2116,7 +2116,7 @@ btn_transparent: new Dom(".btn-transparent"),
 
       Scenes.items.slider_box.hide()
 
-      let tempText = Scenes.items.tempText.set(50,200).hide()
+      let tempText = Scenes.items.tempText.set(40,200).hide()
       
       // * Part One Logic
       Scenes.items.domQs1.set(388,227).zIndex(3)
@@ -2189,19 +2189,29 @@ btn_transparent: new Dom(".btn-transparent"),
         let props = [
           [190,-10,150,80],
           [270,10,100,150],
-          [445,13,100,180],
-          [625,-10,160,120],
-          [740,-10,130,100],
+          [439,-7,100,180],
+          [610,-10,160,120],
+          [732,-10,130,100],
         ]
 
+        // after new figures added 
+        let top = 0
+        let left = 0
+        if(boxCount == 2){
+          left = left + 24
+        }
+        if(boxCount == 3){
+          top = top - 13
+        }
+        
         anime.timeline({
           duration: 2000,
           easing: "easeInOutQuad",
         })
         .add({
           targets:compo[boxCount - 1],
-          top: 0,
-          left: 0,
+          top: top,
+          left: left,
           begin(){
             anime({
               targets: qsBtnDom,
@@ -2508,29 +2518,25 @@ btn_transparent: new Dom(".btn-transparent"),
       Scenes.resetSlider()
       
       const opOne = ()=>{
-        // ! show the slider
-        Scenes.items.slider_box.show()
+        
 
         Scenes.optionsDone[0]=1;
         Scenes.steps[0+5]()
       }
       const opTwo = ()=>{
-        // ! show the slider
-        Scenes.items.slider_box.show()
+       
 
         Scenes.optionsDone[1]=1;
         Scenes.steps[1+5]()
       }
       const opThree = ()=>{
-        // ! show the slider
-        Scenes.items.slider_box.show()
+        
 
         Scenes.optionsDone[2]=1;
         Scenes.steps[2+5]()
       }
       const opFour = ()=>{
-        // ! show the slider
-        Scenes.items.slider_box.show()
+        
 
         Scenes.optionsDone[3]=1;
         Scenes.steps[3+5]()
@@ -2575,7 +2581,8 @@ btn_transparent: new Dom(".btn-transparent"),
         "",
         "Ideal voltage gain plot."
       );
-
+      // ! show the slider
+      Scenes.items.slider_box.show("flex")
       // setCC("Record  7 reading for different Duty Ratio.")
       
       // ! required item
@@ -2911,6 +2918,8 @@ btn_transparent: new Dom(".btn-transparent"),
         "Non-ideal voltage gain plot."
       );
       // setCC("Record 7 reading for 3 different load resistances.")
+      // ! show the slider
+      Scenes.items.slider_box.show("flex")
 
       //! Required Items
       Scenes.items.circuit_full_3.set(230,-50,150)
@@ -3374,7 +3383,8 @@ btn_transparent: new Dom(".btn-transparent"),
         "Efficiency Plot."
       )
       setCC("Record  7 reading for different Load Resistances (R0)")
-
+        // ! show the slider
+      Scenes.items.slider_box.show("flex")
 
       //! Required Items
       Scenes.items.circuit_full_3.set(230,-50,150)
@@ -3783,7 +3793,8 @@ btn_transparent: new Dom(".btn-transparent"),
         "",
         "Component Stress and Selection"
       )
-
+        // ! show the slider
+      Scenes.items.slider_box.show("flex")
 
       //! Required Items
       Scenes.items.circuit_full_2.set(270,0,160)
@@ -4244,7 +4255,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 1
+Scenes.currentStep = 2
 
 Scenes.next()  
 // Scenes.steps[3]()

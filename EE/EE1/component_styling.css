@@ -388,7 +388,7 @@
 
 
 .btn-transparent{
-    /* display: none; */
+    display: none;
     position: absolute;
     width: 64px;
     height: 44px;

@@ -2586,7 +2586,8 @@ btn_transparent: new Dom(".btn-transparent"),
       // setCC("Record  7 reading for different Duty Ratio.")
       
       // ! required item
-      Scenes.items.circuit_full_3.set(230,-50,150)
+      // circuit full 3 replaced by 2 because of changes
+      Scenes.items.circuit_full_2.set(230,-50,175)
       Scenes.items.part_3_option_1.set(10, 170-15)
       Scenes.items.right_tick_1.set(-12,185-15)
       Scenes.items.part3_table_one.show()
@@ -4255,7 +4256,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 3
+Scenes.currentStep = 8
 
 Scenes.next()  
 // Scenes.steps[3]()

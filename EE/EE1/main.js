@@ -559,6 +559,7 @@ class Dom {
       Dom.arrayOfItems.push(this);
     return this;
   }
+  forMathematicalExpressionBtn = 0
 }
 
 
@@ -2098,7 +2099,7 @@ formulas_universal : new Dom("formulas_universal"),
       Dom.hideAll();
       Scenes.items.projectIntro.hide()
       Dom.setBlinkArrow(-1);
-      // Scenes.items.btn_next.show()
+      Scenes.items.btn_next.show()
       // Scenes.items.btn_transparent.hide()
 
       Scenes.setStepHeading("Step-1", "Circuit Formulation");
@@ -2277,6 +2278,7 @@ formulas_universal : new Dom("formulas_universal"),
       )
       setCC("Select the parameter(s): Vin, D, R to see the current and voltage waveforms of various components.")
       Scenes.items.slider_box.show("flex")
+      Scenes.items.btn_next.show()
 
       //! Required Items
       let hConst = 15
@@ -2464,6 +2466,7 @@ formulas_universal : new Dom("formulas_universal"),
     }),
     (step3 = function () {
       setIsProcessRunning(true);
+      Scenes.items.btn_next.show()
       
       // todo all previous elements hide
       Dom.hideAll();
@@ -2527,29 +2530,34 @@ formulas_universal : new Dom("formulas_universal"),
 
       //! RESET ALL THE SLIDER VALUES
       Scenes.resetSlider()
+      Scenes.forMathematicalExpressionBtn = 0
       
       const opOne = ()=>{
         
 
         Scenes.optionsDone[0]=1;
+        Scenes.forMathematicalExpressionBtn = 1
         Scenes.steps[0+5]()
       }
       const opTwo = ()=>{
        
 
         Scenes.optionsDone[1]=1;
+        Scenes.forMathematicalExpressionBtn = 2
         Scenes.steps[1+5]()
       }
       const opThree = ()=>{
         
 
         Scenes.optionsDone[2]=1;
+        Scenes.forMathematicalExpressionBtn = 3
         Scenes.steps[2+5]()
       }
       const opFour = ()=>{
         
 
         Scenes.optionsDone[3]=1;
+        Scenes.forMathematicalExpressionBtn = 4
         Scenes.steps[3+5]()
       }
       options[0].item.onclick = opOne
@@ -2587,6 +2595,7 @@ formulas_universal : new Dom("formulas_universal"),
       Dom.hideAll(); 
       // optionsDone
       setIsProcessRunning(true);
+      Scenes.items.btn_next.show()
       Scenes.items.contentAdderBox.setContent("");
       Scenes.setStepHeading(
         "",
@@ -2932,6 +2941,8 @@ formulas_universal : new Dom("formulas_universal"),
       // setCC("Record 7 reading for 3 different load resistances.")
       // ! show the slider
       Scenes.items.slider_box.show("flex")
+      Scenes.items.btn_next.show()
+
 
       //! Required Items
       Scenes.items.circuit_full_3.set(230,-50,150)
@@ -3397,6 +3408,7 @@ formulas_universal : new Dom("formulas_universal"),
       setCC("Record  7 reading for different Load Resistances (R0)")
         // ! show the slider
       Scenes.items.slider_box.show("flex")
+      Scenes.items.btn_next.show()
 
       //! Required Items
       Scenes.items.circuit_full_3.set(230,-50,150)
@@ -3807,6 +3819,7 @@ formulas_universal : new Dom("formulas_universal"),
       )
         // ! show the slider
       Scenes.items.slider_box.show("flex")
+      Scenes.items.btn_next.show()
 
       //! Required Items
       Scenes.items.circuit_full_2.set(270,0,160)
@@ -4314,20 +4327,20 @@ function btnPopupBox(){
     popupWindow.src = Scenes.items.formulas_nomenclautre.item.src
   }
   popupBtns[2].onmouseover = ()=>{
-    switch (Scenes.currentStep-1) {
-      case 5:
+    switch (Scenes.forMathematicalExpressionBtn) {
+      case 1:
         popupWindow.src = Scenes.items.formulas_ideal.item.src
         break;
 
-      case 6:
+      case 2:
         popupWindow.src = Scenes.items.formulas_non_ideal.item.src
         break;
 
-      case 7:
+      case 3:
         popupWindow.src = Scenes.items.formulas_efficiency.item.src
         break;
 
-      case 8:
+      case 4:
         popupWindow.src = Scenes.items.formulas_component_stress.item.src
         break;
     

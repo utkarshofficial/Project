@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/progressBar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/imgs.css" />
+    <link rel="stylesheet" href="./css/scenes.css" />
+    <link rel="stylesheet" href="./css/table.css" />
+    <link rel="stylesheet" href="./css/quiz.css" />
+    <link rel="stylesheet" href="./css/certificate.css" />
+    <link rel="stylesheet" href="./css/chart.css" />
+  </head>
+  <img src="" alt="" />
+  <body>
+    <!-- <body  onmousemove="getCursor(event)"> -->
+    <!-- Mouse Position -->
+    <!-- <div id="demo" style="position: absolute">
+      <div id="info"></div>
+    </div> -->
+    <div class="main-container">
+      <!-- * Drawer Side Navbar -->
+      <nav id="drawer">
+        <div class="codelab-time-container" style="display: none"></div>
+        <div class="steps">
+          <ol>
+            <li class="">
+              <a>
+                <span class="step">
+                  <span>Introduction</span>
+                </span>
+              </a>
+            </li>
+            <li class="">
+              <a>
+                <span class="step">
+                  <span>Objective</span>
+                </span>
+              </a>
+            </li>
+            <!-- <li>
+              <a>
+                <span class="step">
+                  <span>Marking the Area (Rectangularly and diagonally)</span>
+                </span>
+              </a>
+            </li> -->
+            <li>
+              <a>
+                <span class="step">
+                  <span
+                    >Placing HD Towers (Heavy Duty Towers) in the lab.</span
+                  >
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Attaching horizontal and diagonal bracing to support HD Tower.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span
+                    >Placing aluminium beam and timber beam on the top of basic frame.</span
+                  >
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Placing sheathing on the top of timber beam.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span
+                    >Placing inner and outer beam with the help of beam forming support (BFS) with extension.</span
+                  >
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Making Slab using short prop, aluminum beam and timber beam.</span>
+                </span>
+              </a>
+            </li>
+            <!-- <li>
+              <a>
+                <span class="step">
+                  <span
+                    >Attaching CT prop with steel waler using Head adapter and
+                    foot adapter</span
+                  >
+                </span>
+              </a>
+            </li> -->
+            <!-- <li>
+              <a>
+                <span class="step">
+                  <span
+                    >Repeat step 2 to step 7 for building remaining sides</span
+                  >
+                </span>
+              </a>
+            </li> -->
+            <li>
+              <a>
+                <span class="step">
+                  <span>Completed</span>
+                </span>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </nav>
+      <div class="right-container">
+        <div class="right-box">
+          <!-- * Progress bar -->
+          <section class="progress-bar">
+            <div class="progressbar">
+              <div class="progress" id="progress"></div>
+              <div
+                class="progress-step progress-step-active"
+                data-title=""
+              ></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <!-- <div class="progress-step" data-title=""></div> -->
+              <!-- <div class="progress-step" data-title=""></div> -->
+              <!-- <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div> -->
+            </div>
+          </section>
+
+          <main class="main-window">
+            <!-- transparent layer for question -->
+            <div class="transparent-box"></div>
+            <section class="anime-header">
+              <p style="text-transform: uppercase">Beam and slab formwork using hd tower</p>
+              <img
+                class="btn btn-mute"
+                style="height: 40px; z-index: 5; position: absolute; right: 5px"
+                src="./src/images/speech_off_btn.png"
+                title="Click To Mute"
+              />
+            </section>
+
+            <!-- * Project Intro Goes Here -->
+            <div class="project-intro">
+              <span class="heading">Objective:</span>
+              <p class="description">To Set the Beam Formwork.</p>
+              <span class="heading">Apparatus Materials:</span>
+              <p class="description">
+                Timber Beam, Plywood Sheathing, Aluminium Beam, Bracing, Bolt, U-Head, Base Plate, Beam Forming Support With Extension, Hammer and Nail. 
+              </p>
+            </div>
+
+            <!-- * Steps Heading Template -->
+            <div class="step-heading">
+              <p class="step-title">Step 1</p>
+              <p class="step-description">
+                Calculation of cross-sectional area:
+              </p></div>
+            <!-- <section class="anime-main"> -->
+            <section class="anime-main" onmousemove="getCursor(event)">
+              <!-- * Welcome note About Experiment-->
+              <div class="welcome-box">
+                <img
+                  class="iit-logo"
+                  src="./src/images/iit-delhi-logo.png"
+                  alt=""
+                />
+                <div class="title">
+                  <span>Welcome to</span>
+                  <span>Foundation in Beam Formwork Experiment</span>
+                  <span
+                    >of Formwork Technology in Civil Engineering Virtual
+                    Lab</span
+                  >
+                  <span
+                    >developed by Prof. K. N. Jha, Department of Civil
+                    Engineering, IIT Delhi.</span
+                  >
+                </div>
+                <div class="prof-description">
+                  <img
+                    class="prof-img"
+                    src="./src/images/prof_image_kn_jha.jpeg"
+                    alt="Prof. K. N. Jha Image"
+                  />
+                  <span>Prof. K. N. Jha</span>
+                  <span>IIT Delhi</span>
+                </div>
+              </div>
+
+              <!-- * Student Name section -->
+              <form onsubmit="return false" class="user-input">
+                <p>Enter your name:</p>
+                <input type="text" name="" id="stuName" />
+                <p class="error">Please enter your name before start</p>
+                <input class="btn" id="nameSubmitBtn" type="submit" value="Start"/>
+              </form>
+
+              <!-- * Calculations Table -->
+              <table class="measurements">
+                <tbody>
+                  <tr>
+                    <th class="cell" colspan="2">Calculations:</th>
+                  </tr>
+                  <tr>
+                    <th class="cell" scope="col">Total Length(m)</th>
+                    <td class="cell"></td>
+                  </tr>
+                  <tr>
+                    <th class="cell" scope="col">Weight(kg)</th>
+                    <td class="cell"></td>
+                  </tr>
+                  <tr>
+                    <th class="cell" scope="col">
+                      Cross-sectional area (mm<sup>2</sup>)
+                    </th>
+                    <td class="cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- * Result table -->
+              <main class="table result-table">
+                <section class="table__header">
+                  <h4 style="margin-left: 32px">
+                    Results<br />Date of test: <span id="date"></span><br />
+                                               Grade of Steel: 550 SD steel
+                  </h4>
+                </section>
+                <section
+                  class="table__body"
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    overflow-y: overlay;
+                  "
+                >
+                  <table class="">
+                    <tbody>
+                      <tr>
+                        <th class="cell" scope="col">Weight of specimen (g)</th>
+                        <td class="cell">698</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Length of specimen (mm)
+                        </th>
+                        <td class="cell">805</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Effective cross-sectional area,
+                          S<sub>o</sub>(mm<sup>2</sup>) =
+                          <img
+                            height="45"
+                            src="./src/images/S0_formula5"
+                            alt=""
+                          />
+                        </th>
+                        <td class="cell">110.4</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Original gauge length L (mm) =
+                          <img
+                            height="20"
+                            src="./src/images/S0_formula3"
+                            alt=""
+                          />
+                        </th>
+                        <td class="cell">59.4</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Choosen gauge length L<sub>o</sub> (mm)
+                        </th>
+                        <td class="cell">60</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">Yield Stress (MPa)</th>
+                        <td class="cell">480.84</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">Tensile Strength (MPa)</th>
+                        <td class="cell">600.62</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">TS/YS Ratio</th>
+                        <td class="cell">1.25</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Final gauge length, L<sub>u</sub> mm
+                        </th>
+                        <td class="cell">77</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          Final diameter minimum (mm)
+                        </th>
+                        <td class="cell">7.1</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">
+                          % Elongation after fracture
+                        </th>
+                        <td class="cell">28.33</td>
+                      </tr>
+                      <tr>
+                        <th class="cell" scope="col">% Reduction in area</th>
+                        <td class="cell">64.13</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </main>
+
+              <!-- * chart Js Canvas-->
+              <div class="chart">
+                <canvas id="myChart"></canvas>
+              </div>
+
+              <!-- * Input box format for in anime questions -->
+              <form onsubmit="return false" class="temp-input">
+                <span class="text1"></span
+                ><input class="input" type="text" name="" id="ipnum" /><span
+                  class="text2"
+                ></span>
+                <p class="error"></p>
+                <input class="submit-btn btn" type="submit" value="Submit" />
+              </form>
+
+              <!-- * Template element -->
+              <div class="utm-button"></div>
+
+              <!-- * Quiz container -->
+              <div class="quiz-container" id="quiz">
+                <div class="quiz-header">
+                  <div class="title">
+                    <h2 id="question">Question text</h2>
+                    <!-- <span id="closeQuiz">X</span> -->
+                  </div>
+                  <ul>
+                    <li>
+                      <input type="radio" id="a" name="answer" class="answer" />
+                      <label id="a_text" for="a">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="answer" class="answer" />
+                      <label id="b_text" for="b">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="answer" class="answer" />
+                      <label id="c_text" for="c">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="answer" class="answer" />
+                      <label id="d_text" for="d">Question</label>
+                    </li>
+                    <li>
+                      <p id="quizAns" style="color: green">India</p>
+                    </li>
+                  </ul>
+                </div>
+                <button id="quizSubmit">Submit</button>
+              </div>
+
+              <!-- * End Certificate Template -->
+              <div class="certificate">
+                <div class="header">
+                  <img src="./src/images/logo.png" alt="" class="logo" />
+                  <span class="title cursive">Certificate of Completion</span>
+                </div>
+                <div class="student-detail">
+                  <div class="row">
+                    <span
+                      style="text-transform: capitalize"
+                      class="bold red"
+                      id="certificateStuName"
+                      >Sneha Jadon</span
+                    >
+                  </div>
+                  <div class="row">
+                    <span class="cursive" style="text-align: center"
+                      >has succesfully performed Virtaul Lab Experiment on
+                    </span>
+                    <span
+                      style="font-size: 1.5rem; text-transform: capitalize"
+                      class="bold sans red"
+                      >Foundation in foamwork</span
+                    >
+                  </div>
+                  <div class="">
+                    <!-- <span class="cursive">and secured</span>
+                    <span class="bold sans" id="quizScore">0</span>
+                    <span class="bold sans">/5 Marks</span>
+                    <span class="cursive">at</span> -->
+                    <span class="bold sans" id="certificateDate"
+                      >Date 10-10-2023</span
+                    >
+                  </div>
+                  <div class="row">
+                    <span class="cursive"
+                      >which is developed by
+                      <span class="bold sans">VIRTUAL LABS - IIT Delhi</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- * Images that is used in all steps -->
+              <!-- * class main-window-imgs -->
+              <!-- ! Example -->
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/arrow.png"
+                title="arrow"
+                alt="arrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/blinkArrow.webp"
+                title="blinkArrow"
+                alt="blinkArrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/laerrow.png"
+                title="laerrow"
+                alt="laerrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/laerrow2.png"
+                title="laerrow2"
+                alt="laerrow2"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/logo.png"
+                title="logo"
+                alt="logo"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/man.png"
+                title="man"
+                alt="man"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/measurearrow.png"
+                title="measurearrow"
+                alt="measurearrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/measurearrow2.png"
+                title="measurearrow2"
+                alt="measurearrow2"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/redsize.png"
+                title="redsize"
+                alt="redsize"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/speech_off_btn.png"
+                title="speech_off_btn"
+                alt="speech_off_btn"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/speech_on_btn.png"
+                title="speech_on_btn"
+                alt="speech_on_btn"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/talk_cloud.png"
+                title="talk_cloud"
+                alt="talk_cloud"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/iit-delhi-logo.png"
+                title="iit-delhi-logo"
+                alt="iit-delhi-logo"
+              />
+              
+            
+    <!-- <img
+    class="main-window-imgs"
+    src="./src/images/aluminium_beam1.png"
+    title="aluminium_beam1.png"
+    alt="aluminium_beam1.png"
+/> -->
+
+<img
+class="main-window-imgs"
+src="./src/images/left_aluminium1.png"
+title="left_aluminium1.png"
+alt="left_aluminium1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_aluminium2.png"
+title="left_aluminium2.png"
+alt="left_aluminium2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_base_plate1.png"
+title="left_base_plate1.png"
+alt="left_base_plate1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_base_plate2.png"
+title="left_base_plate2.png"
+alt="left_base_plate2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_base_plate3.png"
+title="left_base_plate3.png"
+alt="left_base_plate3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_base_plate4.png"
+title="left_base_plate4.png"
+alt="left_base_plate4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam1.png"
+title="left_beam1.png"
+alt="left_beam1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam1_left.png"
+title="left_beam1_left.png"
+alt="left_beam1_left.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam1_right.png"
+title="left_beam1_right.png"
+alt="left_beam1_right.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam2.png"
+title="left_beam2.png"
+alt="left_beam2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam2_left.png"
+title="left_beam2_left.png"
+alt="left_beam2_left.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam2_right.png"
+title="left_beam2_right.png"
+alt="left_beam2_right.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam3.png"
+title="left_beam3.png"
+alt="left_beam3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam4.png"
+title="left_beam4.png"
+alt="left_beam4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam5.png"
+title="left_beam5.png"
+alt="left_beam5.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_beam6.png"
+title="left_beam6.png"
+alt="left_beam6.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bfs1_left.png"
+title="left_bfs1_left.png"
+alt="left_bfs1_left.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bfs1_right.png"
+title="left_bfs1_right.png"
+alt="left_bfs1_right.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bfs2_left.png"
+title="left_bfs2_left.png"
+alt="left_bfs2_left.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bfs2_right.png"
+title="left_bfs2_right.png"
+alt="left_bfs2_right.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bfs3_left.png"
+title="left_bfs3_left.png"
+alt="left_bfs3_left.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bfs3_right.png"
+title="left_bfs3_right.png"
+alt="left_bfs3_right.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_ct_prop1.png"
+title="left_ct_prop1.png"
+alt="left_ct_prop1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_ct_prop2.png"
+title="left_ct_prop2.png"
+alt="left_ct_prop2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_ct_prop3.png"
+title="left_ct_prop3.png"
+alt="left_ct_prop3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_ct_prop4.png"
+title="left_ct_prop4.png"
+alt="left_ct_prop4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_sheathing1.png"
+title="left_sheathing1.png"
+alt="left_sheathing1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_sheathing_left.png"
+title="left_sheathing_left.png"
+alt="left_sheathing_left.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_sheathing_right.png"
+title="left_sheathing_right.png"
+alt="left_sheathing_right.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_uhead1.png"
+title="left_uhead1.png"
+alt="left_uhead1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_uhead2.png"
+title="left_uhead2.png"
+alt="left_uhead2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_uhead3.png"
+title="left_uhead3.png"
+alt="left_uhead3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_uhead4.png"
+title="left_uhead4.png"
+alt="left_uhead4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_aluminium1.png"
+title="right_aluminium1.png"
+alt="right_aluminium1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_aluminium2.png"
+title="right_aluminium2.png"
+alt="right_aluminium2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_base_plate1.png"
+title="right_base_plate1.png"
+alt="right_base_plate1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_base_plate2.png"
+title="right_base_plate2.png"
+alt="right_base_plate2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_base_plate3.png"
+title="right_base_plate3.png"
+alt="right_base_plate3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_base_plate4.png"
+title="right_base_plate4.png"
+alt="right_base_plate4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam1.png"
+title="right_beam1.png"
+alt="right_beam1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam2.png"
+title="right_beam2.png"
+alt="right_beam2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam3.png"
+title="right_beam3.png"
+alt="right_beam3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam4.png"
+title="right_beam4.png"
+alt="right_beam4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam5.png"
+title="right_beam5.png"
+alt="right_beam5.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam6.png"
+title="right_beam6.png"
+alt="right_beam6.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam_left1.png"
+title="right_beam_left1.png"
+alt="right_beam_left1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam_left2.png"
+title="right_beam_left2.png"
+alt="right_beam_left2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam_right1.png"
+title="right_beam_right1.png"
+alt="right_beam_right1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_beam_right2.png"
+title="right_beam_right2.png"
+alt="right_beam_right2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bfs_left1.png"
+title="right_bfs_left1.png"
+alt="right_bfs_left1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bfs_left2.png"
+title="right_bfs_left2.png"
+alt="right_bfs_left2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bfs_left3.png"
+title="right_bfs_left3.png"
+alt="right_bfs_left3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bfs_right1.png"
+title="right_bfs_right1.png"
+alt="right_bfs_right1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bfs_right2.png"
+title="right_bfs_right2.png"
+alt="right_bfs_right2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bfs_right3.png"
+title="right_bfs_right3.png"
+alt="right_bfs_right3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_ct_prop1.png"
+title="right_ct_prop1.png"
+alt="right_ct_prop1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_ct_prop2.png"
+title="right_ct_prop2.png"
+alt="right_ct_prop2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_ct_prop3.png"
+title="right_ct_prop3.png"
+alt="right_ct_prop3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_ct_prop4.png"
+title="right_ct_prop4.png"
+alt="right_ct_prop4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_sheathing1.png"
+title="right_sheathing1.png"
+alt="right_sheathing1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_sheathing_left.png"
+title="right_sheathing_left.png"
+alt="right_sheathing_left.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_sheathing_right.png"
+title="right_sheathing_right.png"
+alt="right_sheathing_right.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_u_head1.png"
+title="right_u_head1.png"
+alt="right_u_head1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_u_head2.png"
+title="right_u_head2.png"
+alt="right_u_head2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_u_head3.png"
+title="right_u_head3.png"
+alt="right_u_head3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_u_head4.png"
+title="right_u_head4.png"
+alt="right_u_head4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_aluminium1.png"
+title="slab_aluminium1.png"
+alt="slab_aluminium1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_aluminium2.png"
+title="slab_aluminium2.png"
+alt="slab_aluminium2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_beam1.png"
+title="slab_beam1.png"
+alt="slab_beam1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_beam2.png"
+title="slab_beam2.png"
+alt="slab_beam2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_beam3.png"
+title="slab_beam3.png"
+alt="slab_beam3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_beam4.png"
+title="slab_beam4.png"
+alt="slab_beam4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_beam5.png"
+title="slab_beam5.png"
+alt="slab_beam5.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_ct_prop1.png"
+title="slab_ct_prop1.png"
+alt="slab_ct_prop1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_ct_prop2.png"
+title="slab_ct_prop2.png"
+alt="slab_ct_prop2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_ct_prop3.png"
+title="slab_ct_prop3.png"
+alt="slab_ct_prop3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_ct_prop4.png"
+title="slab_ct_prop4.png"
+alt="slab_ct_prop4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_sheathing1.png"
+title="slab_sheathing1.png"
+alt="slab_sheathing1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_uhead1.png"
+title="slab_uhead1.png"
+alt="slab_uhead1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_uhead2.png"
+title="slab_uhead2.png"
+alt="slab_uhead2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_uhead3.png"
+title="slab_uhead3.png"
+alt="slab_uhead3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_uhead4.png"
+title="slab_uhead4.png"
+alt="slab_uhead4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/slab_u_head1.png"
+title="slab_u_head1.png"
+alt="slab_u_head1.png"
+/>
+
+<img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail1.png"
+        title="left_sheathing1_nail1.png"
+        alt="left_sheathing1_nail1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail2.png"
+        title="left_sheathing1_nail2.png"
+        alt="left_sheathing1_nail2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail3.png"
+        title="left_sheathing1_nail3.png"
+        alt="left_sheathing1_nail3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail4.png"
+        title="left_sheathing1_nail4.png"
+        alt="left_sheathing1_nail4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_sheathing1_nail_helper.png"
+        title="left_sheathing1_nail_helper.png"
+        alt="left_sheathing1_nail_helper.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail1.png"
+        title="right_sheathing1_nail1.png"
+        alt="right_sheathing1_nail1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail2.png"
+        title="right_sheathing1_nail2.png"
+        alt="right_sheathing1_nail2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail3.png"
+        title="right_sheathing1_nail3.png"
+        alt="right_sheathing1_nail3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail4.png"
+        title="right_sheathing1_nail4.png"
+        alt="right_sheathing1_nail4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_sheathing1_nail_helper.png"
+        title="right_sheathing1_nail_helper.png"
+        alt="right_sheathing1_nail_helper.png"
+    />
+    <img
+    class="main-window-imgs"
+    src="./src/images/hammer.png"
+/>
+    <img
+    class="main-window-imgs"
+    src="./src/images/objective.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing1.png"
+title="left_bracing1.png"
+alt="left_bracing1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing10.png"
+title="left_bracing10.png"
+alt="left_bracing10.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing2.png"
+title="left_bracing2.png"
+alt="left_bracing2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing3.png"
+title="left_bracing3.png"
+alt="left_bracing3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing4.png"
+title="left_bracing4.png"
+alt="left_bracing4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing5.png"
+title="left_bracing5.png"
+alt="left_bracing5.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing6.png"
+title="left_bracing6.png"
+alt="left_bracing6.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing7.png"
+title="left_bracing7.png"
+alt="left_bracing7.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing8.png"
+title="left_bracing8.png"
+alt="left_bracing8.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/left_bracing9.png"
+title="left_bracing9.png"
+alt="left_bracing9.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing1.png"
+title="right_bracing1.png"
+alt="right_bracing1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing10.png"
+title="right_bracing10.png"
+alt="right_bracing10.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing2.png"
+title="right_bracing2.png"
+alt="right_bracing2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing3.png"
+title="right_bracing3.png"
+alt="right_bracing3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing4.png"
+title="right_bracing4.png"
+alt="right_bracing4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing5.png"
+title="right_bracing5.png"
+alt="right_bracing5.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing6.png"
+title="right_bracing6.png"
+alt="right_bracing6.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing7.png"
+title="right_bracing7.png"
+alt="right_bracing7.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing8.png"
+title="right_bracing8.png"
+alt="right_bracing8.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_bracing9.png"
+title="right_bracing9.png"
+alt="right_bracing9.png"
+/>
+
+
+
+
+
+             
+
+              <!-- * Videos -->
+              <!-- <video muted class="main-window-videos" src="./src/videos/yoke_front_to_back.mp4"></video> -->
+              <video muted class="main-window-videos" src="./src/videos/bfs_installation.mp4"></video>
+
+              <!-- * Video Box -->
+              <div class="video-box">
+                <video muted class="video" src="" autoplay></video>
+                <div class="controls" title="Click to Restart">
+                  <span class="title">Title</span>
+                  <button class="btn restart">
+                    <img src="./src/images/restart_btn.png" alt="" />
+                  </button>
+                </div>
+              </div>
+
+              <!-- * Image Box -->
+              <div class="image-box">
+                <img class="image" src="" alt="">
+                <p class="title">Image Box</p>
+              </div>
+
+              <!-- * Content Adder Box -->
+              <ul class="content-adder-box">
+                <!-- <li class="btn content-adder">Footing</li> -->
+              </ul>
+
+              <!-- * Temp texts for showing some text in anime -->
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-text"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-text2"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title1"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title2"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title3"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title4"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title5"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title6"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title7"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title8"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title9"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title10"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title11"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title12"
+              ></span>
+            </section>
+
+            <!-- * Anime Footer -->
+            <section class="anime-footer">
+              <btn class="btn btn-back">Back</btn>
+              <!-- * Bottom Subtitles Div -->
+              <div class="steps-subtitle">
+                <!-- <p class="user-name">Hey👋 Sneha</p> -->
+                <p class="subtitle" id="subtitle"></p>
+              </div>
+              <btn class="btn btn-next">Next</btn>
+              <btn
+                class="btn btn-save"
+                style="position: absolute; right: 90px; bottom: 5px"
+                >Download</btn
+              >
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
+    <script src="./js/progressBar.js"></script>
+    <script src="./js/layout.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

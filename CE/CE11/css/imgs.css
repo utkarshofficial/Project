@@ -1,0 +1,50 @@
+.anime-main{
+    position: relative;
+    height: 404px;
+    width: 946px;
+    overflow: hidden!important;
+}
+
+.markings{
+    /* display: none; */
+    opacity: 0;
+    height: 4.8px;
+    width: 38px; 
+    height: 10px;
+    top: -30px;
+    left: 212px;
+    z-index: 5;
+    position: relative;
+    /* position: absolute; */
+    /* visibility: hidden; */
+    filter: brightness(0);
+}
+
+.markings2{
+    height: 25px;
+    z-index: 5;
+    position: relative;
+    left: -410px;
+    top: -57px;
+    opacity: 0;
+    display: none;
+}
+.markings3{
+    height: 10px;
+    z-index: 9;
+    position: absolute;
+    left: 59px;
+    filter: brightness(0);
+    top: 120px;
+    opacity: 0;
+    display: none;
+}
+.main-window-imgs, .blinkArrow{
+    display: none;
+    position: absolute;
+}
+
+.main-window-videos{
+    display: none;
+    position: absolute;
+}

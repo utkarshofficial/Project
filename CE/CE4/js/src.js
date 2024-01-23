@@ -104,6 +104,7 @@ wing_nut_top6: this.allImgsDom[94],
 wing_nut_top7: this.allImgsDom[95],
 wing_nut_top8: this.allImgsDom[96],
 drill_helper: this.allImgsDom[97],
+menu_cover: this.allImgsDom[98],
       
       
       // * Videos

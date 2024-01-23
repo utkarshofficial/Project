@@ -4085,7 +4085,7 @@ objective : new Dom("objective"),
 }
 
 // stepcalling
-Scenes.currentStep = 2
+Scenes.currentStep = 0
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

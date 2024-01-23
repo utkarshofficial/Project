@@ -371,3 +371,19 @@ body{
     border-radius: 10px;
 
   }
+
+  .blur_bcg{
+    display: none;
+    position: relative;
+    /* top:40px; */
+    /* right:-100px; */
+    /* left: 370px; */
+    height: 100px;
+    width: 180px;
+    background-color: #5c4b99;
+    filter: blur();
+    border-radius: 20px;
+    box-shadow: black 2px 2px 5px ;
+    /* backdrop-filter: blur(10000px); */
+
+  }

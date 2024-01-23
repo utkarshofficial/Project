@@ -649,6 +649,9 @@ function cursorPointer(ele) {
 
 // Img.setBlinkArrow(true,790,444).play();
 
+let hConst = 20;
+
+
 const Scenes = {
   items: {
     anime_main_dom: new Dom(".anime-main"),
@@ -788,6 +791,7 @@ const Scenes = {
     column_right_side: new Dom("column_right_side"),
     column_sides_all: new Dom("column_sides_all"),
     drill_helper: new Dom("drill_helper"),
+    menu_cover: new Dom("menu_cover"),
   },
   deleteAll() {
     for (i in this.img) {
@@ -816,6 +820,18 @@ const Scenes = {
     Scenes.items.stepTitle.setContent(step);
     Scenes.items.stepDescription.setContent(description);
     Scenes.items.stepHeading.show("flex").push();
+  },
+
+  //function for click stop
+  menu_cover(val){
+    if(val == null){
+      Scenes.items.menu_cover.set(null, hConst, null, null, null, 0).zIndex(50);
+    }else{
+      hConst = val ;
+      Scenes.items.menu_cover.set(null, hConst, null, null, null, 0).zIndex(50);
+    }
+    hConst+=50;
+
   },
   // for typing hello text
   intru: null,
@@ -1079,7 +1095,7 @@ const Scenes = {
       Scenes.items.drill_machine.set(820,325,60).zIndex(2) 
 
       // ! remove
-      // Scenes.items.beam_3d_1.set(170,73,350)
+      // Scenes.items.beam_F3d_1.set(170,73,350)
       // Scenes.items.beam_3d_with_one_hole.set(170,73,350)
       // Scenes.items.beam_3d_with_holes1.set(170,73,350)
       // Scenes.items.beam_3d_2.set(250,93,350)
@@ -1095,15 +1111,23 @@ const Scenes = {
       // Scenes.items.drill_machine.set(236,254,60)
       // Scenes.items.drill_machine.set(471,170,60)
       // Scenes.items.drill_machine.set(317,274,60) 
+      
+      //! to set the click serially
+      // let pointer = 0;
+      // Scenes.items.menu_cover.set(null, 20, null, null, null, 0).zIndex(50);
 
+      
+      
       Scenes.items.contentAdderBox.set(null,-50).show("flex")
       Scenes.contentAdderAddBtn("Timber Beam")
       Scenes.contentAdderAddBtn("Drill Machine")
-
+      
       let contentAdderBtns = getAll(".content-adder-box .btn")
       contentAdderBtns[0].onclick = timberBeamAnime
       contentAdderBtns[1].onclick = drillMachineAnime
       
+      
+      Scenes.menu_cover(null)
       let timberBeamCount = 0
       let drillMachineCount = 0
       function timberBeamAnime(){
@@ -1119,7 +1143,12 @@ const Scenes = {
               easing: "easeInOutQuad",
               duration: 2500,
               complete(){
+                Scenes.menu_cover()                         
                 Scenes.items.drill_helper.set(170,73,350).zIndex(100)
+
+                //!to end the click
+                contentAdderBtns[0].onclick = ()=>{
+                }
                 setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
                 Dom.setBlinkArrow(true, 705,15).play();
               }
@@ -1136,6 +1165,9 @@ const Scenes = {
                 duration: 2500,
                 complete(){
                   Scenes.items.drill_helper.set(250,93,350)
+                     //!to end the click
+                contentAdderBtns[1].onclick = ()=>{
+                }
                   setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
                   Dom.setBlinkArrow(true, 705,15).play();
                 }
@@ -2277,7 +2309,10 @@ const Scenes = {
   },
 }
 
-// Scenes.steps[8]()
+
+
+//step calling 
+Scenes.steps[3]()
 Scenes.next()
 // Scenes.next()
 // Scenes.next()

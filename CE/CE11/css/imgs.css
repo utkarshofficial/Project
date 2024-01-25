@@ -2,7 +2,7 @@
     position: relative;
     height: 404px;
     width: 946px;
-    overflow: hidden!important;
+    /* overflow-x: hidden!important; */
 }
 
 .markings{

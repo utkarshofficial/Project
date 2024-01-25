@@ -5,7 +5,6 @@ def html(name):
     <img
         class="main-window-imgs"
         src="./src/images/{0}"
-        title="{0}"
         alt="{0}"
     />
     '''.format(name)
@@ -19,9 +18,10 @@ def dom(name):
     return f'{name1} : new Dom("{name1}"),\n'
 
 
-names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\CE8\\src\\images\\temp\\temp23")
+names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\CE\\/CE11\\src\\images\\temp\\temp")
 
-count = 163
+BASE_COUNT = 13
+count = BASE_COUNT
 
 srcs = ''
 doms = ''
@@ -35,7 +35,7 @@ for i in range(len(names)):
 
 # open("temp.txt","w").write()
 allItems = f'{htms}\n\n{srcs}\n\n{doms}'
-open("temp2.txt","w").write(allItems)
+open("./helper/temp2.txt","w").write(allItems)
 
 print("Done 👍")
 # print(os.__path__)

@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="progressBar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="imgs.css" />
+    <link rel="stylesheet" href="scenes.css" />
+    <!-- <link rel="stylesheet" href="table.css" /> -->
+    <link rel="stylesheet" href="quiz.css" />
+    <link rel="stylesheet" href="certificate.css" />
+    <link rel="stylesheet" href="chart.css" />
+    <link rel="stylesheet" href="component_styling.css" />
+  </head>
+  <img src="" alt="" />
+  <body>
+    <!-- <body  onmousemove="getCursor(event)"> -->
+    <!-- Mouse Position -->
+    <!-- <div id="demo" style="position: absolute">
+      <div id="info"></div>
+    </div> -->
+    <div class="main-container">
+      <!-- * Drawer Side Navbar -->
+      <nav id="drawer">
+        <div class="codelab-time-container" style="display: none"></div>
+        <div class="steps">
+          <ol>
+            <!-- <li class=""> 
+              <a>
+                <span class="step">
+                  <span>Introduction</span>
+                </span>
+              </a>
+            </li>
+            <li class="">
+              <a>
+                <span class="step">
+                  <span>Objective</span>
+                </span>
+              </a>
+            </li> -->
+            <li>
+              <a>
+                <span class="step">
+                  <span>Concept Development</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>
+                    Circuit Formulation.
+                  </span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Voltage and current waveforms of components.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>
+                    Performance Analysis.
+                  </span>
+                </span>
+              </a>
+            </li>
+            <!-- <li>
+              <a>
+                <span class="step">
+                  <span>Placing sheathing on the top of timber beam.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span
+                    >Placing inner and outer beam with the help of beam forming support (BFS) with extension.</span
+                  >
+                </span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="step">
+                  <span>Making Slab using short prop, aluminum beam and timber beam.</span>
+                </span>
+              </a>
+            </li> -->
+            <!-- <li>
+              <a>
+                <span class="step">
+                  <span
+                    >Attaching CT prop with steel waler using Head adapter and
+                    foot adapter</span
+                  >
+                </span>
+              </a>
+            </li> -->
+            <!-- <li> 
+              <a>
+                <span class="step">
+                  <span
+                    >Repeat step 2 to step 7 for building remaining sides</span
+                  >
+                </span>
+              </a>
+            </li> -->
+            <!-- <li>
+              <a>
+                <span class="step">
+                  <span>Completed</span>
+                </span>
+              </a>
+            </li> -->
+          </ol>
+        </div>
+      </nav>
+      <div class="right-container">
+        <div class="right-box">
+          <!-- * Progress bar -->
+          <section class="progress-bar">
+            <div class="progressbar">
+              <div class="progress" id="progress"></div>
+              <div
+                class="progress-step progress-step-active"
+                data-title=""
+              ></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <!-- <div class="progress-step" data-title=""></div> -->
+              <!-- <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div> -->
+              <!-- <div class="progress-step" data-title=""></div> -->
+              <!-- <div class="progress-step" data-title=""></div> -->
+              <!-- <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div>
+              <div class="progress-step" data-title=""></div> -->
+            </div>
+          </section>
+
+          <main class="main-window">
+            <!-- transparent layer for question -->
+            <div class="transparent-box"></div>
+            <section class="anime-header">
+              <p style="text-transform: uppercase;position: relative;left: -80px;">BOost converter</p>
+              
+              <div class="btn-popup-box">
+                <p class="btn-popup">Procedure</p>
+                <p class="btn-popup">Nomenclature</p>
+                <p class="btn-popup">Mathematical Expressions</p>
+                <img class="btn-popup-window" src="" alt="" >
+                <div class="btn-popup-window blur">
+                </div>
+              </div>
+
+              <img
+                class="btn btn-mute"
+                style="height: 40px; z-index: 5; position: absolute; right: 5px"
+                src="./src/images/template_imgs/speech_off_btn.png"
+                title="Click To Mute"
+              />
+            </section>
+
+
+
+            <!-- * Project Intro Goes Here -->
+            <div class="project-intro">
+              <span class="heading">Objective:</span>
+              <p class="description">To Set the Beam and Slab using Flex System.</p>
+              <span class="heading">Apparatus Materials:</span>
+              <p class="description">
+                Tripod Stand, CT prop, fourway head, Aluminium Beam, Timber Beam, Plywood Sheathing, Beam Forming support. 
+              </p>
+            </div>
+
+            <!-- * Steps Heading Template -->
+            <div class="step-heading">
+              <p class="step-title">Step 1</p>
+              <p class="step-description">
+                Calculation of cross-sectional area:
+              </p>
+            
+            </div>
+            
+            <!-- * Content Adder Box -->
+            <ul class="content-adder-box">
+              <!-- <li class="btn content-adder">Footing</li> -->
+            </ul>
+
+            <!-- * Blink Arrow -->
+            <img
+                class="blinkArrow"
+                src="./src/images/template_imgs/blinkArrow.webp"
+              />
+            
+            <section class="anime-main">
+            <!-- <section class="anime-main" onmousemove="getCursor(event)"> -->
+              <!-- * Welcome note About Experiment-->
+              <div class="welcome-box">
+                <img
+                  class="iit-logo"
+                  src="./src/images/iit-delhi-logo.png"
+                  alt=""
+                />
+                <div class="title">
+                  <span>Welcome to</span>
+                  <span>Foundation in Beam Formwork Experiment</span>
+                  <span
+                    >of Formwork Technology in Civil Engineering Virtual
+                    Lab</span
+                  >
+                  <span
+                    >developed by Prof. K. N. Jha, Department of Civil
+                    Engineering, IIT Delhi.</span
+                  >
+                </div>
+                <div class="prof-description">
+                  <img
+                    class="prof-img"
+                    src="./src/images/prof_image_kn_jha.jpeg"
+                    alt="Prof. K. N. Jha Image"
+                  />
+                  <span>Prof. K. N. Jha</span>
+                  <span>IIT Delhi</span>
+                </div>
+              </div>
+
+              <!-- * Student Name section -->
+              <form onsubmit="return false" class="user-input">
+                <p>Enter your name:</p>
+                <input type="text" name="" id="stuName" />
+                <p class="error">Please enter your name before start</p>
+                <input class="btn" id="nameSubmitBtn" type="submit" value="Start"/>
+              </form>
+
+              <!-- * Calculations Table -->
+              <table class="measurements">
+                <tbody>
+                  <tr>
+                    <th class="cell" colspan="2">Calculations:</th>
+                  </tr>
+                  <tr>
+                    <th class="cell" scope="col">Total Length(m)</th>
+                    <td class="cell"></td>
+                  </tr>
+                  <tr>
+                    <th class="cell" scope="col">Weight(kg)</th>
+                    <td class="cell"></td>
+                  </tr>
+                  <tr>
+                    <th class="cell" scope="col">
+                      Cross-sectional area (mm<sup>2</sup>)
+                    </th>
+                    <td class="cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- * Graphs -->
+              <div class="graph_box">
+                <canvas class="graph graph1"></canvas>
+              </div>
+              <div class="graph_box" >
+                <canvas class="graph graph2"></canvas>
+              </div>
+              <div class="graph_box" >
+                <canvas class="graph graph3"></canvas>
+              </div>
+              <div class="graph_box" >
+                <canvas class="graph graph4"></canvas>
+              </div>
+              <div class="graph_box graph_box5" >
+                <canvas class="graph graph5"></canvas>
+              </div>
+              
+              <!-- part 3 first table -->
+              <table class="part3_table_one">
+                <thead>
+                  <tr>
+                    <th>S.No.</th>
+                    <th>V<sub>in</sub>(V)</th>
+                    <th>D</th>
+                    <th>R</th>
+                    <th>V<sub>o</sub>(V)</th>
+                    <th>M</th>
+                    <th>I<sub>in</sub>(A)</th>
+                    <th>I<sub>o</sub>(A)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- part 3 second table -->
+              <div class="part3_table_two">
+                <table>
+                  <thead>
+                    <tr>
+                      <th colspan="2" >R1 (𝜴)</th>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="table-btn-box btn-box1">
+                        <button class="table-btn">5</button>
+                        <button class="table-btn">10</button>
+                        <button class="table-btn">15</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>D</th>
+                      <th>M</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>0.1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.8</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.83</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.86</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.89</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.92</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+               
+                <table >
+                  <thead>
+                    <tr>
+                      <th colspan="2" >R2 (𝜴)</th>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="table-btn-box btn-box2 deactive">
+                        <button class="table-btn">40</button>
+                        <button class="table-btn">50</button>
+                        <button class="table-btn">60</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>D</th>
+                      <th>M</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>0.1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.8</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.83</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.86</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.89</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.92</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+                <table >
+                  <thead>
+                    <tr>
+                      <th colspan="2" >R3 (𝜴)</th>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="table-btn-box btn-box3 deactive">
+                        <button class="table-btn">300</button>
+                        <button class="table-btn">325</button>
+                        <button class="table-btn">350</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>D</th>
+                      <th>M</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>0.1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.8</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.83</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.86</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.89</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>0.92</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+          <!-- part 3 first table -->
+              <table class="part3_table_three">
+                <thead>
+                  <tr>
+                    <th>S.No.</th>
+                    <th>V<sub>in</sub>(V)</th>
+                    <th>D</th>
+                    <th>R<sub>1</sub></th>
+                    <th>V<sub>o</sub>(V)</th>
+                    <th>M</th>
+                    <th>I<sub>in</sub>(A)</th>
+                    <th>I<sub>o</sub>(A)</th>
+                    <th>P<sub>in</sub>(W)</th>
+                    <th>P<sub>o</sub>(W)</th>
+                    <th>η %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+               <!-- part 3 four table -->
+               <table class="part3_table_four">
+                <thead>
+                  <tr>
+                    <th>v<sub>in</sub>(V)</th>
+                    <th>D</th>
+                    <th>R</th>
+                    <th>v<sub>o</sub>(V)</th>
+                    <th>M</th>
+                    <th>I<sub>L2</sub>(A)</th>
+                    <th>I<sub>o</sub>(A)</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+              <table class="part3_table_four_2">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>Voltage Rating (V)</th>
+                    <th>Current Rating (A)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Switch(v<sub>S</sub>, i<sub>S</sub>)</td>
+                    <td>> v<sub>0</sub> (value)</td>
+                    <td>> i<sub>L2</sub> (value)</td>
+                  </tr>
+                  <tr>
+                    <td>Diode(v<sub>D</sub>, i<sub>D</sub>)</td>
+                    <td>> v<sub>0</sub> (value)</td>
+                    <td>> i<sub>L2</sub> (value)</td>
+                  </tr>
+                  <tr>
+                    <td>Capacitor(v<sub>C</sub>, i<sub>C</sub>)</td>
+                    <td>> v<sub>0</sub> (value)</td>
+                    <td>> (i<sub>L2</sub>-i<sub>0</sub>) (value)</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- * Result table -->
+              <!-- removed -->
+
+              <!-- * chart Js Canvas-->
+              <div class="chart">
+                <canvas id="myChart"></canvas>
+              </div>
+                          
+              <!-- * Input box format for in anime questions -->
+              <form onsubmit="return false" class="temp-input">
+                <span class="text1"></span
+                ><input class="input" type="text" name="" id="ipnum" /><span
+                  class="text2"
+                ></span>
+                <p class="error"></p>
+                <input class="submit-btn btn" type="submit" value="Submit" />
+              </form>
+
+              <!-- * Template element -->
+              <div class="utm-button"></div>
+
+              <!-- * Quiz container -->
+              <div class="quiz-container" id="quiz">
+                <div class="quiz-header">
+                  <div class="title">
+                    <h2 id="question">Question text</h2>
+                    <!-- <span id="closeQuiz">X</span> -->
+                  </div>
+                  <ul>
+                    <li>
+                      <input type="radio" id="a" name="answer" class="answer" />
+                      <label id="a_text" for="a">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="answer" class="answer" />
+                      <label id="b_text" for="b">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="answer" class="answer" />
+                      <label id="c_text" for="c">Question</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="answer" class="answer" />
+                      <label id="d_text" for="d">Question</label>
+                    </li>
+                    <li>
+                      <p id="quizAns" style="color: green">India</p>
+                    </li>
+                  </ul>
+                </div>
+                <button id="quizSubmit">Submit</button>
+              </div>
+
+              <!-- * End Certificate Template -->
+              <div class="certificate">
+                <div class="header">
+                  <img src="./src/images/logo.png" alt="" class="logo" />
+                  <span class="title cursive">Certificate of Completion</span>
+                </div>
+                <div class="student-detail">
+                  <div class="row">
+                    <span
+                      style="text-transform: capitalize"
+                      class="bold red"
+                      id="certificateStuName"
+                      >Sneha Jadon</span
+                    >
+                  </div>
+                  <div class="row">
+                    <span class="cursive" style="text-align: center"
+                      >has succesfully performed Virtaul Lab Experiment on
+                    </span>
+                    <span
+                      style="font-size: 1.5rem; text-transform: capitalize"
+                      class="bold sans red"
+                      >Foundation in foamwork</span
+                    >
+                  </div>
+                  <div class="">
+                    <!-- <span class="cursive">and secured</span>
+                    <span class="bold sans" id="quizScore">0</span>
+                    <span class="bold sans">/5 Marks</span>
+                    <span class="cursive">at</span> -->
+                    <span class="bold sans" id="certificateDate"
+                      >Date 10-10-2023</span
+                    >
+                  </div>
+                  <div class="row">
+                    <span class="cursive"
+                      >which is developed by
+                      <span class="bold sans">VIRTUAL LABS - IIT Delhi</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- boxes for buttons -->
+              <!-- <div class="check_connection_btn btn"></div>
+              <div class="circuit_diagram_btn btn"></div>
+              <div class="record_btn btn"></div> -->
+
+              <!-- * Slider Box -->
+              <div class="slider-box" style="z-index: 1000">
+                <div class="slider slider_vIn">
+                  <span class="title">V<sub>in</sub></span>
+                  <div class="range-slider">
+                    <input
+                      class="range-slider__range"
+                      type="range"
+                      value="12"
+                      min="12"
+                      max="36"
+                      step="12"
+                    />
+                    <span class="range-slider__value">0</span>
+                    <span> V</span>
+                  </div>
+                </div>
+          
+                <div class="slider slider_D">
+                  <span class="title">D</span>
+                  <div class="range-slider">
+                    <input
+                      class="range-slider__range"
+                      type="range"
+                      value="0.1"
+                      min="0.1"
+                      max="0.95"
+                      step="0.01"
+                    />
+                    <span class="range-slider__value">0</span>
+                    <span></span>
+                  </div>
+                </div>
+          
+                <div class="slider slider_R">
+                  <span class="title">R</span>
+                  <div class="range-slider">
+                    <input
+                      class="range-slider__range"
+                      type="range"
+                      value="10"
+                      min="10"
+                      max="500"
+                    />
+                    <input
+                      value="10"
+                      type="input"
+                      class="range-slider__value resistance-input"
+                    />
+                    <span> Ω</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- * slider Box without appearance -->
+              <div class="box_container">
+                <div class="slide-container">
+                  <input type="range"          
+                  value="0.1"
+                  min="0.1"
+                  max="0.9"
+                  step="0.1"
+                  class="slider" id="myRange">
+             
+                  <div class="slide-container">
+                     <input type="range"     
+                     value="50"
+                     min="50"
+                     max="500"
+                     class="slider" id="myRange">
+              </div>
+
+              <!-- ! Delte Reset Buttons -->
+              <div class="btn btn-reset">
+                Reset                
+              </div>
+              <div class="btn btn-delete">
+                Delete
+              </div>
+
+              <!--! transparent html element  -->
+
+              <button class="btn-transparent btn btn-deactive">
+                Next
+              </button>
+
+              <!-- * Images that is used in all steps -->
+              <!-- * class main-window-imgs -->
+              <!-- ! Example -->
+                  <!-- ! Red blink arrow -->
+              <img
+                class="blinkArrowRed"
+                src="./src/images/template_imgs/blinkArrowRed.png"
+              />
+              
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/arrow.png"
+                title="arrow"
+                alt="arrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/blinkArrow.webp"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/laerrow.png"
+                title="laerrow"
+                alt="laerrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/laerrow2.png"
+                title="laerrow2"
+                alt="laerrow2"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/logo.png"
+                title="logo"
+                alt="logo"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/man.png"
+                title="man"
+                alt="man"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/measurearrow.png"
+                title="measurearrow"
+                alt="measurearrow"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/measurearrow2.png"
+                title="measurearrow2"
+                alt="measurearrow2"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/redsize.png"
+                title="redsize"
+                alt="redsize"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/speech_off_btn.png"
+                title="speech_off_btn"
+                alt="speech_off_btn"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/speech_on_btn.png"
+                title="speech_on_btn"
+                alt="speech_on_btn"
+              />
+
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/talk_cloud.png"
+                title="talk_cloud"
+                alt="talk_cloud"
+              />
+              <img
+                class="main-window-imgs"
+                src="./src/images/template_imgs/iit-delhi-logo.png"
+                title="iit-delhi-logo"
+                alt="iit-delhi-logo"
+              />
+              
+            
+    <!-- <img
+    class="main-window-imgs"
+    src="./src/images/aluminium_beam1.png"
+    title="aluminium_beam1.png"
+    alt="aluminium_beam1.png"
+/> -->
+
+
+<img
+class="main-window-imgs"
+src="./src/images/component_battery.png"
+alt="component_battery.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/component_capacitor_resistance.png"
+alt="component_capacitor_resistance.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/component_diode.png"
+alt="component_diode.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/component_inductor.png"
+alt="component_inductor.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/component_mosfet.png"
+alt="component_mosfet.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/Exp-2 (Boost-Electrical) Simulation.png"
+alt="Exp-2 (Boost-Electrical) Simulation.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/right_tick.png"
+alt="right_tick.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step1_btn1.png"
+alt="step1_btn1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step1_btn1_active.png"
+alt="step1_btn1_active.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step1_btn2.png"
+alt="step1_btn2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step1_btn2_active.png"
+alt="step1_btn2_active.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step1_logo.png"
+alt="step1_logo.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step1_text_msg.png"
+alt="step1_text_msg.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step1_text_msg_wrong_connection.png"
+alt="step1_text_msg_wrong_connection.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step2_default.png"
+alt="step2_default.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step2_graph1.png"
+alt="step2_graph1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step2_graph2.png"
+alt="step2_graph2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step2_graph3.png"
+alt="step2_graph3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step2_logo.png"
+alt="step2_logo.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step3_circuit.png"
+alt="step3_circuit.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step3_option1.png"
+alt="step3_option1.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step3_option2.png"
+alt="step3_option2.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step3_option3.png"
+alt="step3_option3.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step3_option4.png"
+alt="step3_option4.png"
+/>
+
+<img
+class="main-window-imgs"
+src="./src/images/step3_option_select.png"
+alt="step3_option_select.png"
+/>
+<img
+class="main-window-imgs"
+src="./src/images/step1_circuit.png"
+alt="step1_circuit.png"
+/>
+
+
+
+
+
+    <!-- Theory -->
+
+    <!-- <img
+    class="main-window-imgs theory"
+    src="./src/images/Theory/slide_1.png"
+    alt="slide_1.png"
+/> -->
+
+
+
+
+
+              <!-- * Videos -->
+              <!-- <video muted class="main-window-videos" src="./src/videos/yoke_front_to_back.mp4"></video> -->
+              <video muted class="main-window-videos" src="./src/videos/bfs_installation.mp4"></video>
+
+              <!-- * Video Box -->
+              <div class="video-box">
+                <video muted class="video" src="" autoplay></video>
+                <div class="controls" title="Click to Restart">
+                  <span class="title">Title</span>
+                  <button class="btn restart">
+                    <img src="./src/images/template_imgs/restart_btn.png" alt="" />
+                  </button>
+                </div>
+              </div>
+
+              <!-- * Question mark box -->
+              <div class="qs qs1">?</div>
+              <div class="qs qs2">?</div>
+              <div class="qs qs3">?</div>
+              <div class="qs qs4">?</div>
+              <div class="qs qs5">?</div>
+              <div class="qs qs6">?</div>
+
+              <!-- * Image Box -->
+              <div class="image-box">
+                <img class="image" src="" alt="">
+                <p class="title">Image Box</p>
+              </div>
+
+             <!-- * Temp texts for showing some text in anime -->
+              <span
+                style="background-color:white; height: fit-content; font-size: large; border-radius: 5px; width: 120px; font-weight: bolder"
+                class="temp-text"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-text2"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title1"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title2"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title3"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title4"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title5"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title6"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title7"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title8"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title9"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title10"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title11"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title12"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title13"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title14"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title15"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title16"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title17"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title18"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title19"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title20"
+              ></span>
+              <span
+                style="background-color: transparent; font-weight: bold"
+                class="temp temp-title21"
+              ></span>
+            </section>
+
+            <!-- * Anime Footer -->
+            <section class="anime-footer">
+              <btn style="display: none;" class="btn btn-back">Back</btn>
+              <!-- * Bottom Subtitles Div -->
+              <div style="margin-left: 120px;" class="steps-subtitle">
+                <!-- <p class="user-name">Hey👋 Sneha</p> -->
+                <p style="text-align: center; font-size: 1.3em; " class="subtitle" id="subtitle"></p>
+              </div>
+              <btn class="btn btn-next" >Next</btn>
+              <btn
+                class="btn btn-save"
+                style="position: absolute; right: 90px; bottom: 5px"
+                >Download</btn
+              >
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <script src="src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
+    <script src="progressBar.js"></script>
+    <script src="layout.js"></script>
+    <script src="formulas.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

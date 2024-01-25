@@ -1085,7 +1085,9 @@ menu_cover_bottom : new Dom("menu_cover_bottom"),
       Scenes.contentAdderAddBtn("Push Prop")
 
       //function call for stop click on menu item
-      Scenes.items.menu_cover_top.set(null, 20, null, null, null, 80).zIndex(150);
+      Scenes.items.menu_cover_top.set(null, 20, null, null, null, 80).zIndex(150);          
+      Scenes.items.menu_cover_bottom.set(null, 20, null, null, null, 80).zIndex(150);          
+
 
       function menuItem_1Anime(){ 
         Dom.setBlinkArrow(-1)

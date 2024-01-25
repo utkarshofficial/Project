@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * Slider */
+.slider-box {
+    display: flex; 
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 10px;
+    flex-direction: column;
+  }
+  .slider-box .slider {
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    font-family: "Times New Roman", Times, serif;
+    background-color: #7937aa;
+    width: 210px;
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+  }
+
+  .slider-box .range-slider {
+    /* display: grid; */
+    display: flex;
+
+    justify-content: center;
+    /* gap: 5px; */
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+  }
+  .slider-box .title {
+    width: 23px;
+    /* text-align: center; */
+  }
+  .slider-box .resistance-input {
+    font-weight: bold;
+    width: 32px;
+  }
+    </style>
+</head>
+<body>
+     <!-- * Slider Box -->
+     <div class="slider-box" style="z-index: 1000">
+        <div class="slider slider_vIn">
+          <span class="title">V<sub>in</sub></span>
+          <div class="range-slider">
+            <input
+              class="range-slider__range"
+              type="range"
+              value="12"
+              min="12"
+              max="36"
+              step="12"
+            />
+            <span class="range-slider__value">0</span>
+            <span> V</span>
+          </div>
+        </div>
+  
+        <div class="slider slider_D">
+          <span class="title">D</span>
+          <div class="range-slider">
+            <input
+              class="range-slider__range"
+              type="range"
+              value="0.1"
+              min="0.1"
+              max="0.95"
+              step="0.01"
+            />
+            <span class="range-slider__value">0</span>
+            <span></span>
+          </div>
+        </div>
+  
+        <div class="slider slider_R">
+          <span class="title">R</span>
+          <div class="range-slider">
+            <input
+              class="range-slider__range"
+              type="range"
+              value="10"
+              min="10"
+              max="500"
+            />
+            <input
+              value="10"
+              type="input"
+              class="range-slider__value resistance-input"
+            />
+            <span> Ω</span>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

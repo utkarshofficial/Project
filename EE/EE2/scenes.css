@@ -1,0 +1,117 @@
+.anime-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scene 1 */
+/* step1 */
+.user-input{
+    font-size: 1.5rem;
+    flex-direction: column;
+    display: none;
+    gap: 10px;
+    position: absolute;
+    left: 200;
+}
+.user-input p{
+    margin: 0;
+}
+.user-input *{
+    padding: 10px;
+
+}
+
+
+
+.anime-header{
+    display: none;
+    position: relative;
+    top: 0px
+}
+
+/* step2 - project intro */
+.project-intro{
+    top: 50px;
+    padding: 10px;
+    display: none;
+    position: absolute;
+}
+
+.project-intro .heading{
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.project-intro .description{
+    margin: 5px 0 15px 0;
+    color: rgb(48, 48, 48);
+}
+
+
+
+
+/*  Mouse position */
+
+#demo {
+    height: 100%;
+    width: 100%;
+    background-color: #222831;
+}
+
+#info {
+    z-index: 200;
+    padding-left: 10px;
+    border-radius: 10px;
+    position: absolute;
+    user-select: none;
+    font-size: 2em;
+    width: 120px;
+    color: #EEEEEE;
+    background-color: #FD7013;
+}
+
+/* step3 */
+/* input template */
+.temp-input{
+    position: absolute;
+    font-size: 1.5rem;
+    display: none;
+}
+.temp-input span{
+    margin: 5px;
+}
+.error{
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+    display: none;
+}
+.temp-input .input{
+    font-size: 1.5rem;
+    width: 100px;
+    padding: 5px;
+}
+
+.temp-input .submit-btn{
+    margin: 20px 0;
+}
+
+/* step 7 */
+.utm-button{
+    cursor: pointer;
+    background-color: rgb(0, 255, 0);
+    padding: 4px;
+    box-shadow: 1px 1px 10px 3px green;
+    border-radius: 50%;
+    /* border: 1px solid; */
+    left: 251px;
+    top: 147px;
+    position: absolute;
+    z-index: 6;
+    opacity: 0;
+}
+
+.celebration{
+    display: none;
+    position: absolute;
+}

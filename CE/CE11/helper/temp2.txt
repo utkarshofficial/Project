@@ -1,0 +1,220 @@
+
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_aluminium_beam_1.png"
+        title="slab_aluminium_beam_1.png"
+        alt="slab_aluminium_beam_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_aluminium_beam_2.png"
+        title="slab_aluminium_beam_2.png"
+        alt="slab_aluminium_beam_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_aluminium_beam_3.png"
+        title="slab_aluminium_beam_3.png"
+        alt="slab_aluminium_beam_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_aluminium_beam_4.png"
+        title="slab_aluminium_beam_4.png"
+        alt="slab_aluminium_beam_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_sheathing.png"
+        title="slab_sheathing.png"
+        alt="slab_sheathing.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_stand_1.png"
+        title="slab_stand_1.png"
+        alt="slab_stand_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_stand_2.png"
+        title="slab_stand_2.png"
+        alt="slab_stand_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_stand_3.png"
+        title="slab_stand_3.png"
+        alt="slab_stand_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_stand_4.png"
+        title="slab_stand_4.png"
+        alt="slab_stand_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_stand_5.png"
+        title="slab_stand_5.png"
+        alt="slab_stand_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_stand_6.png"
+        title="slab_stand_6.png"
+        alt="slab_stand_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_stand_helper.png"
+        title="slab_stand_helper.png"
+        alt="slab_stand_helper.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_1.png"
+        title="slab_timber_beam_1.png"
+        alt="slab_timber_beam_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_10.png"
+        title="slab_timber_beam_10.png"
+        alt="slab_timber_beam_10.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_11.png"
+        title="slab_timber_beam_11.png"
+        alt="slab_timber_beam_11.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_12.png"
+        title="slab_timber_beam_12.png"
+        alt="slab_timber_beam_12.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_2.png"
+        title="slab_timber_beam_2.png"
+        alt="slab_timber_beam_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_3.png"
+        title="slab_timber_beam_3.png"
+        alt="slab_timber_beam_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_4.png"
+        title="slab_timber_beam_4.png"
+        alt="slab_timber_beam_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_5.png"
+        title="slab_timber_beam_5.png"
+        alt="slab_timber_beam_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_6.png"
+        title="slab_timber_beam_6.png"
+        alt="slab_timber_beam_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_7.png"
+        title="slab_timber_beam_7.png"
+        alt="slab_timber_beam_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_8.png"
+        title="slab_timber_beam_8.png"
+        alt="slab_timber_beam_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/slab_timber_beam_9.png"
+        title="slab_timber_beam_9.png"
+        alt="slab_timber_beam_9.png"
+    />
+    
+
+slab_aluminium_beam_1:this.allImgsDom[163],
+slab_aluminium_beam_2:this.allImgsDom[164],
+slab_aluminium_beam_3:this.allImgsDom[165],
+slab_aluminium_beam_4:this.allImgsDom[166],
+slab_sheathing:this.allImgsDom[167],
+slab_stand_1:this.allImgsDom[168],
+slab_stand_2:this.allImgsDom[169],
+slab_stand_3:this.allImgsDom[170],
+slab_stand_4:this.allImgsDom[171],
+slab_stand_5:this.allImgsDom[172],
+slab_stand_6:this.allImgsDom[173],
+slab_stand_helper:this.allImgsDom[174],
+slab_timber_beam_1:this.allImgsDom[175],
+slab_timber_beam_10:this.allImgsDom[176],
+slab_timber_beam_11:this.allImgsDom[177],
+slab_timber_beam_12:this.allImgsDom[178],
+slab_timber_beam_2:this.allImgsDom[179],
+slab_timber_beam_3:this.allImgsDom[180],
+slab_timber_beam_4:this.allImgsDom[181],
+slab_timber_beam_5:this.allImgsDom[182],
+slab_timber_beam_6:this.allImgsDom[183],
+slab_timber_beam_7:this.allImgsDom[184],
+slab_timber_beam_8:this.allImgsDom[185],
+slab_timber_beam_9:this.allImgsDom[186],
+
+
+slab_aluminium_beam_1 : new Dom("slab_aluminium_beam_1"),
+slab_aluminium_beam_2 : new Dom("slab_aluminium_beam_2"),
+slab_aluminium_beam_3 : new Dom("slab_aluminium_beam_3"),
+slab_aluminium_beam_4 : new Dom("slab_aluminium_beam_4"),
+slab_sheathing : new Dom("slab_sheathing"),
+slab_stand_1 : new Dom("slab_stand_1"),
+slab_stand_2 : new Dom("slab_stand_2"),
+slab_stand_3 : new Dom("slab_stand_3"),
+slab_stand_4 : new Dom("slab_stand_4"),
+slab_stand_5 : new Dom("slab_stand_5"),
+slab_stand_6 : new Dom("slab_stand_6"),
+slab_stand_helper : new Dom("slab_stand_helper"),
+slab_timber_beam_1 : new Dom("slab_timber_beam_1"),
+slab_timber_beam_10 : new Dom("slab_timber_beam_10"),
+slab_timber_beam_11 : new Dom("slab_timber_beam_11"),
+slab_timber_beam_12 : new Dom("slab_timber_beam_12"),
+slab_timber_beam_2 : new Dom("slab_timber_beam_2"),
+slab_timber_beam_3 : new Dom("slab_timber_beam_3"),
+slab_timber_beam_4 : new Dom("slab_timber_beam_4"),
+slab_timber_beam_5 : new Dom("slab_timber_beam_5"),
+slab_timber_beam_6 : new Dom("slab_timber_beam_6"),
+slab_timber_beam_7 : new Dom("slab_timber_beam_7"),
+slab_timber_beam_8 : new Dom("slab_timber_beam_8"),
+slab_timber_beam_9 : new Dom("slab_timber_beam_9"),

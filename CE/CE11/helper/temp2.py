@@ -1,0 +1,325 @@
+domitems = '''
+    <img
+        class="main-window-imgs"
+        src="./src/images/anchor_plate.webp"
+        title="anchor_plate.webp"
+        alt="anchor_plate.webp"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/anchor_plate.webp"
+        title="anchor_plate.webp"
+        alt="anchor_plate.webp"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/anchor_plate.webp"
+        title="anchor_plate.webp"
+        alt="anchor_plate.webp"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/anchor_plate.webp"
+        title="anchor_plate.webp"
+        alt="anchor_plate.webp"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/beam_3d_1.png"
+        title="beam_3d_1.png"
+        alt="beam_3d_1.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/beam_3d_1.png"
+        title="beam_3d_1.png"
+        alt="beam_3d_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/beam_3d_with_holes.png"
+        title="beam_3d_with_holes.png"
+        alt="beam_3d_with_holes.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/beam_3d_with_holes.png"
+        title="beam_3d_with_holes.png"
+        alt="beam_3d_with_holes.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/ct_prop.png"
+        title="ct_prop.png"
+        alt="ct_prop.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/ct_prop.png"
+        title="ct_prop.png"
+        alt="ct_prop.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/ct_prop.png"
+        title="ct_prop.png"
+        alt="ct_prop.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/ct_prop.png"
+        title="ct_prop.png"
+        alt="ct_prop.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/ct_prop.png"
+        title="ct_prop.png"
+        alt="ct_prop.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/ct_prop.png"
+        title="ct_prop.png"
+        alt="ct_prop.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/foot_adapter.png"
+        title="foot_adapter.png"
+        alt="foot_adapter.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/foot_adapter.png"
+        title="foot_adapter.png"
+        alt="foot_adapter.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/foot_adapter.png"
+        title="foot_adapter.png"
+        alt="foot_adapter.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/head_adapter.webp"
+        title="head_adapter.webp"
+        alt="head_adapter.webp"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/head_adapter.webp"
+        title="head_adapter.webp"
+        alt="head_adapter.webp"
+    />
+     <img
+        class="main-window-imgs"
+        src="./src/images/full_column.jpeg"
+        title="full_column.jpeg"
+        alt="full_column.jpeg"
+    />
+     <img
+        class="main-window-imgs"
+        src="./src/images/drill_machine.png"
+        title="drill_machine.png"
+        alt="drill_machine.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/hammer.png"
+        title="hammer.png"
+        alt="hammer.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/nail.png"
+        title="nail.png"
+        alt="nail.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/objective.png"
+        title="objective.png"
+        alt="objective.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/real_foot_adapter.png"
+        title="real_foot_adapter.png"
+        alt="real_foot_adapter.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/real_head_adapter.png"
+        title="real_head_adapter.png"
+        alt="real_head_adapter.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/sheathing.png"
+        title="sheathing.png"
+        alt="sheathing.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/sheathing.png"
+        title="sheathing.png"
+        alt="sheathing.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/sheathing.png"
+        title="sheathing.png"
+        alt="sheathing.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/sheathing.png"
+        title="sheathing.png"
+        alt="sheathing.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/sheathing.png"
+        title="sheathing.png"
+        alt="sheathing.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/steel waler-cutout.png"
+        title="steel waler-cutout.png"
+        alt="steel_waler.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/steel waler-cutout.png"
+        title="steel waler-cutout.png"
+        alt="steel_waler.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/steel waler-cutout.png"
+        title="steel waler-cutout.png"
+        alt="steel_waler.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/tie_rod.png"
+        title="tie_rod.png"
+        alt="tie_rod.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/tie_rod.png"
+        title="tie_rod.png"
+        alt="tie_rod.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/tie_rod.png"
+        title="tie_rod.png"
+        alt="tie_rod.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/tie_rod.png"
+        title="tie_rod.png"
+        alt="tie_rod.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/wing_nut_top-cutout.png"
+        title="wing_nut_top-cutout.png"
+        alt="wing_nut_top-cutout.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/wing_nut_top-cutout.png"
+        title="wing_nut_top-cutout.png"
+        alt="wing_nut_top-cutout.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/wing_nut_top-cutout.png"
+        title="wing_nut_top-cutout.png"
+        alt="wing_nut_top-cutout.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/wing_nut_top-cutout.png"
+        title="wing_nut_top-cutout.png"
+        alt="wing_nut_top-cutout.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/wing_nut_top-cutout.png"
+        title="wing_nut_top-cutout.png"
+        alt="wing_nut_top-cutout.png"
+    />
+    <img
+        class="main-window-imgs"
+        src="./src/images/wing_nut_full.png"
+        title="wing_nut_full.png"
+        alt="wing_nut_full.png"
+    />
+'''
+
+names = '''anchor_plate
+anchor_plate
+anchor_plate
+anchor_plate
+beam_3d_1
+beam_3d_1
+beam_3d_with_holes
+beam_3d_with_holes
+ct_prop
+ct_prop
+ct_prop
+ct_prop
+ct_prop
+ct_prop
+foot_adapter
+foot_adapter
+foot_adapter
+head_adapter
+head_adapter
+full_column
+drill_machine
+hammer
+nail
+objective
+real_foot_adapter
+real_head_adapter
+sheathing
+sheathing
+sheathing
+sheathing
+sheathing
+steel
+steel
+steel
+tie_rod
+tie_rod
+tie_rod
+tie_rod
+wing_nut_top
+wing_nut_top
+wing_nut_top
+wing_nut_top
+wing_nut_top
+wing_nut_full
+'''
+
+names = names.split("\n")
+for i in range(27,len(names)+27):
+    l = names[i-27] + ": this.allImgsDom[{0}],".format(i)
+    print(l)
+    

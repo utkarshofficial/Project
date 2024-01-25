@@ -1,220 +1,884 @@
 
     <img
         class="main-window-imgs"
-        src="./src/images/slab_aluminium_beam_1.png"
-        title="slab_aluminium_beam_1.png"
-        alt="slab_aluminium_beam_1.png"
+        src="./src/images/back_left_full_with_soffit.png"
+        alt="back_left_full_with_soffit.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_aluminium_beam_2.png"
-        title="slab_aluminium_beam_2.png"
-        alt="slab_aluminium_beam_2.png"
+        src="./src/images/back_right_wall_full.png"
+        alt="back_right_wall_full.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_aluminium_beam_3.png"
-        title="slab_aluminium_beam_3.png"
-        alt="slab_aluminium_beam_3.png"
+        src="./src/images/base_rebar_back_left.png"
+        alt="base_rebar_back_left.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_aluminium_beam_4.png"
-        title="slab_aluminium_beam_4.png"
-        alt="slab_aluminium_beam_4.png"
+        src="./src/images/base_rebar_back_right.png"
+        alt="base_rebar_back_right.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_sheathing.png"
-        title="slab_sheathing.png"
-        alt="slab_sheathing.png"
+        src="./src/images/base_rebar_front_left.png"
+        alt="base_rebar_front_left.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_stand_1.png"
-        title="slab_stand_1.png"
-        alt="slab_stand_1.png"
+        src="./src/images/base_rebar_front_right.png"
+        alt="base_rebar_front_right.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_stand_2.png"
-        title="slab_stand_2.png"
-        alt="slab_stand_2.png"
+        src="./src/images/base_with_marking.png"
+        alt="base_with_marking.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_stand_3.png"
-        title="slab_stand_3.png"
-        alt="slab_stand_3.png"
+        src="./src/images/base_with_rebars.png"
+        alt="base_with_rebars.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_stand_4.png"
-        title="slab_stand_4.png"
-        alt="slab_stand_4.png"
+        src="./src/images/front_left_wall_full.png"
+        alt="front_left_wall_full.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_stand_5.png"
-        title="slab_stand_5.png"
-        alt="slab_stand_5.png"
+        src="./src/images/front_right_wall_1.png"
+        alt="front_right_wall_1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_stand_6.png"
-        title="slab_stand_6.png"
-        alt="slab_stand_6.png"
+        src="./src/images/front_right_wall_2.png"
+        alt="front_right_wall_2.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_stand_helper.png"
-        title="slab_stand_helper.png"
-        alt="slab_stand_helper.png"
+        src="./src/images/front_right_wall_3.png"
+        alt="front_right_wall_3.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_1.png"
-        title="slab_timber_beam_1.png"
-        alt="slab_timber_beam_1.png"
+        src="./src/images/front_right_wall_4.png"
+        alt="front_right_wall_4.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_10.png"
-        title="slab_timber_beam_10.png"
-        alt="slab_timber_beam_10.png"
+        src="./src/images/front_right_wall_full.png"
+        alt="front_right_wall_full.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_11.png"
-        title="slab_timber_beam_11.png"
-        alt="slab_timber_beam_11.png"
+        src="./src/images/left_wall_bare_rebars.png"
+        alt="left_wall_bare_rebars.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_12.png"
-        title="slab_timber_beam_12.png"
-        alt="slab_timber_beam_12.png"
+        src="./src/images/left_wall_panel_external_1.png"
+        alt="left_wall_panel_external_1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_2.png"
-        title="slab_timber_beam_2.png"
-        alt="slab_timber_beam_2.png"
+        src="./src/images/left_wall_panel_external_10.png"
+        alt="left_wall_panel_external_10.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_3.png"
-        title="slab_timber_beam_3.png"
-        alt="slab_timber_beam_3.png"
+        src="./src/images/left_wall_panel_external_11.png"
+        alt="left_wall_panel_external_11.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_4.png"
-        title="slab_timber_beam_4.png"
-        alt="slab_timber_beam_4.png"
+        src="./src/images/left_wall_panel_external_2.png"
+        alt="left_wall_panel_external_2.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_5.png"
-        title="slab_timber_beam_5.png"
-        alt="slab_timber_beam_5.png"
+        src="./src/images/left_wall_panel_external_3.png"
+        alt="left_wall_panel_external_3.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_6.png"
-        title="slab_timber_beam_6.png"
-        alt="slab_timber_beam_6.png"
+        src="./src/images/left_wall_panel_external_4.png"
+        alt="left_wall_panel_external_4.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_7.png"
-        title="slab_timber_beam_7.png"
-        alt="slab_timber_beam_7.png"
+        src="./src/images/left_wall_panel_external_5.png"
+        alt="left_wall_panel_external_5.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_8.png"
-        title="slab_timber_beam_8.png"
-        alt="slab_timber_beam_8.png"
+        src="./src/images/left_wall_panel_external_6.png"
+        alt="left_wall_panel_external_6.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/slab_timber_beam_9.png"
-        title="slab_timber_beam_9.png"
-        alt="slab_timber_beam_9.png"
+        src="./src/images/left_wall_panel_external_7.png"
+        alt="left_wall_panel_external_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_external_8.png"
+        alt="left_wall_panel_external_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_external_9.png"
+        alt="left_wall_panel_external_9.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_external_croner_1.png"
+        alt="left_wall_panel_external_croner_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_external_croner_2.png"
+        alt="left_wall_panel_external_croner_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_1.png"
+        alt="left_wall_panel_internal_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_2.png"
+        alt="left_wall_panel_internal_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_3.png"
+        alt="left_wall_panel_internal_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_4.png"
+        alt="left_wall_panel_internal_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_5.png"
+        alt="left_wall_panel_internal_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_6.png"
+        alt="left_wall_panel_internal_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_7.png"
+        alt="left_wall_panel_internal_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_8.png"
+        alt="left_wall_panel_internal_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_9.png"
+        alt="left_wall_panel_internal_9.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_corner_1.png"
+        alt="left_wall_panel_internal_corner_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_panel_internal_corner_2.png"
+        alt="left_wall_panel_internal_corner_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_external.png"
+        alt="left_wall_soffit_external.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_1.png"
+        alt="left_wall_soffit_internal_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_10.png"
+        alt="left_wall_soffit_internal_10.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_11.png"
+        alt="left_wall_soffit_internal_11.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_2.png"
+        alt="left_wall_soffit_internal_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_3.png"
+        alt="left_wall_soffit_internal_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_4.png"
+        alt="left_wall_soffit_internal_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_5.png"
+        alt="left_wall_soffit_internal_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_6.png"
+        alt="left_wall_soffit_internal_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_7.png"
+        alt="left_wall_soffit_internal_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_8.png"
+        alt="left_wall_soffit_internal_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_9.png"
+        alt="left_wall_soffit_internal_9.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_1.png"
+        alt="left_wall_soffit_internal_wedge_pin_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_10.png"
+        alt="left_wall_soffit_internal_wedge_pin_10.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_11.png"
+        alt="left_wall_soffit_internal_wedge_pin_11.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_2.png"
+        alt="left_wall_soffit_internal_wedge_pin_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_3.png"
+        alt="left_wall_soffit_internal_wedge_pin_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_4.png"
+        alt="left_wall_soffit_internal_wedge_pin_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_5.png"
+        alt="left_wall_soffit_internal_wedge_pin_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_6.png"
+        alt="left_wall_soffit_internal_wedge_pin_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_7.png"
+        alt="left_wall_soffit_internal_wedge_pin_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_8.png"
+        alt="left_wall_soffit_internal_wedge_pin_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_soffit_internal_wedge_pin_9.png"
+        alt="left_wall_soffit_internal_wedge_pin_9.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_walltie_1.png"
+        alt="left_wall_walltie_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_walltie_2.png"
+        alt="left_wall_walltie_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_walltie_3.png"
+        alt="left_wall_walltie_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_walltie_4.png"
+        alt="left_wall_walltie_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_walltie_5.png"
+        alt="left_wall_walltie_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_walltie_6.png"
+        alt="left_wall_walltie_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_walltie_7.png"
+        alt="left_wall_walltie_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_walltie_8.png"
+        alt="left_wall_walltie_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_1.png"
+        alt="left_wall_wedge_pin_external_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_10.png"
+        alt="left_wall_wedge_pin_external_10.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_11.png"
+        alt="left_wall_wedge_pin_external_11.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_12.png"
+        alt="left_wall_wedge_pin_external_12.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_2.png"
+        alt="left_wall_wedge_pin_external_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_3.png"
+        alt="left_wall_wedge_pin_external_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_4.png"
+        alt="left_wall_wedge_pin_external_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_5.png"
+        alt="left_wall_wedge_pin_external_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_6.png"
+        alt="left_wall_wedge_pin_external_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_7.png"
+        alt="left_wall_wedge_pin_external_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_8.png"
+        alt="left_wall_wedge_pin_external_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_external_9.png"
+        alt="left_wall_wedge_pin_external_9.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_0.png"
+        alt="left_wall_wedge_pin_internal_0.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_1.png"
+        alt="left_wall_wedge_pin_internal_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_2.png"
+        alt="left_wall_wedge_pin_internal_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_3.png"
+        alt="left_wall_wedge_pin_internal_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_4.png"
+        alt="left_wall_wedge_pin_internal_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_5.png"
+        alt="left_wall_wedge_pin_internal_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_6.png"
+        alt="left_wall_wedge_pin_internal_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_7.png"
+        alt="left_wall_wedge_pin_internal_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_8.png"
+        alt="left_wall_wedge_pin_internal_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_wall_wedge_pin_internal_9.png"
+        alt="left_wall_wedge_pin_internal_9.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_beam_1.png"
+        alt="roof_beam_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_beam_2.png"
+        alt="roof_beam_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_ct_prop_1.png"
+        alt="roof_ct_prop_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_ct_prop_2.png"
+        alt="roof_ct_prop_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_ct_prop_3.png"
+        alt="roof_ct_prop_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_ct_prop_4.png"
+        alt="roof_ct_prop_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_1.png"
+        alt="roof_panel_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_10.png"
+        alt="roof_panel_10.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_11.png"
+        alt="roof_panel_11.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_12.png"
+        alt="roof_panel_12.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_2.png"
+        alt="roof_panel_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_3.png"
+        alt="roof_panel_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_4.png"
+        alt="roof_panel_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_5.png"
+        alt="roof_panel_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_6.png"
+        alt="roof_panel_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_7.png"
+        alt="roof_panel_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_8.png"
+        alt="roof_panel_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/roof_panel_9.png"
+        alt="roof_panel_9.png"
     />
     
 
-slab_aluminium_beam_1:this.allImgsDom[163],
-slab_aluminium_beam_2:this.allImgsDom[164],
-slab_aluminium_beam_3:this.allImgsDom[165],
-slab_aluminium_beam_4:this.allImgsDom[166],
-slab_sheathing:this.allImgsDom[167],
-slab_stand_1:this.allImgsDom[168],
-slab_stand_2:this.allImgsDom[169],
-slab_stand_3:this.allImgsDom[170],
-slab_stand_4:this.allImgsDom[171],
-slab_stand_5:this.allImgsDom[172],
-slab_stand_6:this.allImgsDom[173],
-slab_stand_helper:this.allImgsDom[174],
-slab_timber_beam_1:this.allImgsDom[175],
-slab_timber_beam_10:this.allImgsDom[176],
-slab_timber_beam_11:this.allImgsDom[177],
-slab_timber_beam_12:this.allImgsDom[178],
-slab_timber_beam_2:this.allImgsDom[179],
-slab_timber_beam_3:this.allImgsDom[180],
-slab_timber_beam_4:this.allImgsDom[181],
-slab_timber_beam_5:this.allImgsDom[182],
-slab_timber_beam_6:this.allImgsDom[183],
-slab_timber_beam_7:this.allImgsDom[184],
-slab_timber_beam_8:this.allImgsDom[185],
-slab_timber_beam_9:this.allImgsDom[186],
+back_left_full_with_soffit:this.allImgsDom[13],
+back_right_wall_full:this.allImgsDom[14],
+base_rebar_back_left:this.allImgsDom[15],
+base_rebar_back_right:this.allImgsDom[16],
+base_rebar_front_left:this.allImgsDom[17],
+base_rebar_front_right:this.allImgsDom[18],
+base_with_marking:this.allImgsDom[19],
+base_with_rebars:this.allImgsDom[20],
+front_left_wall_full:this.allImgsDom[21],
+front_right_wall_1:this.allImgsDom[22],
+front_right_wall_2:this.allImgsDom[23],
+front_right_wall_3:this.allImgsDom[24],
+front_right_wall_4:this.allImgsDom[25],
+front_right_wall_full:this.allImgsDom[26],
+left_wall_bare_rebars:this.allImgsDom[27],
+left_wall_panel_external_1:this.allImgsDom[28],
+left_wall_panel_external_10:this.allImgsDom[29],
+left_wall_panel_external_11:this.allImgsDom[30],
+left_wall_panel_external_2:this.allImgsDom[31],
+left_wall_panel_external_3:this.allImgsDom[32],
+left_wall_panel_external_4:this.allImgsDom[33],
+left_wall_panel_external_5:this.allImgsDom[34],
+left_wall_panel_external_6:this.allImgsDom[35],
+left_wall_panel_external_7:this.allImgsDom[36],
+left_wall_panel_external_8:this.allImgsDom[37],
+left_wall_panel_external_9:this.allImgsDom[38],
+left_wall_panel_external_croner_1:this.allImgsDom[39],
+left_wall_panel_external_croner_2:this.allImgsDom[40],
+left_wall_panel_internal_1:this.allImgsDom[41],
+left_wall_panel_internal_2:this.allImgsDom[42],
+left_wall_panel_internal_3:this.allImgsDom[43],
+left_wall_panel_internal_4:this.allImgsDom[44],
+left_wall_panel_internal_5:this.allImgsDom[45],
+left_wall_panel_internal_6:this.allImgsDom[46],
+left_wall_panel_internal_7:this.allImgsDom[47],
+left_wall_panel_internal_8:this.allImgsDom[48],
+left_wall_panel_internal_9:this.allImgsDom[49],
+left_wall_panel_internal_corner_1:this.allImgsDom[50],
+left_wall_panel_internal_corner_2:this.allImgsDom[51],
+left_wall_soffit_external:this.allImgsDom[52],
+left_wall_soffit_internal_1:this.allImgsDom[53],
+left_wall_soffit_internal_10:this.allImgsDom[54],
+left_wall_soffit_internal_11:this.allImgsDom[55],
+left_wall_soffit_internal_2:this.allImgsDom[56],
+left_wall_soffit_internal_3:this.allImgsDom[57],
+left_wall_soffit_internal_4:this.allImgsDom[58],
+left_wall_soffit_internal_5:this.allImgsDom[59],
+left_wall_soffit_internal_6:this.allImgsDom[60],
+left_wall_soffit_internal_7:this.allImgsDom[61],
+left_wall_soffit_internal_8:this.allImgsDom[62],
+left_wall_soffit_internal_9:this.allImgsDom[63],
+left_wall_soffit_internal_wedge_pin_1:this.allImgsDom[64],
+left_wall_soffit_internal_wedge_pin_10:this.allImgsDom[65],
+left_wall_soffit_internal_wedge_pin_11:this.allImgsDom[66],
+left_wall_soffit_internal_wedge_pin_2:this.allImgsDom[67],
+left_wall_soffit_internal_wedge_pin_3:this.allImgsDom[68],
+left_wall_soffit_internal_wedge_pin_4:this.allImgsDom[69],
+left_wall_soffit_internal_wedge_pin_5:this.allImgsDom[70],
+left_wall_soffit_internal_wedge_pin_6:this.allImgsDom[71],
+left_wall_soffit_internal_wedge_pin_7:this.allImgsDom[72],
+left_wall_soffit_internal_wedge_pin_8:this.allImgsDom[73],
+left_wall_soffit_internal_wedge_pin_9:this.allImgsDom[74],
+left_wall_walltie_1:this.allImgsDom[75],
+left_wall_walltie_2:this.allImgsDom[76],
+left_wall_walltie_3:this.allImgsDom[77],
+left_wall_walltie_4:this.allImgsDom[78],
+left_wall_walltie_5:this.allImgsDom[79],
+left_wall_walltie_6:this.allImgsDom[80],
+left_wall_walltie_7:this.allImgsDom[81],
+left_wall_walltie_8:this.allImgsDom[82],
+left_wall_wedge_pin_external_1:this.allImgsDom[83],
+left_wall_wedge_pin_external_10:this.allImgsDom[84],
+left_wall_wedge_pin_external_11:this.allImgsDom[85],
+left_wall_wedge_pin_external_12:this.allImgsDom[86],
+left_wall_wedge_pin_external_2:this.allImgsDom[87],
+left_wall_wedge_pin_external_3:this.allImgsDom[88],
+left_wall_wedge_pin_external_4:this.allImgsDom[89],
+left_wall_wedge_pin_external_5:this.allImgsDom[90],
+left_wall_wedge_pin_external_6:this.allImgsDom[91],
+left_wall_wedge_pin_external_7:this.allImgsDom[92],
+left_wall_wedge_pin_external_8:this.allImgsDom[93],
+left_wall_wedge_pin_external_9:this.allImgsDom[94],
+left_wall_wedge_pin_internal_0:this.allImgsDom[95],
+left_wall_wedge_pin_internal_1:this.allImgsDom[96],
+left_wall_wedge_pin_internal_2:this.allImgsDom[97],
+left_wall_wedge_pin_internal_3:this.allImgsDom[98],
+left_wall_wedge_pin_internal_4:this.allImgsDom[99],
+left_wall_wedge_pin_internal_5:this.allImgsDom[100],
+left_wall_wedge_pin_internal_6:this.allImgsDom[101],
+left_wall_wedge_pin_internal_7:this.allImgsDom[102],
+left_wall_wedge_pin_internal_8:this.allImgsDom[103],
+left_wall_wedge_pin_internal_9:this.allImgsDom[104],
+roof_beam_1:this.allImgsDom[105],
+roof_beam_2:this.allImgsDom[106],
+roof_ct_prop_1:this.allImgsDom[107],
+roof_ct_prop_2:this.allImgsDom[108],
+roof_ct_prop_3:this.allImgsDom[109],
+roof_ct_prop_4:this.allImgsDom[110],
+roof_panel_1:this.allImgsDom[111],
+roof_panel_10:this.allImgsDom[112],
+roof_panel_11:this.allImgsDom[113],
+roof_panel_12:this.allImgsDom[114],
+roof_panel_2:this.allImgsDom[115],
+roof_panel_3:this.allImgsDom[116],
+roof_panel_4:this.allImgsDom[117],
+roof_panel_5:this.allImgsDom[118],
+roof_panel_6:this.allImgsDom[119],
+roof_panel_7:this.allImgsDom[120],
+roof_panel_8:this.allImgsDom[121],
+roof_panel_9:this.allImgsDom[122],
 
 
-slab_aluminium_beam_1 : new Dom("slab_aluminium_beam_1"),
-slab_aluminium_beam_2 : new Dom("slab_aluminium_beam_2"),
-slab_aluminium_beam_3 : new Dom("slab_aluminium_beam_3"),
-slab_aluminium_beam_4 : new Dom("slab_aluminium_beam_4"),
-slab_sheathing : new Dom("slab_sheathing"),
-slab_stand_1 : new Dom("slab_stand_1"),
-slab_stand_2 : new Dom("slab_stand_2"),
-slab_stand_3 : new Dom("slab_stand_3"),
-slab_stand_4 : new Dom("slab_stand_4"),
-slab_stand_5 : new Dom("slab_stand_5"),
-slab_stand_6 : new Dom("slab_stand_6"),
-slab_stand_helper : new Dom("slab_stand_helper"),
-slab_timber_beam_1 : new Dom("slab_timber_beam_1"),
-slab_timber_beam_10 : new Dom("slab_timber_beam_10"),
-slab_timber_beam_11 : new Dom("slab_timber_beam_11"),
-slab_timber_beam_12 : new Dom("slab_timber_beam_12"),
-slab_timber_beam_2 : new Dom("slab_timber_beam_2"),
-slab_timber_beam_3 : new Dom("slab_timber_beam_3"),
-slab_timber_beam_4 : new Dom("slab_timber_beam_4"),
-slab_timber_beam_5 : new Dom("slab_timber_beam_5"),
-slab_timber_beam_6 : new Dom("slab_timber_beam_6"),
-slab_timber_beam_7 : new Dom("slab_timber_beam_7"),
-slab_timber_beam_8 : new Dom("slab_timber_beam_8"),
-slab_timber_beam_9 : new Dom("slab_timber_beam_9"),
+back_left_full_with_soffit : new Dom("back_left_full_with_soffit"),
+back_right_wall_full : new Dom("back_right_wall_full"),
+base_rebar_back_left : new Dom("base_rebar_back_left"),
+base_rebar_back_right : new Dom("base_rebar_back_right"),
+base_rebar_front_left : new Dom("base_rebar_front_left"),
+base_rebar_front_right : new Dom("base_rebar_front_right"),
+base_with_marking : new Dom("base_with_marking"),
+base_with_rebars : new Dom("base_with_rebars"),
+front_left_wall_full : new Dom("front_left_wall_full"),
+front_right_wall_1 : new Dom("front_right_wall_1"),
+front_right_wall_2 : new Dom("front_right_wall_2"),
+front_right_wall_3 : new Dom("front_right_wall_3"),
+front_right_wall_4 : new Dom("front_right_wall_4"),
+front_right_wall_full : new Dom("front_right_wall_full"),
+left_wall_bare_rebars : new Dom("left_wall_bare_rebars"),
+left_wall_panel_external_1 : new Dom("left_wall_panel_external_1"),
+left_wall_panel_external_10 : new Dom("left_wall_panel_external_10"),
+left_wall_panel_external_11 : new Dom("left_wall_panel_external_11"),
+left_wall_panel_external_2 : new Dom("left_wall_panel_external_2"),
+left_wall_panel_external_3 : new Dom("left_wall_panel_external_3"),
+left_wall_panel_external_4 : new Dom("left_wall_panel_external_4"),
+left_wall_panel_external_5 : new Dom("left_wall_panel_external_5"),
+left_wall_panel_external_6 : new Dom("left_wall_panel_external_6"),
+left_wall_panel_external_7 : new Dom("left_wall_panel_external_7"),
+left_wall_panel_external_8 : new Dom("left_wall_panel_external_8"),
+left_wall_panel_external_9 : new Dom("left_wall_panel_external_9"),
+left_wall_panel_external_croner_1 : new Dom("left_wall_panel_external_croner_1"),
+left_wall_panel_external_croner_2 : new Dom("left_wall_panel_external_croner_2"),
+left_wall_panel_internal_1 : new Dom("left_wall_panel_internal_1"),
+left_wall_panel_internal_2 : new Dom("left_wall_panel_internal_2"),
+left_wall_panel_internal_3 : new Dom("left_wall_panel_internal_3"),
+left_wall_panel_internal_4 : new Dom("left_wall_panel_internal_4"),
+left_wall_panel_internal_5 : new Dom("left_wall_panel_internal_5"),
+left_wall_panel_internal_6 : new Dom("left_wall_panel_internal_6"),
+left_wall_panel_internal_7 : new Dom("left_wall_panel_internal_7"),
+left_wall_panel_internal_8 : new Dom("left_wall_panel_internal_8"),
+left_wall_panel_internal_9 : new Dom("left_wall_panel_internal_9"),
+left_wall_panel_internal_corner_1 : new Dom("left_wall_panel_internal_corner_1"),
+left_wall_panel_internal_corner_2 : new Dom("left_wall_panel_internal_corner_2"),
+left_wall_soffit_external : new Dom("left_wall_soffit_external"),
+left_wall_soffit_internal_1 : new Dom("left_wall_soffit_internal_1"),
+left_wall_soffit_internal_10 : new Dom("left_wall_soffit_internal_10"),
+left_wall_soffit_internal_11 : new Dom("left_wall_soffit_internal_11"),
+left_wall_soffit_internal_2 : new Dom("left_wall_soffit_internal_2"),
+left_wall_soffit_internal_3 : new Dom("left_wall_soffit_internal_3"),
+left_wall_soffit_internal_4 : new Dom("left_wall_soffit_internal_4"),
+left_wall_soffit_internal_5 : new Dom("left_wall_soffit_internal_5"),
+left_wall_soffit_internal_6 : new Dom("left_wall_soffit_internal_6"),
+left_wall_soffit_internal_7 : new Dom("left_wall_soffit_internal_7"),
+left_wall_soffit_internal_8 : new Dom("left_wall_soffit_internal_8"),
+left_wall_soffit_internal_9 : new Dom("left_wall_soffit_internal_9"),
+left_wall_soffit_internal_wedge_pin_1 : new Dom("left_wall_soffit_internal_wedge_pin_1"),
+left_wall_soffit_internal_wedge_pin_10 : new Dom("left_wall_soffit_internal_wedge_pin_10"),
+left_wall_soffit_internal_wedge_pin_11 : new Dom("left_wall_soffit_internal_wedge_pin_11"),
+left_wall_soffit_internal_wedge_pin_2 : new Dom("left_wall_soffit_internal_wedge_pin_2"),
+left_wall_soffit_internal_wedge_pin_3 : new Dom("left_wall_soffit_internal_wedge_pin_3"),
+left_wall_soffit_internal_wedge_pin_4 : new Dom("left_wall_soffit_internal_wedge_pin_4"),
+left_wall_soffit_internal_wedge_pin_5 : new Dom("left_wall_soffit_internal_wedge_pin_5"),
+left_wall_soffit_internal_wedge_pin_6 : new Dom("left_wall_soffit_internal_wedge_pin_6"),
+left_wall_soffit_internal_wedge_pin_7 : new Dom("left_wall_soffit_internal_wedge_pin_7"),
+left_wall_soffit_internal_wedge_pin_8 : new Dom("left_wall_soffit_internal_wedge_pin_8"),
+left_wall_soffit_internal_wedge_pin_9 : new Dom("left_wall_soffit_internal_wedge_pin_9"),
+left_wall_walltie_1 : new Dom("left_wall_walltie_1"),
+left_wall_walltie_2 : new Dom("left_wall_walltie_2"),
+left_wall_walltie_3 : new Dom("left_wall_walltie_3"),
+left_wall_walltie_4 : new Dom("left_wall_walltie_4"),
+left_wall_walltie_5 : new Dom("left_wall_walltie_5"),
+left_wall_walltie_6 : new Dom("left_wall_walltie_6"),
+left_wall_walltie_7 : new Dom("left_wall_walltie_7"),
+left_wall_walltie_8 : new Dom("left_wall_walltie_8"),
+left_wall_wedge_pin_external_1 : new Dom("left_wall_wedge_pin_external_1"),
+left_wall_wedge_pin_external_10 : new Dom("left_wall_wedge_pin_external_10"),
+left_wall_wedge_pin_external_11 : new Dom("left_wall_wedge_pin_external_11"),
+left_wall_wedge_pin_external_12 : new Dom("left_wall_wedge_pin_external_12"),
+left_wall_wedge_pin_external_2 : new Dom("left_wall_wedge_pin_external_2"),
+left_wall_wedge_pin_external_3 : new Dom("left_wall_wedge_pin_external_3"),
+left_wall_wedge_pin_external_4 : new Dom("left_wall_wedge_pin_external_4"),
+left_wall_wedge_pin_external_5 : new Dom("left_wall_wedge_pin_external_5"),
+left_wall_wedge_pin_external_6 : new Dom("left_wall_wedge_pin_external_6"),
+left_wall_wedge_pin_external_7 : new Dom("left_wall_wedge_pin_external_7"),
+left_wall_wedge_pin_external_8 : new Dom("left_wall_wedge_pin_external_8"),
+left_wall_wedge_pin_external_9 : new Dom("left_wall_wedge_pin_external_9"),
+left_wall_wedge_pin_internal_0 : new Dom("left_wall_wedge_pin_internal_0"),
+left_wall_wedge_pin_internal_1 : new Dom("left_wall_wedge_pin_internal_1"),
+left_wall_wedge_pin_internal_2 : new Dom("left_wall_wedge_pin_internal_2"),
+left_wall_wedge_pin_internal_3 : new Dom("left_wall_wedge_pin_internal_3"),
+left_wall_wedge_pin_internal_4 : new Dom("left_wall_wedge_pin_internal_4"),
+left_wall_wedge_pin_internal_5 : new Dom("left_wall_wedge_pin_internal_5"),
+left_wall_wedge_pin_internal_6 : new Dom("left_wall_wedge_pin_internal_6"),
+left_wall_wedge_pin_internal_7 : new Dom("left_wall_wedge_pin_internal_7"),
+left_wall_wedge_pin_internal_8 : new Dom("left_wall_wedge_pin_internal_8"),
+left_wall_wedge_pin_internal_9 : new Dom("left_wall_wedge_pin_internal_9"),
+roof_beam_1 : new Dom("roof_beam_1"),
+roof_beam_2 : new Dom("roof_beam_2"),
+roof_ct_prop_1 : new Dom("roof_ct_prop_1"),
+roof_ct_prop_2 : new Dom("roof_ct_prop_2"),
+roof_ct_prop_3 : new Dom("roof_ct_prop_3"),
+roof_ct_prop_4 : new Dom("roof_ct_prop_4"),
+roof_panel_1 : new Dom("roof_panel_1"),
+roof_panel_10 : new Dom("roof_panel_10"),
+roof_panel_11 : new Dom("roof_panel_11"),
+roof_panel_12 : new Dom("roof_panel_12"),
+roof_panel_2 : new Dom("roof_panel_2"),
+roof_panel_3 : new Dom("roof_panel_3"),
+roof_panel_4 : new Dom("roof_panel_4"),
+roof_panel_5 : new Dom("roof_panel_5"),
+roof_panel_6 : new Dom("roof_panel_6"),
+roof_panel_7 : new Dom("roof_panel_7"),
+roof_panel_8 : new Dom("roof_panel_8"),
+roof_panel_9 : new Dom("roof_panel_9"),

@@ -1,0 +1,506 @@
+
+
+.qs{
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    /* display: flex; */
+    text-align: center;
+    box-shadow: 1px 1px 5px lime;
+    border-radius: 10px;
+    font-size: 3.5em;
+    font-weight: bolder;
+    color: white;
+    height: 70px;
+    width: 70px;
+    background-color: #05bc57;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+/* * Slider */
+.slider-box {
+    display: flex;
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 10px;
+    flex-direction: column;
+  }
+  .slider-box .slider {
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    font-family: "Times New Roman", Times, serif;
+    background-color: #7937aa;
+    width: 210px;
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+  }
+
+  .slider-box .range-slider {
+    /* display: grid; */
+    display: flex;
+
+    justify-content: center;
+    /* gap: 5px; */
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+  }
+  .slider-box .title {
+    width: 23px;
+    /* text-align: center; */
+  }
+  .slider-box .resistance-input {
+    font-weight: bold;
+    width: 32px;
+  }
+
+/*  table styling */
+.part3_table_one{
+    display: none;
+    border-collapse: collapse;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+.part3_table_one td,tr,th{
+    border: 1px solid black;
+}
+.part3_table_one thead{
+    background-color: #c55a11;
+    color: white;
+}
+.part3_table_one thead tr th{
+    width: 85px;
+}
+.part3_table_one tbody tr{
+    height: 30px;
+}
+.part3_table_one td{
+    text-align: center;
+    font-weight: bold;
+}
+.part3_table_one td:nth-child(2){
+    background-color: #d9d9d9;
+}
+.part3_table_one td:nth-child(3){
+    background-color: #0000ff;
+    color: white;
+}
+.part3_table_one td:nth-child(6){
+    background-color: #00b050;
+    color: white;
+}
+
+/* part3 second table */
+.part3_table_two{
+    /* display: flex; */
+    display: none;
+    bottom: 0px;
+    position: absolute;
+    text-align: center;
+    left: 30px;
+    gap: 20px;
+}
+.part3_table_two table{
+    height: 200px;
+}
+.part3_table_two table thead tr th{
+    width: 70px;
+    padding: 5px;
+}
+.part3_table_two table tbody tr,td{
+    height: 10px!important;
+}
+.part3_table_two table{
+    border-collapse: collapse;
+}
+
+.part3_table_two td,tr,th,td{
+    font-size: 1.05em;
+    border: 1px solid black;
+    font-weight: bold;
+}
+.part3_table_two table thead tr th{
+    background-color: #c55a11;
+}
+
+/* Adding slider of table */
+.part3_table_two .table-slider{
+    position: relative;
+    z-index: 2000;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 2px 2px 1px black;
+}
+.part3_table_two .table-slider .labels{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    font-size: 15px;
+    top: 7px;
+    left: 49px;
+    color: black;
+    font-weight: bolder!important;
+}
+.part3_table_two .table-slider .lines{
+    display: flex;
+    position: absolute;
+    color: black;
+    font-weight: bolder;
+    font-size: 10px;
+    gap: 49px;
+    left: 63px;
+    top: 25px;
+}
+.part3_table_two .table-slider .table-slider-box{
+    display: flex;
+    justify-content: space-evenly;
+    height: 50px;
+    color: white;
+}
+.part3_table_two .table-slider .table-slider-box .title{
+    /* background-color: white;
+    color: red;
+    padding: 1px 4px;
+    border-radius: 5px; */
+    position: relative;
+    top: -3px;
+}
+.part3_table_two .table-slider .table-slider-box input[type=range]{
+    /* width: 180px; */
+    position: relative;
+    top: 13px;
+}
+
+
+/* Color change different */
+.part3_table_two table th{
+    background-color: #c55a11;
+    color: white;
+}
+.part3_table_two table td:nth-child(1){
+    background-color: #d9d9d9;
+}
+
+/* part3  table */
+.part3_table_three{
+    display: none;
+    bottom: 0px;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    gap: 20px;
+    border-collapse: collapse;
+}
+.part3_table_three td,tr,th{
+    border: 1px solid black;
+}
+.part3_table_three thead{
+    background-color: #c55a11;
+    color: white;
+}
+.part3_table_three thead tr th{
+    width: 64px;
+}
+.part3_table_three tbody tr{
+    height: 30px;
+}
+.part3_table_three td{
+    text-align: center;
+    font-weight: bold;
+}
+.part3_table_three td:nth-child(2){
+    background-color: rgb(194, 194, 194);
+}
+.part3_table_three td:nth-child(3){
+    background-color: rgb(194, 194, 194);
+}
+.part3_table_three td:nth-child(4){
+    background-color: rgb(194, 194, 194);
+}
+/* table four */
+.part3_table_four{
+    display: none;
+    bottom: 0px;
+    position: absolute;
+    left: 205px;
+    text-align: center;
+    gap: 20px;
+    border-collapse: collapse;
+}
+.part3_table_four td,tr,th{
+    border: 1px solid black;
+}
+.part3_table_four thead{
+    background-color: #c55a11;
+    color: white;
+}
+.part3_table_four thead tr th{
+    width: 64px;
+}
+.part3_table_four tbody tr{
+    height: 30px;
+}
+.part3_table_four td{
+    text-align: center;
+    font-weight: bold;
+}
+
+/* part 4 two */
+/* table four */
+.part3_table_four_2{
+    display: none;
+    top: 160px;
+    position: absolute;
+    left: 205px;
+    text-align: center;
+    border-collapse: collapse;
+}
+.part3_table_four_2 td,tr,th{
+    border: 1px solid black;
+}
+.part3_table_four_2 thead{
+    background-color: #c55a11;
+    color: white;
+}
+.part3_table_four_2 thead tr th{
+    width: 140px;
+}
+.part3_table_four_2 tbody tr{
+    height: 40px;
+}
+.part3_table_four_2 td{
+    text-align: center;
+    font-weight: bold;
+}
+
+.part3_table_four_2 tbody tr:nth-child(1){
+    color: blue!important;
+}
+.part3_table_four_2 tbody tr:nth-child(2){
+    color: red!important;
+}
+.part3_table_four_2 tbody tr:nth-child(3){
+    color: purple!important;
+}
+.deactive{
+    opacity: 0.5;
+}
+
+.graph_box{
+    position: absolute;
+    right: 10px;
+    top: -70px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px;    
+}
+
+.graph{
+    /* background-color: white; */
+    padding: 5px;
+    /* background-color: #202020; */
+    display: none;
+}
+
+/* ! Next Btn Deactive class */
+.btn-deactive{
+    transition: 1s;
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: rgb(97, 97, 97);
+    box-shadow: 1px 1px 5px black;
+    color: black;
+}
+
+.btn-deactive:hover {
+    box-shadow: none!important;
+}
+
+.btn-deactive:active{
+    opacity: none!important;
+    transform: none!important;
+}
+
+/* * Part 3 table two btns */
+.btn-box1 button{
+    background-color: #0000ff;
+}
+
+.btn-box2 button{
+    background-color: #d26315; 
+}
+.btn-box3 button{
+    background-color: #5d8c3b;
+}
+
+.table-btn{
+    color: white;
+    position: relative;
+    width: 31.5%;
+    padding: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    z-index: 1000;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid black
+}
+.table-btn:hover{
+    border-color: white;
+    transition: 0.2s;
+}
+.table-btn:active{
+    transition: 0s;
+    border-color: black;
+    background-color: black;
+}
+
+/* ! Delte reset */
+.btn-delete{
+    background-color: #ff0505!important;
+    color: white;
+    font-weight: bold;
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    /* top: 360px;
+    left: 10px;  */
+    
+}
+
+.btn-reset{
+    background-color: #0579cc!important;
+    color: white;
+    font-weight: bold;
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    /* top: 360px;
+    left: 120px;  */
+    
+}
+
+.bg-black{
+    background-color: black!important;
+}
+
+/* Record btn */
+.btn-record:hover{
+    opacity: 0.9!important;
+    transform: scale(1.03)!important;
+}
+.btn-record:active{
+    opacity: 0.9!important;
+    transform: scale(0.99)!important;
+}
+
+.theory{
+    height: 495px;
+    width: 950px;
+    top: -46px;
+    left: 0;
+    z-index: 1001;
+}
+
+
+.btn-transparent{
+    display: none;
+    position: absolute;
+    width: 64px;
+    height: 44px;
+    bottom: -95px;
+    right: 3px;
+    /* background-color: red; */
+    z-index: 2001;
+}
+.btn-transparent {
+    display: none;
+    position: absolute;
+    /* width: 64px; */
+    /* height: 48px; */
+    bottom: -95px;
+    right: 1px;
+    /* background-color: red; */
+    font-size: 1.2em;
+    z-index: 2001;
+  }
+  
+  
+  .btn-transparent:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(4px, 4px);
+  }
+
+  /* Pop window */
+  .btn-popup-box{
+    display: flex;
+    position: relative;
+    left: 23px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.619);
+    padding: 0 2px;
+    height: 40px;
+    border-radius: 10px;
+    z-index: 5000;
+  }
+
+  .btn-popup{
+    padding: 5px;
+    margin: 0 2px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor:help;
+    transition: 0.1s;
+  }
+
+  .btn-popup:nth-child(1){
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    background-color: green;
+  }
+  .btn-popup:nth-child(2){
+    background-color: red;
+  }
+  .btn-popup:nth-child(3){
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: blue;
+  }
+
+  .btn-popup:hover ~ .btn-popup-window{
+    display: block!important;
+  }
+  .btn-popup:hover{
+    scale: 0.94;
+    background-color: transparent;
+  }
+  
+  .btn-popup-window{
+    display: none;
+    position: absolute;
+    left: -422px;
+    top: 39px;
+    width: 950px;
+    height: 495px;
+    z-index: 5001;
+  }
+
+  .blur{
+    display: none;
+    top: 45px;
+    z-index: 5000;
+    background-color: rgba(0, 0, 0, 0.389);
+    filter: blur(7px);
+    -webkit-filter: blur(7px);
+  }

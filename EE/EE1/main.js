@@ -4280,7 +4280,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 2
+Scenes.currentStep = 6
 
 Scenes.next()  
 // Scenes.steps[3]()

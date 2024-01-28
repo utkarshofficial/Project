@@ -3154,7 +3154,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
 }
 
 // stepcalling
-Scenes.currentStep = 5
+Scenes.currentStep = 4
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

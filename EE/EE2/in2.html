@@ -1,104 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* * Slider */
-.slider-box {
-    display: flex; 
-    /* display: none; */
-    position: absolute;
-    top: 0;
-    left: 10px;
-    flex-direction: column;
-  }
-  .slider-box .slider {
-    margin: 5px;
-    border-radius: 10px;
-    display: flex;
-    font-family: "Times New Roman", Times, serif;
-    background-color: #7937aa;
-    width: 210px;
-    color: white;
-    font-weight: bolder;
-    padding: 10px;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: sans-serif;
+      padding: 40px;
+    }
+    
+    
+    
+    
+    
+    .range-slider {
+    
+      .input-range {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 200px;
+        border-radius: 5px;
+        background: #ccc;
+        outline: none;
+        writing-mode: bt-lr; /* IE */
+        -webkit-appearance: slider-vertical; /* WebKit */
+      }
+    }
 
-  .slider-box .range-slider {
-    /* display: grid; */
-    display: flex;
-
-    justify-content: center;
-    /* gap: 5px; */
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-  }
-  .slider-box .title {
-    width: 23px;
-    /* text-align: center; */
-  }
-  .slider-box .resistance-input {
-    font-weight: bold;
-    width: 32px;
-  }
-    </style>
+    ::-moz-range-track {
+        background: #ccc;
+        border: 0;
+    }
+    
+    input::-moz-focus-inner { 
+      border: 0; 
+    }       
+    
+    
+    
+  </style>
 </head>
 <body>
-     <!-- * Slider Box -->
-     <div class="slider-box" style="z-index: 1000">
-        <div class="slider slider_vIn">
-          <span class="title">V<sub>in</sub></span>
-          <div class="range-slider">
-            <input
-              class="range-slider__range"
-              type="range"
-              value="12"
-              min="12"
-              max="36"
-              step="12"
-            />
-            <span class="range-slider__value">0</span>
-            <span> V</span>
-          </div>
-        </div>
   
-        <div class="slider slider_D">
-          <span class="title">D</span>
-          <div class="range-slider">
-            <input
-              class="range-slider__range"
-              type="range"
-              value="0.1"
-              min="0.1"
-              max="0.95"
-              step="0.01"
-            />
-            <span class="range-slider__value">0</span>
-            <span></span>
-          </div>
-        </div>
-  
-        <div class="slider slider_R">
-          <span class="title">R</span>
-          <div class="range-slider">
-            <input
-              class="range-slider__range"
-              type="range"
-              value="10"
-              min="10"
-              max="500"
-            />
-            <input
-              value="10"
-              type="input"
-              class="range-slider__value resistance-input"
-            />
-            <span> Ω</span>
-          </div>
-        </div>
-      </div>
+
+  <div class="range-slider">
+    <input class="input-range" orient="vertical" type="range" step="0.5" value="5" min="1" max="10">
+    <span class="range-value"></span>
+</div> 
+
+
+
+
+                                                                                                                                                                                                                 
+
+
+  <script>
+    var range = $('.input-range'),
+    value = $('.range-value');
+    
+value.html(range.attr('value'));
+
+range.on('input', function(){
+    value.html(this.value);
+}); 
+  </script>
 </body>
 </html>

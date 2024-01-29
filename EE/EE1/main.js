@@ -1118,6 +1118,8 @@ formulas_universal : new Dom("formulas_universal"),
                   nextBtnToggle()
                 }
               })
+          setCC("In another example again, the 12 V battery is insufficient to supply the power to the 32 V DC-Bulb and hence it won’t glow")
+
             },
           ]
 
@@ -1157,6 +1159,7 @@ formulas_universal : new Dom("formulas_universal"),
           
           pages = [
             ()=>{
+              setCC("Series connection of batteries is not feasible when the load voltage requirement is not an integral multiple of battery voltage.")
               tempI = 0
               topIdx = -45
               leftIdx = 0
@@ -1325,6 +1328,8 @@ formulas_universal : new Dom("formulas_universal"),
                 begin(){
                   Scenes.items.slide_5_page_3_1_text_1.hide()
                   fadeAnime(Scenes.items.slide_5_page_3_6_emoji)
+              setCC("Here, three batteries in series provides 36 V which is higher than the 32 V DC-bulb voltage and hence not advisable to connect as demonstrated here")
+
                 }
               })
               .add({
@@ -1387,6 +1392,7 @@ formulas_universal : new Dom("formulas_universal"),
               })
               .add({
                 begin(){
+                  setCC("The need of voltage boosting as per the load requirement is demonstrated here.")
                   let target = Scenes.items.slide_6_page_3_2_emoji_blink
                   fadeAnime(target)
                   blinkAnime(target)
@@ -1406,7 +1412,10 @@ formulas_universal : new Dom("formulas_universal"),
           fadeAnime(Scenes.items.slide_7_page_1_2,
             ()=>{},()=>{
               fadeAnime(Scenes.items.slide_7_page_1_3,
-                ()=>{},
+  
+                ()=>{
+                  setCC("A DC-DC boost converter is more appropriate to boost the 12 V battery voltage to power the 32 V DC-Bulb.")
+                },
                 ()=>{
                   nextBtnToggle()
                 })
@@ -1468,6 +1477,7 @@ formulas_universal : new Dom("formulas_universal"),
               .add({
                 begin(){
                   fadeAnime(Scenes.items.slide_8_page_3_5_text)
+                  setCC("In both the examples, DC-DC boost converter adjusts the load voltage to the desired magnitude.")
                 },
                 complete(){
                   nextBtnToggle()
@@ -1577,6 +1587,7 @@ formulas_universal : new Dom("formulas_universal"),
               .add({
                 delay: 3000,
                 complete(){
+                  setCC("The inductor used in DC-DC converter circuits satisfies volt-sec balance, stores and releases the energy due to switching action and its voltage polarity changes")
                   fadeAnime(Scenes.items.slide_10_page_4_4_arrow,
                     ()=>{},
                     ()=>{
@@ -1631,6 +1642,7 @@ formulas_universal : new Dom("formulas_universal"),
               })
               .add({
                 begin(){
+                  setCC("The “Capacitor” used in DC-DC converter circuits satisfies “Charge-sec” balance, stores and releases the energy due to switching action and its current direction changes.")
                   fadeAnime(Scenes.items.slide_11_page_3_1)
                   nextBtnToggle()
                 },
@@ -1725,6 +1737,7 @@ formulas_universal : new Dom("formulas_universal"),
               })
               .add({
                 begin(){
+                  setCC("A controlled switch (MOSFET/IGBT) under forward biased condition, starts conducting against “High PWM signal” and turns-OFF with “Low PWM signal”.")
                   fadeAnime(Scenes.items.slide_12_page_3_4_text_2)
                 },
                 complete(){
@@ -1804,6 +1817,7 @@ formulas_universal : new Dom("formulas_universal"),
               })
               .add({
                 begin(){
+                  setCC("An uncontrolled diode “conducts” under forward biased condition and acts as “Open circuit” under reverse biased condition.")
                   fadeAnime(Scenes.items.slide_13_page_3_5_text)
                 },
                 complete(){
@@ -1902,6 +1916,7 @@ formulas_universal : new Dom("formulas_universal"),
               })
               .add({
                 begin(){
+                  set("The boost converter operation under switch-ON condition is displayed where the inductor is drawing the energy from the input “Battery source”.")
                   anime({
                     targets: Scenes.items.slide_13_page_3_1_plus.item,
                     easing: "linear",
@@ -2012,6 +2027,7 @@ formulas_universal : new Dom("formulas_universal"),
               })
               .add({
                 begin(){
+                  setCC("As soon as the switch turns-OFF, the voltage polarity across the inductor changes which makes the “Diode” start conducting and load receives the energy.")
                   fadeAnime(Scenes.items.slide_15_page_3_1_arrow_and_text.zIndex(zIndex),()=>{
                     Scenes.items.slide_15_page_3_1_white.show()
                   })
@@ -4280,7 +4296,7 @@ $(".resistance-input").on("keyup", () => {
 rangeSlider();
 
 // stepcalling
-Scenes.currentStep = 6
+Scenes.currentStep = 1
 
 Scenes.next()  
 // Scenes.steps[3]()

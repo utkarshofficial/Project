@@ -935,7 +935,7 @@ formulas_universal : new Dom("formulas_universal"),
       };
       return true;
       }),
-    (objective = function () {
+    (conceptDevelopment = function () {
       setIsProcessRunning(true);
       Dom.hideAll()
       
@@ -1219,10 +1219,11 @@ formulas_universal : new Dom("formulas_universal"),
                   ()=>{},
                   ()=>{
                     nextBtnToggle()
+                    setCC("Series connection of batteries is not feasible when the load voltage requirement is not an integral multiple of battery voltage.")
+
                   })
                 }
               })
-              setCC("Series connection of batteries is not feasible when the load voltage requirement is not an integral multiple of battery voltage.")
 
             },
           ]
@@ -1343,12 +1344,13 @@ formulas_universal : new Dom("formulas_universal"),
                 },
                 complete(){
                   nextBtnToggle()
+              setCC("Here, three batteries in series provides 36 V which is higher than the 32 V DC-bulb voltage and hence not advisable to connect as demonstrated here")
+
                 }
               })
             },
             ()=>{
               Scenes.items.slide_5_page_4_1_text_1.show()
-              setCC("Here, three batteries in series provides 36 V which is higher than the 32 V DC-bulb voltage and hence not advisable to connect as demonstrated here")
             },
           ]
 
@@ -1389,11 +1391,11 @@ formulas_universal : new Dom("formulas_universal"),
                 begin(){
                   fadeAnime(Scenes.items.slide_6_page_3_1_text_1)
                   nextBtnToggle()
+                  setCC("The need of voltage boosting as per the load requirement is demonstrated here.")
                 }
               })
               .add({
                 begin(){
-                  setCC("The need of voltage boosting as per the load requirement is demonstrated here.")
                   let target = Scenes.items.slide_6_page_3_2_emoji_blink
                   fadeAnime(target)
                   blinkAnime(target)
@@ -1415,10 +1417,11 @@ formulas_universal : new Dom("formulas_universal"),
               fadeAnime(Scenes.items.slide_7_page_1_3,
   
                 ()=>{
-                  setCC("A DC-DC boost converter is more appropriate to boost the 12 V battery voltage to power the 32 V DC-Bulb.")
                 },
                 ()=>{
                   nextBtnToggle()
+                  setCC("A DC-DC boost converter is more appropriate to boost the 12 V battery voltage to power the 32 V DC-Bulb.")
+
                 })
             })
 

@@ -1159,7 +1159,6 @@ formulas_universal : new Dom("formulas_universal"),
           
           pages = [
             ()=>{
-              setCC("Series connection of batteries is not feasible when the load voltage requirement is not an integral multiple of battery voltage.")
               tempI = 0
               topIdx = -45
               leftIdx = 0
@@ -1223,6 +1222,8 @@ formulas_universal : new Dom("formulas_universal"),
                   })
                 }
               })
+              setCC("Series connection of batteries is not feasible when the load voltage requirement is not an integral multiple of battery voltage.")
+
             },
           ]
 
@@ -1328,7 +1329,6 @@ formulas_universal : new Dom("formulas_universal"),
                 begin(){
                   Scenes.items.slide_5_page_3_1_text_1.hide()
                   fadeAnime(Scenes.items.slide_5_page_3_6_emoji)
-              setCC("Here, three batteries in series provides 36 V which is higher than the 32 V DC-bulb voltage and hence not advisable to connect as demonstrated here")
 
                 }
               })
@@ -1348,6 +1348,7 @@ formulas_universal : new Dom("formulas_universal"),
             },
             ()=>{
               Scenes.items.slide_5_page_4_1_text_1.show()
+              setCC("Here, three batteries in series provides 36 V which is higher than the 32 V DC-bulb voltage and hence not advisable to connect as demonstrated here")
             },
           ]
 
@@ -1881,6 +1882,7 @@ formulas_universal : new Dom("formulas_universal"),
               .add({
                 begin(){
                   let timeFrame = 1700
+                  //ball rotate anime
                   anime({
                     targets: Scenes.items.slide_14_page_1_ball.item,
                     keyframes: [
@@ -2086,7 +2088,6 @@ formulas_universal : new Dom("formulas_universal"),
                           complete(){
                             setIsProcessRunning(false);
                             Dom.setBlinkArrow(true, 790, 414).play();
-                            setCC("Click 'Next' to go to next step");
                           }
                         })
                       })

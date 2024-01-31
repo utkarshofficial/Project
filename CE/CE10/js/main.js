@@ -941,192 +941,160 @@ template_img : new Dom("template_img"),
 
       //! Required Items
      
-
       // ! final pos
-
-      // //panels
-      // Scenes.items.front_panel_1.set(0,0)
-      // Scenes.items.front_panel_2.set(0,0)
-      // Scenes.items.front_panel_3.set(0,0)
-      // Scenes.items.front_panel_4.set(0,0)
-      // Scenes.items.front_panel_5.set(0,0)
-      // Scenes.items.front_panel_6.set(0,0)
-      // Scenes.items.front_panel_7.set(0,0)
-      // Scenes.items.front_panel_8.set(0,0)
-
-      // // wedge pins
-      // Scenes.items.front_wedge_pin_1.set(0,0)
-      // Scenes.items.front_wedge_pin_2.set(0,0)
-      // Scenes.items.front_wedge_pin_3.set(0,0)
-      // Scenes.items.front_wedge_pin_4.set(0,0)
-      // Scenes.items.front_wedge_pin_5.set(0,0)
-      // Scenes.items.front_wedge_pin_6.set(0,0)
-      // Scenes.items.front_wedge_pin_7.set(0,0)
-      // Scenes.items.front_wedge_pin_8.set(0,0)
-      // Scenes.items.front_wedge_pin_9.set(0,0)
-      // Scenes.items.front_wedge_pin_10.set(0,0)
-      // Scenes.items.front_wedge_pin_11.set(0,0)
-      // Scenes.items.front_wedge_pin_12.set(0,0)      
-      // Scenes.items.front_wedge_pin_13.set(0,0)
-      // Scenes.items.front_wedge_pin_14.set(0,0)
-
-      // //props
-      // Scenes.items.front_ct_prop_1.set(0,0).zIndex(1)
-      // Scenes.items.front_ct_prop_2.set(0,0).zIndex(1)
-      // Scenes.items.front_ct_prop_base_1.set(0,0).zIndex(1)
-      // Scenes.items.front_ct_prop_pin_1.set(0,0).zIndex(1)
-      // Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(1)
-
-      
-      // Scenes.items.front_ct_prop_3.set(0,0).zIndex(1)
-      // Scenes.items.front_ct_prop_4.set(0,0).zIndex(1)
-      // Scenes.items.front_ct_prop_base_2.set(0,0).zIndex(1)
-      // Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(1)
-      // Scenes.items.front_ct_prop_pin_4.set(0,0).zIndex(1)
-
-
 
       // content adder
       Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
       Scenes.contentAdderAddBtn("Panel")
       Scenes.contentAdderAddBtn("Wedge Pin")
       Scenes.contentAdderAddBtn("Props")
-      Scenes.contentAdderAddBtn("Repeat")
       
-
+      
       //!Final position 
-      let internalSoffit = [
-        Scenes.items.left_wall_soffit_internal_1.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_2.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_3.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_4.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_5.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_6.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_7.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_8.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_9.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_10.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_11.set(0,0).zIndex(65).hide(),
+      let panels = [
+        Scenes.items.front_panel_1.set(0,0).zIndex(2).hide(),
+        Scenes.items.front_panel_2.set(0,0).zIndex(2).hide(),
+        Scenes.items.front_panel_3.set(0,0).zIndex(2).hide(),
+        Scenes.items.front_panel_4.set(0,0).zIndex(2).hide(),
+        Scenes.items.front_panel_5.set(0,0).zIndex(2).hide(),
+        Scenes.items.front_panel_6.set(0,0).zIndex(2).hide(),
+        Scenes.items.front_panel_7.set(0,0).zIndex(2).hide(),
+        Scenes.items.front_panel_8.set(0,0).zIndex(2).hide(),
       ]
 
-      let internalWedgePin = [
-        Scenes.items.left_wall_soffit_internal_wedge_pin_1.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_2.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_3.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_4.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_5.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_6.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_7.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_8.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_9.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_10.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_11.set(0,0).zIndex(70).hide(),
+      let pins = [
+      Scenes.items.front_wedge_pin_1.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_2.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_3.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_4.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_5.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_6.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_7.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_8.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_9.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_10.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_11.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_12.set(0,0).zIndex(3).hide(),      
+      Scenes.items.front_wedge_pin_13.set(0,0).zIndex(3).hide(),
+      Scenes.items.front_wedge_pin_14.set(0,0).zIndex(3).hide(),
       ]
-
+      
+      let props = [
+        Scenes.items.front_ct_prop_base_1.set(0,0).zIndex(4).hide(),
+      Scenes.items.front_ct_prop_1.set(0,0).zIndex(4).hide(),
+      Scenes.items.front_ct_prop_2.set(0,0).zIndex(4).hide(),
+      Scenes.items.front_ct_prop_pin_1.set(0,0).zIndex(4).hide(),
+      Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(4).hide(),
+      
+      
+      Scenes.items.front_ct_prop_base_2.set(0,0).zIndex(4).hide(),
+      Scenes.items.front_ct_prop_3.set(0,0).zIndex(4).hide(),
+      Scenes.items.front_ct_prop_4.set(0,0).zIndex(4).hide(),
+      Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(4).hide(),
+      Scenes.items.front_ct_prop_pin_4.set(0,0).zIndex(4).hide(),
+      ]
+ 
+      
+      
       let menuItemAnimes = [
-        // Internal soffit anime
+        // panel anime
         ()=>{
-          let target = Scenes.items.left_wall_panel_soffit_internal_1.set(80,-60).zIndex(65)
-
-          anime({
-            targets: target.item,
-            keyframes: [
-              {
-                begin(){
-                  // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
-                },
-                duration: 0,
-              },
-              {left: 0},
-              {top: 0}
-            ],
-            easing: 'easeInOutQuad',
-            duration: 2000,
-          })
-        },
-        // Internal wedge pin
-        ()=>{
-          let target = Scenes.items.left_wall_soffit_internal_wedge_pin_11.set(80,-60).zIndex(70)
-          anime({
-            targets: target.item,
-            keyframes: [
-              {
-                begin(){
-                  // Scenes.items.left_wall_panel_external_1.set(-60,-30)
-                },
-                duration: 0,
-              },
-              {left: 0},
-              {top: 0}
-            ],
-            easing: 'easeInOutQuad',
-            duration: 2000,
-          })
-        },
-        // repeat anime btn
-        ()=>{
-          function allAnimeRecursive(idx=0){
-            if(idx == internalSoffit.length){
-              return
+          function panelAnime(idx=0){
+            if(idx == panels.length){
+              setCC("Click on the 'Wedge Pin' to attach panels together.");      
+              Dom.setBlinkArrow(true, 720,15).play();
+              return;
             }
-            let defSetL = 80
-            let defSetT = -60
-
-            anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 2000,
-            })
-            .add({
-              targets: internalSoffit[idx].item,
+            let target = panels[idx].set(-480,0)
+            anime({
+              targets: target.item,
               keyframes: [
                 {
                   begin(){
-                    internalSoffit[idx].set(defSetL,defSetT)
+                    // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
                   },
                   duration: 0,
                 },
                 {left: 0},
                 {top: 0}
               ],
+              easing: 'easeInOutQuad',
+              duration: 2000,
+              complete(){
+                panelAnime(idx+1);
+              }
             })
-            .add({
-              targets: internalWedgePin[idx].item,
+
+            
+          }
+          panelAnime();
+        },
+        // wedge pin
+        ()=>{
+          function wedgePinAnime(idx=0){
+            if(idx == pins.length){
+              setCC("Click on the 'props' to support pannels.");      
+              Dom.setBlinkArrow(true, 720,65).play();
+              return;
+            }
+            let target = pins[idx].set(-480,0)
+            anime({
+              targets: target.item,
               keyframes: [
                 {
                   begin(){
-                    internalWedgePin[idx].set(defSetL,defSetT)
+                    // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
                   },
                   duration: 0,
                 },
-                {top: 0},
                 {left: 0},
+                {top: 0}
               ],
+              easing: 'easeInOutQuad',
+              duration: 2000,
               complete(){
-                allAnimeRecursive(idx+1)
+                wedgePinAnime(idx+1);
               }
             })
+
+            
           }
-          allAnimeRecursive()
+          wedgePinAnime();
         },
-         // External soffit anime
-         ()=>{
-          let target = Scenes.items.left_wall_soffit_external.set(80,-60).zIndex(71)
-          anime({
-            targets: target.item,
-            keyframes: [
-              {
-                begin(){
-                  // Scenes.items.left_wall_wedge_pin_external_1.set(-60,-30)
+        // props anime
+        ()=>{
+          function propAnime(idx=0){
+            if(idx == props.length){
+              setCC("Click 'Next' to go to next step");
+              Dom.setBlinkArrow(true, 790, 408).play();
+              setIsProcessRunning(false);
+              return;
+            }
+            let target = props[idx].set(-480,0)
+            anime({
+              targets: target.item,
+              keyframes: [
+                {
+                  begin(){
+                    // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
+                  },
+                  duration: 0,
                 },
-                duration: 0,
-              },
-              {top: 0},
-              {left: 0},
-            ],
-            easing: 'easeInOutQuad',
-            duration: 2000,
-          })
-        }
+                {left: 0},
+                {top: 0}
+              ],
+              easing: 'easeInOutQuad',
+              duration: 2000,
+              complete(){
+                propAnime(idx+1);
+              }
+            })
+
+            
+          }
+          propAnime();
+        },
+
       ]
 
         // Attaching onclick functions with menu
@@ -1138,11 +1106,9 @@ template_img : new Dom("template_img"),
           }
         })
       
-      setCC("Click on the 'Sheathing' to add sheathing in the lab.");      
+      setCC("Click on the 'Panel' to add panels in the lab.");      
       Dom.setBlinkArrow(true, 720,-35).play();
-    // setCC("Click 'Next' to go to next step");
-        //   Dom.setBlinkArrow(true, 790, 408).play();
-        //   setIsProcessRunning(false);
+  
         //   anime({
         //     duration: 1000,
         //     complete(){
@@ -1165,216 +1131,149 @@ template_img : new Dom("template_img"),
       //! Required Items from previous steps
       
       //panels
-      Scenes.items.front_panel_1.set(0,0)
-      Scenes.items.front_panel_2.set(0,0)
-      Scenes.items.front_panel_3.set(0,0)
-      Scenes.items.front_panel_4.set(0,0)
-      Scenes.items.front_panel_5.set(0,0)
-      Scenes.items.front_panel_6.set(0,0)
-      Scenes.items.front_panel_7.set(0,0)
-      Scenes.items.front_panel_8.set(0,0)
+      Scenes.items.front_panel_1.set(0,0).zIndex(2)
+      Scenes.items.front_panel_2.set(0,0).zIndex(2)
+      Scenes.items.front_panel_3.set(0,0).zIndex(2)
+      Scenes.items.front_panel_4.set(0,0).zIndex(2)
+      Scenes.items.front_panel_5.set(0,0).zIndex(2)
+      Scenes.items.front_panel_6.set(0,0).zIndex(2)
+      Scenes.items.front_panel_7.set(0,0).zIndex(2)
+      Scenes.items.front_panel_8.set(0,0).zIndex(2)
 
       // wedge pins
-      Scenes.items.front_wedge_pin_1.set(0,0)
-      Scenes.items.front_wedge_pin_2.set(0,0)
-      Scenes.items.front_wedge_pin_3.set(0,0)
-      Scenes.items.front_wedge_pin_4.set(0,0)
-      Scenes.items.front_wedge_pin_5.set(0,0)
-      Scenes.items.front_wedge_pin_6.set(0,0)
-      Scenes.items.front_wedge_pin_7.set(0,0)
-      Scenes.items.front_wedge_pin_8.set(0,0)
-      Scenes.items.front_wedge_pin_9.set(0,0)
-      Scenes.items.front_wedge_pin_10.set(0,0)
-      Scenes.items.front_wedge_pin_11.set(0,0)
-      Scenes.items.front_wedge_pin_12.set(0,0)      
-      Scenes.items.front_wedge_pin_13.set(0,0)
-      Scenes.items.front_wedge_pin_14.set(0,0)
+      Scenes.items.front_wedge_pin_1.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_2.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_3.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_4.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_5.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_6.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_7.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_8.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_9.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_10.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_11.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_12.set(0,0).zIndex(3)      
+      Scenes.items.front_wedge_pin_13.set(0,0).zIndex(3)
+      Scenes.items.front_wedge_pin_14.set(0,0).zIndex(3)
 
       //props
-      Scenes.items.front_ct_prop_1.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_2.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_base_1.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_pin_1.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(1)
+      Scenes.items.front_ct_prop_1.set(0,0).zIndex(4)
+      Scenes.items.front_ct_prop_2.set(0,0).zIndex(4)
+      Scenes.items.front_ct_prop_base_1.set(0,0).zIndex(4)
+      Scenes.items.front_ct_prop_pin_1.set(0,0).zIndex(4)
+      Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(4)
 
       
-      Scenes.items.front_ct_prop_3.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_4.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_base_2.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_pin_4.set(0,0).zIndex(1)
-
-      // ! final pos
-
-      Scenes.items.front_connector_1.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_1.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_2.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_2.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_3.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_3.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_4.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_4.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_5.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_5.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_6.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_6.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_7.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_7.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_8.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_8.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_9.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_9.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_10.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_10.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_11.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_11.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_12.set(400, 40).zIndex(10)
-      Scenes.items.front_connector_nut_12.set(400, 40).zIndex(10)
-
-
-
+      Scenes.items.front_ct_prop_3.set(0,0).zIndex(4)
+      Scenes.items.front_ct_prop_4.set(0,0).zIndex(4)
+      Scenes.items.front_ct_prop_base_2.set(0,0).zIndex(4)
+      Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(4)
+      Scenes.items.front_ct_prop_pin_4.set(0,0).zIndex(4)
 
 
       // content adder
       Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
       Scenes.contentAdderAddBtn("Connector")
       Scenes.contentAdderAddBtn("Nut")
-      Scenes.contentAdderAddBtn("Repeat")
       
 
       //!Final position 
-      let internalSoffit = [
-        Scenes.items.left_wall_soffit_internal_1.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_2.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_3.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_4.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_5.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_6.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_7.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_8.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_9.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_10.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_11.set(0,0).zIndex(65).hide(),
+      let Connectors= [
+        Scenes.items.front_connector_1.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_2.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_3.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_4.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_5.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_6.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_7.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_8.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_9.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_10.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_11.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_12.set(400, 40).zIndex(5).hide(),
       ]
 
-      let internalWedgePin = [
-        Scenes.items.left_wall_soffit_internal_wedge_pin_1.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_2.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_3.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_4.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_5.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_6.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_7.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_8.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_9.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_10.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_11.set(0,0).zIndex(70).hide(),
+      let nuts = [
+        Scenes.items.front_connector_nut_1.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_2.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_3.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_4.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_5.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_6.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_7.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_8.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_9.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_10.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_11.set(400, 40).zIndex(5).hide(),
+        Scenes.items.front_connector_nut_12.set(400, 40).zIndex(5).hide(),
       ]
 
       let menuItemAnimes = [
-        // Internal soffit anime
+        // connectors anime
         ()=>{
-          let target = Scenes.items.left_wall_panel_soffit_internal_1.set(80,-60).zIndex(65)
-
-          anime({
-            targets: target.item,
-            keyframes: [
-              {
-                begin(){
-                  // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
-                },
-                duration: 0,
-              },
-              {left: 0},
-              {top: 0}
-            ],
-            easing: 'easeInOutQuad',
-            duration: 2000,
-          })
-        },
-        // Internal wedge pin
-        ()=>{
-          let target = Scenes.items.left_wall_soffit_internal_wedge_pin_11.set(80,-60).zIndex(70)
-          anime({
-            targets: target.item,
-            keyframes: [
-              {
-                begin(){
-                  // Scenes.items.left_wall_panel_external_1.set(-60,-30)
-                },
-                duration: 0,
-              },
-              {left: 0},
-              {top: 0}
-            ],
-            easing: 'easeInOutQuad',
-            duration: 2000,
-          })
-        },
-        // repeat anime btn
-        ()=>{
-          function allAnimeRecursive(idx=0){
-            if(idx == internalSoffit.length){
-              return
+          function connectorAnime(idx=0){
+            if(idx == Connectors.length){
+              setCC("Click on the 'Nut' to tie connectors.");      
+              Dom.setBlinkArrow(true, 720,15).play();
+              return;
             }
-            let defSetL = 80
-            let defSetT = -60
-
-            anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 2000,
-            })
-            .add({
-              targets: internalSoffit[idx].item,
+            let target = Connectors[idx].set(-480,0)
+            anime({
+              targets: target.item,
               keyframes: [
                 {
                   begin(){
-                    internalSoffit[idx].set(defSetL,defSetT)
+                    // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
                   },
                   duration: 0,
                 },
                 {left: 0},
                 {top: 0}
               ],
+              easing: 'easeInOutQuad',
+              duration: 2000,
+              complete(){
+                connectorAnime(idx+1);
+              }
             })
-            .add({
-              targets: internalWedgePin[idx].item,
+
+            
+          }
+          connectorAnime();
+        },
+        // nut anime
+        ()=>{
+          function nutAnime(idx=0){
+            if(idx == nuts.length){
+              setCC("Click 'Next' to go to next step");
+              Dom.setBlinkArrow(true, 790, 408).play();
+              setIsProcessRunning(false);
+              return;
+            }
+            let target = nuts[idx].set(-480,0)
+            anime({
+              targets: target.item,
               keyframes: [
                 {
                   begin(){
-                    internalWedgePin[idx].set(defSetL,defSetT)
+                    // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
                   },
                   duration: 0,
                 },
-                {top: 0},
                 {left: 0},
+                {top: 0}
               ],
+              easing: 'easeInOutQuad',
+              duration: 2000,
               complete(){
-                allAnimeRecursive(idx+1)
+                nutAnime(idx+1);
               }
             })
+
+            
           }
-          allAnimeRecursive()
+          nutAnime();
         },
-         // External soffit anime
-         ()=>{
-          let target = Scenes.items.left_wall_soffit_external.set(80,-60).zIndex(71)
-          anime({
-            targets: target.item,
-            keyframes: [
-              {
-                begin(){
-                  // Scenes.items.left_wall_wedge_pin_external_1.set(-60,-30)
-                },
-                duration: 0,
-              },
-              {top: 0},
-              {left: 0},
-            ],
-            easing: 'easeInOutQuad',
-            duration: 2000,
-          })
-        }
       ]
 
         // Attaching onclick functions with menu
@@ -1386,11 +1285,9 @@ template_img : new Dom("template_img"),
           }
         })
       
-      setCC("Click on the 'Sheathing' to add sheathing in the lab.");      
+      setCC("Click on the 'Connector' and attach it with panels.");      
       Dom.setBlinkArrow(true, 720,-35).play();
-    // setCC("Click 'Next' to go to next step");
-        //   Dom.setBlinkArrow(true, 790, 408).play();
-        //   setIsProcessRunning(false);
+  
         //   anime({
         //     duration: 1000,
         //     complete(){
@@ -1412,71 +1309,72 @@ template_img : new Dom("template_img"),
 
       //! Required Items from previous steps
       
-      //panels
-      Scenes.items.front_panel_1.set(0,0)
-      Scenes.items.front_panel_2.set(0,0)
-      Scenes.items.front_panel_3.set(0,0)
-      Scenes.items.front_panel_4.set(0,0)
-      Scenes.items.front_panel_5.set(0,0)
-      Scenes.items.front_panel_6.set(0,0)
-      Scenes.items.front_panel_7.set(0,0)
-      Scenes.items.front_panel_8.set(0,0)
+    //panels
+    Scenes.items.front_panel_1.set(0,0).zIndex(2)
+    Scenes.items.front_panel_2.set(0,0).zIndex(2)
+    Scenes.items.front_panel_3.set(0,0).zIndex(2)
+    Scenes.items.front_panel_4.set(0,0).zIndex(2)
+    Scenes.items.front_panel_5.set(0,0).zIndex(2)
+    Scenes.items.front_panel_6.set(0,0).zIndex(2)
+    Scenes.items.front_panel_7.set(0,0).zIndex(2)
+    Scenes.items.front_panel_8.set(0,0).zIndex(2)
 
-      // wedge pins
-      Scenes.items.front_wedge_pin_1.set(0,0)
-      Scenes.items.front_wedge_pin_2.set(0,0)
-      Scenes.items.front_wedge_pin_3.set(0,0)
-      Scenes.items.front_wedge_pin_4.set(0,0)
-      Scenes.items.front_wedge_pin_5.set(0,0)
-      Scenes.items.front_wedge_pin_6.set(0,0)
-      Scenes.items.front_wedge_pin_7.set(0,0)
-      Scenes.items.front_wedge_pin_8.set(0,0)
-      Scenes.items.front_wedge_pin_9.set(0,0)
-      Scenes.items.front_wedge_pin_10.set(0,0)
-      Scenes.items.front_wedge_pin_11.set(0,0)
-      Scenes.items.front_wedge_pin_12.set(0,0)      
-      Scenes.items.front_wedge_pin_13.set(0,0)
-      Scenes.items.front_wedge_pin_14.set(0,0)
+    // wedge pins
+    Scenes.items.front_wedge_pin_1.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_2.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_3.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_4.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_5.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_6.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_7.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_8.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_9.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_10.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_11.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_12.set(0,0).zIndex(3)      
+    Scenes.items.front_wedge_pin_13.set(0,0).zIndex(3)
+    Scenes.items.front_wedge_pin_14.set(0,0).zIndex(3)
 
-      //props
-      Scenes.items.front_ct_prop_1.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_2.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_base_1.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_pin_1.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(1)
+    //props
+    Scenes.items.front_ct_prop_1.set(0,0).zIndex(4)
+    Scenes.items.front_ct_prop_2.set(0,0).zIndex(4)
+    Scenes.items.front_ct_prop_base_1.set(0,0).zIndex(4)
+    Scenes.items.front_ct_prop_pin_1.set(0,0).zIndex(4)
+    Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(4)
 
-      
-      Scenes.items.front_ct_prop_3.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_4.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_base_2.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(1)
-      Scenes.items.front_ct_prop_pin_4.set(0,0).zIndex(1)
+    
+    Scenes.items.front_ct_prop_3.set(0,0).zIndex(4)
+    Scenes.items.front_ct_prop_4.set(0,0).zIndex(4)
+    Scenes.items.front_ct_prop_base_2.set(0,0).zIndex(4)
+    Scenes.items.front_ct_prop_pin_2.set(0,0).zIndex(4)
+    Scenes.items.front_ct_prop_pin_4.set(0,0).zIndex(4)
 
 
-      Scenes.items.front_connector_1.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_1.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_2.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_2.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_3.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_3.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_4.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_4.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_5.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_5.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_6.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_6.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_7.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_7.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_8.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_8.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_9.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_9.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_10.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_10.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_11.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_nut_11.set(0, 0).zIndex(2)
-      Scenes.items.front_connector_12.set(0, 0).zIndex(3)
-      Scenes.items.front_connector_nut_12.set(0, 40).zIndex(3)
+
+      Scenes.items.front_connector_1.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_1.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_2.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_2.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_3.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_3.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_4.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_4.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_5.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_5.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_6.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_6.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_7.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_7.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_8.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_8.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_9.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_9.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_10.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_10.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_11.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_11.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_12.set(0, 0).zIndex(5)
+      Scenes.items.front_connector_nut_12.set(0, 40).zIndex(5)
 
       //!final position
 
@@ -1484,64 +1382,163 @@ template_img : new Dom("template_img"),
 
       Scenes.items.left_stop_end.set(0,0)
 
-      Scenes.items.left_stop_end_waler_1.set(0,0)
-      Scenes.items.left_stop_end_waler_1_nut.set(0,0)
-      
-      Scenes.items.left_stop_end_waler_2.set(0,0)
-      Scenes.items.left_stop_end_waler_2_nut.set(0,0)
+      Scenes.items.left_stop_end_waler_1.set(0,0).zIndex(3)
+      Scenes.items.left_stop_end_waler_2.set(0,0).zIndex(3)
 
+      Scenes.items.left_stop_end_waler_1_nut.set(0,0).zIndex(4)
+      Scenes.items.left_stop_end_waler_2_nut.set(0,0).zIndex(4)
 
       Scenes.items.right_stop_end_full.set(0,0)
-
-
-
-
-
 
       // content adder
       Scenes.items.contentAdderBox.set(null, -50).show("flex").push();
       Scenes.contentAdderAddBtn("Back Wall")
-      Scenes.contentAdderAddBtn("Stop End")
+      Scenes.contentAdderAddBtn("Left Stop End")
       Scenes.contentAdderAddBtn("Waler")
       Scenes.contentAdderAddBtn("Nut")
-      
-
-      //!Final position 
-      let internalSoffit = [
-        Scenes.items.left_wall_soffit_internal_1.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_2.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_3.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_4.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_5.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_6.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_7.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_8.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_9.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_10.set(0,0).zIndex(65).hide(),
-        Scenes.items.left_wall_soffit_internal_11.set(0,0).zIndex(65).hide(),
-      ]
-
-      let internalWedgePin = [
-        Scenes.items.left_wall_soffit_internal_wedge_pin_1.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_2.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_3.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_4.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_5.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_6.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_7.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_8.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_9.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_10.set(0,0).zIndex(70).hide(),
-        Scenes.items.left_wall_soffit_internal_wedge_pin_11.set(0,0).zIndex(70).hide(),
-      ]
+      Scenes.contentAdderAddBtn("Right Stop End")
 
       let menuItemAnimes = [
-        // Internal soffit anime
+        // back wall anime
         ()=>{
-          let target = Scenes.items.left_wall_panel_soffit_internal_1.set(80,-60).zIndex(65)
+            let target = Scenes.items.back_wall_full.set(-480,-20)
+            anime({
+              targets: target.item,
+              keyframes: [
+                {
+                  begin(){
+                    // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
+                  },
+                  duration: 0,
+                },
+                {top: 0},
+                {left: 0},
+              ],
+              easing: 'easeInOutQuad',
+              duration: 2000,
+              complete(){
+                setCC("Click on the 'Left Stop End' and attach it with wall.");      
+                Dom.setBlinkArrow(true, 695,15).play();
+              }
+            })
 
+            
+          },
+        // left stop end anime
+        ()=>{
+            let target = Scenes.items.left_stop_end.set(-480,-20)
+            anime({
+              targets: target.item,
+              keyframes: [
+                {
+                  begin(){
+                    // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
+                  },
+                  duration: 0,
+                },
+                {top: 0},
+                {left: 0},
+              ],
+              easing: 'easeInOutQuad',
+              duration: 2000,
+              complete(){
+                setCC("Click on the 'Waler' and attach it with stop end.");      
+                Dom.setBlinkArrow(true, 695,65).play();
+
+              }
+            })
+
+            
+          },
+        // waler anime
+        ()=>{
+            let target = Scenes.items.left_stop_end_waler_1.set(-480,0)
+            anime({
+              targets: target.item,
+              keyframes: [
+                {
+                  begin(){
+                    // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
+                  },
+                  duration: 0,
+                },
+                {left: 0},
+                {top: 0}
+              ],
+              easing: 'easeInOutQuad',
+              duration: 2000,
+              complete(){
+                anime({
+                  targets: Scenes.items.left_stop_end_waler_2.set(-480,0),
+                  keyframes: [
+                    {
+                      begin(){
+                        // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
+                      },
+                      duration: 0,
+                    },
+                    {left: 0},
+                    {top: 0}
+                  ],
+                  easing: 'easeInOutQuad',
+                  duration: 2000,
+                  complete(){
+                    setCC("Click on the 'Nut' and attach it with waler.");      
+                    Dom.setBlinkArrow(true, 695,115).play();
+                  }
+                })
+
+              }
+            })
+
+            
+          },
+        // nut anime
+        ()=>{
+            let target = Scenes.items.left_stop_end_waler_1_nut.set(-480,0)
+            anime({
+              targets: target.item,
+              keyframes: [
+                {
+                  begin(){
+                    // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
+                  },
+                  duration: 0,
+                },
+                {left: 0},
+                {top: 0}
+              ],
+              easing: 'easeInOutQuad',
+              duration: 2000,
+              complete(){
+                anime({
+                  targets: Scenes.items.left_stop_end_waler_2_nut.set(-480,0),
+                  keyframes: [
+                    {
+                      begin(){
+                        // Scenes.items.left_wall_panel_external_croner_1.set(-60,-30)
+                      },
+                      duration: 0,
+                    },
+                    {left: 0},
+                    {top: 0}
+                  ],
+                  easing: 'easeInOutQuad',
+                  duration: 2000,
+                  complete(){
+                    setCC("Click on the 'Right Stop End' and attach it with wall.");      
+                    Dom.setBlinkArrow(true, 695,165).play();
+                  }
+                })
+
+              }
+            })   
+          },
+
+        //right stop end anime
+        ()=>{
           anime({
-            targets: target.item,
+            targets: Scenes.items.right_stop_end_full.set(-480,0),
             keyframes: [
               {
                 begin(){
@@ -1554,92 +1551,15 @@ template_img : new Dom("template_img"),
             ],
             easing: 'easeInOutQuad',
             duration: 2000,
-          })
-        },
-        // Internal wedge pin
-        ()=>{
-          let target = Scenes.items.left_wall_soffit_internal_wedge_pin_11.set(80,-60).zIndex(70)
-          anime({
-            targets: target.item,
-            keyframes: [
-              {
-                begin(){
-                  // Scenes.items.left_wall_panel_external_1.set(-60,-30)
-                },
-                duration: 0,
-              },
-              {left: 0},
-              {top: 0}
-            ],
-            easing: 'easeInOutQuad',
-            duration: 2000,
-          })
-        },
-        // repeat anime btn
-        ()=>{
-          function allAnimeRecursive(idx=0){
-            if(idx == internalSoffit.length){
-              return
+            complete(){
+              setCC("Click 'Next' to go to next step");
+              Dom.setBlinkArrow(true, 790, 408).play();
+              setIsProcessRunning(false);
             }
-            let defSetL = 80
-            let defSetT = -60
-
-            anime.timeline({
-              easing: "easeInOutQuad",
-              duration: 2000,
-            })
-            .add({
-              targets: internalSoffit[idx].item,
-              keyframes: [
-                {
-                  begin(){
-                    internalSoffit[idx].set(defSetL,defSetT)
-                  },
-                  duration: 0,
-                },
-                {left: 0},
-                {top: 0}
-              ],
-            })
-            .add({
-              targets: internalWedgePin[idx].item,
-              keyframes: [
-                {
-                  begin(){
-                    internalWedgePin[idx].set(defSetL,defSetT)
-                  },
-                  duration: 0,
-                },
-                {top: 0},
-                {left: 0},
-              ],
-              complete(){
-                allAnimeRecursive(idx+1)
-              }
-            })
-          }
-          allAnimeRecursive()
-        },
-         // External soffit anime
-         ()=>{
-          let target = Scenes.items.left_wall_soffit_external.set(80,-60).zIndex(71)
-          anime({
-            targets: target.item,
-            keyframes: [
-              {
-                begin(){
-                  // Scenes.items.left_wall_wedge_pin_external_1.set(-60,-30)
-                },
-                duration: 0,
-              },
-              {top: 0},
-              {left: 0},
-            ],
-            easing: 'easeInOutQuad',
-            duration: 2000,
           })
-        }
+        },
       ]
+      
 
         // Attaching onclick functions with menu
         let contentAdderBtns = getAll(".content-adder-box .btn")
@@ -1650,8 +1570,8 @@ template_img : new Dom("template_img"),
           }
         })
       
-      setCC("Click on the 'Sheathing' to add sheathing in the lab.");      
-      Dom.setBlinkArrow(true, 720,-35).play();
+      setCC("Click on the 'Back Wall' to add it in the lab.");      
+      Dom.setBlinkArrow(true, 695,-35).play();
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
@@ -1664,231 +1584,8 @@ template_img : new Dom("template_img"),
         // };
       return true;
     }),
-    (step12 = function () {
-      // ! fixing the overflow
-      Scenes.items.anime_main_dom.item.style.overflow = "visible";
-
-      // hide
-      Scenes.items.projectIntro.hide()
-      Dom.hideAll();
-      setIsProcessRunning(true);
-      Dom.setBlinkArrow(-1);
-      
-      Scenes.setStepHeading("Step 2", "Colums step.")
-
-      // * Required Elements
-      Scenes.items.column_front_panel.set(0,0)
-      Scenes.items.column_front_push_prop_1.set(0,0)
-      Scenes.items.column_front_push_prop_2.set(0,0)
-      Scenes.items.column_front_kicker_brace.set(0,0)
-
-      Scenes.items.column_front_push_prop_pin_1.set(10,10)
-      Scenes.items.column_front_push_prop_pin_2.set(0,0)
-
-      // ! Final Pos
-      // Scenes.items.base_floor_cutout.set(0,0)
-
-      Scenes.items.contentAdderBox.set(null,-50).show("flex")
-      Scenes.contentAdderAddBtn("Form Panel")
-      Scenes.contentAdderAddBtn("Brace Kicker")
-      Scenes.contentAdderAddBtn("Push Prop")
-
-      function menuItem_1Anime(){ 
-        Dom.setBlinkArrow(-1)
-        anime({
-          easing: "easeInOutQuad",
-          targets: Scenes.items.column_front_panel.item,
-          // begin(){
-          //   Scenes.items.base_floor.show();
-          // },  
-          keyframes:[
-            {left : 0},
-            {top: 0},
-          ],
-          duration: 3000,
-          complete(){
-            setCC("Click on the 'Brace Kicker' to add it in the lab.");      
-            Dom.setBlinkArrow(true, 705,15).play();
-          }  
-        })
-      }
-
-      function menuItem_2Anime(){
-        Dom.setBlinkArrow(-1)
-        anime({
-          easing: "easeInOutQuad",
-          duration: 3000,
-          targets: Scenes.items.column_front_kicker_brace.item,
-          keyframes:[
-            {left: 0},
-            {top: 0},
-          ],
-          complete(){
-            setCC("Click on the 'Push Prop' to attach it with Form Panel.");      
-            Dom.setBlinkArrow(true, 705,65).play();
-          }  
-        })        
-      }
-
-      function menuItem_3Anime(){
-        Dom.setBlinkArrow(-1)
-        anime.timeline({
-          easing: "easeInOutQuad",
-          duration: 2000,
-        })
-        .add({
-          targets: Scenes.items.column_front_push_prop_1.item,
-          keyframes:[
-            {left: 0},
-            {top: 0},
-          ],
-          rotate: 0,
-        })
-        .add({
-          targets: Scenes.items.column_front_push_prop_pin_1.item,
-          keyframes:[
-            {top: 10},
-            {left: 10},
-            {left: 0,top: 0},
-          ],
-        })
-        .add({
-          targets: Scenes.items.column_front_push_prop_2.item,
-          keyframes:[
-            {left: 0},
-            {top: 0},
-          ],
-          rotate: 0,
-        })
-        .add({
-          targets: Scenes.items.column_front_push_prop_pin_2.item,
-          keyframes:[
-            {top: 10},
-            {left: 10},
-            {left: 0,top: 0},
-          ],
-          complete(){
-            Dom.setBlinkArrow(true, 790, 408).play();
-            setCC("Click 'Next' to go to next step");
-            setIsProcessRunning(false);
-          }  
-        })                     
-      }
-
-    
 
 
-      setCC("Click on the 'Form Panel' to add it in the lab.");      
-      Dom.setBlinkArrow(true, 705, -35).play()
-
-      // onclick
-      let contentAdderBtns = getAll(".content-adder-box .btn")
-      contentAdderBtns[0].onclick = menuItem_1Anime
-      contentAdderBtns[1].onclick = menuItem_2Anime
-      contentAdderBtns[2].onclick = menuItem_3Anime
-      // remove all the previous elements
-      // Dom.hideAll();
-      return true;  
-
-    }),
-    (step31 = function () {
-      setIsProcessRunning(true);
-
-      // todo all previous elements hide
-      Dom.hideAll();
-      Scenes.items.contentAdderBox.item.innerHTML = ""
-
-      Scenes.setStepHeading("Step 3", "Adding all sides of Column.");
-      
-      // * Required Elements
-      Scenes.items.column_front_panel.set(0,0).zIndex(2)
-      Scenes.items.column_front_push_prop_1.set(0,0).zIndex(2)
-      Scenes.items.column_front_push_prop_2.set(0,0).zIndex(2)
-      Scenes.items.column_front_kicker_brace.set(0,0).zIndex(2)
-      Scenes.items.column_front_push_prop_pin_1.set(10,10).zIndex(2)
-      Scenes.items.column_front_push_prop_pin_2.set(0,0).zIndex(2)
-
-      // ! Final Position
-      Scenes.items.column_left_full.set(-70,-40).hide()
-      Scenes.items.column_back_full.set(70,-40).hide()
-      Scenes.items.column_right_full.set(70,20).zIndex(2).hide()
-     
-
-      Scenes.items.contentAdderBox.set(null,-50).show("flex")
-      Scenes.contentAdderAddBtn("Left Side")
-      Scenes.contentAdderAddBtn("Back Side")
-      Scenes.contentAdderAddBtn("Right Side")
-
-      function menuItem_1Anime(){ 
-        Dom.setBlinkArrow(-1)
-        anime({
-          easing: "easeInOutQuad",
-          targets: Scenes.items.column_left_full.item,
-          begin(){
-            Scenes.items.column_left_full.show();
-          },  
-          left: 0,
-          top: 0,
-          duration: 4000,
-          complete(){
-            setCC("Click on the 'Back Side' to attach left side of column.");      
-            Dom.setBlinkArrow(true, 705,15).play();
-          }  
-        })
-      }
-
-      function menuItem_2Anime(){
-        Dom.setBlinkArrow(-1)
-        anime({
-          easing: "easeInOutQuad",
-          targets: Scenes.items.column_back_full.item,
-          begin(){
-            Scenes.items.column_back_full.show();
-          },  
-          left: 0,
-          top: 0,
-          duration: 4000,
-          complete(){
-            setCC("Click on the 'Right Side' to attach left side of column.");      
-            Dom.setBlinkArrow(true, 705,15).play();
-          }  
-        })      
-      }
-
-      function menuItem_3Anime(){
-        Dom.setBlinkArrow(-1)
-        anime({
-          easing: "easeInOutQuad",
-          targets: Scenes.items.column_right_full.item,
-          begin(){
-            Scenes.items.column_right_full.show();
-          },  
-          left: 0,
-          top: 0,
-          duration: 4000,
-          complete(){
-            Dom.setBlinkArrow(true, 790, 408).play();
-            setCC("Click 'Next' to go to next step");
-            setIsProcessRunning(false);
-          }  
-        })                     
-      }
-
-    
-
-
-      setCC("Click on the 'Left Side' to attach left side of column.");      
-      Dom.setBlinkArrow(true, 705, -35).play()
-
-      // onclick
-      let contentAdderBtns = getAll(".content-adder-box .btn")
-      contentAdderBtns[0].onclick = menuItem_1Anime
-      contentAdderBtns[1].onclick = menuItem_2Anime
-      contentAdderBtns[2].onclick = menuItem_3Anime
-
-      return true;
-
-    }),
     (step4 = function () {
       Dom.hideAll(); 
       setIsProcessRunning(true);

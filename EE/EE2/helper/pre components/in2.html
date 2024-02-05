@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: sans-serif;
+      padding: 40px;
+    }
+    
+    
+    
+    
+    
+    .range-slider {
+    
+      .input-range {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 200px;
+        border-radius: 5px;
+        background: #ccc;
+        outline: none;
+        writing-mode: bt-lr; /* IE */
+        -webkit-appearance: slider-vertical; /* WebKit */
+      }
+    }
+
+    ::-moz-range-track {
+        background: #ccc;
+        border: 0;
+    }
+    
+    input::-moz-focus-inner { 
+      border: 0; 
+    }       
+    
+    
+    
+  </style>
+</head>
+<body>
+  
+
+  <div class="range-slider">
+    <input class="input-range" orient="vertical" type="range" step="0.5" value="5" min="1" max="10">
+    <span class="range-value"></span>
+</div> 
+
+
+
+
+                                                                                                                                                                                                                 
+
+
+  <script>
+    var range = $('.input-range'),
+    value = $('.range-value');
+    
+value.html(range.attr('value'));
+
+range.on('input', function(){
+    value.html(this.value);
+}); 
+  </script>
+</body>
+</html>

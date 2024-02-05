@@ -1,0 +1,68 @@
+
+     <img
+        class="main-window-imgs"
+        src="./src/images/formulas_component_stress.png"
+        alt="formulas_component_stress.png"
+    />
+    
+     <img
+        class="main-window-imgs"
+        src="./src/images/formulas_efficiency.png"
+        alt="formulas_efficiency.png"
+    />
+    
+     <img
+        class="main-window-imgs"
+        src="./src/images/formulas_ideal.png"
+        alt="formulas_ideal.png"
+    />
+    
+     <img
+        class="main-window-imgs"
+        src="./src/images/formulas_nomenclautre.png"
+        alt="formulas_nomenclautre.png"
+    />
+    
+     <img
+        class="main-window-imgs"
+        src="./src/images/formulas_non_ideal.png"
+        alt="formulas_non_ideal.png"
+    />
+    
+     <img
+        class="main-window-imgs"
+        src="./src/images/formulas_procedure.png"
+        alt="formulas_procedure.png"
+    />
+    
+     <img
+        class="main-window-imgs"
+        src="./src/images/formulas_universal.png"
+        alt="formulas_universal.png"
+    />
+    
+     <img
+        class="main-window-imgs"
+        src="./src/images/graph2_arrow.png"
+        alt="graph2_arrow.png"
+    />
+    
+
+formulas_component_stress:this.allImgsDom[134],
+formulas_efficiency:this.allImgsDom[135],
+formulas_ideal:this.allImgsDom[136],
+formulas_nomenclautre:this.allImgsDom[137],
+formulas_non_ideal:this.allImgsDom[138],
+formulas_procedure:this.allImgsDom[139],
+formulas_universal:this.allImgsDom[140],
+graph2_arrow:this.allImgsDom[141],
+
+
+formulas_component_stress : new Dom("formulas_component_stress"),
+formulas_efficiency : new Dom("formulas_efficiency"),
+formulas_ideal : new Dom("formulas_ideal"),
+formulas_nomenclautre : new Dom("formulas_nomenclautre"),
+formulas_non_ideal : new Dom("formulas_non_ideal"),
+formulas_procedure : new Dom("formulas_procedure"),
+formulas_universal : new Dom("formulas_universal"),
+graph2_arrow : new Dom("graph2_arrow"),

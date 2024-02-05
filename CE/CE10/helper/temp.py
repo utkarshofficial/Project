@@ -18,7 +18,7 @@ def dom(name):
     return f'{name1} : new Dom("{name1}"),\n'
 
 
-names = os.listdir("S:\\Users\\Utkarsh\\Documents\\Project2\\CE9\\src\\images\\temp23")
+names = os.listdir("E:\\office project\\Project\\CE\\CE10\\src\\images")
 
 count = 13
 

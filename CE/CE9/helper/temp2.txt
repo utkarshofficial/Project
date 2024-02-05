@@ -1,364 +1,548 @@
 
     <img
         class="main-window-imgs"
-        src="./src/images/column_back_full.png"
-        alt="column_back_full.png"
+        src="./src/images/back_wall_full.png"
+        alt="back_wall_full.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner.png"
-        alt="column_corner.png"
+        src="./src/images/front_connector_1.png"
+        alt="front_connector_1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_2.png"
-        alt="column_corner_2.png"
+        src="./src/images/front_connector_10.png"
+        alt="front_connector_10.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_back_1.png"
-        alt="column_corner_back_1.png"
+        src="./src/images/front_connector_11.png"
+        alt="front_connector_11.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_back_2.png"
-        alt="column_corner_back_2.png"
+        src="./src/images/front_connector_12.png"
+        alt="front_connector_12.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_front_1.png"
-        alt="column_corner_front_1.png"
+        src="./src/images/front_connector_2.png"
+        alt="front_connector_2.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_front_2.png"
-        alt="column_corner_front_2.png"
+        src="./src/images/front_connector_3.png"
+        alt="front_connector_3.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_left.png"
-        alt="column_corner_left.png"
+        src="./src/images/front_connector_4.png"
+        alt="front_connector_4.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_left_1.png"
-        alt="column_corner_left_1.png"
+        src="./src/images/front_connector_5.png"
+        alt="front_connector_5.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_left_2.png"
-        alt="column_corner_left_2.png"
+        src="./src/images/front_connector_6.png"
+        alt="front_connector_6.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_right.png"
-        alt="column_corner_right.png"
+        src="./src/images/front_connector_7.png"
+        alt="front_connector_7.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_right_1.png"
-        alt="column_corner_right_1.png"
+        src="./src/images/front_connector_8.png"
+        alt="front_connector_8.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_corner_right_2.png"
-        alt="column_corner_right_2.png"
+        src="./src/images/front_connector_9.png"
+        alt="front_connector_9.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_front_kicker_brace.png"
-        alt="column_front_kicker_brace.png"
+        src="./src/images/front_connector_nut_1.png"
+        alt="front_connector_nut_1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_front_panel.png"
-        alt="column_front_panel.png"
+        src="./src/images/front_connector_nut_10.png"
+        alt="front_connector_nut_10.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_front_push_prop_1.png"
-        alt="column_front_push_prop_1.png"
+        src="./src/images/front_connector_nut_11.png"
+        alt="front_connector_nut_11.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_front_push_prop_2.png"
-        alt="column_front_push_prop_2.png"
+        src="./src/images/front_connector_nut_12.png"
+        alt="front_connector_nut_12.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_front_push_prop_pin_1.png"
-        alt="column_front_push_prop_pin_1.png"
+        src="./src/images/front_connector_nut_2.png"
+        alt="front_connector_nut_2.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_front_push_prop_pin_2.png"
-        alt="column_front_push_prop_pin_2.png"
+        src="./src/images/front_connector_nut_3.png"
+        alt="front_connector_nut_3.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_left_full.png"
-        alt="column_left_full.png"
+        src="./src/images/front_connector_nut_4.png"
+        alt="front_connector_nut_4.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_right_full.png"
-        alt="column_right_full.png"
+        src="./src/images/front_connector_nut_5.png"
+        alt="front_connector_nut_5.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_1.png"
-        alt="column_wedge_pin_front_1.png"
+        src="./src/images/front_connector_nut_6.png"
+        alt="front_connector_nut_6.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_10.png"
-        alt="column_wedge_pin_front_10.png"
+        src="./src/images/front_connector_nut_7.png"
+        alt="front_connector_nut_7.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_11.png"
-        alt="column_wedge_pin_front_11.png"
+        src="./src/images/front_connector_nut_8.png"
+        alt="front_connector_nut_8.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_12.png"
-        alt="column_wedge_pin_front_12.png"
+        src="./src/images/front_connector_nut_9.png"
+        alt="front_connector_nut_9.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_2.png"
-        alt="column_wedge_pin_front_2.png"
+        src="./src/images/front_ct_prop_1.png"
+        alt="front_ct_prop_1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_3.png"
-        alt="column_wedge_pin_front_3.png"
+        src="./src/images/front_ct_prop_2.png"
+        alt="front_ct_prop_2.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_4.png"
-        alt="column_wedge_pin_front_4.png"
+        src="./src/images/front_ct_prop_3.png"
+        alt="front_ct_prop_3.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_5.png"
-        alt="column_wedge_pin_front_5.png"
+        src="./src/images/front_ct_prop_4.png"
+        alt="front_ct_prop_4.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_6.png"
-        alt="column_wedge_pin_front_6.png"
+        src="./src/images/front_ct_prop_base_1.png"
+        alt="front_ct_prop_base_1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_7.png"
-        alt="column_wedge_pin_front_7.png"
+        src="./src/images/front_ct_prop_base_2.png"
+        alt="front_ct_prop_base_2.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_8.png"
-        alt="column_wedge_pin_front_8.png"
+        src="./src/images/front_ct_prop_pin_1.png"
+        alt="front_ct_prop_pin_1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_front_9.png"
-        alt="column_wedge_pin_front_9.png"
+        src="./src/images/front_ct_prop_pin_2.png"
+        alt="front_ct_prop_pin_2.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_left_1.png"
-        alt="column_wedge_pin_left_1.png"
+        src="./src/images/front_ct_prop_pin_3.png"
+        alt="front_ct_prop_pin_3.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_left_2.png"
-        alt="column_wedge_pin_left_2.png"
+        src="./src/images/front_ct_prop_pin_4.png"
+        alt="front_ct_prop_pin_4.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_left_3.png"
-        alt="column_wedge_pin_left_3.png"
+        src="./src/images/front_panel_1.png"
+        alt="front_panel_1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_left_4.png"
-        alt="column_wedge_pin_left_4.png"
+        src="./src/images/front_panel_2.png"
+        alt="front_panel_2.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_left_5.png"
-        alt="column_wedge_pin_left_5.png"
+        src="./src/images/front_panel_3.png"
+        alt="front_panel_3.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_left_6.png"
-        alt="column_wedge_pin_left_6.png"
+        src="./src/images/front_panel_4.png"
+        alt="front_panel_4.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_right_1.png"
-        alt="column_wedge_pin_right_1.png"
+        src="./src/images/front_panel_5.png"
+        alt="front_panel_5.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_right_2.png"
-        alt="column_wedge_pin_right_2.png"
+        src="./src/images/front_panel_6.png"
+        alt="front_panel_6.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_right_3.png"
-        alt="column_wedge_pin_right_3.png"
+        src="./src/images/front_panel_7.png"
+        alt="front_panel_7.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_right_4.png"
-        alt="column_wedge_pin_right_4.png"
+        src="./src/images/front_panel_8.png"
+        alt="front_panel_8.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_right_5.png"
-        alt="column_wedge_pin_right_5.png"
+        src="./src/images/front_wedge_pin_1.png"
+        alt="front_wedge_pin_1.png"
     />
     
     <img
         class="main-window-imgs"
-        src="./src/images/column_wedge_pin_right_6.png"
-        alt="column_wedge_pin_right_6.png"
+        src="./src/images/front_wedge_pin_10.png"
+        alt="front_wedge_pin_10.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_11.png"
+        alt="front_wedge_pin_11.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_12.png"
+        alt="front_wedge_pin_12.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_13.png"
+        alt="front_wedge_pin_13.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_14.png"
+        alt="front_wedge_pin_14.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_2.png"
+        alt="front_wedge_pin_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_3.png"
+        alt="front_wedge_pin_3.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_4.png"
+        alt="front_wedge_pin_4.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_5.png"
+        alt="front_wedge_pin_5.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_6.png"
+        alt="front_wedge_pin_6.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_7.png"
+        alt="front_wedge_pin_7.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_8.png"
+        alt="front_wedge_pin_8.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/front_wedge_pin_9.png"
+        alt="front_wedge_pin_9.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_stop_end.png"
+        alt="left_stop_end.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_stop_end_waler_1.png"
+        alt="left_stop_end_waler_1.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_stop_end_waler_1_nut.png"
+        alt="left_stop_end_waler_1_nut.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_stop_end_waler_2.png"
+        alt="left_stop_end_waler_2.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/left_stop_end_waler_2_nut.png"
+        alt="left_stop_end_waler_2_nut.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/panel_back.png"
+        alt="panel_back.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/panel_front.png"
+        alt="panel_front.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/photoscape"
+        alt="photoscape"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/right_stop_end_full.png"
+        alt="right_stop_end_full.png"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/temp23"
+        alt="temp23"
+    />
+    
+    <img
+        class="main-window-imgs"
+        src="./src/images/template_imgs"
+        alt="template_imgs"
     />
     
 
-column_back_full:this.allImgsDom[13],
-column_corner:this.allImgsDom[14],
-column_corner_2:this.allImgsDom[15],
-column_corner_back_1:this.allImgsDom[16],
-column_corner_back_2:this.allImgsDom[17],
-column_corner_front_1:this.allImgsDom[18],
-column_corner_front_2:this.allImgsDom[19],
-column_corner_left:this.allImgsDom[20],
-column_corner_left_1:this.allImgsDom[21],
-column_corner_left_2:this.allImgsDom[22],
-column_corner_right:this.allImgsDom[23],
-column_corner_right_1:this.allImgsDom[24],
-column_corner_right_2:this.allImgsDom[25],
-column_front_kicker_brace:this.allImgsDom[26],
-column_front_panel:this.allImgsDom[27],
-column_front_push_prop_1:this.allImgsDom[28],
-column_front_push_prop_2:this.allImgsDom[29],
-column_front_push_prop_pin_1:this.allImgsDom[30],
-column_front_push_prop_pin_2:this.allImgsDom[31],
-column_left_full:this.allImgsDom[32],
-column_right_full:this.allImgsDom[33],
-column_wedge_pin_front_1:this.allImgsDom[34],
-column_wedge_pin_front_10:this.allImgsDom[35],
-column_wedge_pin_front_11:this.allImgsDom[36],
-column_wedge_pin_front_12:this.allImgsDom[37],
-column_wedge_pin_front_2:this.allImgsDom[38],
-column_wedge_pin_front_3:this.allImgsDom[39],
-column_wedge_pin_front_4:this.allImgsDom[40],
-column_wedge_pin_front_5:this.allImgsDom[41],
-column_wedge_pin_front_6:this.allImgsDom[42],
-column_wedge_pin_front_7:this.allImgsDom[43],
-column_wedge_pin_front_8:this.allImgsDom[44],
-column_wedge_pin_front_9:this.allImgsDom[45],
-column_wedge_pin_left_1:this.allImgsDom[46],
-column_wedge_pin_left_2:this.allImgsDom[47],
-column_wedge_pin_left_3:this.allImgsDom[48],
-column_wedge_pin_left_4:this.allImgsDom[49],
-column_wedge_pin_left_5:this.allImgsDom[50],
-column_wedge_pin_left_6:this.allImgsDom[51],
-column_wedge_pin_right_1:this.allImgsDom[52],
-column_wedge_pin_right_2:this.allImgsDom[53],
-column_wedge_pin_right_3:this.allImgsDom[54],
-column_wedge_pin_right_4:this.allImgsDom[55],
-column_wedge_pin_right_5:this.allImgsDom[56],
-column_wedge_pin_right_6:this.allImgsDom[57],
+back_wall_full:this.allImgsDom[13],
+front_connector_1:this.allImgsDom[14],
+front_connector_10:this.allImgsDom[15],
+front_connector_11:this.allImgsDom[16],
+front_connector_12:this.allImgsDom[17],
+front_connector_2:this.allImgsDom[18],
+front_connector_3:this.allImgsDom[19],
+front_connector_4:this.allImgsDom[20],
+front_connector_5:this.allImgsDom[21],
+front_connector_6:this.allImgsDom[22],
+front_connector_7:this.allImgsDom[23],
+front_connector_8:this.allImgsDom[24],
+front_connector_9:this.allImgsDom[25],
+front_connector_nut_1:this.allImgsDom[26],
+front_connector_nut_10:this.allImgsDom[27],
+front_connector_nut_11:this.allImgsDom[28],
+front_connector_nut_12:this.allImgsDom[29],
+front_connector_nut_2:this.allImgsDom[30],
+front_connector_nut_3:this.allImgsDom[31],
+front_connector_nut_4:this.allImgsDom[32],
+front_connector_nut_5:this.allImgsDom[33],
+front_connector_nut_6:this.allImgsDom[34],
+front_connector_nut_7:this.allImgsDom[35],
+front_connector_nut_8:this.allImgsDom[36],
+front_connector_nut_9:this.allImgsDom[37],
+front_ct_prop_1:this.allImgsDom[38],
+front_ct_prop_2:this.allImgsDom[39],
+front_ct_prop_3:this.allImgsDom[40],
+front_ct_prop_4:this.allImgsDom[41],
+front_ct_prop_base_1:this.allImgsDom[42],
+front_ct_prop_base_2:this.allImgsDom[43],
+front_ct_prop_pin_1:this.allImgsDom[44],
+front_ct_prop_pin_2:this.allImgsDom[45],
+front_ct_prop_pin_3:this.allImgsDom[46],
+front_ct_prop_pin_4:this.allImgsDom[47],
+front_panel_1:this.allImgsDom[48],
+front_panel_2:this.allImgsDom[49],
+front_panel_3:this.allImgsDom[50],
+front_panel_4:this.allImgsDom[51],
+front_panel_5:this.allImgsDom[52],
+front_panel_6:this.allImgsDom[53],
+front_panel_7:this.allImgsDom[54],
+front_panel_8:this.allImgsDom[55],
+front_wedge_pin_1:this.allImgsDom[56],
+front_wedge_pin_10:this.allImgsDom[57],
+front_wedge_pin_11:this.allImgsDom[58],
+front_wedge_pin_12:this.allImgsDom[59],
+front_wedge_pin_13:this.allImgsDom[60],
+front_wedge_pin_14:this.allImgsDom[61],
+front_wedge_pin_2:this.allImgsDom[62],
+front_wedge_pin_3:this.allImgsDom[63],
+front_wedge_pin_4:this.allImgsDom[64],
+front_wedge_pin_5:this.allImgsDom[65],
+front_wedge_pin_6:this.allImgsDom[66],
+front_wedge_pin_7:this.allImgsDom[67],
+front_wedge_pin_8:this.allImgsDom[68],
+front_wedge_pin_9:this.allImgsDom[69],
+left_stop_end:this.allImgsDom[70],
+left_stop_end_waler_1:this.allImgsDom[71],
+left_stop_end_waler_1_nut:this.allImgsDom[72],
+left_stop_end_waler_2:this.allImgsDom[73],
+left_stop_end_waler_2_nut:this.allImgsDom[74],
+panel_back:this.allImgsDom[75],
+panel_front:this.allImgsDom[76],
+photoscap:this.allImgsDom[77],
+right_stop_end_full:this.allImgsDom[78],
+temp2:this.allImgsDom[79],
+template_img:this.allImgsDom[80],
 
 
-column_back_full : new Dom("column_back_full"),
-column_corner : new Dom("column_corner"),
-column_corner_2 : new Dom("column_corner_2"),
-column_corner_back_1 : new Dom("column_corner_back_1"),
-column_corner_back_2 : new Dom("column_corner_back_2"),
-column_corner_front_1 : new Dom("column_corner_front_1"),
-column_corner_front_2 : new Dom("column_corner_front_2"),
-column_corner_left : new Dom("column_corner_left"),
-column_corner_left_1 : new Dom("column_corner_left_1"),
-column_corner_left_2 : new Dom("column_corner_left_2"),
-column_corner_right : new Dom("column_corner_right"),
-column_corner_right_1 : new Dom("column_corner_right_1"),
-column_corner_right_2 : new Dom("column_corner_right_2"),
-column_front_kicker_brace : new Dom("column_front_kicker_brace"),
-column_front_panel : new Dom("column_front_panel"),
-column_front_push_prop_1 : new Dom("column_front_push_prop_1"),
-column_front_push_prop_2 : new Dom("column_front_push_prop_2"),
-column_front_push_prop_pin_1 : new Dom("column_front_push_prop_pin_1"),
-column_front_push_prop_pin_2 : new Dom("column_front_push_prop_pin_2"),
-column_left_full : new Dom("column_left_full"),
-column_right_full : new Dom("column_right_full"),
-column_wedge_pin_front_1 : new Dom("column_wedge_pin_front_1"),
-column_wedge_pin_front_10 : new Dom("column_wedge_pin_front_10"),
-column_wedge_pin_front_11 : new Dom("column_wedge_pin_front_11"),
-column_wedge_pin_front_12 : new Dom("column_wedge_pin_front_12"),
-column_wedge_pin_front_2 : new Dom("column_wedge_pin_front_2"),
-column_wedge_pin_front_3 : new Dom("column_wedge_pin_front_3"),
-column_wedge_pin_front_4 : new Dom("column_wedge_pin_front_4"),
-column_wedge_pin_front_5 : new Dom("column_wedge_pin_front_5"),
-column_wedge_pin_front_6 : new Dom("column_wedge_pin_front_6"),
-column_wedge_pin_front_7 : new Dom("column_wedge_pin_front_7"),
-column_wedge_pin_front_8 : new Dom("column_wedge_pin_front_8"),
-column_wedge_pin_front_9 : new Dom("column_wedge_pin_front_9"),
-column_wedge_pin_left_1 : new Dom("column_wedge_pin_left_1"),
-column_wedge_pin_left_2 : new Dom("column_wedge_pin_left_2"),
-column_wedge_pin_left_3 : new Dom("column_wedge_pin_left_3"),
-column_wedge_pin_left_4 : new Dom("column_wedge_pin_left_4"),
-column_wedge_pin_left_5 : new Dom("column_wedge_pin_left_5"),
-column_wedge_pin_left_6 : new Dom("column_wedge_pin_left_6"),
-column_wedge_pin_right_1 : new Dom("column_wedge_pin_right_1"),
-column_wedge_pin_right_2 : new Dom("column_wedge_pin_right_2"),
-column_wedge_pin_right_3 : new Dom("column_wedge_pin_right_3"),
-column_wedge_pin_right_4 : new Dom("column_wedge_pin_right_4"),
-column_wedge_pin_right_5 : new Dom("column_wedge_pin_right_5"),
-column_wedge_pin_right_6 : new Dom("column_wedge_pin_right_6"),
+back_wall_full : new Dom("back_wall_full"),
+front_connector_1 : new Dom("front_connector_1"),
+front_connector_10 : new Dom("front_connector_10"),
+front_connector_11 : new Dom("front_connector_11"),
+front_connector_12 : new Dom("front_connector_12"),
+front_connector_2 : new Dom("front_connector_2"),
+front_connector_3 : new Dom("front_connector_3"),
+front_connector_4 : new Dom("front_connector_4"),
+front_connector_5 : new Dom("front_connector_5"),
+front_connector_6 : new Dom("front_connector_6"),
+front_connector_7 : new Dom("front_connector_7"),
+front_connector_8 : new Dom("front_connector_8"),
+front_connector_9 : new Dom("front_connector_9"),
+front_connector_nut_1 : new Dom("front_connector_nut_1"),
+front_connector_nut_10 : new Dom("front_connector_nut_10"),
+front_connector_nut_11 : new Dom("front_connector_nut_11"),
+front_connector_nut_12 : new Dom("front_connector_nut_12"),
+front_connector_nut_2 : new Dom("front_connector_nut_2"),
+front_connector_nut_3 : new Dom("front_connector_nut_3"),
+front_connector_nut_4 : new Dom("front_connector_nut_4"),
+front_connector_nut_5 : new Dom("front_connector_nut_5"),
+front_connector_nut_6 : new Dom("front_connector_nut_6"),
+front_connector_nut_7 : new Dom("front_connector_nut_7"),
+front_connector_nut_8 : new Dom("front_connector_nut_8"),
+front_connector_nut_9 : new Dom("front_connector_nut_9"),
+front_ct_prop_1 : new Dom("front_ct_prop_1"),
+front_ct_prop_2 : new Dom("front_ct_prop_2"),
+front_ct_prop_3 : new Dom("front_ct_prop_3"),
+front_ct_prop_4 : new Dom("front_ct_prop_4"),
+front_ct_prop_base_1 : new Dom("front_ct_prop_base_1"),
+front_ct_prop_base_2 : new Dom("front_ct_prop_base_2"),
+front_ct_prop_pin_1 : new Dom("front_ct_prop_pin_1"),
+front_ct_prop_pin_2 : new Dom("front_ct_prop_pin_2"),
+front_ct_prop_pin_3 : new Dom("front_ct_prop_pin_3"),
+front_ct_prop_pin_4 : new Dom("front_ct_prop_pin_4"),
+front_panel_1 : new Dom("front_panel_1"),
+front_panel_2 : new Dom("front_panel_2"),
+front_panel_3 : new Dom("front_panel_3"),
+front_panel_4 : new Dom("front_panel_4"),
+front_panel_5 : new Dom("front_panel_5"),
+front_panel_6 : new Dom("front_panel_6"),
+front_panel_7 : new Dom("front_panel_7"),
+front_panel_8 : new Dom("front_panel_8"),
+front_wedge_pin_1 : new Dom("front_wedge_pin_1"),
+front_wedge_pin_10 : new Dom("front_wedge_pin_10"),
+front_wedge_pin_11 : new Dom("front_wedge_pin_11"),
+front_wedge_pin_12 : new Dom("front_wedge_pin_12"),
+front_wedge_pin_13 : new Dom("front_wedge_pin_13"),
+front_wedge_pin_14 : new Dom("front_wedge_pin_14"),
+front_wedge_pin_2 : new Dom("front_wedge_pin_2"),
+front_wedge_pin_3 : new Dom("front_wedge_pin_3"),
+front_wedge_pin_4 : new Dom("front_wedge_pin_4"),
+front_wedge_pin_5 : new Dom("front_wedge_pin_5"),
+front_wedge_pin_6 : new Dom("front_wedge_pin_6"),
+front_wedge_pin_7 : new Dom("front_wedge_pin_7"),
+front_wedge_pin_8 : new Dom("front_wedge_pin_8"),
+front_wedge_pin_9 : new Dom("front_wedge_pin_9"),
+left_stop_end : new Dom("left_stop_end"),
+left_stop_end_waler_1 : new Dom("left_stop_end_waler_1"),
+left_stop_end_waler_1_nut : new Dom("left_stop_end_waler_1_nut"),
+left_stop_end_waler_2 : new Dom("left_stop_end_waler_2"),
+left_stop_end_waler_2_nut : new Dom("left_stop_end_waler_2_nut"),
+panel_back : new Dom("panel_back"),
+panel_front : new Dom("panel_front"),
+photoscap : new Dom("photoscap"),
+right_stop_end_full : new Dom("right_stop_end_full"),
+temp2 : new Dom("temp2"),
+template_img : new Dom("template_img"),

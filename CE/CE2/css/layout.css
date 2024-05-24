@@ -344,3 +344,52 @@ body{
     position: absolute;
 
   }
+
+/* ! Next Btn Deactive class */
+.btn-deactive{
+    transition: 1s;
+    opacity: 0.7!important;
+    cursor: not-allowed!important;
+    background-color: rgb(97, 97, 97)!important;
+    box-shadow: none!important;
+    color: black;
+}
+
+
+.btn-deactive:hover {
+    box-shadow: none!important;
+}
+
+.btn-deactive:active{
+    opacity: none!important;
+    transform: none!important;
+}
+  .transparent-box{
+    display: none;
+    height: 100% ;
+    width: 950px;
+    background-color: transparent;
+    z-index: 500;
+    position: absolute;
+
+  }
+
+/* ! Next Btn Deactive class */
+.btn-deactive{
+    transition: 1s;
+    opacity: 0.7!important;
+    cursor: not-allowed!important;
+    background-color: rgb(97, 97, 97)!important;
+    box-shadow: none!important;
+    color: black;
+}
+
+
+.btn-deactive:hover {
+    box-shadow: none!important;
+}
+
+.btn-deactive:active{
+    opacity: none!important;
+    transform: none!important;
+}

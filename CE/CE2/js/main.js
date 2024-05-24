@@ -256,8 +256,18 @@ let isPerformNext = false;
 
 // animation is running
 let isRunning = false;
+
 // to set isProcessRunning and also sync the progressbar + drawer
+// ! and toggle the next btn active / deactive
+function toggleNextBtn(){
+  let nextBtn = document.querySelector(".btn-next")
+  nextBtn.classList.toggle("btn-deactive")
+}
 const setIsProcessRunning = (value) => {
+  if(value != isRunning){
+    toggleNextBtn()
+  }
+
   isRunning = value;
 };
 
@@ -814,7 +824,7 @@ const Scenes = {
               Scenes.items.tempText.set(482, 1);
               textToSpeach(`Hey! ${fName}`);
               textToSpeach(
-                "Welcome to Foundation Wall in Foamwork Experiment of Foamwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
+                "Welcome to Foundation Wall in Formwork Experiment of Formwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
               );
               Scenes.items.talk_cloud.set(450, -40, 180).push();
               setCC("");

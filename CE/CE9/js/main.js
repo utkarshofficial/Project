@@ -856,7 +856,7 @@ menu_cover_bottom : new Dom("menu_cover_bottom"),
               Scenes.items.tempText.set(482, 1);
               textToSpeach(`Hey! ${fName}`);
               textToSpeach(
-                "Welcome to Foundation Wall in Foamwork Experiment of Foamwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
+                "Welcome to Foundation Wall in Formwork Experiment of Formwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
               );
               Scenes.items.talk_cloud.set(450, -40, 180).push();
               setCC("");

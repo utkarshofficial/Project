@@ -257,7 +257,21 @@ let isPerformNext = false;
 // animation is running
 let isRunning = false;
 // to set isProcessRunning and also sync the progressbar + drawer
+// ! and toggle the next btn active / deactive
+function toggleNextBtn(){
+  let nextBtn = document.querySelector(".btn-next")
+  nextBtn.classList.toggle("btn-deactive")
+}
 const setIsProcessRunning = (value) => {
+  // calling toggle the next
+  if(value != isRunning){
+    toggleNextBtn()
+  }
+  // the step is ended
+  if(!value){
+    setCC("Click 'Next' to go to next step");
+    Dom.setBlinkArrow(true, 790, 415).play();
+  }
   isRunning = value;
   if(value){
     Dom.hideAll()
@@ -837,6 +851,21 @@ roof_panel_9 : new Dom("roof_panel_9"),
   contentAdderAddBtn(text) {
     Scenes.items.contentAdderBox.item.innerHTML += `<li class="btn content-adder">${text}</li>`;
   },
+  // fetch top pixel for menu item
+  leftGap: 0,
+  menuItemNumber: 1,
+  showArrowForMenuItem(menuItemNumber=this.menuItemNumber, leftGap=this.leftGap){
+    this.menuItemNumber = menuItemNumber
+    this.leftGap = leftGap
+    let initialFixedTop = -35
+    let gap = 50
+    let finalTop = initialFixedTop
+    for(let i=1;i<menuItemNumber;i++){
+      finalTop+=gap 
+    }
+    this.menuItemNumber++
+    Dom.setBlinkArrow(true, leftGap, finalTop).play()
+  },
   currentStep: 0,
   subCurrentStep: 0,
   resetSubStep() {
@@ -911,7 +940,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
               Scenes.items.tempText.set(482, 1);
               textToSpeach(`Hey! ${fName}`);
               textToSpeach(
-                "Welcome to Foundation Wall in Foamwork Experiment of Foamwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
+                "Welcome to Foundation Wall in Formwork Experiment of Formwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
               );
               Scenes.items.talk_cloud.set(450, -40, 180).push();
               setCC("");
@@ -1179,6 +1208,10 @@ roof_panel_9 : new Dom("roof_panel_9"),
             ],
             easing: 'easeInOutQuad',
             duration: 2000,
+            complete(){
+              setCC("Click on the 'Deck Panel'.");      
+              Scenes.showArrowForMenuItem()
+            }
           })
         },
         // panel anime
@@ -1197,6 +1230,10 @@ roof_panel_9 : new Dom("roof_panel_9"),
             ],
             easing: 'easeInOutQuad',
             duration: 2000,
+            complete(){
+              setCC("Click on the 'Wedge Pin'.");      
+              Scenes.showArrowForMenuItem()
+            }
           })
         },
         // wedge pin anime
@@ -1215,12 +1252,17 @@ roof_panel_9 : new Dom("roof_panel_9"),
             ],
             easing: 'easeInOutQuad',
             duration: 2000,
+            complete(){
+              setCC("Click on the 'Repeat'.");      
+              Scenes.showArrowForMenuItem()
+            }
           })
         },
         // repeat anime btn
         ()=>{
           function allAnimeRecursive(idx=0){
             if(idx == panels.length){
+              setIsProcessRunning(false);
               return
             }
             let defSetL = -80
@@ -1275,8 +1317,8 @@ roof_panel_9 : new Dom("roof_panel_9"),
     
 
 
-      setCC("Click on the 'Base Plate' to place it in the lab.");      
-      Dom.setBlinkArrow(true, 705, -35).play()
+      setCC("Click on the 'External Corner'.");      
+      Scenes.showArrowForMenuItem(1, 688)
 
       
       // remove all the previous elements
@@ -1351,6 +1393,10 @@ roof_panel_9 : new Dom("roof_panel_9"),
             ],
             easing: 'easeInOutQuad',
             duration: 4000,
+            complete(){
+              Scenes.showArrowForMenuItem()
+              setCC("Click on the 'Wall Tie with PVC Sleeves' to attach it with wall and mesh.");
+            }
           })
         },
         // wall tie anime
@@ -1367,6 +1413,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
           ]
           function wallTieRecursive(idx=0){
             if(idx == targets.length){
+              setIsProcessRunning(false)
               return true
             }
             targets[idx].set(100,-100)
@@ -1403,8 +1450,8 @@ roof_panel_9 : new Dom("roof_panel_9"),
         }
       })
 
-      Dom.setBlinkArrow(true, 655, -35).play();
-      setCC("Click on the 'Horizontal Bracing' to attach it with HD Towers.");
+      Scenes.showArrowForMenuItem(1, 616)
+      setCC("Click on the 'Rebar Mesh' to attach it with bottom rebars.");
 
       return true;
 
@@ -1534,6 +1581,10 @@ roof_panel_9 : new Dom("roof_panel_9"),
             ],
             easing: 'easeInOutQuad',
             duration: 2000,
+            complete(){
+              setCC("Click on the 'Deck Panel'.");
+              Scenes.showArrowForMenuItem()
+            }
           })
         },
         // panel anime
@@ -1553,6 +1604,10 @@ roof_panel_9 : new Dom("roof_panel_9"),
             ],
             easing: 'easeInOutQuad',
             duration: 2000,
+            complete(){
+              setCC("Click on the 'Wedge Pin'.");
+              Scenes.showArrowForMenuItem()
+            }
           })
         },
         // wedge pin anime
@@ -1572,12 +1627,17 @@ roof_panel_9 : new Dom("roof_panel_9"),
             ],
             easing: 'easeInOutQuad',
             duration: 2000,
+            complete(){
+              setCC("Click on the 'Repeat'.");
+              Scenes.showArrowForMenuItem()
+            }
           })
         },
         // repeat anime btn
         ()=>{
           function allAnimeRecursive(idx=0){
             if(idx == panels.length){
+              setIsProcessRunning(false)
               return
             }
             let defSetL = 80
@@ -1629,11 +1689,8 @@ roof_panel_9 : new Dom("roof_panel_9"),
           menuItemAnimes[idx]()
         }
       })
-                                                                                                                                                                                                                                                                                                     
-      Dom.setBlinkArrow(true, 655, -35).play();
       setCC("Click on the 'Horizontal Bracing' to attach it with HD Towers.");
-
-
+      Scenes.showArrowForMenuItem(1, 692)
       return true;
 
     }),
@@ -1775,6 +1832,10 @@ roof_panel_9 : new Dom("roof_panel_9"),
             ],
             easing: 'easeInOutQuad',
             duration: 2000,
+            complete(){
+              setCC("Click on the 'Internal Wedge Pin' to attatch it deck panel with internal soffit.");      
+              Scenes.showArrowForMenuItem()
+            }
           })
         },
         // Internal wedge pin
@@ -1794,12 +1855,17 @@ roof_panel_9 : new Dom("roof_panel_9"),
             ],
             easing: 'easeInOutQuad',
             duration: 2000,
+            complete(){
+              setCC("Click on the 'External Soffit'");      
+              Scenes.showArrowForMenuItem()
+            }
           })
         },
         // repeat anime btn
         ()=>{
           function allAnimeRecursive(idx=0){
             if(idx == internalSoffit.length){
+              setIsProcessRunning(false)
               return
             }
             let defSetL = 80
@@ -1871,8 +1937,8 @@ roof_panel_9 : new Dom("roof_panel_9"),
           }
         })
       
-      setCC("Click on the 'Sheathing' to add sheathing in the lab.");      
-      Dom.setBlinkArrow(true, 720,-35).play();
+      setCC("Click on the 'Internal Soffit' to attatch it with deck panel.");      
+      Scenes.showArrowForMenuItem(1, 665)
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
@@ -2170,7 +2236,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
         Scenes.items.left_wall_soffit_external.set(0,0).zIndex(71)
         
         //items that are bring from step5
-        Scenes.items.back_right_wall_full.set(0,0).zIndex(72)
+        Scenes.items.back_right_wall_full.set(0,0).zIndex(10)
         Scenes.items.front_left_wall_full.set(0,0).zIndex(72)
 
         //! final position
@@ -2392,45 +2458,45 @@ roof_panel_9 : new Dom("roof_panel_9"),
         Scenes.items.left_wall_soffit_internal_wedge_pin_10.set(0,0).zIndex(70)
         Scenes.items.left_wall_soffit_internal_wedge_pin_11.set(0,0).zIndex(70)
 
-        Scenes.items.left_wall_soffit_external.set(0,0).zIndex(71)
+        Scenes.items.left_wall_soffit_external.set(0,0).zIndex(70)
         
         //items that are bring from step5
         Scenes.items.back_right_wall_full.set(0,0)
-        Scenes.items.front_left_wall_full.set(0,0).zIndex(72)
+        Scenes.items.front_left_wall_full.set(0,0).zIndex(74)
         
         //items that are bring from step7
         Scenes.items.front_right_wall_1.set(0,0).zIndex(70) 
         Scenes.items.front_right_wall_2.set(0,0) 
         Scenes.items.front_right_wall_3.set(0,0) 
-        Scenes.items.front_right_wall_4.set(0,0).zIndex(72)
+        Scenes.items.front_right_wall_4.set(0,0).zIndex(74)
         
         //! final position
 
         let ctProps = [
           Scenes.items.roof_ct_prop_1.set(0,0).zIndex(69).hide(),
           Scenes.items.roof_ct_prop_2.set(0,0).zIndex(69).hide(),
-          Scenes.items.roof_ct_prop_3.set(0,0).hide(),
-          Scenes.items.roof_ct_prop_4.set(0,0).hide(),
+          Scenes.items.roof_ct_prop_3.set(0,0).zIndex(69).hide(),
+          Scenes.items.roof_ct_prop_4.set(0,0).zIndex(69).hide(),
         ]
 
         let beams = [
-          Scenes.items.roof_beam_1.set(0,0).zIndex(70).hide(),
-          Scenes.items.roof_beam_2.set(0,0).zIndex(70).hide()
+          Scenes.items.roof_beam_1.set(0,0).zIndex(71).hide(),
+          Scenes.items.roof_beam_2.set(0,0).zIndex(72).hide()
         ]
 
         let panels = [
-          Scenes.items.roof_panel_1.set(0,0).zIndex(71).hide(),
-          Scenes.items.roof_panel_2.set(0,0).zIndex(71).hide(),
-          Scenes.items.roof_panel_3.set(0,0).zIndex(71).hide(),
-          Scenes.items.roof_panel_4.set(0,0).zIndex(71).hide(),
+          Scenes.items.roof_panel_1.set(0,0).zIndex(70).hide(),
+          Scenes.items.roof_panel_2.set(0,0).zIndex(70).hide(),
+          Scenes.items.roof_panel_3.set(0,0).zIndex(70).hide(),
+          Scenes.items.roof_panel_4.set(0,0).zIndex(70).hide(),
           Scenes.items.roof_panel_5.set(0,0).zIndex(71).hide(),
           Scenes.items.roof_panel_6.set(0,0).zIndex(71).hide(),
           Scenes.items.roof_panel_7.set(0,0).zIndex(71).hide(),
           Scenes.items.roof_panel_8.set(0,0).zIndex(71).hide(),
-          Scenes.items.roof_panel_9.set(0,0).zIndex(70).hide(),
-          Scenes.items.roof_panel_10.set(0,0).zIndex(71).hide(),
-          Scenes.items.roof_panel_11.set(0,0).zIndex(71).hide(),
-          Scenes.items.roof_panel_12.set(0,0).zIndex(71).hide(),
+          Scenes.items.roof_panel_9.set(0,0).zIndex(72).hide(),
+          Scenes.items.roof_panel_10.set(0,0).zIndex(73).hide(),
+          Scenes.items.roof_panel_11.set(0,0).zIndex(73).hide(),
+          Scenes.items.roof_panel_12.set(0,0).zIndex(73).hide(),
         ]
 
         // content adder
@@ -3404,7 +3470,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
 }
 
 // stepcalling
-Scenes.currentStep = 8
+Scenes.currentStep = 4
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

@@ -1342,7 +1342,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
       return true;  
 
     }),
-    (step3 = function () {
+    (step2 = function () {
       setIsProcessRunning(true);
 
       // todo all previous elements hide
@@ -1472,7 +1472,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
       return true;
 
     }),
-    (step4 = function () {
+    (step3 = function () {
       Dom.hideAll(); 
       setIsProcessRunning(true);
       Scenes.items.contentAdderBox.setContent("");
@@ -1710,7 +1710,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
       return true;
 
     }),
-    (step5 = function () {
+    (step4 = function () {
       setIsProcessRunning(true);
       Dom.hideAll()
       Scenes.setStepHeading(
@@ -1830,6 +1830,11 @@ roof_panel_9 : new Dom("roof_panel_9"),
         Scenes.items.left_wall_soffit_internal_wedge_pin_11.set(0,0).zIndex(70).hide(),
       ]
 
+      
+      //* x,y position of arrow
+      let left = 690
+      let right  = -35
+
       let menuItemAnimes = [
         // Internal soffit anime
         ()=>{
@@ -1851,6 +1856,8 @@ roof_panel_9 : new Dom("roof_panel_9"),
             duration: 2000,
             complete(){
               setCC("Click on the 'Internal Wedge Pin' to attatch it deck panel with internal soffit.");      
+              Dom.setBlinkArrow(true, left, right)
+              setCC("Click on the 'Internal Soffit' to attatch it with deck panel.");
               Scenes.showArrowForMenuItem()
             }
           })
@@ -1958,6 +1965,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
           }
         })
       
+      Dom.setBlinkArrow(true, left, right)
       setCC("Click on the 'Internal Soffit' to attatch it with deck panel.");      
       Scenes.showArrowForMenuItem()
 
@@ -1973,7 +1981,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
         // };
       return true;
     }),
-    (step6 = function () {
+    (step5 = function () {
       setIsProcessRunning(true);
       Dom.hideAll()
       Scenes.setStepHeading(
@@ -2087,7 +2095,11 @@ roof_panel_9 : new Dom("roof_panel_9"),
         Scenes.contentAdderAddBtn("Right wall")
         Scenes.contentAdderAddBtn("Left wall")
 
-      //!Final position 
+      //!Final position
+
+      //* x,y position of arrow
+      let left = 690
+      let right  = -35
 
       let menuItemAnimes = [
          // back right wall anime
@@ -2162,7 +2174,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
         // };
       return true;
     }),
-    (step7 = function () {
+    (step6 = function () {
       setIsProcessRunning(true);
       Dom.hideAll()
       Scenes.setStepHeading(
@@ -2285,6 +2297,10 @@ roof_panel_9 : new Dom("roof_panel_9"),
 
       //!Final position 
 
+      //* x,y position of arrow
+      let left = 690
+      let right  = -35
+
       let menuItemAnimes = [
          // front right wall anime
          ()=>{
@@ -2402,12 +2418,12 @@ roof_panel_9 : new Dom("roof_panel_9"),
         // };
       return true;
     }),
-    (step8 = function () {
+    (step7 = function () {
       setIsProcessRunning(true);
       Dom.hideAll()
       Scenes.setStepHeading(
         "Step 7",
-        "Setting the roof panels with the help of CT prop, mid beam and roof panels."
+        "Placing CT Prop, Beam and Panel to setting the roof."
       );
       // todo remove all previous
       Scenes.items.contentAdderBox.setContent("");

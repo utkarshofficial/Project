@@ -1078,6 +1078,211 @@ const Scenes = {
       }
       return true
     }),
+    // (step2 = function () {
+    //   // ! fixing the overflow
+    //   Scenes.items.anime_main_dom.item.style.overflow = "visible";
+
+    //   // hide
+    //   Dom.hideAll();
+    //   setIsProcessRunning(true);
+    //   Dom.setBlinkArrow(-1);
+      
+    //   Scenes.setStepHeading("Step 2", "Bring timber beam in the lab and drill holes on it.")
+
+    //   // * Required Elements
+    //   Scenes.items.beam_3d_1.set(-170,73,350).rotate(-55)
+    //   Scenes.items.beam_3d_2.set(950,93,350).zIndex(1)
+    //   Scenes.items.drill_machine.set(820,325,60).zIndex(2) 
+
+    //   // ! remove
+    //   // Scenes.items.beam_F3d_1.set(170,73,350)
+    //   // Scenes.items.beam_3d_with_one_hole.set(170,73,350)
+    //   // Scenes.items.beam_3d_with_holes1.set(170,73,350)
+    //   // Scenes.items.beam_3d_2.set(250,93,350)
+    //   // Scenes.items.beam_3d_with_holes2.set(250,93,350)
+      
+    //   // Scenes.items.drill_helper.set(170,73,350)
+    //   // Scenes.items.drill_helper.set(250,93,350)
+
+    //   // Scenes.items.sheathing1.set(170,73,350)
+
+
+    //   // Scenes.items.drill_machine.set(394,150,60)
+    //   // Scenes.items.drill_machine.set(236,254,60)
+    //   // Scenes.items.drill_machine.set(471,170,60)
+    //   // Scenes.items.drill_machine.set(317,274,60) 
+      
+    //   //! to set the click serially
+    //   // let pointer = 0;
+    //   // Scenes.items.menu_cover.set(null, 20, null, null, null, 0).zIndex(50);
+
+      
+      
+    //   Scenes.items.contentAdderBox.set(null,-50).show("flex")
+    //   Scenes.contentAdderAddBtn("Timber Beam")
+    //   Scenes.contentAdderAddBtn("Drill Machine")
+      
+    //   let contentAdderBtns = getAll(".content-adder-box .btn")
+    //   contentAdderBtns[0].onclick = timberBeamAnime
+    //   contentAdderBtns[1].onclick = drillMachineAnime
+      
+      
+    //   Scenes.menu_cover(null)
+    //   let timberBeamCount = 0
+    //   let drillMachineCount = 0
+    //   function timberBeamAnime(){
+    //     switch(timberBeamCount){
+    //       case 0:
+    //         anime({
+
+    //           targets: Scenes.items.beam_3d_1.item,
+    //           keyframes : [
+    //             {left : 170},
+    //             {rotate: 0},
+    //           ],
+    //           easing: "easeInOutQuad",
+    //           duration: 2500,
+    //           complete(){
+    //             Scenes.menu_cover()                         
+    //             Scenes.items.drill_helper.set(170,73,350).zIndex(100)
+
+    //             //!to end the click
+    //             contentAdderBtns[0].onclick = ()=>{
+    //             }
+    //             setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
+    //             Dom.setBlinkArrow(true, 705,15).play();
+    //           }
+    //         })
+    //         break;
+    //         case 1:
+    //           anime({
+    //             targets: Scenes.items.beam_3d_2.item,
+    //             keyframes : [
+    //               {left : 250},
+    //               {rotate: 0},
+    //             ],
+    //             easing: "easeInOutQuad",
+    //             duration: 2500,
+    //             complete(){
+    //               Scenes.items.drill_helper.set(250,93,350)
+    //                  //!to end the click
+    //             contentAdderBtns[1].onclick = ()=>{
+    //             }
+    //               setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
+    //               Dom.setBlinkArrow(true, 705,15).play();
+    //             }
+    //           })
+
+    //           break
+    //     }
+    //     timberBeamCount++
+    //   }
+
+    //   function drillMachineAnime(){
+    //     switch(drillMachineCount){
+    //       case 0:
+    //         anime.timeline({
+    //           easing: "easeInOutQuad",
+    //             targets: Scenes.items.drill_machine.item,
+    //             duration: 4000,
+    //         })
+    //           .add({
+    //             keyframes: [
+    //               {left: 394,top: 150},
+    //               { left: "-=17",duration: 1500,},
+    //               {left: "+=17",duration: 1500,}
+    //             ],
+    //             complete(){
+    //               Scenes.items.beam_3d_1.hide()
+    //                   Scenes.items.beam_3d_with_one_hole.set(170,73,350)
+    //             }
+    //           })
+    //           .add({
+    //             top: 254,
+    //           })
+    //           .add({
+    //             keyframes: [
+    //               {left: 236,top: 254},
+    //               { left: "-=11",duration: 1500,},
+    //               {left: "+=11",duration: 1500,}
+    //             ],
+    //             complete(){
+    //               Scenes.items.beam_3d_with_one_hole.hide()
+    //               Scenes.items.beam_3d_with_holes1.set(170,73,350) 
+                    
+    //             }
+    //           })    
+    //           .add({
+    //             left: 820,
+    //             top: 325,
+    //             duration: 1000,
+    //             complete(){
+    //               setCC("Click on the 'Timber Beam' to add another tim ber beam in the lab.");      
+    //                   Dom.setBlinkArrow(true, 705,-35).play();
+    //             }
+    //           })      
+    //           break;
+
+    //           case 1:
+    //             anime.timeline({
+    //               easing: "easeInOutQuad",
+    //                 targets: Scenes.items.drill_machine.item,
+    //                 duration: 2000,
+    //             })
+    //               .add({
+    //                 keyframes: [
+    //                   {left: 471,top: 170,},
+    //                   { left: "-=15",duration: 1500,},
+    //                   {left: "+=15",duration: 1500,}
+    //                 ],
+    //                 complete(){
+    //                   Scenes.items.beam_3d_2.hide()
+    //                   Scenes.items.beam_3d_with_one_hole.set(250,93,350)        
+    //                 }
+    //               })
+    //               .add({
+    //                 top: 274,
+    //               })
+    //               .add({
+                    
+    //                 keyframes: [
+    //                   {left: 317,},
+    //                   { left: "-=12",duration: 1500,},
+    //                   {left: "+=12",duration: 1500,}
+    //                 ],
+    //                 complete(){
+    //                   Scenes.items.beam_3d_with_one_hole.hide()
+    //                   Scenes.items.beam_3d_with_holes2.set(250,93,350) 
+                        
+    //                 }
+    //               })    
+    //               .add({
+    //                 left: 820,
+    //                 top: 325,
+                
+    //                 complete(){
+    //                   setCC("Click on the 'Next' to go to next step.");      
+    //                   Dom.setBlinkArrow(true, 790, 408).play()
+    //         setIsProcessRunning(false);
+    //         Quiz.loadQuiz()
+    //       }
+    //               })     
+    //             break
+    //     }                
+    //     drillMachineCount++                                     
+    //     }
+
+
+    //   setCC("Click on the 'Timber Beam' to add Timber beam in the lab.");      
+    //   Dom.setBlinkArrow(true, 705, -35).play()
+    //   // onclick
+    //   contentAdderBtns[0].onclick = timberBeamAnime
+    //   contentAdderBtns[1].onclick = drillMachineAnime
+    //   // remove all the previous elements
+    //   // Dom.hideAll();
+    //   return true;  
+
+    // }),
     (step2 = function () {
       // ! fixing the overflow
       Scenes.items.anime_main_dom.item.style.overflow = "visible";
@@ -1095,7 +1300,7 @@ const Scenes = {
       Scenes.items.drill_machine.set(820,325,60).zIndex(2) 
 
       // ! remove
-      // Scenes.items.beam_F3d_1.set(170,73,350)
+      // Scenes.items.beam_3d_1.set(170,73,350)
       // Scenes.items.beam_3d_with_one_hole.set(170,73,350)
       // Scenes.items.beam_3d_with_holes1.set(170,73,350)
       // Scenes.items.beam_3d_2.set(250,93,350)
@@ -1111,25 +1316,18 @@ const Scenes = {
       // Scenes.items.drill_machine.set(236,254,60)
       // Scenes.items.drill_machine.set(471,170,60)
       // Scenes.items.drill_machine.set(317,274,60) 
-      
-      //! to set the click serially
-      // let pointer = 0;
-      // Scenes.items.menu_cover.set(null, 20, null, null, null, 0).zIndex(50);
 
-      
-      
       Scenes.items.contentAdderBox.set(null,-50).show("flex")
       Scenes.contentAdderAddBtn("Timber Beam")
       Scenes.contentAdderAddBtn("Drill Machine")
-      
+
       let contentAdderBtns = getAll(".content-adder-box .btn")
       contentAdderBtns[0].onclick = timberBeamAnime
       contentAdderBtns[1].onclick = drillMachineAnime
       
-      
-      Scenes.menu_cover(null)
       let timberBeamCount = 0
       let drillMachineCount = 0
+
       function timberBeamAnime(){
         switch(timberBeamCount){
           case 0:
@@ -1143,12 +1341,7 @@ const Scenes = {
               easing: "easeInOutQuad",
               duration: 2500,
               complete(){
-                Scenes.menu_cover()                         
                 Scenes.items.drill_helper.set(170,73,350).zIndex(100)
-
-                //!to end the click
-                contentAdderBtns[0].onclick = ()=>{
-                }
                 setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
                 Dom.setBlinkArrow(true, 705,15).play();
               }
@@ -1165,9 +1358,6 @@ const Scenes = {
                 duration: 2500,
                 complete(){
                   Scenes.items.drill_helper.set(250,93,350)
-                     //!to end the click
-                contentAdderBtns[1].onclick = ()=>{
-                }
                   setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
                   Dom.setBlinkArrow(true, 705,15).play();
                 }
@@ -1187,8 +1377,7 @@ const Scenes = {
                 duration: 4000,
             })
               .add({
-                keyframes: [
-                  {left: 394,top: 150},
+                keyframes: [                  {left: 394,top: 150},
                   { left: "-=17",duration: 1500,},
                   {left: "+=17",duration: 1500,}
                 ],
@@ -1264,7 +1453,7 @@ const Scenes = {
                       setCC("Click on the 'Next' to go to next step.");      
                       Dom.setBlinkArrow(true, 790, 408).play()
             setIsProcessRunning(false);
-            Quiz.loadQuiz()
+            // Quiz.loadQuiz()
           }
                   })     
                 break
@@ -2312,7 +2501,7 @@ const Scenes = {
 
 
 //step calling 
-Scenes.steps[3]()
+// Scenes.steps[3]()
 Scenes.next()
 // Scenes.next()
 // Scenes.next()

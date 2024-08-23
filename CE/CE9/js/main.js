@@ -2848,14 +2848,4 @@ muteBtn.addEventListener("click", () => {
 // i really enjoyed the voice of keybord
 // its amazing
 
-// mouse position
-function getCursor(event) {
-  let x = event.clientX;
-  let y = event.clientY;
-  let _position = `X: ${x - 419}<br>Y: ${y - 169}`;
-
-  const infoElement = document.getElementById("info");
-  infoElement.innerHTML = _position;
-  infoElement.style.top = y + "px";
-  infoElement.style.left = x + 20 + "px";
-}
+ 

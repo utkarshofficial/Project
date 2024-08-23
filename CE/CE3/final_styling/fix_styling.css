@@ -102,3 +102,7 @@ body {
 .bright{
     filter: brightness(200)!important;
 }
+
+.btn-next, .btn-back{
+    z-index: 1000;
+}

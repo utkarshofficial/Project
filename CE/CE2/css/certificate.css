@@ -87,6 +87,11 @@
 
     .main-window {
         border: none;
+        box-shadow: none!important;
+    }
+    
+    .main-container{
+        transform: scale(1) translateY(0)!important;
     }
 
     .certificate {

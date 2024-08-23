@@ -319,21 +319,7 @@ body{
 }
 
 
-  /* print */
-  @media print{
-    #drawer, .progress-bar, .anime-header, .anime-footer{
-        display: none!important;
-    }
-    .main-window{
-        border: none;
-    }
-    .certificate{
-        display: flex;
-        transform: translateY(400px) rotate(90deg) scale(1.5,2);
-
-
-    }
-  }
+  
   /* for transparent box */
   .transparent-box{
     display: none;

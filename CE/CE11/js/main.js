@@ -6,7 +6,7 @@ let cd = new Date();
 var currentDateGlobal = `${cd.getDate()} - ${
   cd.getMonth() + 1
 } - ${cd.getFullYear()}`;
-console.log(currentDateGlobal);
+
 
 // * Quiz object
 const Quiz = {
@@ -272,11 +272,14 @@ const setIsProcessRunning = (value) => {
     // reset showArrowMenuItemNumber 
     Scenes.menuItemNumber = 1
     setCC("Click 'Next' to go to next step");
+    get(".blinkArrow").classList.add("bright");
     Dom.setBlinkArrow(true, 790, 415).play();
+    Scenes.activeAllMenuItems()
   }
   isRunning = value;
   if(value){
     Dom.hideAll()
+    get(".blinkArrow").classList.remove("bright");
   }
 };
 
@@ -356,7 +359,7 @@ function setCC(text = null, speed = null) {
     strings: ["", ...ccQueue],
     typeSpeed: 25,
     onStringTyped(){
-      console.log(ccQueue);
+      
       ccQueue.shift();
       // if(ccQueue.length != 0){
       //   setCC(ccQueue.shift())
@@ -853,9 +856,11 @@ roof_panel_9 : new Dom("roof_panel_9"),
   contentAdderAddBtn(text) {
     Scenes.items.contentAdderBox.item.innerHTML += `<li class="btn content-adder">${text}</li>`;
   },
-  // fetch top pixel for menu item
+  // ! Show arrow according to menu item number
   menuItemNumber: 1,
   showArrowForMenuItem(){
+    this.disableInvalidMenuItemsClick()
+
     let menuLeftOffset = get("ul").offsetLeft
     let gapArrowWith = 71
 
@@ -868,8 +873,21 @@ roof_panel_9 : new Dom("roof_panel_9"),
     for(let i=1;i< this.menuItemNumber;i++){
       finalTop+=gapTopFixed 
     }
+
     this.menuItemNumber++
     Dom.setBlinkArrow(true, this.leftGap, finalTop).play()
+  },
+  // ! to disable menu item clicks
+  disableInvalidMenuItemsClick(){
+    let allMenuItems = getAll("ul li")
+    allMenuItems.forEach(menuItem => {
+      menuItem.style.pointerEvents = "none"
+    })
+
+    allMenuItems[this.menuItemNumber - 1].style.pointerEvents = ""
+  },
+  activeAllMenuItems(){
+    getAll(".content-adder-box li").forEach(item=>item.style.pointerEvents = "")
   },
   currentStep: 0,
   subCurrentStep: 0,

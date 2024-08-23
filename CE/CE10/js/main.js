@@ -2698,7 +2698,7 @@ template_img : new Dom("template_img"),
 }
 
 // stepcalling
-Scenes.currentStep = 8
+Scenes.currentStep = 0
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

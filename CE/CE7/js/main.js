@@ -910,11 +910,18 @@ right_bracing9 : new Dom("right_bracing9"),
   // for typing hello text
   intru: null,
   intruVoice: null,
+  experimentNameIntro: "Monolithic Formwork Experiment",
+  experimentNameCertificate: "Monolithic Formwork",
+  experimentNameSpeech: "Monolithic Formwork",
   steps: [
     (intro = () => {
       // remove all dom element for back and setProcessRunning
       setIsProcessRunning(true);
 
+
+      // ! set The experiment name
+      let welcomeBoxExpName = get(".welcome-box .title span:nth-child(2)")
+      welcomeBoxExpName.innerHTML = Scenes.experimentNameIntro
 
       // starting elements
 
@@ -937,7 +944,9 @@ right_bracing9 : new Dom("right_bracing9"),
           return;
         }
         // take only first space
-        let fName = student_name.slice(0, student_name.indexOf(" "));
+        let spaceIndex = student_name.indexOf(" ")
+        spaceIndex = spaceIndex == -1 ? student_name.length : spaceIndex + 1 
+        let fName = student_name.slice(0, spaceIndex);
         hide(error);
         let tl = anime.timeline({
           easing: "easeOutExpo",
@@ -968,7 +977,7 @@ right_bracing9 : new Dom("right_bracing9"),
               Scenes.items.tempText.set(482, 1);
               textToSpeach(`Hey! ${fName}`);
               textToSpeach(
-                "Welcome to Foundation Wall in Formwork Experiment of Formwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
+                `Welcome to ${Scenes.experimentNameSpeech} Experiment of Formwork Technology in Civil Engineering Virtual Lab developed by Professor K N.Jha, Department of Civil Engineering, IIT Delhi.`
               );
               Scenes.items.talk_cloud.set(450, -40, 180).push();
               setCC("");
@@ -3172,6 +3181,9 @@ right_bracing9 : new Dom("right_bracing9"),
     (completed = function () {
       Dom.hideAll();
       Scenes.items.contentAdderBox.setContent("");
+
+            let certificateExpName = get(".certificate .student-detail .row span:nth-child(2)")
+      certificateExpName.innerHTML = Scenes.experimentNameCertificate
 
       // get(".btn-save").style.display = "block";
       Scenes.items.btn_save.show().push();

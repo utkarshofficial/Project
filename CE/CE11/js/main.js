@@ -907,6 +907,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
   intruVoice: null,
   experimentNameIntro: "Monolithic Formwork Experiment",
   experimentNameCertificate: "Monolithic Formwork",
+  experimentNameSpeech: "Monolithic Formwork",
   steps: [
     (intro = () => {
       // remove all dom element for back and setProcessRunning
@@ -970,7 +971,8 @@ roof_panel_9 : new Dom("roof_panel_9"),
               Scenes.items.tempText.set(482, 1);
               textToSpeach(`Hey! ${fName}`);
               textToSpeach(
-                "Welcome to Foundation Wall in Formwork Experiment of Formwork Technology in Civil Engineering Virtual Lab developed by Prof. K. N. Jha, Department of Civil Engineering, IIT Delhi."
+                // `Welcome to Foundation Wall in Formwork Experiment of Formwork Technology in Civil Engineering Virtual Lab developed by Professor K N.Jha, Department of Civil Engineering, IIT Delhi.`
+                `Welcome to ${Scenes.experimentNameSpeech} Experiment of Formwork Technology in Civil Engineering Virtual Lab developed by Professor K N.Jha, Department of Civil Engineering, IIT Delhi.`
               );
               Scenes.items.talk_cloud.set(450, -40, 180).push();
               setCC("");

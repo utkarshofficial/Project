@@ -15,6 +15,7 @@ function nextDrawerItem() {
     }
   }
   activeIdx = activeIdx < listItems.length ? activeIdx + 1 : activeIdx;
+  get("ol .active").scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest"})
 }
 
 function backDrawerItem() {

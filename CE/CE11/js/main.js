@@ -280,6 +280,9 @@ const setIsProcessRunning = (value) => {
   if(value){
     Dom.hideAll()
     get(".blinkArrow").classList.remove("bright");
+    window.speechSynthesis.cancel();
+    if(ccQueue)
+      ccQueue = []
   }
 };
 

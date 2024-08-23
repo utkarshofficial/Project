@@ -17,7 +17,7 @@ body {
 
 /* ! New styling */
 * {
-    user-select: none;
+    user-select: none!important;
 }
 
 img {

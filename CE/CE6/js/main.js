@@ -6,7 +6,7 @@ let cd = new Date();
 var currentDateGlobal = `${cd.getDate()} - ${
   cd.getMonth() + 1
 } - ${cd.getFullYear()}`;
-console.log(currentDateGlobal);
+ ;
 
 // * Quiz object
 const Quiz = {
@@ -340,7 +340,7 @@ function setCC(text = null, speed = null) {
     strings: ["", ...ccQueue],
     typeSpeed: 25,
     onStringTyped(){
-      console.log(ccQueue);
+       ;
       ccQueue.shift();
       // if(ccQueue.length != 0){
       //   setCC(ccQueue.shift())

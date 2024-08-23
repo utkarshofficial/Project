@@ -644,7 +644,7 @@ const Scenes = {
         "Calculation of cross-sectional area:";
       show(Scenes.domItems.stepHeading, "flex");
 
-      console.log(Scenes.domItems.stepHeading);
+       ;
       Scenes.img.bare_raber2.set(110, 90, 20, 530).zIndex(3).rotate(0).push();
       Scenes.img.weight.set(140, 150, 120).zIndex(1).push();
       Scenes.img.tableCrop.set(20, 50, 320, 680).push();
@@ -1109,7 +1109,7 @@ cursorPointer(Scenes.img.bare_raber2.img)
       // onclick
       Scenes.domItems.tempInputBtn.onclick = function () {
         let s0 = Scenes.domItems.tempInputBoxInput.value;
-        console.log(s0);
+         ;
         if (s0 != 60) {
           show(Scenes.domItems.tempInputError);
           Scenes.domItems.tempInputError.innerHTML =
@@ -1378,7 +1378,7 @@ cursorPointer(Scenes.img.bare_raber2.img)
       // onclick utm btn
       Scenes.domItems.utmBtn.onclick = function () {
         Scenes.img.off_screen.hide();
-        console.log("wlaslkdg");
+         ;
         Img.setBlinkArrow(-1);
         Scenes.img.arrow.set(320, 80, null, 200).rotate(-20).zIndex(5).push();
         // !old
@@ -1670,7 +1670,7 @@ cursorPointer(Scenes.img.varniarRight.img)
                                   topR = topR - 2;
                                   Scenes.img.varniarRight.img.style.left = leftR + 'px';
                                   Scenes.img.varniarRight.img.style.top = topR + 'px';
-                                  console.log(leftR,topR)
+                                   
                                 }
                               },
                               // top: 85,
@@ -1837,11 +1837,11 @@ const nextBtn = get(".btn-next");
 const backBtn = get(".btn-back");
 nextBtn.addEventListener("click",()=>{
   Scenes.next();
-  console.log("next")
+   
 });
 backBtn.addEventListener("click",()=>{
   Scenes.back();
-  console.log("back")
+   
 });
 
 // print certificate

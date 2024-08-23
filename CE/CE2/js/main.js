@@ -6,7 +6,7 @@ let cd = new Date();
 var currentDateGlobal = `${cd.getDate()} - ${
   cd.getMonth() + 1
 } - ${cd.getFullYear()}`;
-console.log(currentDateGlobal);
+ ;
 
 // * Quiz object
 const Quiz = {
@@ -347,7 +347,7 @@ function setCC(text = null, speed = null) {
     strings: ["", ...ccQueue],
     typeSpeed: 25,
     onStringTyped(){
-      console.log(ccQueue);
+       ;
       ccQueue.shift();
       // if(ccQueue.length != 0){
       //   setCC(ccQueue.shift())
@@ -980,7 +980,7 @@ const Scenes = {
       // Scenes.contentAdderAddBtn("Footing",0).addEventListener('click',()=>{
       //   Dom.setBlinkArrow(-1);
       //   Scenes.items.footing.set(0,0).zIndex(1);
-      //   console.log("print")
+      //    
       // })
       
       Scenes.items.contentAdderBox.set(null,-50).show("flex").push();

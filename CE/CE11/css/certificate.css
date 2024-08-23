@@ -48,7 +48,7 @@
     font-weight: bold;
 }
 
-.red{
+.red {
     color: red;
 }
 
@@ -62,11 +62,35 @@
     flex-direction: column;
 }
 
-.btn-save{
+.btn-save {
     display: none;
 }
 
-.certificate #certificateStuName{
+.certificate #certificateStuName {
     font-size: 1.8rem;
     border-bottom: 2px solid black;
+}
+
+/* print */
+@media print {
+    @page {
+        size: landscape;
+        margin: 1in!important;
+    }
+
+    #drawer,
+    .progress-bar,
+    .anime-header,
+    .anime-footer {
+        display: none !important;
+    }
+
+    .main-window {
+        border: none;
+    }
+
+    .certificate {
+        display: flex;
+        transform: translateY(90px)  scale(1.1, 1.4);
+    }
 }

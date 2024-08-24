@@ -968,7 +968,7 @@ objective : new Dom("objective"),
       duration:4000, 
       complete(){
         setIsProcessRunning(false);
-        Dom.setBlinkArrow(true, 790, 444).play();
+        Dom.setBlinkArrow(true, 790, 415).play();
         setCC("Click 'Next' to go to next step");
 
       }
@@ -986,7 +986,7 @@ objective : new Dom("objective"),
       setIsProcessRunning(true);
       Dom.setBlinkArrow(-1);
       
-      Scenes.setStepHeading("Step 1", "Make one side of a column.")
+      Scenes.setStepHeading("Step 1", "Construct one side of a column.")
 
       //required elements
 
@@ -1122,7 +1122,7 @@ objective : new Dom("objective"),
       Dom.hideAll();
       Scenes.items.contentAdderBox.item.innerHTML = ""
 
-      Scenes.setStepHeading("Step 2", "Adding all sides of Column.");
+      Scenes.setStepHeading("Step 2", "Similarily connecting remaining sides of a Column.");
       
       // * Required Elements
       Scenes.items.column_front_panel.set(0,0).zIndex(2)
@@ -1217,7 +1217,7 @@ objective : new Dom("objective"),
       Scenes.items.contentAdderBox.setContent("");
       Scenes.setStepHeading(
         "Step 3",
-        "Placing external corner to attach all sides of columns."
+        "Attaching external conrer to connect all the sides of a column."
       );
 
       // ! required item

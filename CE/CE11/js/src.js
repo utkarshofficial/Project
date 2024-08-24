@@ -131,6 +131,7 @@ roof_panel_6:this.allImgsDom[119],
 roof_panel_7:this.allImgsDom[120],
 roof_panel_8:this.allImgsDom[121],
 roof_panel_9:this.allImgsDom[122],
+objective:this.allImgsDom[123],
 
 
       

@@ -4,6 +4,24 @@ Scenes.showArrowForMenuItem()
 
 Scenes.repeatShowArrowForMenuItem()
 
+.active{
+    box-shadow: -1px 2px 9px 0px rgb(0 0 0 / 57%);
+    font-weight: bold!important;
+    opacity: 1!important;
+    transition: 0.4s;
+    animation: blink 0.5s;
+}
+
+@keyframes blink {
+    from{
+        background-color: #9f91cc;
+        transform: translateY(20px);
+    }
+    to{
+        background: white;
+    }
+}
+
 showArrowForMenuItem(repeat=false){
     if(repeat){
       this.menuItemNumber--;

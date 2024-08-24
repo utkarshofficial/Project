@@ -1143,29 +1143,33 @@ const Scenes = {
         .add({
           targets: Scenes.items.u_head1.item,
           keyframes : [
-            {top: 0},
+            {top: -10},
             {left : 0},
+            {top: 0},
           ]             
         })
         .add({
           targets: Scenes.items.u_head2.item,
           keyframes : [
-            {top: 0},
+            {top: -10},
             {left : 0},
+            {top: 0},
           ]             
         })
         .add({
           targets: Scenes.items.u_head3.item,
           keyframes : [
-            {top: 0},
+            {top: -10},
             {left : 0},
+            {top: 0},
           ]             
         })
         .add({
           targets: Scenes.items.u_head4.item,
           keyframes : [
-            {top: 0},
+            {top: -10},
             {left : 0},
+            {top: 0},
           ],
           complete(){
             setIsProcessRunning(false);

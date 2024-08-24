@@ -1,6 +1,7 @@
 Scenes.showArrowForMenuItem()
 
-
+Scenes.menuItemNumber = 1
+Scenes.showArrowForMenuItem()
 
 Scenes.repeatShowArrowForMenuItem()
 
@@ -21,6 +22,15 @@ Scenes.repeatShowArrowForMenuItem()
         background: white;
     }
 }
+
+
+contentAdderBtns.forEach(cab=>{
+  let previousFunction = cab.onclick
+  cab.onclick = ()=>{
+    Dom.setBlinkArrow(-1)
+    previousFunction()
+  }
+})
 
 showArrowForMenuItem(repeat=false){
     if(repeat){

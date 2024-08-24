@@ -90,6 +90,7 @@ photoscap:this.allImgsDom[77],
 right_stop_end_full:this.allImgsDom[78],
 temp2:this.allImgsDom[79],
 template_img:this.allImgsDom[80],
+objective:this.allImgsDom[81],
 
 
 

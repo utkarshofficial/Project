@@ -801,6 +801,7 @@ photoscap : new Dom("photoscap"),
 right_stop_end_full : new Dom("right_stop_end_full"),
 temp2 : new Dom("temp2"),
 template_img : new Dom("template_img"),
+objective : new Dom("objective"),
 
 
 
@@ -976,14 +977,14 @@ template_img : new Dom("template_img"),
       
       // * Required Items
       Scenes.items.projectIntro.show()
-      Scenes.items.objective.set(0,45)
+      Scenes.items.objective.set(47, 83, 360)
       
 
     anime({
       duration:4000, 
       complete(){
         setIsProcessRunning(false);
-        Dom.setBlinkArrow(true, 790, 444).play();
+        Dom.setBlinkArrow(true, 790, 415).play();
         setCC("Click 'Next' to go to next step");
 
       }
@@ -993,10 +994,11 @@ template_img : new Dom("template_img"),
     }),
     (step1 = function () {
       setIsProcessRunning(true);
+      Scenes.items.projectIntro.hide()
       Dom.hideAll()
       Scenes.setStepHeading(
         "Step 1",
-        "Making one side of the wall."
+        "Construct one side of a wall."
       );
       // todo remove all previous
       Scenes.items.contentAdderBox.setContent("");
@@ -1182,7 +1184,7 @@ template_img : new Dom("template_img"),
       Dom.hideAll()
       Scenes.setStepHeading(
         "Step 2",
-        "Making one side of the wall."
+        "Attaching alignment clamp and nut to connect the wall corners rigidly."
       );
       // todo remove all previous
       Scenes.items.contentAdderBox.setContent("");
@@ -1361,7 +1363,7 @@ template_img : new Dom("template_img"),
       Dom.hideAll()
       Scenes.setStepHeading(
         "Step 3",
-        "Making one side of the wall."
+        "Construct remaining sides of the wall using compensation waller and stopends."
       );
       // todo remove all previous
       Scenes.items.contentAdderBox.setContent("");
@@ -1709,7 +1711,7 @@ template_img : new Dom("template_img"),
 }
 
 // stepcalling
-Scenes.currentStep = 5
+Scenes.currentStep = 0
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

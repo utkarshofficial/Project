@@ -832,7 +832,10 @@ const Scenes = {
   },
   // ! Show arrow according to menu item number
   menuItemNumber: 1,
-  showArrowForMenuItem(){
+  showArrowForMenuItem(repeat=false){
+    if(repeat){
+      this.menuItemNumber--;
+    }
     this.disableInvalidMenuItemsClick()
 
     let menuLeftOffset = get(".content-adder-box").offsetLeft
@@ -862,6 +865,9 @@ const Scenes = {
   },
   activeAllMenuItems(){
     getAll(".content-adder-box li").forEach(item=>item.style.pointerEvents = "")
+  },
+  repeatShowArrowForMenuItem(){
+    this.showArrowForMenuItem(true)
   },
   currentStep: 0,
   subCurrentStep: 0,
@@ -1000,7 +1006,7 @@ const Scenes = {
       Scenes.items.objective.set(0,55)
       
 
-    anime({
+  anime({
       duration:4000, 
       complete(){
         setIsProcessRunning(false);
@@ -1133,218 +1139,12 @@ const Scenes = {
           complete(){
             Dom.setBlinkArrow(true, 790, 408).play()
             // Quiz.loadQuiz()
-            setCC("Click 'Next' to go to next step")
             setIsProcessRunning(false)
           }
         },15500)
       }
       return true
     }),
-    // (step2 = function () {
-    //   // ! fixing the overflow
-    //   Scenes.items.anime_main_dom.item.style.overflow = "visible";
-
-    //   // hide
-    //   Dom.hideAll();
-    //   setIsProcessRunning(true);
-    //   Dom.setBlinkArrow(-1);
-      
-    //   Scenes.setStepHeading("Step 2", "Bring timber beam in the lab and drill holes on it.")
-
-    //   // * Required Elements
-    //   Scenes.items.beam_3d_1.set(-170,73,350).rotate(-55)
-    //   Scenes.items.beam_3d_2.set(950,93,350).zIndex(1)
-    //   Scenes.items.drill_machine.set(820,325,60).zIndex(2) 
-
-    //   // ! remove
-    //   // Scenes.items.beam_F3d_1.set(170,73,350)
-    //   // Scenes.items.beam_3d_with_one_hole.set(170,73,350)
-    //   // Scenes.items.beam_3d_with_holes1.set(170,73,350)
-    //   // Scenes.items.beam_3d_2.set(250,93,350)
-    //   // Scenes.items.beam_3d_with_holes2.set(250,93,350)
-      
-    //   // Scenes.items.drill_helper.set(170,73,350)
-    //   // Scenes.items.drill_helper.set(250,93,350)
-
-    //   // Scenes.items.sheathing1.set(170,73,350)
-
-
-    //   // Scenes.items.drill_machine.set(394,150,60)
-    //   // Scenes.items.drill_machine.set(236,254,60)
-    //   // Scenes.items.drill_machine.set(471,170,60)
-    //   // Scenes.items.drill_machine.set(317,274,60) 
-      
-    //   //! to set the click serially
-    //   // let pointer = 0;
-    //   // Scenes.items.menu_cover.set(null, 20, null, null, null, 0).zIndex(50);
-
-      
-      
-    //   Scenes.items.contentAdderBox.set(null,-50).show("flex")
-    //   Scenes.contentAdderAddBtn("Timber Beam")
-    //   Scenes.contentAdderAddBtn("Drill Machine")
-      
-    //   let contentAdderBtns = getAll(".content-adder-box .btn")
-    //   contentAdderBtns[0].onclick = timberBeamAnime
-    //   contentAdderBtns[1].onclick = drillMachineAnime
-      
-      
-    //   Scenes.menu_cover(null)
-    //   let timberBeamCount = 0
-    //   let drillMachineCount = 0
-    //   function timberBeamAnime(){
-    //     switch(timberBeamCount){
-    //       case 0:
-    //         anime({
-
-    //           targets: Scenes.items.beam_3d_1.item,
-    //           keyframes : [
-    //             {left : 170},
-    //             {rotate: 0},
-    //           ],
-    //           easing: "easeInOutQuad",
-    //           duration: 2500,
-    //           complete(){
-    //             Scenes.menu_cover()                         
-    //             Scenes.items.drill_helper.set(170,73,350).zIndex(100)
-
-    //             //!to end the click
-    //             contentAdderBtns[0].onclick = ()=>{
-    //             }
-    //             setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
-    //             Dom.setBlinkArrow(true, 705,15).play();
-    //           }
-    //         })
-    //         break;
-    //         case 1:
-    //           anime({
-    //             targets: Scenes.items.beam_3d_2.item,
-    //             keyframes : [
-    //               {left : 250},
-    //               {rotate: 0},
-    //             ],
-    //             easing: "easeInOutQuad",
-    //             duration: 2500,
-    //             complete(){
-    //               Scenes.items.drill_helper.set(250,93,350)
-    //                  //!to end the click
-    //             contentAdderBtns[1].onclick = ()=>{
-    //             }
-    //               setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
-    //               Dom.setBlinkArrow(true, 705,15).play();
-    //             }
-    //           })
-
-    //           break
-    //     }
-    //     timberBeamCount++
-    //   }
-
-    //   function drillMachineAnime(){
-    //     switch(drillMachineCount){
-    //       case 0:
-    //         anime.timeline({
-    //           easing: "easeInOutQuad",
-    //             targets: Scenes.items.drill_machine.item,
-    //             duration: 4000,
-    //         })
-    //           .add({
-    //             keyframes: [
-    //               {left: 394,top: 150},
-    //               { left: "-=17",duration: 1500,},
-    //               {left: "+=17",duration: 1500,}
-    //             ],
-    //             complete(){
-    //               Scenes.items.beam_3d_1.hide()
-    //                   Scenes.items.beam_3d_with_one_hole.set(170,73,350)
-    //             }
-    //           })
-    //           .add({
-    //             top: 254,
-    //           })
-    //           .add({
-    //             keyframes: [
-    //               {left: 236,top: 254},
-    //               { left: "-=11",duration: 1500,},
-    //               {left: "+=11",duration: 1500,}
-    //             ],
-    //             complete(){
-    //               Scenes.items.beam_3d_with_one_hole.hide()
-    //               Scenes.items.beam_3d_with_holes1.set(170,73,350) 
-                    
-    //             }
-    //           })    
-    //           .add({
-    //             left: 820,
-    //             top: 325,
-    //             duration: 1000,
-    //             complete(){
-    //               setCC("Click on the 'Timber Beam' to add another tim ber beam in the lab.");      
-    //                   Dom.setBlinkArrow(true, 705,-35).play();
-    //             }
-    //           })      
-    //           break;
-
-    //           case 1:
-    //             anime.timeline({
-    //               easing: "easeInOutQuad",
-    //                 targets: Scenes.items.drill_machine.item,
-    //                 duration: 2000,
-    //             })
-    //               .add({
-    //                 keyframes: [
-    //                   {left: 471,top: 170,},
-    //                   { left: "-=15",duration: 1500,},
-    //                   {left: "+=15",duration: 1500,}
-    //                 ],
-    //                 complete(){
-    //                   Scenes.items.beam_3d_2.hide()
-    //                   Scenes.items.beam_3d_with_one_hole.set(250,93,350)        
-    //                 }
-    //               })
-    //               .add({
-    //                 top: 274,
-    //               })
-    //               .add({
-                    
-    //                 keyframes: [
-    //                   {left: 317,},
-    //                   { left: "-=12",duration: 1500,},
-    //                   {left: "+=12",duration: 1500,}
-    //                 ],
-    //                 complete(){
-    //                   Scenes.items.beam_3d_with_one_hole.hide()
-    //                   Scenes.items.beam_3d_with_holes2.set(250,93,350) 
-                        
-    //                 }
-    //               })    
-    //               .add({
-    //                 left: 820,
-    //                 top: 325,
-                
-    //                 complete(){
-    //                   setCC("Click on the 'Next' to go to next step.");      
-    //                   Dom.setBlinkArrow(true, 790, 408).play()
-    //         setIsProcessRunning(false);
-    //         Quiz.loadQuiz()
-    //       }
-    //               })     
-    //             break
-    //     }                
-    //     drillMachineCount++                                     
-    //     }
-
-
-    //   setCC("Click on the 'Timber Beam' to add Timber beam in the lab.");      
-    //   Dom.setBlinkArrow(true, 705, -35).play()
-    //   // onclick
-    //   contentAdderBtns[0].onclick = timberBeamAnime
-    //   contentAdderBtns[1].onclick = drillMachineAnime
-    //   // remove all the previous elements
-    //   // Dom.hideAll();
-    //   return true;  
-
-    // }),
     (step2 = function () {
       // ! fixing the overflow
       Scenes.items.anime_main_dom.item.style.overflow = "visible";
@@ -1405,7 +1205,7 @@ const Scenes = {
               complete(){
                 Scenes.items.drill_helper.set(170,73,350).zIndex(100)
                 setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
-                Dom.setBlinkArrow(true, 705,15).play();
+                Scenes.showArrowForMenuItem()
               }
             })
             break;
@@ -1421,7 +1221,7 @@ const Scenes = {
                 complete(){
                   Scenes.items.drill_helper.set(250,93,350)
                   setCC("Click on the 'Drill Machine' to drill holes on timber beam.");      
-                  Dom.setBlinkArrow(true, 705,15).play();
+                  Scenes.showArrowForMenuItem()
                 }
               })
 
@@ -1469,7 +1269,8 @@ const Scenes = {
                 duration: 1000,
                 complete(){
                   setCC("Click on the 'Timber Beam' to add another tim ber beam in the lab.");      
-                      Dom.setBlinkArrow(true, 705,-35).play();
+Scenes.menuItemNumber = 1
+Scenes.showArrowForMenuItem()
                 }
               })      
               break;
@@ -1512,8 +1313,7 @@ const Scenes = {
                     top: 325,
                 
                     complete(){
-                      setCC("Click on the 'Next' to go to next step.");      
-                      Dom.setBlinkArrow(true, 790, 408).play()
+
             setIsProcessRunning(false);
             // Quiz.loadQuiz()
           }
@@ -1525,10 +1325,18 @@ const Scenes = {
 
 
       setCC("Click on the 'Timber Beam' to add Timber beam in the lab.");      
-      Dom.setBlinkArrow(true, 705, -35).play()
+      Scenes.showArrowForMenuItem()
       // onclick
       contentAdderBtns[0].onclick = timberBeamAnime
       contentAdderBtns[1].onclick = drillMachineAnime
+      
+contentAdderBtns.forEach(cab=>{
+  let previousFunction = cab.onclick
+  cab.onclick = ()=>{
+    Dom.setBlinkArrow(-1)
+    previousFunction()
+  }
+})
       // remove all the previous elements
       // Dom.hideAll();
       return true;  
@@ -1613,7 +1421,7 @@ const Scenes = {
                 Scenes.items.sheathing3.set(330,248,30,10).zIndex(4)
                 Scenes.items.sheathing4.set(459,165,30,10).zIndex(4)
 
-                Dom.setBlinkArrow(true, 710,15).play();
+                Scenes.showArrowForMenuItem()
                 setCC("Click on the 'Nailing' to nail on the sheathing.");
               }
             })
@@ -1716,20 +1524,25 @@ const Scenes = {
               top: 350,
               rotate: 0,
               complete(){
-                Dom.setBlinkArrow(true, 790, 408).play();
-                setCC("Click 'Next' to go to next step");
                 setIsProcessRunning(false);
-                Quiz.loadQuiz()
+                // Quiz.loadQuiz()
               }
             })
       }
 
-      Dom.setBlinkArrow(true, 710, -35).play();
+      Scenes.showArrowForMenuItem()
       setCC("Click on the 'Sheathing' to put it on the beam.");
       // onclick
       contentAdderBtns[0].onclick = sheathingAnime;
       contentAdderBtns[1].onclick = nailingAnime;
 
+      contentAdderBtns.forEach(cab=>{
+        let previousFunction = cab.onclick
+        cab.onclick = ()=>{
+          Dom.setBlinkArrow(-1)
+          previousFunction()
+        }
+      })
       return true;
     }),
     (step4 = function () {
@@ -1850,7 +1663,7 @@ const Scenes = {
         targets: [Scenes.items.beam_3d_with_holes4.item,Scenes.items.beam_3d_with_holes3.item,Scenes.items.sheathing_full2.item],
         left: "-=200",
         complete(){
-          Dom.setBlinkArrow(true,718,-35).play()
+          Scenes.showArrowForMenuItem()
           setCC("Click on the 'Steel Waler' to put it on the beam.")
         }
       })
@@ -1878,7 +1691,7 @@ const Scenes = {
             // tilt position of steel waler
             Scenes.items.steel_waler_tilt1.set(300,125,65).zIndex(5).rotate(-4)
 
-            Dom.setBlinkArrow(true,718,15).play()
+            Scenes.showArrowForMenuItem()
             setCC("Click on the 'Flange Claw' to attach it with steel waler.")
           }
         })
@@ -1897,7 +1710,7 @@ const Scenes = {
             Scenes.items.steel_waler_blue2.hide()
             // tilt position of steel waler
             Scenes.items.steel_waler_tilt2.set(155,224,65).zIndex(5).rotate(-4)
-            Dom.setBlinkArrow(true,718,15).play()
+            Scenes.showArrowForMenuItem()
             setCC("Click on the 'Flange Claw' to attach it with steel waler.")
           }
         })
@@ -1926,7 +1739,8 @@ const Scenes = {
             top: 143,
             rotate: 127,
             complete(){
-              Dom.setBlinkArrow(true,718,-35).play()
+              Scenes.menuItemNumber = 1
+Scenes.showArrowForMenuItem()
               setCC("Click on the 'Steel Waler' to put it on the beam.")
             }
           })
@@ -1949,10 +1763,8 @@ const Scenes = {
               top: 244,
               rotate: 130,
               complete(){
-                Dom.setBlinkArrow(true, 790, 408).play();
-                setCC("Click 'Next' to go to next step");
                 setIsProcessRunning(false);
-                Quiz.loadQuiz()
+                // Quiz.loadQuiz()
               }
             })
             break
@@ -1968,6 +1780,13 @@ const Scenes = {
      contentAdderBtns[0].onclick = steelWalerAnime;
      contentAdderBtns[1].onclick = flangeClawAnime;
 
+     contentAdderBtns.forEach(cab=>{
+      let previousFunction = cab.onclick
+      cab.onclick = ()=>{
+        Dom.setBlinkArrow(-1)
+        previousFunction()
+      }
+    })
      return true;
 
     }),
@@ -2064,7 +1883,7 @@ const Scenes = {
             Scenes.items.ct_prop2.     set(153,305,178,50).rotate(90).zIndex(11)
 
             setCC("Click on the 'Head Adapter' to connect it with steel waler.")
-            Dom.setBlinkArrow(true,680,-35).play()
+            Scenes.showArrowForMenuItem()
 
           }
         })  
@@ -2088,7 +1907,7 @@ const Scenes = {
               rotate: 35,
               complete(){
                 setCC("Click on the 'Foot Adapter' to support the CT Prop.")
-                Dom.setBlinkArrow(true,700,15).play()
+                Scenes.showArrowForMenuItem()
               }
             })
      
@@ -2103,7 +1922,7 @@ const Scenes = {
               duration: 1000,
               complete(){
                 setCC("Click on the 'CT Prop' to support the form floor panel.")
-                Dom.setBlinkArrow(true,700,65).play()
+                Scenes.showArrowForMenuItem()
               }
             })
       }
@@ -2125,10 +1944,8 @@ const Scenes = {
               top:210,
               rotate: 60,
               complete(){
-                setCC("Click 'Next' to go to next step");
-                Dom.setBlinkArrow(true, 790, 408).play();
                 setIsProcessRunning(false);
-                Quiz.loadQuiz()
+                // Quiz.loadQuiz()
               }
             })
       }
@@ -2143,6 +1960,13 @@ const Scenes = {
     contentAdderBtns[1].onclick = footAdapterAnime
     contentAdderBtns[2].onclick = ctPropAnime
 
+    contentAdderBtns.forEach(cab=>{
+      let previousFunction = cab.onclick
+      cab.onclick = ()=>{
+        Dom.setBlinkArrow(-1)
+        previousFunction()
+      }
+    })
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
@@ -2204,7 +2028,7 @@ const Scenes = {
         top:0,
              
         complete(){
-          Dom.setBlinkArrow(true,720,15).play()
+          Scenes.showArrowForMenuItem()
           setCC("Click on the 'Left Side' to add back side of column.")
       }
     })
@@ -2221,7 +2045,7 @@ const Scenes = {
         left:0,
         top:0,
         complete(){
-          Dom.setBlinkArrow(true,720,65).play()
+          Scenes.showArrowForMenuItem()
           setCC("Click on the 'Back Side' to add back side of column.")
         }
       })
@@ -2241,8 +2065,6 @@ const Scenes = {
             left:0,
             top:0,
             complete(){
-              setCC("Click 'Next' to go to next step");
-              Dom.setBlinkArrow(true, 790, 408).play();
               setIsProcessRunning(false);
             }
           })
@@ -2253,12 +2075,19 @@ const Scenes = {
     
 
     setCC("Click on the 'Right Side' to add right side of column.")
-    Dom.setBlinkArrow(true,720,-35).play()
+    Scenes.showArrowForMenuItem()
     //onclick
     contentAdderBtns[0].onclick = rightSideAnime
     contentAdderBtns[1].onclick = leftSideAnime
     contentAdderBtns[2].onclick = backSideAnime
 
+    contentAdderBtns.forEach(cab=>{
+      let previousFunction = cab.onclick
+      cab.onclick = ()=>{
+        Dom.setBlinkArrow(-1)
+        previousFunction()
+      }
+    })
     // setCC("Click 'Next' to go to  next step");
     //       Dom.setBlinkArrow(true, 790, 408).play();
     //       setIsProcessRunning(false);
@@ -2321,7 +2150,7 @@ const Scenes = {
             rotate: 57,
             complete(){
               setCC("Click on the 'Wing Nut' to tighten the tie rod.")
-              Dom.setBlinkArrow(true,725,15).play()
+              Scenes.showArrowForMenuItem()
             }
           })          
           break
@@ -2380,7 +2209,7 @@ const Scenes = {
             rotate: 60,
             complete(){
               setCC("Click on the 'Repeat' the above steps.")
-              Dom.setBlinkArrow(true,725,65).play()
+              Scenes.showArrowForMenuItem()
 
               Scenes.items.tie_rod2.set(763,270,130,50).rotate(90).zIndex(2)
               Scenes.items.wing_nut_top3.set(766,365,14).zIndex(10)
@@ -2406,6 +2235,7 @@ const Scenes = {
               top: 228,
               rotate: 100,
               complete(){
+                Scenes.repeatShowArrowForMenuItem()
                 Scenes.items.tie_rod3.set(763,270,140,50).rotate(90).zIndex(2)
                 Scenes.items.wing_nut_top5.set(766,365,14).zIndex(10)
                 Scenes.items.wing_nut_top6.set(800,365,14).zIndex(10)
@@ -2430,6 +2260,7 @@ const Scenes = {
               top: 320,
               rotate: 100,
               complete(){
+                Scenes.repeatShowArrowForMenuItem()
                 Scenes.items.tie_rod4.set(763,270,135,50).rotate(90).zIndex(2)
                 Scenes.items.wing_nut_top7.set(766,365,14).zIndex(10)
                 Scenes.items.wing_nut_top8.set(800,365,14).zIndex(10)
@@ -2454,8 +2285,6 @@ const Scenes = {
                 top: 264,
                 rotate: 60,
                 complete(){
-                  setCC("Click 'Next' to go to next step");
-                  Dom.setBlinkArrow(true, 790, 408).play();
                   setIsProcessRunning(false);
                 }
               })
@@ -2481,13 +2310,20 @@ const Scenes = {
       })
     }
 
-    Dom.setBlinkArrow(true,725,-35).play()
+    Scenes.showArrowForMenuItem()
     setCC("Click on the 'Tie Rod' to attach it with steel waler.")
     //onclick
     contentAdderBtns[0].onclick = tieRodAnime
     contentAdderBtns[1].onclick = wingNutAnime
     contentAdderBtns[2].onclick = repeatAnime
 
+    contentAdderBtns.forEach(cab=>{
+      let previousFunction = cab.onclick
+      cab.onclick = ()=>{
+        Dom.setBlinkArrow(-1)
+        previousFunction()
+      }
+    })
     // setCC("Click 'Next' to go to next step");
     //       Dom.setBlinkArrow(true, 790, 408).play();
     //       setIsProcessRunning(false);
@@ -2567,8 +2403,9 @@ const Scenes = {
 
 
 
-//step calling 
+//stepcalling 
 // Scenes.steps[3]()
+Scenes.currentStep = 0
 Scenes.next()
 // Scenes.next()
 // Scenes.next()

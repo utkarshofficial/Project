@@ -841,6 +841,7 @@ roof_panel_6 : new Dom("roof_panel_6"),
 roof_panel_7 : new Dom("roof_panel_7"),
 roof_panel_8 : new Dom("roof_panel_8"),
 roof_panel_9 : new Dom("roof_panel_9"),
+objective : new Dom("objective"),
 
 
   },
@@ -1016,6 +1017,7 @@ roof_panel_9 : new Dom("roof_panel_9"),
       // * Required Items
       Scenes.items.projectIntro.show()
       // Scenes.items.objective.set(0,45)
+      Scenes.items.objective.set(55, 73, 367)
       
 
     anime({

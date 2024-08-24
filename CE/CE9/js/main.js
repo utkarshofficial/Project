@@ -787,6 +787,7 @@ column_wedge_pin_right_5 : new Dom("column_wedge_pin_right_5"),
 column_wedge_pin_right_6 : new Dom("column_wedge_pin_right_6"),
 menu_cover_top : new Dom("menu_cover_top"),
 menu_cover_bottom : new Dom("menu_cover_bottom"),
+objective : new Dom("objective"),
 
   },
   deleteAll() {

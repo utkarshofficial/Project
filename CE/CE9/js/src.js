@@ -68,6 +68,7 @@ column_wedge_pin_right_5:this.allImgsDom[56],
 column_wedge_pin_right_6:this.allImgsDom[57],
 menu_cover_top:this.allImgsDom[58],
 menu_cover_bottom:this.allImgsDom[59],
+objective:this.allImgsDom[60],
 
       
       // * Videos

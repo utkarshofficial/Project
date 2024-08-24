@@ -869,7 +869,7 @@ right_bracing9 : new Dom("right_bracing9"),
   showArrowForMenuItem(){
     this.disableInvalidMenuItemsClick()
 
-    let menuLeftOffset = get("ul").offsetLeft
+    let menuLeftOffset = get(".content-adder-box").offsetLeft
     let gapArrowWith = 71
 
     this.leftGap = menuLeftOffset - gapArrowWith
@@ -883,11 +883,12 @@ right_bracing9 : new Dom("right_bracing9"),
     }
 
     this.menuItemNumber++
+    console.log()
     Dom.setBlinkArrow(true, this.leftGap, finalTop).play()
   },
   // ! to disable menu item clicks
   disableInvalidMenuItemsClick(){
-    let allMenuItems = getAll("ul li")
+    let allMenuItems = getAll(".content-adder-box li")
     allMenuItems.forEach(menuItem => {
       menuItem.style.pointerEvents = "none"
     })
@@ -913,9 +914,9 @@ right_bracing9 : new Dom("right_bracing9"),
   // for typing hello text
   intru: null,
   intruVoice: null,
-  experimentNameIntro: "Monolithic Formwork Experiment",
-  experimentNameCertificate: "Monolithic Formwork",
-  experimentNameSpeech: "Monolithic Formwork",
+  experimentNameIntro: "Beam and Slab Formwork Using HD Tower Experiment",
+  experimentNameCertificate: "Beam and Slab Formwork Using HD Tower",
+  experimentNameSpeech: "Beam and Slab Formwork Using HD Tower",
   steps: [
     (intro = () => {
       // remove all dom element for back and setProcessRunning
@@ -925,7 +926,6 @@ right_bracing9 : new Dom("right_bracing9"),
       // ! set The experiment name
       let welcomeBoxExpName = get(".welcome-box .title span:nth-child(2)")
       welcomeBoxExpName.innerHTML = Scenes.experimentNameIntro
-
       // starting elements
 
       // subtitle
@@ -999,9 +999,8 @@ right_bracing9 : new Dom("right_bracing9"),
             .add({
               duration: 12000,
               complete() {
-                setCC("Click 'Next' to go to next step");
-                Dom.setBlinkArrow(true, 790, 444).play();
                 setIsProcessRunning(false);
+                Dom.setBlinkArrow(true, 790, 450).play();
             },
           });
       };
@@ -1027,150 +1026,13 @@ right_bracing9 : new Dom("right_bracing9"),
       duration:4000, 
       complete(){
         setIsProcessRunning(false);
-        Dom.setBlinkArrow(true, 790, 444).play();
-        setCC("Click 'Next' to go to next step");
-
+        Dom.setBlinkArrow(true, 790, 450).play();
       }
 
     })
     return true;
-  }),
-    // (step1 = function () {
-    //   setIsProcessRunning(true);
-    //   // to hide previous step
-    //   Dom.hideAll();
-    //   Scenes.items.projectIntro.hide()
-    //   Dom.setBlinkArrow(-1);
-
-    //   Scenes.setStepHeading("Step 1", "Marking the area (rectangularly)");
-    //   Scenes.items.land.set(0,0,404,950)
-
-    //   Scenes.items.chalk_with_hand.set(140,138,80,70).zIndex(6)
-      
-    //   Scenes.items.chalk_markings1.set(140,150,6,670).zIndex(5)
-    //   Scenes.items.marking_surface1.set(140,150,8,670).zIndex(5)
-
-    //   Scenes.items.chalk_markings2.set(757,200,6,100).rotate(90).zIndex(5)
-    //   Scenes.items.marking_surface2.set(757,200,8,100).rotate(90).zIndex(5)
-
-    //   Scenes.items.chalk_markings3.set(140,252,6,670).zIndex(5)
-    //   Scenes.items.marking_surface3.set(140,252,8,670).zIndex(5)
-
-    //   Scenes.items.chalk_markings4.set(94,200,6,100).rotate(90).zIndex(4)
-    //   Scenes.items.marking_surface4.set(94,200,8,100).rotate(90).zIndex(4)
-
-    //   // Scenes.items.chalk_markings5.set(284,201,6,282.8).rotate(45).zIndex(3)
-    //   // Scenes.items.marking_surface5.set(284,201,8,282.8).rotate(45).zIndex(3)
-
-    //   // Scenes.items.chalk_markings6.set(284,201,6,282.8).rotate(-45).zIndex(2)
-    //   // Scenes.items.marking_surface6.set(284,201,8,282.8).rotate(-45).zIndex(2)
-
-    //   Scenes.items.tempTitle1.set(815,190).setContent("300 mm").hidden()
-    //   Scenes.items.tempTitle2.set(425,260).setContent("2400 mm").hidden()
-
-    //   setCC("Click on the hand to mark the area rectangularly.")
-    //   Dom.setBlinkArrow(true,65,130 ).play()
-    //   // onclick
-    //   Scenes.items.chalk_with_hand.item.onclick = ()=>{
-    //     Dom.setBlinkArrow(-1);
-
-    //     anime.timeline({
-    //       easing: "easeOutExpo"
-    //     })
-    //     .add({
-    //       begin(){
-    //         Scenes.items.anime_main_dom.item.style.overflow = "hidden";
-    //       },
-    //       targets: [Scenes.items.chalk_with_hand.item,Scenes.items.marking_surface1.item],
-    //       translateX: 670,
-    //       duration: 3000,
-    //     })
-    //     .add({
-    //       begin(){
-    //         setCC("Marking the vertical length of 300mm")
-    //       },
-    //       targets: [Scenes.items.chalk_with_hand.item],
-    //       translateY: 100,
-    //       duration: 3000,
-    //       complete(){
-    //         Scenes.items.tempTitle1.hidden(false)
-    //       }
-    //     },3000)// marking of right vertical surface
-    //     .add({
-    //       targets: [Scenes.items.marking_surface2.item],
-    //       translateX: 100,
-    //       duration: 3000,
-    //     },3000)
-    //     .add({
-    //       begin(){
-    //         setCC("Marking the horizontal length of 300mm")
-    //       },
-    //       targets: [Scenes.items.marking_surface3.item],
-    //       translateX: -670,
-    //       duration: 3000,
-    //       complete(){
-    //         Scenes.items.tempTitle2.hidden(false)
-    //       }
-    //     },6000)
-    //     .add({
-    //       targets: [Scenes.items.chalk_with_hand.item],
-    //       translateX: 0,
-    //       duration: 3000,
-    //     },6000)
-    //     .add({
-    //       targets: [Scenes.items.chalk_with_hand.item],
-    //       translateY: 0,
-    //       duration: 3000,
-    //     },9000)// marking of left vertical surface
-    //     .add({
-    //       targets: [Scenes.items.marking_surface4.item],
-    //       top: "-=100",
-    //       duration: 3000,
-    //       complete(){
-    //         Dom.setBlinkArrow(true, 790, 408).play()
-    //         // Quiz.loadQuiz()
-    //         setCC("Click 'Next' to go to next step")
-    //         setIsProcessRunning(false)
-    //       }
-    //     },9000)
-    //     // .add({
-    //     //   targets: [Scenes.items.chalk_with_hand.item],
-    //     //   left: "+=200",
-    //     //   top: "+=200",
-    //     //   duration: 3000,
-    //     // },12000)
-    //     // .add({
-    //     //   targets: [Scenes.items.marking_surface5.item],
-    //     //   translateX: 282.8,
-    //     //   duration: 3000,
-    //     // },12000)
-    //     // .add({
-    //     //   begin(){
-    //     //     Scenes.items.chalk_with_hand.set(525,88)
-    //     //   },
-    //     //   endDelay: 500,
-    //     // })
-    //     // .add({
-    //     //   targets: [Scenes.items.chalk_with_hand.item],
-    //     //   translateX: -200.8,
-    //     //   translateY: 200.8,
-    //     //   duration: 3000,
-    //     // },15500)
-    //     // .add({
-    //     //   targets: [Scenes.items.marking_surface6.item],
-    //     //   translateX: -282.8,
-    //     //   duration: 3000,
-    //     //   complete(){
-    //     //     Dom.setBlinkArrow(true, 790, 408).play()
-    //     //     // Quiz.loadQuiz()
-    //     //     setCC("Click 'Next' to go to next step")
-    //     //     setIsProcessRunning(false)
-    //     //   }
-    //     // },15500)
-    //   }
-    //   return true
-    // }),
-    (step2 = function () {
+    }),
+    (step1 = function () {
       // ! fixing the overflow
       Scenes.items.anime_main_dom.item.style.overflow = "visible";
 
@@ -1180,7 +1042,7 @@ right_bracing9 : new Dom("right_bracing9"),
       setIsProcessRunning(true);
       Dom.setBlinkArrow(-1);
       
-      Scenes.setStepHeading("Step 2", "Placing HD Towers in the lab.")
+      Scenes.setStepHeading("Step 1", "Construct basic frame using HD Towers in the lab.")
 
       // * Required Elements
       Scenes.items.left_base_plate1.set(-500,-40)
@@ -1309,7 +1171,7 @@ right_bracing9 : new Dom("right_bracing9"),
           ],
           complete(){
             setCC("Click on the 'HD Tower' to put it on the base plate.");      
-            Dom.setBlinkArrow(true, 705,15).play();
+            Scenes.showArrowForMenuItem()
           }  
         })
       }
@@ -1384,7 +1246,7 @@ right_bracing9 : new Dom("right_bracing9"),
           rotate: 0,
           complete(){
             setCC("Click on the 'U-Head' to put it on the CT Prop");      
-            Dom.setBlinkArrow(true, 705,65).play();
+            Scenes.showArrowForMenuItem()
           }  
         })        
       }
@@ -1450,8 +1312,6 @@ right_bracing9 : new Dom("right_bracing9"),
             {top: 0},
           ],
           complete(){
-            Dom.setBlinkArrow(true, 790, 408).play();
-            setCC("Click 'Next' to go to next step");
             setIsProcessRunning(false);
             // Quiz.loadQuiz()
           } 
@@ -1462,13 +1322,21 @@ right_bracing9 : new Dom("right_bracing9"),
 
 
       setCC("Click on the 'Base Plate' to place it in the lab.");      
-      Dom.setBlinkArrow(true, 705, -35).play()
+      Scenes.showArrowForMenuItem()
 
       // onclick
       let contentAdderBtns = getAll(".content-adder-box .btn")
       contentAdderBtns[0].onclick = basePlateAnime
       contentAdderBtns[1].onclick = hdTowerAnime
       contentAdderBtns[2].onclick = uHeadAnime
+
+      contentAdderBtns.forEach(cab=>{
+        let previousFunction = cab.onclick
+        cab.onclick = ()=>{
+          Dom.setBlinkArrow(-1)
+          previousFunction()
+        }
+      })
       // remove all the previous elements
       // Dom.hideAll();
       return true;  
@@ -1623,7 +1491,7 @@ right_bracing9 : new Dom("right_bracing9"),
             {top: 0},
           ],
           complete(){
-            Dom.setBlinkArrow(true, 655, 15).play()
+            Scenes.showArrowForMenuItem()
             setCC("Click on the 'Right Beam Bracing' to attach it with HD Towers.")
           }
         })
@@ -1735,8 +1603,6 @@ right_bracing9 : new Dom("right_bracing9"),
             Scenes.items.right_bracing10.show()
           },
           complete(){
-            Dom.setBlinkArrow(true, 790, 408).play();
-            setCC("Click 'Next' to go to next step");
             setIsProcessRunning(false);
           }
         })
@@ -1819,12 +1685,20 @@ right_bracing9 : new Dom("right_bracing9"),
       //   })
       // }
 
-      Dom.setBlinkArrow(true, 655, -35).play();
+      Scenes.showArrowForMenuItem()
       setCC("Click on the 'Horizontal Bracing' to attach it with HD Towers.");
       // onclick
       contentAdderBtns[0].onclick = horizontalBracingAnime;
       contentAdderBtns[1].onclick = diagonalBracingAnime;
       // contentAdderBtns[2].onclick = boltAnime;
+
+      contentAdderBtns.forEach(cab=>{
+        let previousFunction = cab.onclick
+        cab.onclick = ()=>{
+          Dom.setBlinkArrow(-1)
+          previousFunction()
+        }
+      })
 
       return true;
 
@@ -1867,23 +1741,23 @@ right_bracing9 : new Dom("right_bracing9"),
     Scenes.items.right_uhead3.set(0,0)
     Scenes.items.right_uhead4.set(0,0)
 
-    Scenes.items.left_aluminium1.set(-500,-40).zIndex(1)
-    Scenes.items.left_aluminium2.set(-500,-40).zIndex(1)
-    Scenes.items.right_aluminium1.set(-500,-40).zIndex(1)
-    Scenes.items.right_aluminium2.set(-500,-40).zIndex(1)
+    Scenes.items.left_aluminium1.set(-500,-40).zIndex(3)
+    Scenes.items.left_aluminium2.set(-500,-40).zIndex(3)
+    Scenes.items.right_aluminium1.set(-500,-40).zIndex(3)
+    Scenes.items.right_aluminium2.set(-500,-40).zIndex(3)
     
-    Scenes.items.left_beam1.set(-500,-40).zIndex(2)
-    Scenes.items.left_beam2.set(-500,-40).zIndex(2)
-    Scenes.items.left_beam3.set(-500,-40).zIndex(2)
-    Scenes.items.left_beam4.set(-500,-40).zIndex(2)
-    Scenes.items.left_beam5.set(-500,-40).zIndex(2)
-    Scenes.items.left_beam6.set(-500,-40).zIndex(2)
-    Scenes.items.right_beam1.set(-500,-40).zIndex(2)
-    Scenes.items.right_beam2.set(-500,-40).zIndex(2)
-    Scenes.items.right_beam3.set(-500,-40).zIndex(2)
-    Scenes.items.right_beam4.set(-500,-40).zIndex(2)
-    Scenes.items.right_beam5.set(-500,-40).zIndex(2)
-    Scenes.items.right_beam6.set(-500,-40).zIndex(2)
+    Scenes.items.left_beam1.set(-500,-40).zIndex(4)
+    Scenes.items.left_beam2.set(-500,-40).zIndex(4)
+    Scenes.items.left_beam3.set(-500,-40).zIndex(4)
+    Scenes.items.left_beam4.set(-500,-40).zIndex(4)
+    Scenes.items.left_beam5.set(-500,-40).zIndex(4)
+    Scenes.items.left_beam6.set(-500,-40).zIndex(4)
+    Scenes.items.right_beam1.set(-500,-40).zIndex(4)
+    Scenes.items.right_beam2.set(-500,-40).zIndex(4)
+    Scenes.items.right_beam3.set(-500,-40).zIndex(4)
+    Scenes.items.right_beam4.set(-500,-40).zIndex(4)
+    Scenes.items.right_beam5.set(-500,-40).zIndex(4)
+    Scenes.items.right_beam6.set(-500,-40).zIndex(4)
     
     Scenes.items.left_bracing1.set(0,0).zIndex(1) 
     Scenes.items.left_bracing2.set(0,0).zIndex(1) 
@@ -1948,7 +1822,7 @@ right_bracing9 : new Dom("right_bracing9"),
         ],
         complete(){
           setCC("Click on the 'Timber Beam' to add timber beam.")    
-          Dom.setBlinkArrow(true, 655,15).play()
+          Scenes.showArrowForMenuItem()
         }  
       })
     }
@@ -2042,8 +1916,6 @@ right_bracing9 : new Dom("right_bracing9"),
           {top: 0},
         ],
         complete(){
-          Dom.setBlinkArrow(true, 790, 408).play();
-          setCC("Click 'Next' to go to next step");
           setIsProcessRunning(false);
           // Quiz.loadQuiz()
         }   
@@ -2051,11 +1923,19 @@ right_bracing9 : new Dom("right_bracing9"),
     }
      
      
-      Dom.setBlinkArrow(true, 655, -35).play();
+      Scenes.showArrowForMenuItem()
       setCC("Click on the 'Aluminium Beam' and attach it with basic frame");
      //onclick pipe waler 
      contentAdderBtns[0].onclick = aluminiumBeamAnime;
      contentAdderBtns[1].onclick = timberBeamAnime;
+
+     contentAdderBtns.forEach(cab=>{
+      let previousFunction = cab.onclick
+      cab.onclick = ()=>{
+        Dom.setBlinkArrow(-1)
+        previousFunction()
+      }
+    })
 
      return true;
 
@@ -2202,7 +2082,7 @@ right_bracing9 : new Dom("right_bracing9"),
           ],
           complete(){
             Scenes.items.right_sheathing1_nail_helper.set(0,0).zIndex(5)
-            Dom.setBlinkArrow(true, 710,15).play();
+            Scenes.showArrowForMenuItem()
             setCC("Click on the 'Nailing' to nail on the sheathing.");
           }
         })
@@ -2391,8 +2271,6 @@ right_bracing9 : new Dom("right_bracing9"),
           top: 350,
           rotate: 0,
           complete(){
-            Dom.setBlinkArrow(true, 790, 408).play();
-            setCC("Click 'Next' to go to next step");
             setIsProcessRunning(false);
             // Quiz.loadQuiz()
           }
@@ -2400,10 +2278,18 @@ right_bracing9 : new Dom("right_bracing9"),
       }
   
       setCC("Click on the 'Sheathing' to add sheathing in the lab.");      
-      Dom.setBlinkArrow(true, 720,-35).play();
+      Scenes.showArrowForMenuItem()
     //onclick
     contentAdderBtns[0].onclick = sheathingAnime
     contentAdderBtns[1].onclick = nailingAnime
+
+    contentAdderBtns.forEach(cab=>{
+      let previousFunction = cab.onclick
+      cab.onclick = ()=>{
+        Dom.setBlinkArrow(-1)
+        previousFunction()
+      }
+    })
 
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
@@ -2656,45 +2542,16 @@ right_bracing9 : new Dom("right_bracing9"),
           .add({
             targets: Scenes.items.right_bfs3_right.item,
             keyframes: [
-              {left: 50},
+              {left: 50}, 
               {left: 0,top: 0}
             ],
             complete(){
               setCC("Click on the 'Timber Beam' to attach it with bfs.");      
-              Dom.setBlinkArrow(true, 705,15).play();
-            }  
-          })
-          break
-        
-        case 1:
-          anime.timeline({
-            easing: "easeInOutQuad",
-            duration: 2000,
-            
-          })
-          .add({
-            targets: Scenes.items.bfs_right1.item,
-            left : 0,
-            top: 0,
-          })
-          .add(
-            {
-            targets: Scenes.items.bfs_right2.item,
-            left : 0,
-            top: 0,
-          })
-          .add({
-            targets: Scenes.items.bfs_right3.item,
-            left : 0,
-            top: 0,
-            complete(){
-              setCC("Click on the 'Timber Beam' to attach it with bfs.");      
-              Dom.setBlinkArrow(true, 705,15).play();
+              Scenes.showArrowForMenuItem()
             }  
           })
           break
       }
-      bfsCount++
     }
 
     let timberBeamCount = 0
@@ -2762,12 +2619,12 @@ right_bracing9 : new Dom("right_bracing9"),
             ],
             complete(){
               setCC("Click on the 'Sheathing' and attach with timber beam");      
-              Dom.setBlinkArrow(true, 705,65).play();
+              Scenes.showArrowForMenuItem()
             }  
           }) 
           break
       }   
-      timberBeamCount++
+      // timberBeamCount++
     }
 
     let sheathingCount = 0
@@ -2806,24 +2663,29 @@ right_bracing9 : new Dom("right_bracing9"),
               {left: 0,top: 0}
             ],
             complete(){
-              Dom.setBlinkArrow(true, 790, 408).play();
-              setCC("Click 'Next' to go to next step");
               setIsProcessRunning(false);
               // Quiz.loadQuiz()
             }  
           }) 
           break
       }   
-      sheathingCount++
+      // sheathingCount++
        
     }
     setCC("Click on the 'BFS' to attach beam forming support with timber beam.")
-    Dom.setBlinkArrow(true,705,-35).play()
+    Scenes.showArrowForMenuItem()
     //onclick
     contentAdderBtns[0].onclick = bfsAnime
     contentAdderBtns[1].onclick = timberBeamAnime
     contentAdderBtns[2].onclick = sheathingAnime
 
+    contentAdderBtns.forEach(cab=>{
+      let previousFunction = cab.onclick
+      cab.onclick = ()=>{
+        Dom.setBlinkArrow(-1)
+        previousFunction()
+      }
+    })
     // setCC("Click 'Next' to go to  next step");
     //       Dom.setBlinkArrow(true, 790, 408).play();
     //       setIsProcessRunning(false);
@@ -3032,7 +2894,7 @@ right_bracing9 : new Dom("right_bracing9"),
         ],
         complete(){
           setCC("Click on the 'U-Head' to attach u-head with shot prop.")    
-          Dom.setBlinkArrow(true, 675,15).play()
+          Scenes.showArrowForMenuItem()
         }  
       })
     }
@@ -3071,7 +2933,7 @@ right_bracing9 : new Dom("right_bracing9"),
         ],
         complete(){
           setCC("Click on the 'Aluminium Beam' to add aluminium beam.")    
-          Dom.setBlinkArrow(true, 675,65).play()
+          Scenes.showArrowForMenuItem()
         }  
       })
     }
@@ -3096,7 +2958,7 @@ right_bracing9 : new Dom("right_bracing9"),
         ],
         complete(){
           setCC("Click on the 'Timber Beam' to add timber beam.")    
-          Dom.setBlinkArrow(true, 675,115).play()
+          Scenes.showArrowForMenuItem()
         }  
       })
     }
@@ -3142,7 +3004,7 @@ right_bracing9 : new Dom("right_bracing9"),
         ],
         complete(){
           setCC("Click on the 'Sheathing' to add sheathing on the top of timber beam.")    
-          Dom.setBlinkArrow(true, 675,165).play()
+          Scenes.showArrowForMenuItem()
         }   
       })     
     }
@@ -3159,8 +3021,6 @@ right_bracing9 : new Dom("right_bracing9"),
           {top: 0},
         ],
         complete(){
-          Dom.setBlinkArrow(true, 790, 408).play();
-          setCC("Click 'Next' to go to next step");
           setIsProcessRunning(false);
           // Quiz.loadQuiz()
         }  
@@ -3168,7 +3028,7 @@ right_bracing9 : new Dom("right_bracing9"),
     }
      
      
-      Dom.setBlinkArrow(true, 675, -35).play();
+      Scenes.showArrowForMenuItem()
       setCC("Click on the 'Short Prop' and attach it with steel waler");
      //onclick pipe waler 
      i=0
@@ -3178,9 +3038,17 @@ right_bracing9 : new Dom("right_bracing9"),
      contentAdderBtns[i++].onclick = timberBeamAnime;
      contentAdderBtns[i++].onclick = sheathingAnime;
 
+     contentAdderBtns.forEach(cab=>{
+      let previousFunction = cab.onclick
+      cab.onclick = ()=>{
+        Dom.setBlinkArrow(-1)
+        previousFunction()
+      }
+    })
+    
      return true;
 
-    }), //f
+    }), 
     (completed = function () {
       Dom.hideAll();
       Scenes.items.contentAdderBox.setContent("");

@@ -810,7 +810,7 @@ objective : new Dom("objective"),
   showArrowForMenuItem(){
     this.disableInvalidMenuItemsClick()
 
-    let menuLeftOffset = get("ul").offsetLeft
+    let menuLeftOffset = get(".content-adder-box").offsetLeft
     let gapArrowWith = 71
 
     this.leftGap = menuLeftOffset - gapArrowWith
@@ -828,7 +828,7 @@ objective : new Dom("objective"),
   },
   // ! to disable menu item clicks
   disableInvalidMenuItemsClick(){
-    let allMenuItems = getAll("ul li")
+    let allMenuItems = getAll(".content-adder-box li")
     allMenuItems.forEach(menuItem => {
       menuItem.style.pointerEvents = "none"
     })

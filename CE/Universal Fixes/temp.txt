@@ -4,3 +4,40 @@ Scenes.showArrowForMenuItem()
 
 Scenes.repeatShowArrowForMenuItem()
 
+showArrowForMenuItem(repeat=false){
+    if(repeat){
+      this.menuItemNumber--;
+    }
+    this.disableInvalidMenuItemsClick()
+
+    let menuLeftOffset = get(".content-adder-box").offsetLeft
+    let gapArrowWith = 71
+
+    this.leftGap = menuLeftOffset - gapArrowWith
+
+    let initialFixedTop = -35
+    let gapTopFixed = 50
+    let finalTop = initialFixedTop
+
+    for(let i=1;i< this.menuItemNumber;i++){
+      finalTop+=gapTopFixed 
+    }
+
+    this.menuItemNumber++
+    Dom.setBlinkArrow(true, this.leftGap, finalTop).play()
+  },
+  // ! to disable menu item clicks
+  disableInvalidMenuItemsClick(){
+    let allMenuItems = getAll(".content-adder-box li")
+    allMenuItems.forEach(menuItem => {
+      menuItem.style.pointerEvents = "none"
+    })
+
+    allMenuItems[this.menuItemNumber - 1].style.pointerEvents = ""
+  },
+  activeAllMenuItems(){
+    getAll(".content-adder-box li").forEach(item=>item.style.pointerEvents = "")
+  },
+  repeatShowArrowForMenuItem(){
+    this.showArrowForMenuItem(true)
+  },

@@ -765,7 +765,10 @@ const Scenes = {
   },
   // ! Show arrow according to menu item number
   menuItemNumber: 1,
-  showArrowForMenuItem(){
+  showArrowForMenuItem(repeat=false){
+    if(repeat){
+      this.menuItemNumber--;
+    }
     this.disableInvalidMenuItemsClick()
 
     let menuLeftOffset = get(".content-adder-box").offsetLeft
@@ -795,6 +798,9 @@ const Scenes = {
   },
   activeAllMenuItems(){
     getAll(".content-adder-box li").forEach(item=>item.style.pointerEvents = "")
+  },
+  repeatShowArrowForMenuItem(){
+    this.showArrowForMenuItem(true)
   },
   currentStep: 0,
   subCurrentStep: 0,
@@ -1010,9 +1016,7 @@ const Scenes = {
         })
         .add({
           begin() {
-            Dom.setBlinkArrow(true, 790, 408).play();
             Quiz.loadQuiz();
-            setCC("Click 'Next' to go to next step");
             setIsProcessRunning(false);
           },
         });
@@ -1045,7 +1049,8 @@ const Scenes = {
       let contentAdderBtns = getAll(".content-adder-box .btn");
 
       setCC("Click on the 'Footing' to add footing in the lab.");
-      Dom.setBlinkArrow(true, 710, -35).play();
+      Scenes.showArrowForMenuItem()
+
       // onclick
       contentAdderBtns[0].onclick = () => {
         Dom.setBlinkArrow(-1);
@@ -1058,7 +1063,7 @@ const Scenes = {
             "A footing supports and distributes the load of a building."
           );
         setCC("Click on the 'Nailer Insert' to add nailer in footing.");
-        Dom.setBlinkArrow(true, 710, 10).play();
+        Scenes.showArrowForMenuItem()
 
         // onclick
         contentAdderBtns[1].onclick = function () {
@@ -1076,7 +1081,7 @@ const Scenes = {
             );
 
           setCC("Click on the 'Form Panel' to add form panel in the lab.");
-          Dom.setBlinkArrow(true, 710, 65).play();
+          Scenes.showArrowForMenuItem()
           //onclick
           contentAdderBtns[2].onclick = () => {
             // hide arrow and text
@@ -1112,8 +1117,6 @@ const Scenes = {
                 translateX: -75,
                 duration: 6000,
                 complete() {
-                  setCC("Click 'Next' to go to next step");
-                  Dom.setBlinkArrow(true, 790, 408).play();
                   Quiz.loadQuiz();
                   setIsProcessRunning(false);
                 },
@@ -1270,7 +1273,7 @@ const Scenes = {
       Scenes.items.tempTitle4.set(30,310).setContent("(Lock Nut)").push().zIndex(0)
 
       setCC("Click on the 'Spread Washer' to place it on the form panel.");
-      Dom.setBlinkArrow(true, 690, -35).play();
+      Scenes.showArrowForMenuItem()
       // onclick
       let washerIdx = 0
       let positionIdx = 0
@@ -1292,14 +1295,14 @@ const Scenes = {
             duration: 2000,
             complete() {
               // setblick after animetion done
-              Dom.setBlinkArrow(true, 690, -35).play()
+              // Scenes.showArrowForMenuItem()
               // onclick
               if (washerIdx >= position.length) {
                 Dom.setBlinkArrow(-1)
                 contentAdderBtns[0].onclick = () => {}
 
                 setCC("Click on the 'Spacer' to place it in the form panel.")
-                Dom.setBlinkArrow(true, 690, 10).play()
+                Scenes.showArrowForMenuItem()
 
                 // onclick
                 let spacerIdx = 0
@@ -1318,7 +1321,7 @@ const Scenes = {
                       ],
                       duration: 1500,
                       complete() {
-                        Dom.setBlinkArrow(true, 690, 10).play();
+                        // Scenes.showArrowForMenuItem()
                         if (spacerIdx >= position.length) {
                           Dom.setBlinkArrow(-1);
                           // to blank the onlclick
@@ -1326,7 +1329,7 @@ const Scenes = {
                           setCC(
                             "Click on the 'Tie Rod' to place it in the form panel."
                           )
-                          Dom.setBlinkArrow(true, 690, 65).play()   
+                          Scenes.showArrowForMenuItem() 
                       
 
                           // onclick
@@ -1356,7 +1359,7 @@ const Scenes = {
                                     setCC(
                                       "Click on the 'Lock Nut' to place it in the form panel."
                                     );
-                                    Dom.setBlinkArrow(true, 690, 120).play();
+                                    Scenes.showArrowForMenuItem()
 
                                     // onclick lock nut
                                     let nutIdx = 0;
@@ -1416,7 +1419,7 @@ const Scenes = {
                                             setCC(
                                               "Click 'Repeat' to repeat the previous steps."
                                             );
-                                            Dom.setBlinkArrow(true, 690, 167).play();
+                                            Scenes.showArrowForMenuItem()
                                             // ! Repeat
                                             // for dom items
                                             Scenes.items.washer3.set(450, 320, 25, 8).zIndex(3).push()
@@ -1501,7 +1504,8 @@ const Scenes = {
                                                             duration: 3000,
                                                             complete(){
                                                               // repeat 
-                                                              repeatIdx++                                                             
+                                                              
+                                                              repeatIdx++;                                                Scenes.repeatShowArrowForMenuItem()   
 
                                                               // * all anime done 
                                                               if(repeatIdx == 2){
@@ -1511,14 +1515,6 @@ const Scenes = {
                                                                 Scenes.items.tempTitle3.hide();
                                                                 Scenes.items.tempTitle4.hide();
 
-                                                                setCC(
-                                                                  "Click 'Next' to go to next step"
-                                                                );
-                                                                Dom.setBlinkArrow(
-                                                                  true,
-                                                                  790,
-                                                                  408
-                                                                ).play();
                                                                 Quiz.loadQuiz();
                                                                 setIsProcessRunning(false);
                                                               }
@@ -1615,7 +1611,7 @@ const Scenes = {
       Scenes.contentAdderAddBtn("Strong Back Right");
       let contentAdderBtns = getAll(".content-adder-box .btn");
 
-      Dom.setBlinkArrow(true, 670, -34).play();
+      Scenes.showArrowForMenuItem()
       setCC(
         "Click on the 'Strong Back Left' to add strong back to support panel."
       );
@@ -1652,7 +1648,7 @@ const Scenes = {
           duration: 3000,
         },0)
         
-        Dom.setBlinkArrow(true, 670, 10).play();
+        Scenes.showArrowForMenuItem()
         setCC(
           "Click on the 'Strong Back Right' to add strong back to support panel."
         );
@@ -1687,8 +1683,6 @@ const Scenes = {
           duration: 3000,
         },0)
           
-          setCC("Click 'Next' to go to next step");
-          Dom.setBlinkArrow(true, 790, 408).play();
           setIsProcessRunning(false);
           anime({
             duration: 1000,
@@ -1764,6 +1758,8 @@ const Scenes = {
 };
 
 // Scenes.steps[6]();
+// stepcalling
+Scenes.currentStep = 0
 Scenes.next();
 // Scenes.next();
 // Scenes.next();

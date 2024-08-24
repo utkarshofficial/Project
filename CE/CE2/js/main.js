@@ -812,9 +812,9 @@ const Scenes = {
   // for typing hello text
   intru: null,
   intruVoice: null,
-  experimentNameIntro: "Monolithic Formwork Experiment",
-  experimentNameCertificate: "Monolithic Formwork",
-  experimentNameSpeech: "Monolithic Formwork",
+  experimentNameIntro: "Foundation Formwork (PERI) Experiment",
+  experimentNameCertificate: "Foundation Formwork (PERI) ",
+  experimentNameSpeech: "Foundation Formwork (PERI) ",
   steps: [
     (intro = () => {
       setIsProcessRunning(true);
@@ -902,11 +902,8 @@ const Scenes = {
             .add({
               duration: 12000,
               complete() {
-               
-                
-                setCC("Click 'Next' to go to next step");
-                Dom.setBlinkArrow(true, 790, 444).play();
                 setIsProcessRunning(false);
+                Dom.setBlinkArrow(true, 790, 450).play();
             },
           });
       };
@@ -950,8 +947,7 @@ const Scenes = {
       duration:4000, 
       complete(){
         setIsProcessRunning(false);
-        Dom.setBlinkArrow(true, 790, 444);
-        setCC("Click 'Next' to go to next step");
+        Dom.setBlinkArrow(true, 790, 450);
       }
 
     })
@@ -1767,7 +1763,7 @@ const Scenes = {
   },
 };
 
-// Scenes.steps[5]();
+// Scenes.steps[6]();
 Scenes.next();
 // Scenes.next();
 // Scenes.next();

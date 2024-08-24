@@ -891,9 +891,9 @@ const Scenes = {
   // for typing hello text
   intru: null,
   intruVoice: null,
-  experimentNameIntro: "Monolithic Formwork Experiment",
-  experimentNameCertificate: "Monolithic Formwork",
-  experimentNameSpeech: "Monolithic Formwork",
+  experimentNameIntro: "Column Formwork Experiment",
+  experimentNameCertificate: "Column Formwork",
+  experimentNameSpeech: "Column Formwork",
   steps: [
     (intro = () => {
       // remove all dom element for back and setProcessRunning
@@ -977,9 +977,8 @@ const Scenes = {
             .add({
               duration: 12000,
               complete() {
-                setCC("Click 'Next' to go to next step");
-                Dom.setBlinkArrow(true, 790, 444).play();
                 setIsProcessRunning(false);
+                Dom.setBlinkArrow(true, 790, 450).play();
             },
           });
       };
@@ -1005,8 +1004,7 @@ const Scenes = {
       duration:4000, 
       complete(){
         setIsProcessRunning(false);
-        Dom.setBlinkArrow(true, 790, 444).play();
-        setCC("Click 'Next' to go to next step");
+        Dom.setBlinkArrow(true, 790, 450).play();
 
       }
 

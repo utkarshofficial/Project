@@ -2216,7 +2216,7 @@ const Scenes = {
               {top: 0,left: 0}
             ],
             complete(){
-              Scenes.menuItemNumber = 1
+              Scenes.menuItemNumber = 1 
               setCC("Click on the 'BFS' to attach beam forming support with timber beam.")
               Scenes.showArrowForMenuItem()
               
@@ -2342,7 +2342,7 @@ const Scenes = {
 }
 
 // stepcalling
-Scenes.currentStep = 6
+Scenes.currentStep = 0
 Scenes.next()  
 // Scenes.steps[3]()
 // Scenes.next()

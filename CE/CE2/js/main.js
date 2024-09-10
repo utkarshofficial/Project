@@ -12,49 +12,30 @@ var currentDateGlobal = `${cd.getDate()} - ${
 const Quiz = {
   quizData: [
     {
-      question:
-        "Which of the following machine is used to measure compressive strength?",
-      a: "Universal testing machine",
-      b: "Impact testing machine",
-      c: "Fatigue testing machine",
-      d: "Erichsen machine",
-      correct: "a",
+      "question": "What is a common problem associated with premature removal of formwork?",
+      "a": "Increased concrete strength",
+      "b": "Delayed curing",
+      "c": "Cracking of concrete",
+      "d": "Smoother concrete surface ",
+      "correct": "c"
     },
     {
-      question:
-        "Which one of the following, is not a unit of ultimate tensile strength?",
-      a: "MPa",
-      b: "N/m2",
-      c: "Kg/m3",
-      d: "PSI",
-      correct: "c",
+      "question": "Which type of formwork provides high-quality architectural finishes without the need for plastering?",
+      "a": "Timber formwork",
+      "b": "Steel formwork",
+      "c": "Plastic formwork",
+      "d": "Plywood formwork ",
+      "correct": "b"
     },
     {
-      question: "The extensometer can be attached anywhere to the specimen _",
-      a: "Yes",
-      b: "No",
-      c: "No but sometime yes",
-      d: "None of the above",
-      correct: "b",
+      "question": "What is the typical lifespan of aluminum formwork systems when properly maintained?",
+      "a": "50-100 uses",
+      "b": "100-200 uses",
+      "c": "200-300 uses",
+      "d": "500-1000 uses ",
+      "correct": "c"
     },
-
-    {
-      question:
-        "What is the smallest measurement that is possible by vernier calliper?",
-      a: "Least count",
-      b: "Actual reading",
-      c: "Main scale division",
-      d: "Vernier scale division",
-      correct: "a",
-    },
-    {
-      question: "What is the least count of a standard metric vernier caliper",
-      a: "0.002mm",
-      b: "0.02mm",
-      c: "0.1mm",
-      d: "0.2mm",
-      correct: "b",
-    },
+  
   ],
   quiz_contianer: document.querySelector(".quiz-container"),
   quiz: document.getElementById("quiz"),
@@ -1687,7 +1668,7 @@ const Scenes = {
           anime({
             duration: 1000,
             complete(){
-              Quiz.loadQuiz()
+              // Quiz.loadQuiz()
             }
           });
         };

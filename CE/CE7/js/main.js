@@ -12,48 +12,28 @@ var currentDateGlobal = `${cd.getDate()} - ${
 const Quiz = {
   quizData: [
     {
-      question:
-        "Which of the following machine is used to measure compressive strength?",
-      a: "Universal testing machine",
-      b: "Impact testing machine",
-      c: "Fatigue testing machine",
-      d: "Erichsen machine",
-      correct: "a",
+      "question": "What is a common defect in concrete surfaces due to improper formwork alignment?",
+      "a": "Honeycombing",
+      "b": "Bulging of concrete",
+      "c": "Smooth finish",
+      "d": "Increased durability ",
+      "correct": "b"
     },
     {
-      question:
-        "Which one of the following, is not a unit of ultimate tensile strength?",
-      a: "MPa",
-      b: "N/m2",
-      c: "Kg/m3",
-      d: "PSI",
-      correct: "c",
+      "question": "Which material is commonly used for form ties in formwork systems?",
+      "a": "Aluminum",
+      "b": "Steel",
+      "c": "Plywood",
+      "d": "Plastic ",
+      "correct": "b"
     },
     {
-      question: "The extensometer can be attached anywhere to the specimen _",
-      a: "Yes",
-      b: "No",
-      c: "No but sometime yes",
-      d: "None of the above",
-      correct: "b",
-    },
-
-    {
-      question:
-        "What is the smallest measurement that is possible by vernier calliper?",
-      a: "Least count",
-      b: "Actual reading",
-      c: "Main scale division",
-      d: "Vernier scale division",
-      correct: "a",
-    },
-    {
-      question: "What is the least count of a standard metric vernier caliper",
-      a: "0.002mm",
-      b: "0.02mm",
-      c: "0.1mm",
-      d: "0.2mm",
-      correct: "b",
+      "question": "What is the main advantage of using plastic formwork in construction?",
+      "a": "High thermal resistance",
+      "b": "Lightweight and easy to handle",
+      "c": "High reuse value",
+      "d": "High strength",
+      "correct": "b"
     },
   ],
   quiz_contianer: document.querySelector(".quiz-container"),
@@ -1917,7 +1897,7 @@ right_bracing9 : new Dom("right_bracing9"),
         ],
         complete(){
           setIsProcessRunning(false);
-          // Quiz.loadQuiz()
+          Quiz.loadQuiz()
         }   
       })     
     }
@@ -2294,12 +2274,12 @@ right_bracing9 : new Dom("right_bracing9"),
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),
@@ -2689,12 +2669,12 @@ right_bracing9 : new Dom("right_bracing9"),
     // setCC("Click 'Next' to go to  next step");
     //       Dom.setBlinkArrow(true, 790, 408).play();
     //       setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true
     }),

@@ -12,48 +12,28 @@ var currentDateGlobal = `${cd.getDate()} - ${
 const Quiz = {
   quizData: [
     {
-      question:
-        "Which of the following machine is used to measure compressive strength?",
-      a: "Universal testing machine",
-      b: "Impact testing machine",
-      c: "Fatigue testing machine",
-      d: "Erichsen machine",
-      correct: "a",
+      "question": "Which formwork system is most suitable for constructing circular structures such as silos or storage tanks?",
+      "a": "Tunnel formwork",
+      "b": "Slipform",
+      "c": "Timber formwork",
+      "d": "Shoring towers ",
+      "correct": "b"
     },
     {
-      question:
-        "Which one of the following, is not a unit of ultimate tensile strength?",
-      a: "MPa",
-      b: "N/m2",
-      c: "Kg/m3",
-      d: "PSI",
-      correct: "c",
+      "question": "What is the primary role of falsework in construction?",
+      "a": "To create concrete joints",
+      "b": "To provide a mold for fresh concrete",
+      "c": "To support the temporary formwork until the concrete gains strength",
+      "d": "To provide waterproofing ",
+      "correct": "c"
     },
     {
-      question: "The extensometer can be attached anywhere to the specimen _",
-      a: "Yes",
-      b: "No",
-      c: "No but sometime yes",
-      d: "None of the above",
-      correct: "b",
-    },
-
-    {
-      question:
-        "What is the smallest measurement that is possible by vernier calliper?",
-      a: "Least count",
-      b: "Actual reading",
-      c: "Main scale division",
-      d: "Vernier scale division",
-      correct: "a",
-    },
-    {
-      question: "What is the least count of a standard metric vernier caliper",
-      a: "0.002mm",
-      b: "0.02mm",
-      c: "0.1mm",
-      d: "0.2mm",
-      correct: "b",
+      "question": "Which factor has the most significant impact on the lateral pressure exerted by concrete on formwork?",
+      "a": "Concrete curing method",
+      "b": "Rate of placement of concrete",
+      "c": "Ambient light",
+      "d": "Type of reinforcement used ",
+      "correct": "b"
     },
   ],
   quiz_contianer: document.querySelector(".quiz-container"),
@@ -1192,6 +1172,7 @@ objective : new Dom("objective"),
           duration: 4000,
           complete(){
             setIsProcessRunning(false);
+            Quiz.loadQuiz()
           }  
         })                     
       }
@@ -1373,6 +1354,7 @@ objective : new Dom("objective"),
           ], 
           complete(){
             setIsProcessRunning(false);
+            Quiz.loadQuiz()
           }  
         })                     
       }
@@ -1754,12 +1736,12 @@ objective : new Dom("objective"),
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),

@@ -12,48 +12,28 @@ var currentDateGlobal = `${cd.getDate()} - ${
 const Quiz = {
   quizData: [
     {
-      question:
-        "Which of the following machine is used to measure compressive strength?",
-      a: "Universal testing machine",
-      b: "Impact testing machine",
-      c: "Fatigue testing machine",
-      d: "Erichsen machine",
-      correct: "a",
+      "question": "Which formwork system is most commonly used for the construction of high-rise towers?",
+      "a": "Timber formwork",
+      "b": "Flying formwork",
+      "c": "Tunnel formwork",
+      "d": "Steel panel formwork ",
+      "correct": "b"
     },
     {
-      question:
-        "Which one of the following, is not a unit of ultimate tensile strength?",
-      a: "MPa",
-      b: "N/m2",
-      c: "Kg/m3",
-      d: "PSI",
-      correct: "c",
+      "question": "What is the advantage of using slipform in vertical concrete structures like chimneys?",
+      "a": "Cost efficiency",
+      "b": "Continuous casting and construction",
+      "c": "Reduced need for skilled labor",
+      "d": "Limited height application ",
+      "correct": "b"
     },
     {
-      question: "The extensometer can be attached anywhere to the specimen _",
-      a: "Yes",
-      b: "No",
-      c: "No but sometime yes",
-      d: "None of the above",
-      correct: "b",
-    },
-
-    {
-      question:
-        "What is the smallest measurement that is possible by vernier calliper?",
-      a: "Least count",
-      b: "Actual reading",
-      c: "Main scale division",
-      d: "Vernier scale division",
-      correct: "a",
-    },
-    {
-      question: "What is the least count of a standard metric vernier caliper",
-      a: "0.002mm",
-      b: "0.02mm",
-      c: "0.1mm",
-      d: "0.2mm",
-      correct: "b",
+      "question": "What is the main reason for using modular formwork in large-scale housing projects?",
+      "a": "High customization",
+      "b": "Low initial cost",
+      "c": "Reusability and rapid assembly",
+      "d": "Increased concrete strength ",
+      "correct": "c"
     },
   ],
   quiz_contianer: document.querySelector(".quiz-container"),
@@ -3011,7 +2991,7 @@ objective : new Dom("objective"),
               ],
               complete(){
                 setIsProcessRunning(false);
-                // Quiz.loadQuiz()
+                Quiz.loadQuiz()
               }
             })
             break
@@ -3031,12 +3011,12 @@ objective : new Dom("objective"),
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),
@@ -3591,12 +3571,12 @@ objective : new Dom("objective"),
     // setCC("Click 'Next' to go to  next step");
     //       Dom.setBlinkArrow(true, 790, 408).play();
     //       setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true
     }),

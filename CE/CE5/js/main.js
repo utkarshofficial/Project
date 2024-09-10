@@ -12,49 +12,30 @@ var currentDateGlobal = `${cd.getDate()} - ${
 const Quiz = {
   quizData: [
     {
-      question:
-        "Which of the following machine is used to measure compressive strength?",
-      a: "Universal testing machine",
-      b: "Impact testing machine",
-      c: "Fatigue testing machine",
-      d: "Erichsen machine",
-      correct: "a",
+      "question": "Which formwork material is best suited for regions with extreme temperature fluctuations?",
+      "a": "Plastic",
+      "b": "Timber",
+      "c": "Steel",
+      "d": "Plywood ",
+      "correct": "c"
     },
     {
-      question:
-        "Which one of the following, is not a unit of ultimate tensile strength?",
-      a: "MPa",
-      b: "N/m2",
-      c: "Kg/m3",
-      d: "PSI",
-      correct: "c",
+      "question": "Which method is commonly used to improve the durability of reusable formwork components?",
+      "a": "Using thicker materials",
+      "b": "Applying form release agents",
+      "c": "Using more water in the concrete mix",
+      "d": "Increasing the curing time ",
+      "correct": "b"
     },
     {
-      question: "The extensometer can be attached anywhere to the specimen _",
-      a: "Yes",
-      b: "No",
-      c: "No but sometime yes",
-      d: "None of the above",
-      correct: "b",
+      "question": "What is the typical cause of honeycombing in concrete?",
+      "a": "Slow concrete placement",
+      "b": "Insufficient vibration of concrete",
+      "c": "Overuse of formwork materials",
+      "d": "Use of high-quality formwork ",
+      "correct": "b"
     },
-
-    {
-      question:
-        "What is the smallest measurement that is possible by vernier calliper?",
-      a: "Least count",
-      b: "Actual reading",
-      c: "Main scale division",
-      d: "Vernier scale division",
-      correct: "a",
-    },
-    {
-      question: "What is the least count of a standard metric vernier caliper",
-      a: "0.002mm",
-      b: "0.02mm",
-      c: "0.1mm",
-      d: "0.2mm",
-      correct: "b",
-    },
+  
   ],
   quiz_contianer: document.querySelector(".quiz-container"),
   quiz: document.getElementById("quiz"),
@@ -1145,7 +1126,7 @@ const Scenes = {
           top: "-=100",
           duration: 3000,
           complete(){
-            // Quiz.loadQuiz()
+            Quiz.loadQuiz()
             setIsProcessRunning(false)
           }
         },9000)
@@ -2006,12 +1987,12 @@ const Scenes = {
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),
@@ -2294,12 +2275,12 @@ const Scenes = {
     // setCC("Click 'Next' to go to  next step");
     //       Dom.setBlinkArrow(true, 790, 408).play();
     //       setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true
     }),
@@ -3188,12 +3169,12 @@ const Scenes = {
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),
@@ -3302,12 +3283,12 @@ const Scenes = {
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),

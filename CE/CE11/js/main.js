@@ -12,48 +12,28 @@ var currentDateGlobal = `${cd.getDate()} - ${
 const Quiz = {
   quizData: [
     {
-      question:
-        "Which of the following machine is used to measure compressive strength?",
-      a: "Universal testing machine",
-      b: "Impact testing machine",
-      c: "Fatigue testing machine",
-      d: "Erichsen machine",
-      correct: "a",
+      "question": "Which formwork system is best suited for the construction of dams and large infrastructure projects?",
+      "a": "Flying formwork",
+      "b": "Modular formwork",
+      "c": "Slipform",
+      "d": "Timber formwork ",
+      "correct": "c"
     },
     {
-      question:
-        "Which one of the following, is not a unit of ultimate tensile strength?",
-      a: "MPa",
-      b: "N/m2",
-      c: "Kg/m3",
-      d: "PSI",
-      correct: "c",
+      "question": "Which factor is most critical in determining the formwork removal time for slabs?",
+      "a": "Weight of the formwork",
+      "b": "Strength gained by the concrete",
+      "c": "Height of the structure",
+      "d": "Weather conditions ",
+      "correct": "b"
     },
     {
-      question: "The extensometer can be attached anywhere to the specimen _",
-      a: "Yes",
-      b: "No",
-      c: "No but sometime yes",
-      d: "None of the above",
-      correct: "b",
-    },
-
-    {
-      question:
-        "What is the smallest measurement that is possible by vernier calliper?",
-      a: "Least count",
-      b: "Actual reading",
-      c: "Main scale division",
-      d: "Vernier scale division",
-      correct: "a",
-    },
-    {
-      question: "What is the least count of a standard metric vernier caliper",
-      a: "0.002mm",
-      b: "0.02mm",
-      c: "0.1mm",
-      d: "0.2mm",
-      correct: "b",
+      "question": "What is the major reason for using modular formwork systems in large-scale projects?",
+      "a": "High flexibility",
+      "b": "Standardization and ease of assembly",
+      "c": "Low cost",
+      "d": "Heavy weight ",
+      "correct": "b"
     },
   ],
   quiz_contianer: document.querySelector(".quiz-container"),
@@ -1997,12 +1977,12 @@ objective : new Dom("objective"),
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),
@@ -2190,12 +2170,12 @@ objective : new Dom("objective"),
         // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),
@@ -2434,12 +2414,12 @@ objective : new Dom("objective"),
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),

@@ -12,49 +12,30 @@ var currentDateGlobal = `${cd.getDate()} - ${
 const Quiz = {
   quizData: [
     {
-      question:
-        "Which of the following machine is used to measure compressive strength?",
-      a: "Universal testing machine",
-      b: "Impact testing machine",
-      c: "Fatigue testing machine",
-      d: "Erichsen machine",
-      correct: "a",
+      "question": "In which situation is steel formwork preferred over timber formwork?",
+      "a": "For small residential buildings",
+      "b": "For high-rise commercial buildings",
+      "c": "In low-budget projects",
+      "d": "For temporary structures ",
+      "correct": "b"
     },
     {
-      question:
-        "Which one of the following, is not a unit of ultimate tensile strength?",
-      a: "MPa",
-      b: "N/m2",
-      c: "Kg/m3",
-      d: "PSI",
-      correct: "c",
+      "question": "Which formwork system provides the best results for constructing inclined structures?",
+      "a": "Tunnel formwork",
+      "b": "Slipform",
+      "c": "Conventional timber formwork",
+      "d": "Plastic formwork ",
+      "correct": "b"
     },
     {
-      question: "The extensometer can be attached anywhere to the specimen _",
-      a: "Yes",
-      b: "No",
-      c: "No but sometime yes",
-      d: "None of the above",
-      correct: "b",
+      "question": "What is the purpose of using sheathing in formwork construction?",
+      "a": "To reduce the weight of the formwork",
+      "b": "To provide a smooth surface finish to the concrete",
+      "c": "To reduce the cost of the formwork",
+      "d": "To reinforce the concrete ",
+      "correct": "b"
     },
-
-    {
-      question:
-        "What is the smallest measurement that is possible by vernier calliper?",
-      a: "Least count",
-      b: "Actual reading",
-      c: "Main scale division",
-      d: "Vernier scale division",
-      correct: "a",
-    },
-    {
-      question: "What is the least count of a standard metric vernier caliper",
-      a: "0.002mm",
-      b: "0.02mm",
-      c: "0.1mm",
-      d: "0.2mm",
-      correct: "b",
-    },
+  
   ],
   quiz_contianer: document.querySelector(".quiz-container"),
   quiz: document.getElementById("quiz"),
@@ -1967,12 +1948,12 @@ const Scenes = {
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),

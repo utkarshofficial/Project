@@ -12,49 +12,29 @@ var currentDateGlobal = `${cd.getDate()} - ${
 const Quiz = {
   quizData: [
     {
-      question:
-        "Which of the following machine is used to measure compressive strength?",
-      a: "Universal testing machine",
-      b: "Impact testing machine",
-      c: "Fatigue testing machine",
-      d: "Erichsen machine",
-      correct: "a",
+      "question": "Which material is typically used for lightweight formwork in low-rise structures?",
+      "a": "Timber",
+      "b": "Steel",
+      "c": "Aluminum",
+      "d": "Plastic ",
+      "correct": "a"
     },
     {
-      question:
-        "Which one of the following, is not a unit of ultimate tensile strength?",
-      a: "MPa",
-      b: "N/m2",
-      c: "Kg/m3",
-      d: "PSI",
-      correct: "c",
+      "question": "Which type of formwork is recommended for projects requiring fast and repetitive construction cycles?",
+      "a": "Slipform",
+      "b": "Modular formwork",
+      "c": "Tunnel formwork",
+      "d": "Timber formwork ",
+      "correct": "c"
     },
     {
-      question: "The extensometer can be attached anywhere to the specimen _",
-      a: "Yes",
-      b: "No",
-      c: "No but sometime yes",
-      d: "None of the above",
-      correct: "b",
-    },
-
-    {
-      question:
-        "What is the smallest measurement that is possible by vernier calliper?",
-      a: "Least count",
-      b: "Actual reading",
-      c: "Main scale division",
-      d: "Vernier scale division",
-      correct: "a",
-    },
-    {
-      question: "What is the least count of a standard metric vernier caliper",
-      a: "0.002mm",
-      b: "0.02mm",
-      c: "0.1mm",
-      d: "0.2mm",
-      correct: "b",
-    },
+      "question": "What is one disadvantage of using traditional timber formwork?",
+      "a": "Low cost",
+      "b": "High reuse potential",
+      "c": "Susceptibility to moisture damage",
+      "d": "High durability",
+      "correct": "c"
+    }
   ],
   quiz_contianer: document.querySelector(".quiz-container"),
   quiz: document.getElementById("quiz"),
@@ -1170,12 +1150,12 @@ objective : new Dom("objective"),
       setCC("Click on the 'Panel' to add panels in the lab.");      
       Scenes.showArrowForMenuItem()
   
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),
@@ -1349,12 +1329,12 @@ objective : new Dom("objective"),
       Scenes.showArrowForMenuItem()
 
   
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),
@@ -1638,12 +1618,12 @@ objective : new Dom("objective"),
     // setCC("Click 'Next' to go to next step");
         //   Dom.setBlinkArrow(true, 790, 408).play();
         //   setIsProcessRunning(false);
-        //   anime({
-        //     duration: 1000,
-        //     complete(){
-        //       Quiz.loadQuiz()
-        //     }
-        //   });
+          anime({
+            duration: 1000,
+            complete(){
+              Quiz.loadQuiz()
+            }
+          });
         // };
       return true;
     }),

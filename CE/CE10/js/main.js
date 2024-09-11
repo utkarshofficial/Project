@@ -851,9 +851,9 @@ objective : new Dom("objective"),
   // for typing hello text
   intru: null,
   intruVoice: null,
-  experimentNameIntro: "Monolithic Formwork Experiment",
-  experimentNameCertificate: "Monolithic Formwork",
-  experimentNameSpeech: "Monolithic Formwork",
+  experimentNameIntro: "Wall (PERI) Formwork Experiment",
+  experimentNameCertificate: "Wall (PERI) Formwork",
+  experimentNameSpeech: "Wall (PERI) Formwork",
   steps: [
     (intro = () => {
       // remove all dom element for back and setProcessRunning
